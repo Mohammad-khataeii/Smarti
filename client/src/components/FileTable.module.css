@@ -1,0 +1,389 @@
+/* Container */
+.filesTableContainer {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+/* Table Title */
+.filesTableTitle {
+    font-size: 22px;
+    color: #34495e;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+/* Actions Container */
+.actionsContainer {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 1s;
+}
+
+.actionButton {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    background-color: #f0f4f8;
+    color: #34495e;
+}
+
+.actionButton:hover {
+    background-color: #e0e4e8;
+}
+
+.deleteAll {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.deleteAll:hover {
+    background-color: #c0392b;
+}
+
+/* Table Styling */
+.filesTable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 1.5s;
+}
+
+.filesTable th, .filesTable td {
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 14px;
+    color: #34495e;
+    border-bottom: 1px solid #e0e4e8;
+}
+
+.filesTable th {
+    background-color: #f0f4f8;
+    font-weight: bold;
+}
+
+.filesTable td {
+    background-color: #fff;
+}
+
+.filesTable tr:hover {
+    background-color: #f7f9fc;
+}
+
+.filesTable tr.selectedRow {
+    background-color: #e6f7ff;
+}
+
+/* Checkbox */
+.filesTable input[type="checkbox"] {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+/* Delete Button */
+.deleteButton {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.deleteButton:hover {
+    background-color: #c0392b;
+}
+
+/* Loading and Error Text */
+.loadingText, .errorText, .noFilesText {
+    text-align: center;
+    font-size: 16px;
+    color: #34495e;
+    margin-top: 10px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 2s;
+}
+
+/* Filter Controls */
+.filterControls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 2.5s;
+    position: relative; /* Add this if the pop-up isn't positioned correctly */
+    overflow: visible; /* Ensure pop-ups are not clipped */
+}
+
+
+.filterInput {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.customPopper {
+    z-index: 1050; /* Adjust if 1050 is not high enough */
+    position: absolute; /* Ensure proper positioning */
+}
+
+
+
+/* Filter Button */
+.filterButton {
+    padding: 8px 12px;
+    margin-bottom: 5px;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.filterButton:hover {
+    background-color: #f5d6e6;
+    color: #000;
+}
+
+/* Help Button */
+.helpButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 3s;
+}
+
+/* Modal Content */
+.helpModalContent {
+    position: relative;
+    margin: auto;
+    width: 80%;
+    max-width: 500px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+/* Modal Overlay */
+.helpModalOverlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+/* Close Button */
+.closeHelpButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: none;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #FF6961;
+    color:#cccccc
+}
+.closeHelpButton:hover {
+    background-color: #000;
+    color: #FF6961
+}
+
+/* Help Text */
+.helpText {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* View Steps Button */
+.viewStepsButton {
+    background-color: #000;
+    color: white;
+    border: none;
+    padding: 5px 9px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 5px;
+    transition: background-color 0.3s;
+}
+
+.viewStepsButton:hover {
+    background-color: #2980b9;
+}
+
+/* Step Details Modal Content */
+.modalContent {
+    position: relative;
+    margin: auto;
+    width: 80%;
+    max-width: 600px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    outline: none;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+/* Modal Title */
+.modalContent h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #34495e;
+}
+
+/* Step Details Table */
+.stepDetailsTable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.stepDetailsTable th, .stepDetailsTable td {
+    padding: 10px;
+    text-align: left;
+    font-size: 14px;
+    color: #34495e;
+    border-bottom: 1px solid #e0e4e8;
+}
+
+.stepDetailsTable th {
+    background-color: #f0f4f8;
+    font-weight: bold;
+}
+
+.stepDetailsTable td {
+    background-color: #fff;
+}
+
+.stepDetailsTable tr:hover {
+    background-color: #f7f9fc;
+}
+
+/* Close Modal Button */
+.closeModalButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.closeModalButton:hover {
+    background-color: #c0392b;
+}
+
+/* Modal Overlay */
+.modalOverlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+/* Fade In Effect */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+/* Loading Screen */
+.loadingScreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 1000;
+}
+
+/* Spinner */
+.spinner {
+    border: 4px solid #f3f3f3; /* Light grey */
+    border-top: 4px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+}
+
+/* Spinner Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loadingScreen p {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #3498db;
+}

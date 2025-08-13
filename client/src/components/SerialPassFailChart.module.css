@@ -1,0 +1,355 @@
+/* General container styling */
+.container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+    color: #34495e; /* Dark gray for text */
+    background-color: #ffffff; /* White background */
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+/* Title and subtitle styling */
+.title {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #333; /* Dark gray */
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+.subtitle {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #333; /* Dark gray */
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 1s;
+}
+
+/* Filter container styling */
+.filterContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    background-color: #ffffff; /* White background */
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 1.5s;
+}
+
+/* Filter item styling */
+.filterItem {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 230px;
+}
+
+/* Filter labels */
+.filterContainer label {
+    font-weight: 600;
+    color: #6B7280; /* Gray color */
+    margin-right: 5px;
+}
+
+/* Input fields */
+.datePicker,
+.dropdown,
+.multiSelect {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #34495e;
+    transition: border-color 0.3s ease;
+}
+
+.datePicker:hover,
+.dropdown:hover,
+.multiSelect:hover {
+    border-color: #888; /* Darker gray */
+}
+
+/* Filter buttons */
+.filterButtons {
+    display: flex;
+    justify-content: center;
+    
+    gap: 20px;
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 2s;
+}
+
+.applyButton,
+.resetButton {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.applyButton {
+    background-color: #000; /* Blue */
+    color: #fff;
+}
+
+.applyButton:hover {
+    background-color: #000; /* Darker blue */
+    transform: scale(1.05);
+}
+
+.resetButton {
+    background-color: #f5d6e6; /* Soft pink */
+    color: #34495e;
+}
+
+.resetButton:hover {
+    background-color: #f5d6e6; /* Light gray */
+    transform: scale(1.05);
+}
+
+/* Chart container styling */
+.chartContainer {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    max-width: 400px;
+    max-height: 400px;
+    margin-left: 220px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 2.5s;
+}
+
+/* Error message styling */
+.errorMessage {
+    color: #ff5f5f; /* Red */
+    font-size: 16px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 3s;
+}
+
+/* Export buttons styling */
+.exportButtons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 3.5s;
+}
+
+.exportButton {
+    background-color: #000; /* Blue */
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.exportButton:hover {
+    background-color: #0056b3; /* Darker blue */
+    transform: scale(1.05);
+}
+
+/* Drill-down section styling */
+.drillDownSection {
+    margin-top: 20px;
+    background-color: #ffffff; /* White */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 4s;
+}
+
+/* Drill-down table styling */
+.drillDownTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.drillDownTable th, .drillDownTable td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.drillDownTable th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+    color: #333;
+}
+
+.drillDownTable tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.drillDownTable tr:hover {
+    background-color: #e8e8e8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .filterContainer, .exportButtons, .filterButtons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .datePicker, .dropdown, .multiSelect {
+        width: 100%;
+    }
+
+    .filterButtons button {
+        width: 100%;
+    }
+
+    .exportButton, .applyButton, .resetButton {
+        width: 100%;
+    }
+}
+
+/* Help Button */
+.helpButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background-color: #007bff; /* Blue */
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 4.5s;
+}
+
+/* Modal Content */
+.helpModalContent {
+    position: relative;
+    margin: auto;
+    width: 80%;
+    max-width: 500px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+/* Modal Overlay */
+.helpModalOverlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+/* Close Button */
+.closeHelpButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Help Text */
+.helpText {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Fade In Effect */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Loading Screen */
+.loadingScreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 1000;
+}
+
+/* Spinner */
+.spinner {
+    border: 4px solid #f3f3f3; /* Light gray */
+    border-top: 4px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+}
+
+/* Spinner Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loadingScreen p {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #3498db; /* Blue */
+}

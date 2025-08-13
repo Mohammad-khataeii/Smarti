@@ -1,0 +1,96 @@
+MachineIdentifier;650xxx
+StationName;FT0123276-TB0 Rev A00
+StationNumber;1
+StationIP;192.168.250.12
+FixtureId;FTI-01bis17
+Line;650xxx
+Testsocket;1
+AteHwVersion;A00
+AteSwVersion;R007
+TestenvSwVersion;4.0
+Productcode;FT0126632-100
+SerialNumber;008
+Testspec;FT0109253-101STS Rev B00
+TestspecRev;B00
+Materialnumber;9001306906
+UutHwVersion;01
+UutSwVersion;01
+UutDesignReview;A00
+CustomerProductCode;12345
+Customer;Customername
+OrderManufacturing;1111
+Batchserial;2222
+CCPletter;A
+Operator;16
+Totaltest;8
+Totalstep;30
+TestStarted;2022/06/20 11:37:44
+TestStopped;2022/06/20 12:03:56
+TestGlobalResult;FAIL
+TestOperatorNotes;0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+[T0]
+2.0;Preliminary Operations;PASS;0;0
+[T1]
+2.1.1;MGD Crush Calibration;PASS;0;0
+[T2]
+2.1.2;MGD Crush Verify;PASS;0;0
+[T3]
+2.1.3;MGD Min Calibration;PASS;0;0
+[T4]
+2.1.4;MGD Min Verify;PASS;0;0
+[T5]
+3.0;Check Valve Open Test;PASS;0;0
+[T6]
+4.0;Check Valve Tightness Test;FAIL;0;0
+[T7]
+5.0;QR Code Application;PASS;0;0
+
+Step_Number; Step_Result; Step_Name; StepTime; Measure_Type; Units; Measure_Value; LimitLow; LimitHigh; Measure_string; LimitString
+2.0.1;Done;Initial Setup;14.83;INFO;-;0;0;0;NONE;Done;
+2.0.2;Done;Cable & automatic valves setup; 0.01;INFO;-;0;0;0;NONE;Done;
+2.1.1.1;PASS;Position Verify;11.12;STRING;-;0;0;0;01;01;
+2.1.1.2;PASS;Laser quote; 1.26;BTW;um;-9937.999;-10500.000;-8500.000;NONE;-;
+2.1.1.3;PASS;Seeger Quote;152.06;BTW;um;86548.000;86000.000;87500.000;NONE;-;
+2.1.1.4;PASS;Seeger Quote Trimmed; 9.39;BTW;um;86662.000;86000.000;87500.000;NONE;-;
+2.1.1.5;PASS;Spring Ratio Crush;175.75;BTW;mBar/mm;234.000;200.000;300.000;NONE;-;
+2.1.1.6;PASS;Spring Rings Depth;68.83;BTW;mm;3.053;0.000;4.200;NONE;-;
+2.1.1.7;Done;Thicknesses Assembling;323.44;INFO;-;0;0;0;NONE;Done;
+2.1.1.8;PASS;Calibration check;69.04;BTW;mBar;6.570;6.520;6.580;NONE;-;
+2.1.2.1;PASS;MGD Crush Verify Loop 1;60.88;BTW;mBar;6.564;6.520;6.580;NONE;-;
+2.1.2.2;PASS;MGD Crush Verify Loop 2;59.12;BTW;mBar;6.560;6.520;6.580;NONE;-;
+2.1.2.3;PASS;MGD Crush Verify Loop 3;57.96;BTW;mBar;6.556;6.520;6.580;NONE;-;
+2.1.3.1;PASS;Position Verify; 7.10;STRING;-;0;0;0;10;10;
+2.1.3.2;PASS;Laser quote; 1.26;BTW;um;-9923.999;-10500.000;-8500.000;NONE;-;
+2.1.3.3;PASS;Seeger Quote;101.11;BTW;um;86525.000;86000.000;87500.000;NONE;-;
+2.1.3.4;PASS;Seeger Quote Trimmed; 9.06;BTW;um;86527.000;86000.000;87500.000;NONE;-;
+2.1.3.5;PASS;Spring Ratio Min;144.96;BTW;mBar/mm;182.000;100.000;200.000;NONE;-;
+2.1.3.6;PASS;Spring Rings Depth;53.43;BTW;mm;4.738;0.000;7.500;NONE;-;
+2.1.3.7;Done;Thicknesses Assembling;205.19;INFO;-;0;0;0;NONE;Done;
+2.1.3.8;PASS;Calibration check;102.59;BTW;mBar;1.995;1.990;2.050;NONE;-;
+2.1.4.1;PASS;MGD MIN Verify Loop 1;45.13;BTW;mBar;1.999;1.990;2.050;NONE;-;
+2.1.4.2;PASS;MGD MIN Verify Loop 2;43.05;BTW;mBar;2.000;1.990;2.050;NONE;-;
+2.1.4.3;PASS;MGD MIN Verify Loop 3;43.03;BTW;mBar;2.000;1.990;2.050;NONE;-;
+3.0.1;PASS;Valve Input Pressure;57.86;BTW;mBar;9.499;9.400;9.600;NONE;-;
+3.0.2;PASS;T2 Initial Pressure;41.00;BTW;mBar;6.570;6.470;6.630;NONE;-;
+3.0.3;PASS;T4 Initial Pressure; 0.23;BTW;mBar;2.008;1.940;2.100;NONE;-;
+3.0.4;PASS;T2 Pressure EV Load ON;40.65;BTW;mBar;6.518;6.470;6.630;NONE;-;
+3.0.5;PASS;T4 Pressure EV Load ON; 0.23;BTW;mBar;6.520;6.470;6.630;NONE;-;
+3.0.6;PASS;T2 EVLoad Off Rid2 6,9Bar;60.96;BTW;mBar;6.772;6.650;6.800;NONE;-;
+3.0.7;PASS;T4 EVLoad Off Rid2 6,9Bar; 0.23;BTW;mBar;6.924;6.820;6.980;NONE;-;
+3.0.8;PASS;T2 Pressure After R3 closed (Crush discharge);60.59;BTW;mBar;6.584;6.470;6.691;NONE;-;
+4.0.1;PASS;Valve Input Pressure;38.13;BTW;mBar;9.491;9.400;9.600;NONE;-;
+4.0.2;PASS;T2 Pressure;10.86;BTW;mBar;6.542;6.520;6.700;NONE;-;
+4.0.3;FAIL;T4 Initial Pressure; 0.23;BTW;mBar;1.953;1.970;2.170;NONE;-;
+4.0.4;PASS;T4 Pressure After EV load;151.82;BTW;mBar;6.210;6.150;6.350;NONE;-;
+4.0.5;PASS;T4 Pressure After 5 Min;300.98;BTW;mBar;6.207;6.150;6.350;NONE;-;
+4.0.6;PASS;CV Pressure Increase in 5 min; 0.00;BTW;mBar;0.000;0.000;0.010;NONE;-;
+4.0.7;PASS;Pressure Leakage in 5 min; 0.00;BTW;mBar;0.003;0.000;0.020;NONE;-;
+4.0.8;FAIL;T4 with EV load ON;31.67;BTW;mBar;6.518;6.520;6.580;NONE;-;
+5.0.1;PASS;QR code Printing; 0.02;STRING;-;0;0;0;1;1;
+
+UUT Serial Number;008
+UUT Status;FAIL

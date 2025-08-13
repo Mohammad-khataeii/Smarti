@@ -1,0 +1,134 @@
+MachineIdentifier;650xxx
+StationName;FT0115977-TB0 Rev E00
+StationNumber;1
+StationIP;192.168.250.12
+FixtureId;FTI-01bis17
+Line;650xxx
+Testsocket;1
+AteHwVersion;A00
+AteSwVersion;R006
+TestenvSwVersion;4.0
+Productcode;FT0109253-102
+ProductRevision;D00
+SerialNumber;NOUUTSN
+Testspec;FT0109253-101-I00STS Rev.E00
+TestspecRev;C00
+Materialnumber;9001306906
+UutHwVersion;01
+UutSwVersion;01
+UutDesignReview;A00
+CustomerProductCode;12345
+Customer;Customername
+OrderManufacturing;1111
+Batchserial;2222
+CCPletter;A
+Swd_filenameCpu;FT0114724-100-IOOSWD
+RequiredCrcCpu;06FF3859
+Swd_filenameLcm;FT0044393-100-IOOSWD
+RequiredCrcLcm;0BE78BAD
+Operator;16
+Totaltest;22
+Totalstep;46
+TestStarted;2022/11/30 07:59:07
+TestStopped;2022/11/30 08:07:56
+TestGlobalResult;FAIL
+TestOperatorNotes;0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+[T0]
+0.1;Preliminary Operations;PASS;0;0
+[T1]
+0.2;Test Software Download;NODONE;0;0
+[T2]
+6.0;ID Reader check;NODONE;0;0
+[T3]
+8.1.1;Test Vbat;NODONE;0;0
+[T4]
+8.1.2;Read data from LCM board;NODONE;0;0
+[T5]
+8.1.3;Digital Inputs;NODONE;0;0
+[T6]
+8.1.4;PWM Inputs;NODONE;0;0
+[T7]
+8.1.5;Analog Inputs;NODONE;0;0
+[T8]
+8.1.6;Temperature Reading;NODONE;0;0
+[T9]
+8.1.7;Digital Outputs;NODONE;0;0
+[T10]
+8.1.8;Speed Inputs;NODONE;0;0
+[T11]
+8.1.9;Echelon HS Net;NODONE;0;0
+[T12]
+8.1.10;SAF_Loop Current Flow;NODONE;0;0
+[T13]
+8.1.11;Ethernet Net;NODONE;0;0
+[T14]
+8.1.12;MVB Net;NODONE;0;0
+[T15]
+8.1.13;RS485-CAN Net;PASS;0;0
+[T16]
+8.1.14;IoT Test;NODONE;0;0
+[T17]
+8.2;Transducers Check;NODONE;0;0
+[T18]
+8.3;E_pressure switch threshold verification;NODONE;0;0
+[T19]
+8.4;Emergengy mode by SL open;FAIL;0;0
+[T20]
+8.5;Service Brake mode via BCU;NODONE;0;0
+[T21]
+0.3;Application Software Download;NODONE;0;0
+
+Step_Number; Step_Result; Step_Name; StepTime; Measure_Type; Units; Measure_Value; LimitLow; LimitHigh; Measure_string; LimitString
+0.1.1;Done;Initial Setup;23.30;INFO;-;0;0;0;NONE;Done;
+0.1.2;PASS;ETH Analyser setup; 9.00;STRING;-;0;0;0;PASS;PASS;
+0.1.3;Done;Power On;36.83;INFO;-;0;0;0;NONE;Done;
+8.1.13.1;Done;Start and Stop Communication on CAN-IN;15.04;INFO;-;0;0;0;NONE;Done;
+8.1.13.2;PASS;Check TX Counter; 0.00;BTW;cnt;387;350;450;NONE;-;
+8.1.13.3;PASS;Check RX Counter; 0.01;BTW;cnt;385;350;450;NONE;-;
+8.1.13.4;PASS;Check Error Counter; 0.00;EQ;cnt;0;0;0;NONE;-;
+8.1.13.5;PASS;Check Warning Counter; 0.00;EQ;cnt;0;0;0;NONE;-;
+8.1.13.6;Done;Start and Stop Communication on CAN-OUT; 9.93;INFO;-;0;0;0;NONE;Done;
+8.1.13.7;PASS;Check TX Counter; 0.00;BTW;cnt;416;350;450;NONE;-;
+8.1.13.8;PASS;Check RX Counter; 0.00;BTW;cnt;414;350;450;NONE;-;
+8.1.13.9;PASS;Check Error Counter; 0.00;EQ;cnt;0;0;0;NONE;-;
+8.1.13.10;PASS;Check Warning Counter; 0.00;EQ;cnt;0;0;0;NONE;-;
+8.4.1;PASS;MJF1 Signal before braketest;53.83;STRING;-;0;0;0;1;1;
+8.4.2;PASS;MJF2 Signal before braketest; 0.00;STRING;-;0;0;0;1;1;
+8.4.3;PASS;Read LCU1 Fault; 0.00;STRING;-;0;0;0;NO_ERROR;NO_ERROR;
+8.4.4;PASS;Read LCU2 Fault; 0.00;STRING;-;0;0;0;NO_ERROR;NO_ERROR;
+8.4.5;Done;Start Braketest;301.42;INFO;-;0;0;0;NONE;Done;
+8.4.6;PASS;TPL Pressure at MGDMin; 0.00;BTW;Bar;1.752;1.650;1.850;NONE;-;
+8.4.7;FAIL;BC1 Pressure at MGDMin; 0.00;BTW;Bar;1.754;1.551;1.751;NONE;-;
+8.4.8;PASS;BC2 Pressure at MGDMin; 0.02;BTW;Bar;1.740;1.551;1.751;NONE;-;
+8.4.9;PASS;BC1 Electronic Pressure Switch OFF - Brake Applied; 0.02;STRING;-;0;0;0;0;0;
+8.4.10;PASS;BC2 Electronic Pressure Switch OFF - Brake Applied; 0.02;STRING;-;0;0;0;0;0;
+8.4.11;PASS;TPL Pressure at MGDBoost; 0.02;BTW;Bar;6.503;6.400;6.600;NONE;-;
+8.4.12;PASS;BC1 Pressure at MGDBoost; 0.01;BTW;Bar;6.446;6.302;6.502;NONE;-;
+8.4.13;PASS;BC2 Pressure at MGDBoost; 0.02;BTW;Bar;6.444;6.302;6.502;NONE;-;
+8.4.14;PASS;BC1 Electronic Pressure Switch OFF - Brake Applied; 0.02;STRING;-;0;0;0;0;0;
+8.4.15;PASS;BC2 Electronic Pressure Switch OFF - Brake Applied; 0.02;STRING;-;0;0;0;0;0;
+8.4.16;Done;LOAD OFF, UNLOAD OFF; 0.02;INFO;-;0;0;0;NONE;Done;
+8.4.17;PASS;TPL Pressure Drop 30 sec; 0.01;BTW;Bar;0.010;0.000;0.011;NONE;-;
+8.4.18;FAIL;BrakeTest Result; 0.02;STRING;-;0;0;0;TEST_STOP;TEST_OK;
+8.4.19;PASS;LCU1 State; 0.02;STRING;-;0;0;0;NO_ERROR;NO_ERROR;
+8.4.20;PASS;LCU2 State; 0.02;STRING;-;0;0;0;NO_ERROR;NO_ERROR;
+8.4.21;PASS;MJF1 Signal after braketest; 0.02;STRING;-;0;0;0;0;0;
+8.4.22;PASS;MJF2 Signal after braketest; 0.02;STRING;-;0;0;0;0;0;
+8.4.23;Done;TLP_MED Apply; 0.15;INFO;-;0;0;0;NONE;Done;
+8.4.24;PASS;TLP1 Measure;31.01;BTW;Bar;4.175;4.048;4.248;NONE;Done;
+8.4.25;PASS;TLP2 Measure; 0.05;BTW;Bar;4.171;4.048;4.248;NONE;Done;
+8.4.26;PASS;SerB_MED calculation; 0.01;BTW;Bar;3.243;3.130;3.330;NONE;Done;
+8.4.27;PASS;TPL Pressure; 0.06;BTW;Bar;3.319;3.242;3.442;NONE;-;
+8.4.28;PASS;BC1 Pressure; 0.05;BTW;Bar;3.238;3.142;3.342;NONE;-;
+8.4.29;PASS;BC2 Pressure;10.59;BTW;Bar;3.228;3.142;3.342;NONE;-;
+8.4.30;PASS;BC1 Brake Released;12.26;BTW;Bar;0.000;0.000;0.100;NONE;Done;
+8.4.31;PASS;BC2 Brake Released; 0.05;BTW;Bar;0.000;0.000;0.100;NONE;Done;
+8.4.32;PASS;BC1 Teq;13.79;BTW;Sec;0.490;0.300;1.000;NONE;Done;
+8.4.33;PASS;BC2 Teq; 0.02;BTW;Sec;0.490;0.300;1.000;NONE;Done;
+
+UUT Serial Number;NOUUTSN
+UUT Status;FAIL

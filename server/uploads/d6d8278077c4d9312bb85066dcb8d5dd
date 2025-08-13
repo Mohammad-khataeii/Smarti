@@ -1,0 +1,113 @@
+MachineIdentifier;650XXX
+StationName;FT0115978-TB0 REV.A00
+StationNumber;1
+StationIP;192.168.250.12
+FixtureId;FTI-01bis17
+Line;650xxx
+Testsocket;1
+AteHwVersion;A00
+AteSwVersion;R009
+TestenvSwVersion;4.0
+Productcode;FT0114650-105
+Productrevision;E00
+SerialNumber;0131
+Testspec;FT0044876-101-I00STS REV.E01
+TestspecRev;E01
+Materialnumber;9001306906
+UutHwVersion;01
+UutSwVersion;01
+UutDesignReview;A00
+CustomerProductCode;12345
+Customer;Customername
+OrderManufacturing;5408720
+Batchserial;2222
+CCPletter;A
+Swd_filenameCpu;FT0114724-100-IOOSWD
+RequiredCrcCpu;06FF3859
+Swd_filenameLcm;FT0044393-100-IOOSWD
+RequiredCrcLcm;92845C60
+Operator;128
+Totaltest;31
+Totalstep;18
+TestStarted;2024/07/08 12:21:46
+TestStopped;2024/07/08 12:28:26
+TestGlobalResult;STOP
+TestOperatorNotes;0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+[T0]
+0.0;Initial Setup;PASS;0;0
+[T1]
+7.2;CPU Metroflexx programming;PASS;0;0
+[T2]
+7.3;LCUs on LCM board programming;STOP;0;0
+[T3]
+9.1;VBAT1 Activation;NODONE;0;0
+[T4]
+9.2;VBAT2 Activation;NODONE;0;0
+[T5]
+9.3;Stability test of generated voltage;NODONE;0;0
+[T6]
+9.4;Communication test CPU G2 to LCU;NODONE;0;0
+[T7]
+9.5;Read data from LCM board;NODONE;0;0
+[T8]
+9.6;Test Accelerometer and Gyroscope;NODONE;0;0
+[T9]
+9.7;Test Digital Inputs;NODONE;0;0
+[T10]
+9.8.1;Test PWM Inputs at VMIN;NODONE;0;0
+[T11]
+9.8.2;Test PWM Inputs at VNOM;NODONE;0;0
+[T12]
+9.8.3;Test PWM Inputs at VMAX;NODONE;0;0
+[T13]
+9.9;Test Analog Inputs;NODONE;0;0
+[T14]
+9.10;Test Temperature;NODONE;0;0
+[T15]
+9.11.1;Test Digital Output DO_Spare;NODONE;0;0
+[T16]
+9.11.2;Test Digital Output RL_Spare;NODONE;0;0
+[T17]
+9.11.3;Test Digital Output MJF;NODONE;0;0
+[T18]
+9.11.4;Test PS Digital Output;NODONE;0;0
+[T19]
+9.12;Test SPEED Inputs;NODONE;0;0
+[T20]
+9.13;Test Magnet Valves;NODONE;0;0
+[T21]
+9.14;Test WSP Monostable Time;NODONE;0;0
+[T22]
+9.15;Test RR1 and RR2 Valves driver;NODONE;0;0
+[T23]
+9.16;Test Echelon HS Communication;NODONE;0;0
+[T24]
+9.17;Test Ethernet;NODONE;0;0
+[T25]
+9.18;Test MVB Communication;NODONE;0;0
+[T26]
+9.19;Test CAN Communication;NODONE;0;0
+[T27]
+9.20;Test IOT Module;NODONE;0;0
+[T28]
+9.21;LCU1 Application SW Program;NODONE;0;0
+[T29]
+9.22;LCU2 Application SW Program;NODONE;0;0
+[T30]
+9.23;CPU Fire Application Sw programming;NODONE;0;0
+
+Step_Number; Step_Result; Step_Name; StepTime; Measure_Type; Units; Measure_Value; LimitLow; LimitHigh; Measure_string; LimitString
+0.0.1;Done;Connection; 6.54;INFO;-;0;0;0;NONE;Done;
+0.0.2;PASS;Test Bench Init; 2.50;STRING;-;0;0;0;OK;OK;
+7.2.1;Done;VBAT1 Activation at 110V; 8.08;INFO;yellow;0;0;0;NONE;Done;
+7.2.2;PASS;Link CPU through USB; 9.47;STRING;-;0;0;0;OK;OK;
+7.2.3;PASS;CPUG2F GetInfo; 5.27;STRING;-;0;0;0;APPLIC.HEX,005,2404BB48;APPLIC.HEX,005,2404BB48;
+7.2.4;PASS;CPU Programming through USB; 0.00;STRING;-;0;0;0;SKIP;SKIP;
+7.2.5;PASS;CPUG2F SW Info; 0.00;STRING;-;0;0;0;APPLIC.HEX,005,2404BB48;APPLIC.HEX,005,2404BB48;
+
+UUT Serial Number;0131
+UUT Status;STOP

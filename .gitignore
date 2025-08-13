@@ -1,0 +1,67 @@
+# =========================
+# Global
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+.env
+.env.local
+.DS_Store
+
+# =========================
+# Logs
+# =========================
+logs
+*.log
+logs/*
+*.log.*
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# =========================
+# Build outputs
+# =========================
+dist/
+build/
+tmp/
+temp/
+
+# =========================
+# Coverage & Test
+# =========================
+coverage/
+.nyc_output/
+jest-test-results.json
+
+# =========================
+# IDE / Editor
+# =========================
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# =========================
+# OS files
+# =========================
+Thumbs.db
+ehthumbs.db
+
+# =========================
+# React client specific
+# =========================
+client/node_modules/
+client/build/
+
+# =========================
+# Node server specific
+# =========================
+server/node_modules/
+server/dist/

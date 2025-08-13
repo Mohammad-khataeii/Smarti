@@ -1,0 +1,360 @@
+/* FileUpload.module.css */
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-color: #f7f9fc;
+    min-height: 100vh;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+/* Upload Box Styling */
+.uploadBox {
+    width: 700px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: fadeInContent 1s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+/* Drop area styling */
+.dropArea {
+    padding: 20px;
+    border: 2px dashed #cbd5e1;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 1s;
+}
+
+.browseLabel {
+    font-size: 16px;
+    color: #4a5568;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.fileLimit {
+    font-size: 12px;
+    color: #718096;
+}
+
+/* File input */
+.fileInput {
+    display: none;
+}
+
+/* File List Section */
+.fileListSection {
+    margin-top: 20px;
+}
+
+/* File list title */
+.fileListTitle {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2d3748;
+    margin-bottom: 10px;
+}
+
+/* File list styling */
+.fileList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* FileItem styling */
+.fileItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #f1f5f9;
+    margin-bottom: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative; /* Allow absolute positioning of delete button */
+}
+
+/* File Info Section */
+.fileInfo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-grow: 1; /* Allow file info section to take up remaining space */
+}
+
+/* Delete Button */
+.deleteButton {
+    background-color: transparent;
+    border: none;
+    color: #e53e3e;
+    cursor: pointer;
+    font-size: 16px;
+    position: absolute; /* Position it within the file item */
+    right: 10px; /* Align to the right */
+}
+
+
+.fileType {
+    padding: 4px 6px;
+    background-color: #4f46e5;
+    color: #ffffff;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.fileName {
+    font-size: 14px;
+    color: #2d3748;
+}
+
+.fileSize {
+    font-size: 12px;
+    color: #4a5568;
+}
+
+
+
+/* Action buttons for uploading and canceling */
+.actionButtons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+/* Upload Button */
+.uploadButton {
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 1.5s;
+}
+
+/* Cancel Button */
+.cancelButton {
+    padding: 10px 20px;
+    background-color: #e53e3e;
+    color: #ffffff;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 1.5s;
+}
+
+/* Progress Bar Section */
+.progressBarContainer {
+    width: 100%;
+    background-color: #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 15px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 1.7s;
+}
+
+.progressBar {
+    height: 20px;
+    background-color: #000;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+    transition: width 0.2s ease;
+}
+
+/* Success and Error messages */
+.successMessage {
+    color: #38a169;
+    font-weight: bold;
+    margin-top: 15px;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 2s;
+}
+
+.errorMessage {
+    color: #e53e3e;
+    font-weight: bold;
+    margin-top: 15px;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 2s;
+}
+
+/* Help Button */
+.helpButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 2.5s;
+}
+
+/* Modal Content */
+.helpModalContent {
+    position: relative;
+    margin: auto;
+    width: 80%;
+    max-width: 500px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+/* Modal Overlay */
+.helpModalOverlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+/* Close Button */
+.closeHelpButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: none;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #FF6961;
+    color:#cccccc
+}
+.closeHelpButton:hover {
+    background-color: #000;
+    color: #FF6961
+}
+
+/* Help Text */
+.helpText {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Fade In Effect */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Fade In Content Effect */
+@keyframes fadeInContent {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Fade In Card Effect (for file list and upload actions) */
+@keyframes fadeInCard {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+/* FileUpload.module.css */
+
+/* Loading Screen */
+.loadingScreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 1000;
+}
+
+/* Spinner */
+.spinner {
+    border: 4px solid #f3f3f3; /* Light grey */
+    border-top: 4px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+}
+
+/* Spinner Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loadingScreen p {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #3498db;
+}
+
+/* FileUpload.module.css */
+
+.duplicateMessage {
+    background-color: #ffeb3b;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

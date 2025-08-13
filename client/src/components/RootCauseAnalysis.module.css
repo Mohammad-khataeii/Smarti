@@ -1,0 +1,608 @@
+/* Container for the entire app */
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Title section */
+.title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #333;
+    text-transform: uppercase;
+}
+
+/* Description below the title */
+.description {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 25px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* Container for filters */
+.filterContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Individual filter field */
+.filterField {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Filter card style */
+.filterField .card {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Card header (filter) */
+.filterField label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Input fields and selects */
+.filterField input,
+.filterField select {
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    width: 100%;
+}
+
+.filterField input:focus,
+.filterField select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Buttons for applying/resetting filters */
+.filterField button {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #555;
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.filterField button:hover {
+    background-color: #007bff;
+    color: white;
+    transform: scale(1.05);
+}
+
+.filterField button:active {
+    transform: scale(1);
+}
+
+.filterField button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Export Button styling */
+.exportButton {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+.exportButton:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.exportButton:active {
+    transform: scale(1);
+}
+
+.exportButton:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Error message styling */
+.error {
+    color: #e74c3c;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+/* Chart container */
+.chartContainer {
+    margin-top: 40px;
+}
+
+/* Probability List styling */
+.probabilityList {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.probabilityList li {
+    font-size: 16px;
+    padding: 12px 20px;
+    background-color: #f8f9fa;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.probabilityList li:hover {
+    background-color: #e9ecef;
+    border-color: #007bff;
+    transform: translateY(-2px);
+}
+
+.probabilityList li:active {
+    transform: translateY(1px);
+}
+
+/* Highlighting the highest probability */
+.highlight {
+    background-color: #fff3cd;
+    border-left: 4px solid #f39c12;
+    font-weight: bold;
+    color: #856404;
+}
+
+/* Modal styling */
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.modalContent {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    max-height: 80vh;
+    transition: transform 0.3s ease-in-out;
+}
+
+.modalContent h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: 600;
+    text-align: center;
+}
+
+.modalContent ul {
+    list-style-type: none;
+    padding-left: 0;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+.modalContent li {
+    margin-bottom: 12px;
+    padding: 8px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modalContent li:hover {
+    background-color: #e9ecef;
+    transform: scale(1.02);
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #e74c3c;
+}
+
+.modalFooter {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.modalFooter button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modalFooter button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.modalFooter button:active {
+    transform: scale(1);
+}
+
+/* Toggle button to show/hide the section */
+.toggleButton {
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.toggleButton:hover {
+    background-color: #0056b3;
+}
+
+.toggleButton:focus {
+    outline: none;
+}
+
+/* Section below the chart */
+.additionalSection {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.additionalSection h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.additionalSection p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* General button styles */
+.exportButton {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+.exportButton:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.exportButton:active {
+    transform: scale(1);
+}
+
+.exportButton:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Styling for the toggle button to hide/unhide probabilities */
+.toggleButton {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+}
+
+.toggleButton:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+.toggleButton:active {
+    transform: scale(1);
+}
+
+.toggleButton:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
+
+/* Additional styling for the "Export" buttons container */
+.chartContainer {
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* Button group styling */
+.exportButton + .exportButton {
+    margin-left: 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .filterContainer {
+        grid-template-columns: 1fr;
+    }
+
+    .filterField button {
+        width: 100%;
+    }
+
+    /* Modal width adjustment for smaller screens */
+    .modalContent {
+        width: 90%;
+        padding: 15px;
+    }
+}
+/* Styles for the loading container */
+.loadingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    z-index: 999; /* Ensure it overlays other content */
+}
+
+/* Styling the robot GIF */
+.robotImage {
+    width: 150px; /* Adjust size of the robot */
+    height: auto; /* Maintain aspect ratio */
+    animation: bounce 1s infinite alternate; /* Bouncing animation */
+}
+
+/* Bouncing animation */
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+/* Loading Screen */
+.loadingScreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 1000;
+}
+
+/* Spinner */
+.spinner {
+    border: 4px solid #f3f3f3; /* Light grey */
+    border-top: 4px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+}
+
+/* Spinner Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loadingScreen p {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #3498db;
+}
+/* Help Button */
+.helpButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+/* Modal Content */
+.helpModalContent {
+    position: relative;
+    margin: auto;
+    width: 80%;
+    max-width: 500px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+/* Modal Overlay */
+.helpModalOverlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+/* Close Button */
+.closeHelpButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: none;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #FF6961;
+    color:#cccccc
+}
+.closeHelpButton:hover {
+    background-color: #000;
+    color: #FF6961
+}
+
+/* Help Text */
+.helpText {
+    font-size: 16px;
+    line-height: 1.6;
+}
+/* Modal Content */
+.helpModalContent {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    margin: auto;
+}
+
+/* Modal Overlay */
+.helpModalOverlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+/* Close Button */
+.closeHelpButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: none;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #FF6961;
+    color:#cccccc
+}
+.closeHelpButton:hover {
+    background-color: #000;
+    color: #FF6961
+}
+
+/* Help Text */
+.helpText {
+    font-size: 16px;
+    line-height: 1.6;
+}

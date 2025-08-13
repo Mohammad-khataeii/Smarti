@@ -1,0 +1,91 @@
+/* LoadingScreen.module.css */
+
+/* Container for the loading screen */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f9f9f9; /* Light background color */
+  text-align: center;
+  font-family: Arial, sans-serif;
+  position: relative;
+  z-index: 999;
+}
+
+/* AI icon styling */
+.aiIcon {
+  height: 150px;
+  width: 150px;
+  
+  margin-bottom: 20px;
+  color: #4CAF50; /* AI icon color */
+}
+
+/* Keyframe for spinning animation */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Loading message styling */
+.loadingMessage {
+  font-size: 24px;
+  color: #333;
+  font-weight: 500;
+  margin-top: 10px;
+  animation: fadeInOut 2s ease-in-out;
+}
+
+/* Keyframe for fading in and out text animation */
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Footer section with GitHub link */
+.footer {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 16px;
+  color: #555; /* Subtle gray text */
+}
+
+.footerText {
+  margin: 0;
+  font-size: 16px;
+  font-weight: normal;
+  color: #555; /* Same as footer text */
+}
+
+.githubLink {
+  display: inline-block;
+  margin-top: 5px;
+  color: #007bff; /* Bootstrap blue for links */
+  text-decoration: none;
+  font-weight: bold; /* Make links more prominent */
+}
+
+.githubLink:hover {
+  text-decoration: underline; /* Underline effect on hover */
+}
+
+.orText {
+  color: #555; /* Match the text color */
+  font-weight: normal;
+}

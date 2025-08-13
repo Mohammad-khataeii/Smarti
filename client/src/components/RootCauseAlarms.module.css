@@ -1,0 +1,253 @@
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    font-family: 'Roboto', Arial, sans-serif;
+}
+
+.title {
+    font-size: 2.5rem;
+    color: #dc3545; /* Bold red for alarming system */
+    text-align: center;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title::before {
+    content: "⚠️";
+    margin-right: 10px;
+    font-size: 1.8rem;
+}
+
+.description {
+    font-size: 1.1rem;
+    color: #6c757d;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.tableContainer {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+.alarmTable {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.alarmTable th,
+.alarmTable td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #e1e1e1;
+    font-size: 1rem;
+}
+
+.alarmTable th {
+    background-color: #dc3545;
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.primaryStep {
+    color: #007bff;
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.primaryStep:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.relatedStep {
+    color: #6c757d;
+    padding: 5px 0;
+}
+
+.row:nth-child(even) {
+    background-color: #ffe6e6; /* Light red for alternating rows */
+}
+
+.row:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.noAlarms {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #28a745; /* Green for no alarms */
+    padding: 20px;
+    font-weight: bold;
+}
+
+.modalContent {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modalOverlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.closeModalButton {
+    display: block;
+    margin: 20px auto 0;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #dc3545;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.closeModalButton:hover {
+    background-color: #c82333;
+}
+
+.closeModalButton:active {
+    transform: scale(0.95);
+}
+
+.modalContent h2 {
+    font-size: 1.8rem;
+    color: #495057;
+    margin-bottom: 15px;
+}
+
+.modalContent ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.modalContent ul li {
+    font-size: 1rem;
+    color: #495057;
+    margin-bottom: 8px;
+}
+
+.modalContent ul li:last-child {
+    margin-bottom: 0;
+}
+.row {
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #fff3f3; /* Light red for primary rows */
+}
+
+.row:hover {
+    background-color: #ffeaea; /* Lighter red on hover */
+}
+
+.primaryStep {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toggleIcon {
+    margin-left: 10px;
+    color: #d9534f;
+}
+
+.relatedRow {
+    background-color: #fff;
+}
+
+.relatedStep {
+    padding-left: 20px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.noAlarms {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #5cb85c;
+    padding: 20px;
+}
+.sortButton {
+    margin: 10px 0;
+    padding: 10px 20px;
+    background-color: #d9534f; /* Light blue */
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sortButton:hover {
+    background-color: #000; /* Darker blue */
+}
+/* Loading Screen */
+.loadingScreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    z-index: 1000;
+}
+
+/* Spinner */
+.spinner {
+    border: 4px solid #f3f3f3; /* Light grey */
+    border-top: 4px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+}
+
+/* Spinner Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loadingScreen p {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #3498db;
+}

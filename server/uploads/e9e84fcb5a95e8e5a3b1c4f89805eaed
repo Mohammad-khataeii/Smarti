@@ -1,0 +1,153 @@
+MachineIdentifier;650xxx
+StationName;FT0115977-TB0 Rev E00
+StationNumber;1
+StationIP;192.168.250.12
+FixtureId;FTI-01bis17
+Line;650xxx
+Testsocket;1
+AteHwVersion;A00
+AteSwVersion;R013
+TestenvSwVersion;4.0
+Productcode;FT0109253-102
+ProductRevision;H00
+SerialNumber;12
+Testspec;FT0109253-101-I00STS Rev.F00
+TestspecRev;C00
+Materialnumber;9001306906
+UutHwVersion;01
+UutSwVersion;01
+UutDesignReview;A00
+CustomerProductCode;12345
+Customer;Customername
+OrderManufacturing;1111
+Batchserial;2222
+CCPletter;A
+Swd_filenameCpu;FT0126285-100-I00SWD
+RequiredCrcCpu;DAA5EEEB
+Swd_filenameLcm;FT0044393-100-IOOSWD
+RequiredCrcLcm;0BE78BAD
+Operator;16
+Totaltest;23
+Totalstep;63
+TestStarted;2024/07/19 18:53:01
+TestStopped;2024/07/19 18:56:03
+TestGlobalResult;UNCOMPLETE
+TestOperatorNotes;0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+[T0]
+0.1;Preliminary Operations;PASS;0;0
+[T1]
+0.2;Test Software Download;NODONE;0;0
+[T2]
+6.0;ID Reader check;NODONE;0;0
+[T3]
+8.1.1;Test Vbat;NODONE;0;0
+[T4]
+8.1.2;Read data from LCM board;NODONE;0;0
+[T5]
+8.1.3;Digital Inputs;NODONE;0;0
+[T6]
+8.1.4;PWM Inputs;NODONE;0;0
+[T7]
+8.1.5;Analog Inputs;NODONE;0;0
+[T8]
+8.1.6;Temperature Reading;NODONE;0;0
+[T9]
+8.1.7;Digital Outputs;NODONE;0;0
+[T10]
+8.1.8;Speed Inputs;NODONE;0;0
+[T11]
+8.1.9;Echelon HS Net;PASS;0;0
+[T12]
+8.1.10;SAF_Loop Current Flow;NODONE;0;0
+[T13]
+8.1.11;Ethernet Net;NODONE;0;0
+[T14]
+8.1.12;MVB Net;NODONE;0;0
+[T15]
+8.1.13;RS485-CAN Net;NODONE;0;0
+[T16]
+8.1.14;IoT Test;NODONE;0;0
+[T17]
+8.2;Transducers Check;NODONE;0;0
+[T18]
+8.3;E_pressure switch threshold verification;NODONE;0;0
+[T19]
+8.4;Emergengy mode by SL open;NODONE;0;0
+[T20]
+8.5;Service Brake mode via BCU;NODONE;0;0
+[T21]
+0.3;Application Software Download;NODONE;0;0
+[T22]
+0.4;O-Ring Kit barcode;NODONE;0;0
+
+Step_Number; Step_Result; Step_Name; StepTime; Measure_Type; Units; Measure_Value; LimitLow; LimitHigh; Measure_string; LimitString
+0.1.1;Done;Initial Setup; 6.08;INFO;-;0;0;0;NONE;Done;
+0.1.2;PASS;ETH Analyser setup; 8.94;STRING;-;0;0;0;PASS;PASS;
+0.1.3;Done;Power On;37.42;INFO;-;0;0;0;NONE;Done;
+8.1.9.1;Done;Check Communication with termination on IN1 Line;29.16;INFO;yellow;0;0;0;NONE;Done;
+8.1.9.2;PASS;Check TX Counter; 0.01;BTW;cnt;99;90;120;NONE;-;
+8.1.9.3;PASS;Check RX Counter; 0.00;BTW;cnt;98;90;120;NONE;-;
+8.1.9.4;PASS;Check Error Counter; 0.01;EQ;cnt;0;0;0;NONE;-;
+8.1.9.5;PASS;Check Warning Counter; 0.00;LT;cnt;1;2;0;NONE;-;
+8.1.9.6;Done;Check Communication with termination on IN2 Line; 7.93;INFO;yellow;0;0;0;NONE;Done;
+8.1.9.7;PASS;Check TX Counter; 0.00;BTW;cnt;100;90;120;NONE;-;
+8.1.9.8;PASS;Check RX Counter; 0.00;BTW;cnt;100;90;120;NONE;-;
+8.1.9.9;PASS;Check Error Counter; 0.00;EQ;cnt;0;0;0;NONE;-;
+8.1.9.10;PASS;Check Warning Counter; 0.01;LT;cnt;0;2;0;NONE;-;
+8.1.9.11;Done;Check Communication with termination on OUT1 Line; 8.15;INFO;yellow;0;0;0;NONE;Done;
+8.1.9.12;PASS;Check TX Counter; 0.01;BTW;cnt;96;90;120;NONE;-;
+8.1.9.13;PASS;Check RX Counter; 0.03;BTW;cnt;96;90;120;NONE;-;
+8.1.9.14;PASS;Check Error Counter; 0.00;EQ;cnt;0;0;0;NONE;-;
+8.1.9.15;PASS;Check Warning Counter; 0.00;LT;cnt;0;2;0;NONE;-;
+8.1.9.16;Done;Check Communication with termination on OUT2 Line; 7.94;INFO;yellow;0;0;0;NONE;Done;
+8.1.9.17;PASS;Check TX Counter; 0.01;BTW;cnt;100;90;120;NONE;-;
+8.1.9.18;PASS;Check RX Counter; 0.00;BTW;cnt;100;90;120;NONE;-;
+8.1.9.19;PASS;Check Error Counter; 0.00;EQ;cnt;0;0;0;NONE;-;
+8.1.9.20;PASS;Check Warning Counter; 0.00;LT;cnt;0;2;0;NONE;-;
+8.1.9.21;Done;Check Communication without termination on IN1 Line; 8.99;INFO;yellow;0;0;0;NONE;Done;
+8.1.9.22;PASS;Check TX Counter; 0.00;BTW;cnt;53;1;120;NONE;-;
+8.1.9.23;PASS;Check RX Counter; 0.00;BTW;cnt;0;0;120;NONE;-;
+8.1.9.24;PASS;Check Error Counter; 0.00;GT;cnt;51;0;0;NONE;-;
+8.1.9.25;PASS;Check Warning Counter; 0.00;GT;cnt;2;0;0;NONE;-;
+8.1.9.26;Done;Check Communication without termination on IN2 Line; 7.79;INFO;yellow;0;0;0;NONE;Done;
+8.1.9.27;PASS;Check TX Counter; 0.01;BTW;cnt;49;1;120;NONE;-;
+8.1.9.28;PASS;Check RX Counter; 0.00;BTW;cnt;0;0;120;NONE;-;
+8.1.9.29;PASS;Check Error Counter; 0.00;GT;cnt;47;0;0;NONE;-;
+8.1.9.30;PASS;Check Warning Counter; 0.00;GT;cnt;2;0;0;NONE;-;
+8.1.9.31;Done;Check Communication without termination on OUT1 Line; 8.12;INFO;yellow;0;0;0;NONE;Done;
+8.1.9.32;PASS;Check TX Counter; 0.00;BTW;cnt;49;1;120;NONE;-;
+8.1.9.33;PASS;Check RX Counter; 0.00;BTW;cnt;0;0;120;NONE;-;
+8.1.9.34;PASS;Check Error Counter; 0.00;GT;cnt;47;0;0;NONE;-;
+8.1.9.35;PASS;Check Warning Counter; 0.00;GT;cnt;2;0;0;NONE;-;
+8.1.9.36;Done;Check Communication without termination on OUT2 Line; 7.98;INFO;yellow;0;0;0;NONE;Done;
+8.1.9.37;PASS;Check TX Counter; 0.00;BTW;cnt;51;1;120;NONE;-;
+8.1.9.38;PASS;Check RX Counter; 0.00;BTW;cnt;0;0;120;NONE;-;
+8.1.9.39;PASS;Check Error Counter; 0.00;GT;cnt;49;0;0;NONE;-;
+8.1.9.40;PASS;Check Warning Counter; 0.01;GT;cnt;2;0;0;NONE;-;
+8.1.9.41;Done;Check relay CC on IN1 Line; 8.90;INFO;yellow;0;0;0;NONE;Done;
+8.1.9.42;PASS;Check TX Counter; 0.00;BTW;cnt;51;1;120;NONE;-;
+8.1.9.43;PASS;Check RX Counter; 0.00;EQ;cnt;0;0;0;NONE;-;
+8.1.9.44;PASS;Check Error Counter; 0.00;BTW;cnt;49;0;120;NONE;-;
+8.1.9.45;PASS;Check Warning Counter; 0.00;BTW;cnt;2;0;120;NONE;-;
+8.1.9.46;Done;Check relay CC on IN2 Line; 7.95;INFO;yellow;0;0;0;NONE;Done;
+8.1.9.47;PASS;Check TX Counter; 0.00;BTW;cnt;51;1;120;NONE;-;
+8.1.9.48;PASS;Check RX Counter; 0.00;EQ;cnt;0;0;0;NONE;-;
+8.1.9.49;PASS;Check Error Counter; 0.00;BTW;cnt;49;0;120;NONE;-;
+8.1.9.50;PASS;Check Warning Counter; 0.00;BTW;cnt;2;0;120;NONE;-;
+8.1.9.51;Done;Check relay CC on OUT1 Line; 9.00;INFO;yellow;0;0;0;NONE;Done;
+8.1.9.52;PASS;Check TX Counter; 0.01;BTW;cnt;56;1;120;NONE;-;
+8.1.9.53;PASS;Check RX Counter; 0.00;EQ;cnt;0;0;0;NONE;-;
+8.1.9.54;PASS;Check Error Counter; 0.00;BTW;cnt;54;0;120;NONE;-;
+8.1.9.55;PASS;Check Warning Counter; 0.00;BTW;cnt;2;0;120;NONE;-;
+8.1.9.56;Done;Check relay CC on OUT2 Line; 7.97;INFO;yellow;0;0;0;NONE;Done;
+8.1.9.57;PASS;Check TX Counter; 0.01;BTW;cnt;51;1;120;NONE;-;
+8.1.9.58;PASS;Check RX Counter; 0.00;EQ;cnt;0;0;0;NONE;-;
+8.1.9.59;PASS;Check Error Counter; 0.00;BTW;cnt;49;0;120;NONE;-;
+8.1.9.60;PASS;Check Warning Counter; 0.00;BTW;cnt;2;0;120;NONE;-;
+
+UUT Serial Number;12
+UUT Status;UNCOMPLETE

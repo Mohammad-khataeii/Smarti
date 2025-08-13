@@ -1,0 +1,167 @@
+/* General Container */
+.container {
+    font-family: Arial, sans-serif;
+    color: #333;
+    max-width: 900px;
+    padding: 20px;
+    margin: auto;
+    background-color: #fdfdfd;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Title */
+.title {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Filter Container */
+.filterContainer {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.filterContainer label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.dropdown {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: #fff;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+.dropdown:hover {
+    border-color: #888;
+}
+
+/* Date Picker Container */
+.datePickerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.datePickerContainer label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.datePicker {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    width: 200px;
+    background-color: #fff;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+.datePicker:hover {
+    border-color: #888;
+}
+
+/* Button Container */
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.applyFilterButton,
+.resetFilterButton {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.applyFilterButton:hover,
+.resetFilterButton:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Chart Container */
+.chartContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Prediction Container */
+.predictionContainer {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f2f8ff;
+    border: 1px solid #cce5ff;
+    border-radius: 8px;
+    text-align: left;
+    color: #004085;
+}
+
+.predictionContainer h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.predictionContainer p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* Error Message */
+.error {
+    color: #d9534f;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .buttonContainer {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .applyFilterButton,
+    .resetFilterButton {
+        width: 100%;
+    }
+
+    .dropdown,
+    .datePicker {
+        width: 100%;
+    }
+}
+

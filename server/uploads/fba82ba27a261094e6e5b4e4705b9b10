@@ -1,0 +1,105 @@
+MachineIdentifier;650xxx
+StationName;FT0115977-TB0 Rev B00
+StationNumber;1
+StationIP;192.168.250.12
+FixtureId;FTI-01bis17
+Line;650xxx
+Testsocket;1
+AteHwVersion;A00
+AteSwVersion;1.0
+TestenvSwVersion;4.0
+Productcode;FT0109253-102
+ProductRevision;C00
+SerialNumber;999
+Testspec;FT0109253-101-I00STS Rev.C00
+TestspecRev;C00
+Materialnumber;9001306906
+UutHwVersion;01
+UutSwVersion;01
+UutDesignReview;A00
+CustomerProductCode;12345
+Customer;Customername
+OrderManufacturing;1111
+Batchserial;2222
+CCPletter;A
+Swd_filenameCpu;FT0114724-100-IOOSWD
+RequiredCrcCpu;06FF3859
+Swd_filenameLcm;FT0044393-100-IOOSWD
+RequiredCrcLcm;0BE78BAD
+Operator;Wabtec
+Totaltest;11
+Totalstep;11
+TestStarted;2021/03/10 16:20:00
+TestStopped;2021/03/10 16:21:40
+TestGlobalResult;FAIL
+TestOperatorNotes;0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+[T0]
+8.0.1;Preliminary Operations;PASS;0;0
+[T1]
+8.0.2;Test Software Download;NODONE;0;0
+[T2]
+8.0.3;Power on and Current Consumption;FAIL;0;0
+[T3]
+8.1;Transducers check;NODONE;0;0
+[T4]
+8.3;Emergengy and BrakeTest;FAIL;0;0
+[T5]
+8.4;Service Brake;NODONE;0;0
+[T6]
+8.5;WSP Monostable;NODONE;0;0
+[T7]
+7.3;Reverse Flow;NODONE;0;0
+[T8]
+8.2;E_pressure switch threshold verification;NODONE;0;0
+[T9]
+6.0;ID Reader check;NODONE;0;0
+[T10]
+8.7;Application Software Download;NODONE;0;0
+
+Step_Number; Step_Result; Step_Name; StepTime; Measure_Type; Units; Measure_Value; LimitLow; LimitHigh; Measure_string; LimitString
+8.0.1.1;Done;Initial Setup; 4.47;INFO;-;0;0;0;NONE;Done;
+8.0.1.2;Done;Cable & automatic valves setup; 0.00;INFO;-;0;0;0;NONE;Done;
+8.0.3.1;Done;Power ON; 2.06;INFO;-;0;0;0;NONE;Done;
+8.0.3.2;PASS;Inrush Current;20.50;BTW;mA;421.607;200.000;550.000;NONE;-;
+8.0.3.3;PASS;Battery Voltage; 0.35;BTW;Volt;109.972;109.000;111.000;NONE;-;
+8.0.3.4;FAIL;EMG Monitoring;13.35;STRING;-;0;0;0;0;1;
+8.0.3.5;FAIL;LCU1 Code Id; 0.00;EQ;ID;0;14;0;NONE;-;
+8.0.3.6;FAIL;LCU2 Code Id; 0.00;EQ;ID;0;14;0;NONE;-;
+8.3.1;PASS;MJF1 Signal before braketest;50.94;STRING;-;0;0;0;1;1;
+8.3.2;PASS;MJF2 Signal before braketest; 0.00;STRING;-;0;0;0;1;1;
+8.3.3;NODONE;Start Braketest; 0.00;INFO;-;0;0;0;NONE;Done;
+8.3.4;NODONE;TPL Pressure at MGDMin; 0.00;BTW;Bar;0.000;0.000;0.000;NONE;-;
+8.3.5;NODONE;BC1 Pressure at MGDMin; 0.00;BTW;Bar;0.000;0.000;0.000;NONE;-;
+8.3.6;NODONE;BC2 Pressure at MGDMin; 0.00;BTW;Bar;0.000;0.000;0.000;NONE;-;
+8.3.7;NODONE;BC1 Electronic Pressure Switch OFF - Brake Applied; 0.00;STRING;-;0;0;0;NONE;0;
+8.3.8;NODONE;BC2 Electronic Pressure Switch OFF - Brake Applied; 0.00;STRING;-;0;0;0;NONE;0;
+8.3.9;NODONE;TPL Pressure at MGDBoost; 0.00;BTW;Bar;0.000;0.000;0.000;NONE;-;
+8.3.10;NODONE;BC1 Pressure at MGDBoost; 0.00;BTW;Bar;0.000;0.000;0.000;NONE;-;
+8.3.11;NODONE;BC2 Pressure at MGDBoost; 0.00;BTW;Bar;0.000;0.000;0.000;NONE;-;
+8.3.12;NODONE;BC1 Electronic Pressure Switch OFF - Brake Applied; 0.00;STRING;-;0;0;0;NONE;0;
+8.3.13;NODONE;BC2 Electronic Pressure Switch OFF - Brake Applied; 0.00;STRING;-;0;0;0;NONE;0;
+8.3.14;NODONE;LOAD OFF, UNLOAD OFF; 0.00;INFO;-;0;0;0;NONE;Done;
+8.3.15;NODONE;TPL Pressure Drop 30 sec; 0.00;BTW;Bar;0.000;0.000;0.011;NONE;-;
+8.3.16;NODONE;BrakeTest Result; 0.00;STRING;-;0;0;0;NONE;TEST_OK;
+8.3.17;NODONE;LCU1 State; 0.00;STRING;-;0;0;0;NONE;NO_ERR;
+8.3.18;NODONE;LCU2 State; 0.00;STRING;-;0;0;0;NONE;NO_ERR;
+8.3.19;NODONE;MJF1 Signal after braketest; 0.00;STRING;-;0;0;0;NONE;0;
+8.3.20;NODONE;MJF2 Signal after braketest; 0.00;STRING;-;0;0;0;NONE;0;
+8.3.21;NODONE;TLP_MED Apply; 0.00;INFO;-;0;0;0;NONE;Done;
+8.3.22;NODONE;TLP1 Measure; 0.00;BTW;Bar;0.000;4.048;4.248;NONE;Done;
+8.3.23;NODONE;TLP2 Measure; 0.00;BTW;Bar;0.000;4.048;4.248;NONE;Done;
+8.3.24;NODONE;SerB_MED calculation; 0.00;BTW;Bar;0.000;3.130;3.330;NONE;Done;
+8.3.25;NODONE;TPL Pressure; 0.00;BTW;Bar;0.000;0.000;0.000;NONE;-;
+8.3.26;NODONE;BC1 Pressure; 0.00;BTW;Bar;0.000;0.000;0.000;NONE;-;
+8.3.27;NODONE;BC2 Pressure; 0.00;BTW;Bar;0.000;0.000;0.000;NONE;-;
+8.3.28;NODONE;BC1 Brake Released; 0.00;BTW;Bar;0.000;0.000;0.100;NONE;Done;
+8.3.29;NODONE;BC2 Brake Released; 0.00;BTW;Bar;0.000;0.000;0.100;NONE;Done;
+8.3.30;NODONE;BC1 Teq; 0.00;BTW;Sec;0.000;0.300;1.000;NONE;Done;
+8.3.31;FAIL;BC2 Teq; 1.03;BTW;Sec;0.000;0.300;1.000;NONE;Done;
+
+UUT Serial Number;999
+UUT Status;FAIL

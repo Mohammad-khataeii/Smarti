@@ -1,0 +1,136 @@
+MachineIdentifier;650xxx
+StationName;FT0115977-TB0 Rev E00
+StationNumber;1
+StationIP;192.168.250.12
+FixtureId;FTI-01bis17
+Line;650xxx
+Testsocket;1
+AteHwVersion;A00
+AteSwVersion;R012
+TestenvSwVersion;4.0
+Productcode;FT0109253-102
+ProductRevision;H00
+SerialNumber;068
+Testspec;FT0109253-101-I00STS Rev.F00
+TestspecRev;C00
+Materialnumber;9001306906
+UutHwVersion;01
+UutSwVersion;01
+UutDesignReview;A00
+CustomerProductCode;12345
+Customer;Customername
+OrderManufacturing;1111
+Batchserial;2222
+CCPletter;A
+Swd_filenameCpu;FT0126285-100-I00SWD
+RequiredCrcCpu;DAA5EEEB
+Swd_filenameLcm;FT0044393-100-IOOSWD
+RequiredCrcLcm;0BE78BAD
+Operator;16
+Totaltest;23
+Totalstep;46
+TestStarted;2023/12/20 16:25:44
+TestStopped;2023/12/20 16:27:33
+TestGlobalResult;UNCOMPLETE
+TestOperatorNotes;0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+[T0]
+0.1;Preliminary Operations;PASS;0;0
+[T1]
+0.2;Test Software Download;NODONE;0;0
+[T2]
+6.0;ID Reader check;NODONE;0;0
+[T3]
+8.1.1;Test Vbat;PASS;0;0
+[T4]
+8.1.2;Read data from LCM board;PASS;0;0
+[T5]
+8.1.3;Digital Inputs;NODONE;0;0
+[T6]
+8.1.4;PWM Inputs;NODONE;0;0
+[T7]
+8.1.5;Analog Inputs;NODONE;0;0
+[T8]
+8.1.6;Temperature Reading;NODONE;0;0
+[T9]
+8.1.7;Digital Outputs;NODONE;0;0
+[T10]
+8.1.8;Speed Inputs;PASS;0;0
+[T11]
+8.1.9;Echelon HS Net;NODONE;0;0
+[T12]
+8.1.10;SAF_Loop Current Flow;NODONE;0;0
+[T13]
+8.1.11;Ethernet Net;NODONE;0;0
+[T14]
+8.1.12;MVB Net;NODONE;0;0
+[T15]
+8.1.13;RS485-CAN Net;PASS;0;0
+[T16]
+8.1.14;IoT Test;NODONE;0;0
+[T17]
+8.2;Transducers Check;NODONE;0;0
+[T18]
+8.3;E_pressure switch threshold verification;NODONE;0;0
+[T19]
+8.4;Emergengy mode by SL open;NODONE;0;0
+[T20]
+8.5;Service Brake mode via BCU;NODONE;0;0
+[T21]
+0.3;Application Software Download;NODONE;0;0
+[T22]
+0.4;O-Ring Kit barcode;NODONE;0;0
+
+Step_Number; Step_Result; Step_Name; StepTime; Measure_Type; Units; Measure_Value; LimitLow; LimitHigh; Measure_string; LimitString
+0.1.1;Done;Initial Setup; 4.51;INFO;-;0;0;0;NONE;Done;
+0.1.2;PASS;ETH Analyser setup; 9.00;STRING;-;0;0;0;PASS;PASS;
+0.1.3;Done;Power On;36.61;INFO;-;0;0;0;NONE;Done;
+8.1.1.1;Done;Power ON; 0.63;INFO;-;0;0;0;NONE;Done;
+8.1.1.2;PASS;Inrush Current; 0.00;BTW;mA;313.115;200.000;550.000;NONE;-;
+8.1.1.3;PASS;Battery Voltage; 0.01;BTW;Volt;109.995;109.000;111.000;NONE;-;
+8.1.1.4;PASS;EMG Monitoring; 8.71;STRING;-;0;0;0;1;1;
+8.1.1.5;PASS;Check Monitoring 15V_iso; 0.00;BTW;Volt;16.095;13.500;16.500;NONE;-;
+8.1.1.6;PASS;Check Monitoring Vanalog; 0.00;BTW;Volt;5.124;4.750;5.150;NONE;-;
+8.1.1.7;PASS;Check Monitoring Vdigital; 0.00;BTW;Volt;3.473;3.100;3.500;NONE;-;
+8.1.2.1;PASS;Read LCU1 Fault; 0.11;STRING;-;0;0;0;NO_ERROR;NO_ERROR;
+8.1.2.2;PASS;Read LCU2 Fault; 0.00;STRING;-;0;0;0;NO_ERROR;NO_ERROR;
+8.1.2.3;PASS;LCU1 Code ID; 0.00;EQ;ID;14;14;0;NONE;-;
+8.1.2.4;PASS;LCU2 Code ID; 0.00;EQ;ID;14;14;0;NONE;-;
+8.1.8.1;Done;Check SPEED frequences; 0.15;INFO;yellow;0;0;0;NONE;Done;
+8.1.8.2;PASS;Check +15V_iso_s1 = 15V; 0.02;BTW;V;14.8;14.5;15.5;NONE;-;
+8.1.8.3;PASS;Check SPEED1 = 100Hz; 1.06;BTW;Hz;100.1;95.0;105.0;NONE;-;
+8.1.8.4;PASS;Check SPEED1 = 500Hz; 1.04;BTW;Hz;501.0;490.0;510.0;NONE;-;
+8.1.8.5;PASS;Check SPEED1 = 1500Hz; 1.04;BTW;Hz;1503.7;1450.0;1550.0;NONE;-;
+8.1.8.6;PASS;Check SPEED1 = 3000Hz; 1.08;BTW;Hz;3012.0;2900.0;3100.0;NONE;-;
+8.1.8.7;PASS;Check +15V_iso_s2 = 15V; 0.02;BTW;V;14.8;14.5;15.5;NONE;-;
+8.1.8.8;PASS;Check SPEED2 = 100Hz; 1.04;BTW;Hz;100.1;95.0;105.0;NONE;-;
+8.1.8.9;PASS;Check SPEED2 = 500Hz; 1.05;BTW;Hz;501.0;490.0;510.0;NONE;-;
+8.1.8.10;PASS;Check SPEED2 = 1500Hz; 1.06;BTW;Hz;1503.7;1450.0;1550.0;NONE;-;
+8.1.8.11;PASS;Check SPEED2 = 3000Hz; 1.07;BTW;Hz;3012.0;2900.0;3100.0;NONE;-;
+8.1.8.12;Done;Check SPEED diagnostic; 0.04;INFO;yellow;0;0;0;NONE;Done;
+8.1.8.13;PASS;Check SPEED1 Diag = 0mA; 1.03;STRING;-;0;0;0;1;1;
+8.1.8.14;PASS;Check SPEED1 Diag = 8mA; 1.03;STRING;-;0;0;0;0;0;
+8.1.8.15;PASS;Check SPEED1 Diag = 12mA; 1.03;STRING;-;0;0;0;0;0;
+8.1.8.16;PASS;Check SPEED1 Diag = 16mA; 1.03;STRING;-;0;0;0;0;0;
+8.1.8.17;PASS;Check SPEED1 Diag = 20mA; 1.04;STRING;-;0;0;0;1;1;
+8.1.8.18;PASS;Check SPEED2 Diag = 0mA; 1.03;STRING;-;0;0;0;1;1;
+8.1.8.19;PASS;Check SPEED2 Diag = 8mA; 1.03;STRING;-;0;0;0;0;0;
+8.1.8.20;PASS;Check SPEED2 Diag = 12mA; 1.04;STRING;-;0;0;0;0;0;
+8.1.8.21;PASS;Check SPEED2 Diag = 16mA; 1.03;STRING;-;0;0;0;0;0;
+8.1.8.22;PASS;Check SPEED2 Diag = 20mA; 1.06;STRING;-;0;0;0;1;1;
+8.1.13.1;Done;Start and Stop Communication on CAN-IN;10.26;INFO;-;0;0;0;NONE;Done;
+8.1.13.2;PASS;Check TX Counter; 0.01;BTW;cnt;421;350;450;NONE;-;
+8.1.13.3;PASS;Check RX Counter; 0.00;BTW;cnt;419;350;450;NONE;-;
+8.1.13.4;PASS;Check Error Counter; 0.00;EQ;cnt;0;0;0;NONE;-;
+8.1.13.5;PASS;Check Warning Counter; 0.00;EQ;cnt;0;0;0;NONE;-;
+8.1.13.6;Done;Start and Stop Communication on CAN-OUT; 9.90;INFO;-;0;0;0;NONE;Done;
+8.1.13.7;PASS;Check TX Counter; 0.02;BTW;cnt;414;350;450;NONE;-;
+8.1.13.8;PASS;Check RX Counter; 0.00;BTW;cnt;412;350;450;NONE;-;
+8.1.13.9;PASS;Check Error Counter; 0.00;EQ;cnt;0;0;0;NONE;-;
+8.1.13.10;PASS;Check Warning Counter; 0.00;EQ;cnt;0;0;0;NONE;-;
+
+UUT Serial Number;068
+UUT Status;UNCOMPLETE

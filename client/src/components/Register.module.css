@@ -1,0 +1,174 @@
+/* Register.module.css */
+
+/* Container for the entire page */
+.container {
+    display: flex;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn 1s ease-in forwards; /* Fade in the entire page */
+}
+
+/* FadeIn animation for the entire container */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Left section (form) animation */
+.leftSection {
+    width: 50%;
+    padding: 60px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0; /* Initially hidden */
+    animation: slideInFromLeft 1s ease-out forwards;
+    animation-delay: 0.5s; /* Delay for staggered animation */
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Right section (cards) animation */
+.rightSection {
+    width: 50%;
+    background: linear-gradient(135deg, #f5d6e6, #cac4ff);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 40px;
+    opacity: 0; /* Initially hidden */
+    animation: slideInFromRight 1s ease-out forwards;
+    animation-delay: 1s; /* Delay for staggered animation */
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Form elements animation */
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn 1s ease-out forwards;
+}
+
+/* Apply delays to form input groups */
+.inputGroup:nth-child(1) {
+    animation-delay: 1.5s;
+}
+
+.inputGroup:nth-child(2) {
+    animation-delay: 2s;
+}
+
+.inputGroup:nth-child(3) {
+    animation-delay: 2.5s;
+}
+
+.inputGroup:nth-child(4) {
+    animation-delay: 3s;
+}
+
+/* Input fields animation */
+.input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Submit button fade-in */
+.submitButton {
+    padding: 15px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 3.5s;
+}
+
+/* Card animations */
+.card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    width: 85%;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    opacity: 0; /* Initially hidden */
+    animation: fadeInCard 1s ease-out forwards;
+}
+
+@keyframes fadeInCard {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Card titles and values animation */
+.cardTitle {
+    font-size: 16px;
+    color: #6B7280;
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeInCard 1s ease-out forwards;
+    animation-delay: 1.5s;
+}
+
+.cardValue {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeInCard 1s ease-out forwards;
+    animation-delay: 2s;
+}
+
+.cardText {
+    font-size: 14px;
+    color: #6B7280;
+    opacity: 0;
+    animation: fadeInCard 1s ease-out forwards;
+    animation-delay: 2.5s;
+}
+
+/* Message styling */
+.message {
+    margin-top: 15px;
+    text-align: center;
+    color: #6B7280;
+}

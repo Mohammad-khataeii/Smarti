@@ -1,0 +1,252 @@
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.chartSection {
+    margin-bottom: 40px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chartTitle {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #444;
+    font-weight: bold;
+    text-align: center;
+}
+
+.chartContainer {
+    position: relative;
+    height: 450px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.buttonContainer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.backButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.backButton:hover {
+    background-color: #0056b3;
+}
+
+.exportButton,
+.expandButton {
+    background-color: #17a2b8;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.exportButton:hover,
+.expandButton:hover {
+    background-color: #138496;
+}
+
+.modalOverlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modalContent {
+    background-color: white;
+    padding: 20px;
+    max-width: 95%; /* Increased width */
+    width: 85vw;
+    height: 85vh;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+}
+
+.expandedChart {
+    width: 100%;
+    height: calc(100% - 60px);
+    overflow: hidden;
+    padding: 20px; /* Added more spacing around the chart */
+}
+
+
+
+.closeModalButton {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.closeModalButton:hover {
+    background-color: #b02a37;
+}
+
+
+
+.filterSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+}
+
+.filterSection label {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.inputField {
+    padding: 8px 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 120px;
+}
+
+.applyButton {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.applyButton:disabled {
+    background-color: #d6d8d9;
+    cursor: not-allowed;
+}
+
+.applyButton:hover:enabled {
+    background-color: #218838;
+}
+
+.resetButton {
+    background-color: #ffc107;
+    color: #212529;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.resetButton:hover {
+    background-color: #e0a800;
+}
+
+.errorText {
+    color: #dc3545;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .chartContainer {
+        height: 350px;
+    }
+
+    .filterSection {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .inputField {
+        width: 100%;
+    }
+
+    .applyButton,
+    .resetButton {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+.uclLclDisplay {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 1rem;
+    color: #333;
+}
+
+.uclLclDisplay div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.uclValue {
+    font-weight: bold;
+    color: #dc3545; /* Red color for UCL */
+}
+
+.lclValue {
+    font-weight: bold;
+    color: #28a745; /* Green color for LCL */
+}
+
+.label {
+    font-weight: bold;
+    margin-right: 10px;
+    color: #333;
+}

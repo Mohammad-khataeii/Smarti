@@ -1,0 +1,144 @@
+MachineIdentifier;650xxx
+StationName;FT0115977-TB0 Rev E00
+StationNumber;1
+StationIP;192.168.250.12
+FixtureId;FTI-01bis17
+Line;650xxx
+Testsocket;1
+AteHwVersion;A00
+AteSwVersion;R013
+TestenvSwVersion;4.0
+Productcode;FT0109253-102
+ProductRevision;H00
+SerialNumber;137prova
+Testspec;FT0109253-101-I00STS Rev.F00
+TestspecRev;C00
+Materialnumber;9001306906
+UutHwVersion;01
+UutSwVersion;01
+UutDesignReview;A00
+CustomerProductCode;12345
+Customer;Customername
+OrderManufacturing;1111
+Batchserial;2222
+CCPletter;A
+Swd_filenameCpu;FT0126285-100-I00SWD
+RequiredCrcCpu;DAA5EEEB
+Swd_filenameLcm;FT0044393-100-IOOSWD
+RequiredCrcLcm;0BE78BAD
+Operator;16
+Totaltest;23
+Totalstep;54
+TestStarted;2024/09/30 10:27:53
+TestStopped;2024/09/30 10:32:39
+TestGlobalResult;FAIL
+TestOperatorNotes;0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+[T0]
+0.1;Preliminary Operations;PASS;0;0
+[T1]
+0.2;Test Software Download;NODONE;0;0
+[T2]
+6.0;ID Reader check;NODONE;0;0
+[T3]
+8.1.1;Test Vbat;PASS;0;0
+[T4]
+8.1.2;Read data from LCM board;NODONE;0;0
+[T5]
+8.1.3;Digital Inputs;NODONE;0;0
+[T6]
+8.1.4;PWM Inputs;NODONE;0;0
+[T7]
+8.1.5;Analog Inputs;NODONE;0;0
+[T8]
+8.1.6;Temperature Reading;NODONE;0;0
+[T9]
+8.1.7;Digital Outputs;NODONE;0;0
+[T10]
+8.1.8;Speed Inputs;NODONE;0;0
+[T11]
+8.1.9;Echelon HS Net;NODONE;0;0
+[T12]
+8.1.10;SAF_Loop Current Flow;NODONE;0;0
+[T13]
+8.1.11;Ethernet Net;NODONE;0;0
+[T14]
+8.1.12;MVB Net;NODONE;0;0
+[T15]
+8.1.13;RS485-CAN Net;NODONE;0;0
+[T16]
+8.1.14;IoT Test;NODONE;0;0
+[T17]
+8.2;Transducers Check;PASS;0;0
+[T18]
+8.3;E_pressure switch threshold verification;FAIL;0;0
+[T19]
+8.4;Emergengy mode by SL open;NODONE;0;0
+[T20]
+8.5;Service Brake mode via BCU;NODONE;0;0
+[T21]
+0.3;Application Software Download;NODONE;0;0
+[T22]
+0.4;O-Ring Kit barcode;NODONE;0;0
+
+Step_Number; Step_Result; Step_Name; StepTime; Measure_Type; Units; Measure_Value; LimitLow; LimitHigh; Measure_string; LimitString
+0.1.1;Done;Initial Setup;30.21;INFO;-;0;0;0;NONE;Done;
+0.1.2;PASS;ETH Analyser setup; 8.91;STRING;-;0;0;0;PASS;PASS;
+0.1.3;Done;Power On;37.07;INFO;-;0;0;0;NONE;Done;
+8.1.1.1;Done;Power ON; 5.79;INFO;-;0;0;0;NONE;Done;
+8.1.1.2;PASS;Inrush Current; 0.00;BTW;mA;278.172;200.000;550.000;NONE;-;
+8.1.1.3;PASS;Battery Voltage; 0.01;BTW;Volt;109.987;109.000;111.000;NONE;-;
+8.1.1.4;PASS;EMG Monitoring; 1.33;STRING;-;0;0;0;1;1;
+8.1.1.5;PASS;Check Monitoring 15V_iso; 0.01;BTW;Volt;16.164;13.500;16.500;NONE;-;
+8.1.1.6;PASS;Check Monitoring Vanalog; 0.00;BTW;Volt;5.111;4.750;5.150;NONE;-;
+8.1.1.7;PASS;Check Monitoring Vdigital; 0.01;BTW;Volt;3.465;3.100;3.500;NONE;-;
+8.2.1;PASS;TA at 0 Bar;42.77;BTW;Bar;0.000;0.000;0.050;NONE;-;
+8.2.2;PASS;TPL at 0 Bar; 0.01;BTW;Bar;0.000;0.000;0.050;NONE;-;
+8.2.3;PASS;TBC1 at 0 Bar; 0.00;BTW;Bar;0.000;0.000;0.050;NONE;-;
+8.2.4;PASS;TBC2 at 0 Bar; 0.00;BTW;Bar;0.000;0.000;0.050;NONE;-;
+8.2.5;PASS;TLP1 at 0 Bar; 0.00;BTW;Bar;0.004;0.000;0.050;NONE;-;
+8.2.6;PASS;TLP2 at 0 Bar; 0.00;BTW;Bar;0.000;0.000;0.050;NONE;-;
+8.2.7;PASS;TSP1 at 0 Bar; 0.01;BTW;Bar;0.000;0.000;0.050;NONE;-;
+8.2.8;PASS;TSP2 at 0 Bar; 0.00;BTW;Bar;0.000;0.000;0.050;NONE;-;
+8.2.9;PASS;TA at 0.5 Bar;15.77;BTW;Bar;0.526;0.400;0.600;NONE;-;
+8.2.10;PASS;TPL at 0.5 Bar; 0.00;BTW;Bar;0.526;0.400;0.600;NONE;-;
+8.2.11;PASS;TBC1 at 0.5 Bar; 0.00;BTW;Bar;0.450;0.400;0.600;NONE;-;
+8.2.12;PASS;TBC2 at 0.5 Bar; 0.00;BTW;Bar;0.450;0.400;0.600;NONE;-;
+8.2.13;PASS;TLP1 at 0.5 Bar; 0.00;BTW;Bar;0.517;0.400;0.600;NONE;-;
+8.2.14;PASS;TLP2 at 0.5 Bar; 0.00;BTW;Bar;0.514;0.400;0.600;NONE;-;
+8.2.15;PASS;TSP1 at 0.5 Bar; 0.00;BTW;Bar;0.496;0.400;0.600;NONE;-;
+8.2.16;PASS;TSP2 at 0.5 Bar; 0.00;BTW;Bar;0.493;0.400;0.600;NONE;-;
+8.2.17;PASS;TA Mflexx - TA bench at 0.5 Bar; 0.05;BTW;Bar;0.012;0.000;0.100;NONE;-;
+8.2.18;PASS;TPL Mflexx - TPL bench at 0.5 Bar; 0.05;BTW;Bar;0.011;0.000;0.100;NONE;-;
+8.2.19;PASS;TBC1 Mflexx - TBC1 bench at 0.5 Bar; 0.04;BTW;Bar;0.006;0.000;0.100;NONE;-;
+8.2.20;PASS;TBC2 Mflexx - TBC2 bench at 0.5 Bar; 0.04;BTW;Bar;0.018;0.000;0.100;NONE;-;
+8.2.21;PASS;TLP1 Mflexx - TLP1 bench at 0.5 Bar; 0.04;BTW;Bar;0.004;0.000;0.100;NONE;-;
+8.2.22;PASS;TLP2 Mflexx - TLP2 bench at 0.5 Bar; 0.04;BTW;Bar;0.008;0.000;0.100;NONE;-;
+8.2.23;PASS;TSP1 Mflexx - TSP1 bench at 0.5 Bar; 0.05;BTW;Bar;0.021;0.000;0.100;NONE;-;
+8.2.24;PASS;TSP2 Mflexx - TSP2 bench at 0.5 Bar; 0.05;BTW;Bar;0.021;0.000;0.100;NONE;-;
+8.2.25;PASS;TA at 6 Bar;70.76;BTW;Bar;6.050;5.900;6.100;NONE;-;
+8.2.26;PASS;TPL at 3,57  Bar; 0.00;BTW;Bar;3.651;3.370;3.770;NONE;-;
+8.2.27;PASS;TBC1 at 3,57  Bar; 0.00;BTW;Bar;3.615;3.370;3.770;NONE;-;
+8.2.28;PASS;TBC2 at 3,67  Bar; 0.00;BTW;Bar;3.587;3.370;3.770;NONE;-;
+8.2.29;PASS;TLP1 at 5,613 Bar; 0.00;BTW;Bar;5.666;5.513;5.713;NONE;-;
+8.2.30;PASS;TLP2 at 5,613 Bar; 0.00;BTW;Bar;5.657;5.513;5.713;NONE;-;
+8.2.31;PASS;TSP1 at 5,613 Bar; 0.01;BTW;Bar;5.632;5.513;5.713;NONE;-;
+8.2.32;PASS;TSP2 at 5,613 Bar; 0.01;BTW;Bar;5.629;5.513;5.713;NONE;-;
+8.2.33;PASS;TA Mflexx - TA bench at 6 Bar; 0.06;BTW;Bar;0.006;0.000;0.100;NONE;-;
+8.2.34;PASS;TPL Mflexx - TPL bench at 3,85 Bar; 0.04;BTW;Bar;0.018;0.000;0.100;NONE;-;
+8.2.35;PASS;TBC1 Mflexx - TBC1 bench at 3,85 Bar; 0.04;BTW;Bar;0.011;0.000;0.100;NONE;-;
+8.2.36;PASS;TBC2 Mflexx - TBC2 bench at 3,85 Bar; 0.05;BTW;Bar;0.022;0.000;0.100;NONE;-;
+8.2.37;PASS;TLP1 Mflexx - TLP1 bench at 4,50 Bar; 0.04;BTW;Bar;0.001;0.000;0.100;NONE;-;
+8.2.38;PASS;TLP2 Mflexx - TLP2 bench at 4,50 Bar; 0.04;BTW;Bar;0.005;0.000;0.100;NONE;-;
+8.2.39;PASS;TSP1 Mflexx - TSP1 bench at 4,50 Bar; 0.05;BTW;Bar;0.031;0.000;0.100;NONE;-;
+8.2.40;PASS;TSP2 Mflexx - TSP2 bench at 4,50 Bar; 0.05;BTW;Bar;0.034;0.000;0.100;NONE;-;
+8.3.1;PASS;BC1 Pressure Switch upward threshold;41.44;BTW;Bar;0.351;0.250;0.450;NONE;-;
+8.3.2;FAIL;BC2 Pressure Switch upward threshold; 0.00;BTW;Bar;0.039;0.250;0.450;NONE;-;
+8.3.3;PASS;BC1 Pressure Switch downhill threshold;20.05;BTW;Bar;0.259;0.226;0.351;NONE;-;
+8.3.4;PASS;BC2 Pressure Switch downhill threshold; 0.03;BTW;Bar;0.000;-0.085;0.039;NONE;-;
+
+UUT Serial Number;137prova
+UUT Status;FAIL

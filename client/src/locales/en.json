@@ -1,0 +1,22 @@
+{
+    "dashboard": {
+      "overview": "Dashboard Overview",
+      "passFailCounts": "Overall Pass/Fail Counts",
+      "paretoChart": "Most Fails Pareto Chart",
+      "totalProduction": "Total Production",
+      "systemStatus": "No errors in system",
+      "productionUnits": "pcs."
+    },
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "fileUpload": "File Upload",
+      "viewFiles": "View All Files",
+      "pieChart": "Pie Chart",
+      "paretoChart": "Pareto Chart",
+      "uutStatusSummary": "UUT Status Summary"
+    },
+    "button": {
+      "toggleLanguage": "Change Language"
+    }
+  }
+  

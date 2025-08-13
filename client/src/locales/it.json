@@ -1,0 +1,22 @@
+{
+    "dashboard": {
+      "overview": "Panoramica del cruscotto",
+      "passFailCounts": "Conteggio complessivo Pass/Fail",
+      "paretoChart": "Grafico Pareto degli Errori",
+      "totalProduction": "Produzione Totale",
+      "systemStatus": "Nessun errore nel sistema",
+      "productionUnits": "pz."
+    },
+    "sidebar": {
+      "dashboard": "Cruscotto",
+      "fileUpload": "Carica File",
+      "viewFiles": "Visualizza Tutti i File",
+      "pieChart": "Grafico a Torta",
+      "paretoChart": "Grafico Pareto",
+      "uutStatusSummary": "Riepilogo Stato UUT"
+    },
+    "button": {
+      "toggleLanguage": "Cambia Lingua"
+    }
+  }
+  

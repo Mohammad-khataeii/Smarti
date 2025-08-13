@@ -1,0 +1,37 @@
+MachineIdentifier;650xxx
+StationName;FT0115977-TB0 Rev B00
+StationNumber;1
+StationIP;192.168.250.12
+FixtureId;FTI-01bis17
+Line;650xxx
+Testsocket;1
+AteHwVersion;A00
+AteSwVersion;R006
+TestenvSwVersion;4.0
+Productcode;FT0109253-102
+ProductRevision;D00
+SerialNumber;PNEUM014RCOVERPRODMGDMET
+Testspec;FT0109253-101-I00STS Rev.D00
+TestspecRev;C00
+Materialnumber;9001306906
+UutHwVersion;01
+UutSwVersion;01
+UutDesignReview;A00
+CustomerProductCode;12345
+Customer;Customername
+OrderManufacturing;1111
+Batchserial;2222
+CCPletter;A
+Swd_filenameCpu;FT0114724-100-IOOSWD
+RequiredCrcCpu;06FF3859
+Swd_filenameLcm;FT0044393-100-IOOSWD
+RequiredCrcLcm;0BE78BAD
+Operator;GRIVA
+Totaltest;11
+Totalstep;143
+TestStarted;2021/10/05 15:14:56
+TestStopped;2021/10/05 15:28:51
+TestGlobalResult;UNCOMPLETE
+
+UUT Serial Number;PNEUM014RCOVERPRODMGDMET
+UUT Status;UNCOMPLETE

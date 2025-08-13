@@ -1,0 +1,540 @@
+/* Language Toggle Button in Sidebar */
+.languageToggle {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 15px 0;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 1s;
+}
+
+.languageToggle.active {
+    background-color: #f5d6e6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.languageToggle:hover {
+    background-color: #e0e4e8;
+}
+
+.languageToggle span {
+    color: #34495e;
+}
+
+.languageToggle .active {
+    color: #000;
+}
+
+/* Sidebar toggle button styling */
+.sidebarToggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    padding: 10px;
+    background-color: #ffffff;
+    color: #34495e;
+    border: 1px solid #e0e4e8;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    max-width: 50px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 0.8s;
+}
+
+.sidebarToggle:hover {
+    background-color: #f5d6e6;
+}
+
+/* Sidebar styling */
+.dashboardSidebar {
+    background: linear-gradient(135deg, #ffffff, #f5d6e6);
+    color: #34495e;
+    padding-top: 70px;
+    height: 100vh;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    transition: transform 0.3s ease;
+    z-index: 999;
+    opacity: 0;
+    animation: slideInFromLeft 1s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+/* Sidebar menu styling */
+.sidebarMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    margin-top: -60px;
+}
+
+/* Sidebar menu item styling */
+.menuItem {
+    padding: 12px 20px;
+    background-color: #000;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+/* Hover effects for menu items */
+.menuItem:hover {
+    background-color: #f5d6e6;
+    color: #000;
+}
+
+.active {
+    background-color: #f5d6e6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #34495e;
+}
+
+/* Main content area styling */
+.dashboardContent {
+    margin-left: 250px;
+    padding: 30px;
+    transition: margin-left 0.3s ease;
+    width: 100%;
+    opacity: 0;
+    animation: fadeInContent 1s ease-out forwards;
+    animation-delay: 1s;
+}
+
+/* Chart containers */
+.dashboardCharts {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeInContent 1s ease-out forwards;
+    animation-delay: 1.5s;
+}
+
+/* Individual chart container styling */
+.chartContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+}
+
+/* Specific chart styling */
+.pieChartContainer {
+    width: 450px;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 50px;
+}
+
+.paretoChartContainer {
+    width: 800px;
+    height: 450px;
+}
+
+.placeholder-content {
+    font-size: 1.5em;
+    color: #cccccc;
+    text-align: center;
+}
+
+.dashboardStats {
+    display: flex;
+    gap: 20px; /* Space between cards */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    justify-content: flex-start; /* Align items to the left */
+    align-items: stretch; /* Make all cards the same height */
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 1320px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: 1000px; /* Center the container */
+}
+
+.statCard {
+    background: linear-gradient(135deg, #ffffff, #f5d6e6);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #34495e;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.statCard:first-child {
+    width: 350px; /* Fixed width for the production stat card */
+}
+
+.statCard.chartCard {
+    flex-grow: 1; /* Allow the chart card to fill remaining space */
+    max-width: none; /* Remove any width restrictions */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.statCard.chartCard .chartContainer {
+    width: 100%; /* Let the chart take the full width of the parent */
+    height: 250px; /* Adjust chart height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Help Button */
+.helpButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 2.5s;
+}
+.statCard h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #555555;
+}
+
+.statCard p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+}
+/* Container for the progress bar */
+.progressBarContainer {
+    width: 100%; /* Full width of the card */
+    height: 12px; /* Height of the progress bar */
+    background-color: #f0f0f0; /* Light gray background */
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+/* Actual progress indicator */
+.progressBar {
+    height: 100%; /* Match the height of the container */
+    background-color: #4caf50; /* Green for success */
+    transition: width 0.5s ease; /* Smooth animation for progress changes */
+}
+
+/* Progress text below the bar */
+.progressText {
+    font-size: 14px;
+    color: #555;
+    margin-top: 8px;
+}
+
+
+
+/* Modal Content */
+.helpModalContent {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    margin: auto;
+}
+
+/* Modal Overlay */
+.helpModalOverlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+
+/* Close Button */
+.closeHelpButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: none;
+    font-size: 18px;
+    cursor: pointer;
+    background-color: #FF6961;
+    color:#cccccc
+}
+.closeHelpButton:hover {
+    background-color: #000;
+    color: #FF6961
+}
+
+/* Help Text */
+.helpText {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Fade In Effect */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Slide In Effect */
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Fade In Content Effect */
+@keyframes fadeInContent {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.dateFilterSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    width: 1320px;
+    height: 100px;
+    margin-bottom: 15px;
+}
+
+.systemHealthContainer {
+    display: flex;
+    align-items: center;
+}
+
+.systemHealth {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.systemHealthText {
+    margin: 0 20px;
+    font-size: 16px;
+    
+    color: #343a40;
+}
+
+.greenLight {
+    width: 15px;
+    height: 15px;
+    background-color: green;
+    border-radius: 50%;
+    margin-right: 5px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+
+.currentDateTime {
+    font-size: 14px;
+    color: #495057;
+}
+
+.dateFilterTitle {
+    margin: 0 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #343a40;
+}
+
+.dateFilterContent {
+    display: flex;
+    align-items: center;
+}
+
+.inlineFilter {
+    display: flex;
+    align-items: center;
+}
+
+.filterItem {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.filterLabel {
+    margin-right: 5px;
+    font-size: 14px;
+    color: #495057;
+}
+
+.dateInput {
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ced4da;
+    border-radius: 3px;
+}
+
+.applyButton {
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.applyButton:hover {
+    background-color: #0056b3;
+}
+
+.errorMessage {
+    margin-top: 10px;
+    color: red;
+    font-size: 14px;
+}
+.Logout{
+    padding: 12px 20px;
+    background-color: #ffffff;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+}
+.Logout:hover {
+    background-color: #f5d6e6;
+    color: #000;
+}
+.alarmButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    font-size: 14px;
+    background-color: #ff4d4d; /* Red alert color */
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    animation: flash 1.5s infinite; /* Flashing animation */
+    margin-left: 10px; /* Spacing from adjacent elements */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.alarmButton:hover {
+    background-color: #e63939; /* Slightly darker red on hover */
+}
+
+/* Flashing animation */
+@keyframes flash {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+.productionGoalInput {
+    font-size: 16px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 60%;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #fff; /* Matches a clean design */
+    color: #333; /* Matches other text components */
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.productionGoalInput:focus {
+    border-color: #4caf50; /* Highlight color matching the progress bar */
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
