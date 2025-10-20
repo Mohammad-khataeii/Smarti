@@ -8,7 +8,7 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, ArcElement, T
 import Modal from 'react-modal';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";  // To include the default styles
-
+import MlRunDetail from '../pages/MlRunDetail';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Tooltip, Legend);
 
@@ -358,6 +358,7 @@ const failureRateChartData = {
                     <button onClick={() => navigate('/uut-status-summary')} className={styles.menuItem}>{t('UUT Status Summary')}</button>
                     <button onClick={() => navigate('/root-cause-prediction')} className={styles.menuItem}>{t('Root Cause Analyzer')}</button>
                     <button onClick={() => navigate('/step-frequency')} className={styles.menuItem}>{t('Step Frequency Analyzer')}</button>
+                    <button onClick={() => navigate('/ml-run-detail')} className={styles.menuItem}>{t('ML Run Detail')}</button>
                     {/* <button onClick={() => navigate('/predictive-analysis')} className={styles.menuItem}>{t('Predictive Analysis')}</button> */}
                     <button onClick={() => navigate('/normal-distribution')} className={styles.menuItem}>{t('Process Capability Report')}</button>
                     <button onClick={onLogout} className={styles.Logout}>{t('Logout')}</button>

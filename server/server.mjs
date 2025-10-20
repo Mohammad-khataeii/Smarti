@@ -10,6 +10,8 @@ import fs from 'fs';
 import os from 'os';
 import { fileURLToPath } from 'url';
 
+
+
 // ===== Utility to get __dirname in ESM =====
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -86,6 +88,7 @@ import rootCauseAlarms from './root-cause-alarms.mjs';
 import rootCausePredictionRoute from './rootCausePredictionRoute.mjs';
 import stepFrequencyRoute from './stepFrequencyRoute.mjs';
 import normalDistributionRoute from './normalDistributionRoute.mjs';
+import mlRoutes from "./routes/ml.mjs";
 
 // Example protected route
 app.get('/check-auth', (req, res) => {
@@ -108,6 +111,7 @@ app.use('/api', rootCausePredictionRoute);
 app.use('/api', stepFrequencyRoute);
 app.use('/api', normalDistributionRoute);
 app.use('/api', rootCauseAlarms);
+app.use("/api/ml", mlRoutes);
 
 // ===== Serve React build =====
 app.use(express.static(path.join(__dirname, 'public')));

@@ -1,0 +1,213 @@
+MachineIdentifier;650xxx
+StationName;FT0115977-TB0 Rev B00
+StationNumber;1
+StationIP;192.168.250.12
+FixtureId;FTI-01bis17
+Line;650xxx
+Testsocket;1
+AteHwVersion;A00
+AteSwVersion;1.0
+TestenvSwVersion;4.0
+Productcode;FT0109253-102
+ProductRevision;C00
+SerialNumber;6666
+Testspec;FT0109253-101-I00STS Rev.C00
+TestspecRev;C00
+Materialnumber;9001306906
+UutHwVersion;01
+UutSwVersion;01
+UutDesignReview;A00
+CustomerProductCode;12345
+Customer;Customername
+OrderManufacturing;1111
+Batchserial;2222
+CCPletter;A
+Swd_filenameCpu;FT0114724-100-IOOSWD
+RequiredCrcCpu;06FF3859
+Swd_filenameLcm;FT0044393-100-IOOSWD
+RequiredCrcLcm;0BE78BAD
+Operator;Wabtec
+Totaltest;11
+Totalstep;39
+TestStarted;2020/10/02 20:21:43
+TestStopped;2020/10/02 20:31:38
+TestGlobalResult;FAIL
+TestOperatorNotes;0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+	0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789
+[T0]
+8.0.1;Preliminary Operations;PASS;0;0
+[T1]
+8.0.2;Test Software Download;NODONE;0;0
+[T2]
+8.0.3;Power on and Current Consumption;PASS;0;0
+[T3]
+8.1;Transducers check;PASS;0;0
+[T4]
+8.3;Emergengy and BrakeTest;FAIL;0;0
+[T5]
+8.4;Service Brake;PASS;0;0
+[T6]
+8.5;WSP Monostable;PASS;0;0
+[T7]
+7.3;Reverse Flow;PASS;0;0
+[T8]
+8.2;E_pressure switch threshold verification;PASS;0;0
+[T9]
+6.0;ID Reader check;NODONE;0;0
+[T10]
+8.7;Application Software Download;NODONE;0;0
+
+Step_Number; Step_Result; Step_Name; StepTime; Measure_Type; Units; Measure_Value; LimitLow; LimitHigh; Measure_string; LimitString
+8.0.1.1;Done;Initial Setup; 3.06;INFO;-;0;0;0;NONE;Done;
+8.0.1.2;Done;Cable & automatic valves setup; 0.00;INFO;-;0;0;0;NONE;Done;
+8.0.3.1;Done;Power ON; 2.06;INFO;-;0;0;0;NONE;Done;
+8.0.3.2;PASS;Inrush Current;21.08;BTW;mA;276.036;200.000;550.000;NONE;-;
+8.0.3.3;PASS;Battery Voltage; 0.35;BTW;Volt;109.972;109.000;111.000;NONE;-;
+8.0.3.4;PASS;EMG Monitoring; 9.19;STRING;-;0;0;0;1;1;
+8.0.3.5;PASS;LCU1 Code Id; 0.00;EQ;ID;14;14;0;NONE;-;
+8.0.3.6;PASS;LCU2 Code Id; 0.00;EQ;ID;14;14;0;NONE;-;
+8.1.1;PASS;TA at 0 Bar;42.44;BTW;Bar;0.000;0.000;0.050;NONE;-;
+8.1.2;PASS;TPL at 0 Bar; 0.00;BTW;Bar;0.000;0.000;0.050;NONE;-;
+8.1.3;PASS;TBC1 at 0 Bar; 0.00;BTW;Bar;0.000;0.000;0.050;NONE;-;
+8.1.4;PASS;TBC2 at 0 Bar; 0.00;BTW;Bar;0.000;0.000;0.050;NONE;-;
+8.1.5;PASS;TLP1 at 0 Bar; 0.00;BTW;Bar;0.000;0.000;0.050;NONE;-;
+8.1.6;PASS;TLP2 at 0 Bar; 0.00;BTW;Bar;0.000;0.000;0.050;NONE;-;
+8.1.7;PASS;TSP1 at 0 Bar; 0.00;BTW;Bar;0.000;0.000;0.050;NONE;-;
+8.1.8;PASS;TSP2 at 0 Bar; 0.00;BTW;Bar;0.000;0.000;0.050;NONE;-;
+8.1.9;PASS;TA at 0.5 Bar;15.88;BTW;Bar;0.496;0.400;0.600;NONE;-;
+8.1.10;PASS;TPL at 0.5 Bar; 0.00;BTW;Bar;0.496;0.400;0.600;NONE;-;
+8.1.11;PASS;TBC1 at 0.5 Bar; 0.00;BTW;Bar;0.428;0.400;0.600;NONE;-;
+8.1.12;PASS;TBC2 at 0.5 Bar; 0.00;BTW;Bar;0.441;0.400;0.600;NONE;-;
+8.1.13;PASS;TLP1 at 0.5 Bar; 0.00;BTW;Bar;0.511;0.400;0.600;NONE;-;
+8.1.14;PASS;TLP2 at 0.5 Bar; 0.00;BTW;Bar;0.517;0.400;0.600;NONE;-;
+8.1.15;PASS;TSP1 at 0.5 Bar; 0.00;BTW;Bar;0.502;0.400;0.600;NONE;-;
+8.1.16;PASS;TSP2 at 0.5 Bar; 0.00;BTW;Bar;0.505;0.400;0.600;NONE;-;
+8.1.17;PASS;TA Mflexx - TA bench at 0.5 Bar; 0.03;BTW;Bar;0.010;0.000;0.100;NONE;-;
+8.1.18;PASS;TPL Mflexx - TPL bench at 0.5 Bar; 0.03;BTW;Bar;0.009;0.000;0.100;NONE;-;
+8.1.19;PASS;TBC1 Mflexx - TBC1 bench at 0.5 Bar; 0.03;BTW;Bar;0.009;0.000;0.100;NONE;-;
+8.1.20;PASS;TBC2 Mflexx - TBC2 bench at 0.5 Bar; 0.03;BTW;Bar;0.004;0.000;0.100;NONE;-;
+8.1.21;PASS;TLP1 Mflexx - TLP1 bench at 0.5 Bar; 0.03;BTW;Bar;0.020;0.000;0.100;NONE;-;
+8.1.22;PASS;TLP2 Mflexx - TLP2 bench at 0.5 Bar; 0.03;BTW;Bar;0.010;0.000;0.100;NONE;-;
+8.1.23;PASS;TSP1 Mflexx - TSP1 bench at 0.5 Bar; 0.03;BTW;Bar;0.031;0.000;0.100;NONE;-;
+8.1.24;PASS;TSP2 Mflexx - TSP2 bench at 0.5 Bar; 0.03;BTW;Bar;0.025;0.000;0.100;NONE;-;
+8.1.25;PASS;TA at 6 Bar;70.78;BTW;Bar;6.038;5.900;6.100;NONE;-;
+8.1.26;PASS;TPL at 3,85  Bar; 0.00;BTW;Bar;3.929;3.850;5.050;NONE;-;
+8.1.27;PASS;TBC1 at 3,85  Bar; 0.00;BTW;Bar;3.841;3.750;3.950;NONE;-;
+8.1.28;PASS;TBC2 at 3,85  Bar; 0.00;BTW;Bar;3.889;3.750;3.950;NONE;-;
+8.1.29;PASS;TLP1 at 5,45 Bar; 0.00;BTW;Bar;5.507;5.350;5.550;NONE;-;
+8.1.30;PASS;TLP2 at 5,45 Bar; 0.00;BTW;Bar;5.498;5.350;5.550;NONE;-;
+8.1.31;PASS;TSP1 at 5,45 Bar; 0.00;BTW;Bar;5.486;5.350;5.550;NONE;-;
+8.1.32;PASS;TSP2 at 5,45 Bar; 0.00;BTW;Bar;5.483;5.350;5.550;NONE;-;
+8.1.33;PASS;TA Mflexx - TA bench at 6 Bar; 0.03;BTW;Bar;0.008;0.000;0.100;NONE;-;
+8.1.34;PASS;TPL Mflexx - TPL bench at 6 Bar; 0.03;BTW;Bar;0.014;0.000;0.100;NONE;-;
+8.1.35;PASS;TBC1 Mflexx - TBC1 bench at 6 Bar; 0.03;BTW;Bar;0.005;0.000;0.100;NONE;-;
+8.1.36;PASS;TBC2 Mflexx - TBC2 bench at 6 Bar; 0.03;BTW;Bar;0.003;0.000;0.100;NONE;-;
+8.1.37;PASS;TLP1 Mflexx - TLP1 bench at 6 Bar; 0.03;BTW;Bar;0.010;0.000;0.100;NONE;-;
+8.1.38;PASS;TLP2 Mflexx - TLP2 bench at 6 Bar; 0.03;BTW;Bar;0.014;0.000;0.100;NONE;-;
+8.1.39;PASS;TSP1 Mflexx - TSP1 bench at 6 Bar; 0.03;BTW;Bar;0.030;0.000;0.100;NONE;-;
+8.1.40;PASS;TSP2 Mflexx - TSP2 bench at 6 Bar; 0.03;BTW;Bar;0.033;0.000;0.100;NONE;-;
+8.3.1;PASS;MJF1 Signal before braketest;61.69;STRING;-;0;0;0;1;1;
+8.3.2;PASS;MJF2 Signal before braketest; 0.00;STRING;-;0;0;0;1;1;
+8.3.3;Done;Start Braketest;139.62;INFO;-;0;0;0;NONE;Done;
+8.3.4;PASS;TPL Pressure at MGDMin; 0.00;BTW;Bar;2.085;1.950;2.150;NONE;-;
+8.3.5;PASS;BC1 Pressure at MGDMin; 0.00;BTW;Bar;2.080;1.884;2.084;NONE;-;
+8.3.6;PASS;BC2 Pressure at MGDMin; 0.00;BTW;Bar;2.062;1.884;2.084;NONE;-;
+8.3.7;PASS;BC1 Electronic Pressure Switch OFF - Brake Applied; 0.00;STRING;-;0;0;0;0;0;
+8.3.8;PASS;BC2 Electronic Pressure Switch OFF - Brake Applied; 0.00;STRING;-;0;0;0;0;0;
+8.3.9;PASS;TPL Pressure at MGDBoost; 0.00;BTW;Bar;6.493;6.400;6.600;NONE;-;
+8.3.10;PASS;BC1 Pressure at MGDBoost; 0.00;BTW;Bar;6.441;6.292;6.492;NONE;-;
+8.3.11;PASS;BC2 Pressure at MGDBoost; 0.00;BTW;Bar;6.447;6.292;6.492;NONE;-;
+8.3.12;PASS;BC1 Electronic Pressure Switch OFF - Brake Applied; 0.00;STRING;-;0;0;0;0;0;
+8.3.13;PASS;BC2 Electronic Pressure Switch OFF - Brake Applied; 0.00;STRING;-;0;0;0;0;0;
+8.3.14;Done;LOAD OFF, UNLOAD OFF; 0.01;INFO;-;0;0;0;NONE;Done;
+8.3.15;FAIL;TPL Pressure Drop 30 sec;285.60;BTW;Bar;0.013;0.000;0.011;NONE;-;
+8.3.16;PASS;BrakeTest Result; 0.00;STRING;-;0;0;0;TEST_OK;TEST_OK;
+8.3.17;PASS;LCU1 State; 0.00;STRING;-;0;0;0;NO_ERR;NO_ERR;
+8.3.18;PASS;LCU2 State; 0.00;STRING;-;0;0;0;NO_ERR;NO_ERR;
+8.3.19;PASS;MJF1 Signal after braketest; 0.01;STRING;-;0;0;0;0;0;
+8.3.20;PASS;MJF2 Signal after braketest; 0.00;STRING;-;0;0;0;0;0;
+8.3.21;Done;TLP_MED Apply; 0.13;INFO;-;0;0;0;NONE;Done;
+8.3.22;PASS;TLP1 Measure;30.23;BTW;Bar;4.213;4.048;4.248;NONE;Done;
+8.3.23;PASS;TLP2 Measure; 0.03;BTW;Bar;4.211;4.048;4.248;NONE;Done;
+8.3.24;PASS;SerB_MED calculation; 0.00;BTW;Bar;3.261;3.130;3.330;NONE;Done;
+8.3.25;PASS;TPL Pressure; 0.03;BTW;Bar;3.353;3.261;3.461;NONE;-;
+8.3.26;PASS;BC1 Pressure; 0.03;BTW;Bar;3.257;3.161;3.361;NONE;-;
+8.3.27;PASS;BC2 Pressure;10.05;BTW;Bar;3.239;3.161;3.361;NONE;-;
+8.3.28;PASS;BC1 Brake Released;11.94;BTW;Bar;0.004;0.000;0.100;NONE;Done;
+8.3.29;PASS;BC2 Brake Released; 0.03;BTW;Bar;0.000;0.000;0.100;NONE;Done;
+8.3.30;PASS;BC1 Teq;12.94;BTW;Sec;0.507;0.300;1.000;NONE;Done;
+8.3.31;PASS;BC2 Teq; 0.00;BTW;Sec;0.450;0.300;1.000;NONE;Done;
+8.4.1;Done;Safety Loop Closed;30.82;INFO;-;0;0;0;NONE;Done;
+8.4.2;Done;BCU Command to SerBmax;18.08;INFO;-;0;0;0;NONE;Done;
+8.4.3;PASS;BC1 Pressure at SerbMax; 0.03;BTW;Bar;3.817;3.750;3.950;NONE;-;
+8.4.4;PASS;BC2 Pressure at SerbMax; 0.03;BTW;Bar;3.831;3.750;3.950;NONE;-;
+8.4.5;PASS;Teq BC1 apply time; 0.00;BTW;Sec;0.472;0.300;1.200;NONE;-;
+8.4.6;PASS;Teq BC2 apply time; 0.00;BTW;Sec;0.707;0.300;1.200;NONE;-;
+8.4.7;PASS;BC1 Electronic Pressure Switch OFF - Brake Applied; 0.01;STRING;-;0;0;0;0;0;
+8.4.8;PASS;BC2 Electronic Pressure Switch OFF - Brake Applied; 0.01;STRING;-;0;0;0;0;0;
+8.4.9;Done;RR1 & RR2 External Activation; 0.18;INFO;-;0;0;0;NONE;Done;
+8.4.10;PASS;BC1 Pressure RR1 Active;20.66;LT;Bar;0.003;0.400;0.000;NONE;-;
+8.4.11;PASS;BC2 Pressure RR2 Active; 0.03;LT;Bar;0.000;0.400;0.000;NONE;-;
+8.4.12;PASS;BC1 Electronic Pressure Switch ON - Brake Released; 0.01;STRING;-;0;0;0;1;1;
+8.4.13;PASS;BC2 Electronic Pressure Switch  ON - Brake Released; 0.01;STRING;-;0;0;0;1;1;
+8.4.14;Done;BCU Command to SerBmax; 0.36;INFO;-;0;0;0;NONE;Done;
+8.4.15;PASS;BC1 Pressure at SerbMax;20.68;BTW;Bar;3.810;3.750;3.950;NONE;-;
+8.4.16;PASS;BC2 Pressure at SerbMax; 0.03;BTW;Bar;3.841;3.750;3.950;NONE;-;
+8.4.17;PASS;BC1 Electronic Pressure Switch OFF - Brake Applied; 0.01;STRING;-;0;0;0;0;0;
+8.4.18;PASS;BC2 Electronic Pressure Switch OFF - Brake Applied; 0.01;STRING;-;0;0;0;0;0;
+8.4.19;Done;RR1 & RR2 Internal Activation; 0.14;INFO;-;0;0;0;NONE;Done;
+8.4.20;PASS;BC1 Pressure RR1 Active;20.65;LT;Bar;0.003;0.400;0.000;NONE;-;
+8.4.21;PASS;BC2 Pressure RR2 Active; 0.03;LT;Bar;0.000;0.400;0.000;NONE;-;
+8.4.22;PASS;BC1 Electronic Pressure Switch ON - Brake Released; 0.01;STRING;-;0;0;0;1;1;
+8.4.23;PASS;BC2 Electronic Pressure Switch  ON - Brake Released; 0.01;STRING;-;0;0;0;1;1;
+8.4.24;Done;BCU Command to SerBmin; 0.16;INFO;-;0;0;0;NONE;Done;
+8.4.25;PASS;BC1 Pressure at SerbMin; 9.82;BTW;Bar;2.625;2.510;2.710;NONE;-;
+8.4.26;PASS;BC2 Pressure at SerbMin; 0.03;BTW;Bar;2.599;2.510;2.710;NONE;-;
+8.4.27;Done;BCU Command to SerBmax; 0.42;INFO;-;0;0;0;NONE;Done;
+8.4.28;PASS;BC1 Pressure at SerbMax;10.53;BTW;Bar;3.813;3.750;3.950;NONE;-;
+8.4.29;PASS;BC2 Pressure at SerbMax; 0.03;BTW;Bar;3.837;3.750;3.950;NONE;-;
+8.4.30;PASS;BC1 Electronic Pressure Switch OFF - Brake Applied; 0.01;STRING;-;0;0;0;0;0;
+8.4.31;PASS;BC2 Electronic Pressure Switch OFF - Brake Applied; 0.01;STRING;-;0;0;0;0;0;
+8.4.32;Done;EVF, EVS  Activation;62.00;INFO;-;0;0;0;NONE;Done;
+8.4.33;PASS;BC1 Pressure EVF, EVS Active; 0.03;BTW;Bar;0.005;0.000;0.400;NONE;-;
+8.4.34;PASS;BC2 Pressure EVF, EVS Active; 0.03;BTW;Bar;0.000;0.000;0.400;NONE;-;
+8.4.35;PASS;Trel BC1 release time; 0.00;BTW;Sec;0.505;0.400;0.800;NONE;-;
+8.4.36;PASS;Trel BC2 release time; 0.00;BTW;Sec;0.540;0.400;0.800;NONE;-;
+8.5.1;Done;Safety Loop Closed;30.81;INFO;-;0;0;0;NONE;Done;
+8.5.2;Done;BCU Command to SerBmax; 0.18;INFO;-;0;0;0;NONE;Done;
+8.5.3;PASS;BC1 Pressure at SerbMax; 4.93;BTW;Bar;3.823;3.750;3.950;NONE;-;
+8.5.4;PASS;BC2 Pressure at SerbMax; 0.03;BTW;Bar;3.818;3.750;3.950;NONE;-;
+8.5.5;PASS;BC1 Electronic Pressure Switch OFF - Brake Applied; 0.01;STRING;-;0;0;0;0;0;
+8.5.6;PASS;BC2 Electronic Pressure Switch OFF - Brake Applied; 0.01;STRING;-;0;0;0;0;0;
+8.5.7;Done;WSP FILL & VENT Activation; 0.29;INFO;-;0;0;0;NONE;Done;
+8.5.8;PASS;BC1 WSP FILL & VENT Active; 2.63;BTW;Bar;0.006;0.000;0.400;NONE;-;
+8.5.9;PASS;BC2 WSP FILL & VENT Active; 0.03;BTW;Bar;0.003;0.000;0.400;NONE;-;
+8.5.10;PASS;BC1 Electronic Pressure Switch ON - Brake Released; 0.01;STRING;-;0;0;0;1;1;
+8.5.11;PASS;BC2 Electronic Pressure Switch ON - Brake Released; 0.01;STRING;-;0;0;0;1;1;
+8.5.12;Done;Wait 12 sec; 0.00;INFO;-;0;0;0;NONE;Done;
+8.5.13;PASS;BC1 After Monostable Intervention;11.89;BTW;Bar;3.901;3.750;3.950;NONE;-;
+8.5.14;PASS;BC2 After Monostable Intervention; 0.03;BTW;Bar;3.889;3.750;3.950;NONE;-;
+8.5.15;PASS;BC1 Electronic Pressure Switch OFF - Brake Applied; 0.01;STRING;-;0;0;0;0;0;
+8.5.16;PASS;BC2 Electronic Pressure Switch OFF - Brake Applied; 6.08;STRING;-;0;0;0;0;0;
+7.3.1;Done;VPL Pressure Reg;31.00;INFO;-;0;0;0;NONE;Done;
+7.3.2;PASS;VPL Pressure; 4.94;BTW;Bar;4.005;3.850;4.050;NONE;-;
+7.3.3;Done;BC1 and BC2 to 3.85 Bar; 0.30;INFO;-;0;0;0;NONE;Done;
+7.3.4;PASS;BC1 Pressure;20.64;BTW;Bar;3.818;3.750;3.950;NONE;-;
+7.3.5;PASS;BC2 Pressure; 0.03;BTW;Bar;3.840;3.750;3.950;NONE;-;
+7.3.6;Done;EVF Activation; 0.19;INFO;-;0;0;0;NONE;Done;
+7.3.7;PASS;VPL Pressure After Discharge;59.78;BTW;Bar;2.771;2.600;2.800;NONE;-;
+7.3.8;PASS;BC1 Pressure at VPL = 2.7; 0.03;BTW;Bar;3.805;3.750;3.950;NONE;-;
+7.3.9;PASS;BC2 Pressure at VPL = 2.7; 0.26;BTW;Bar;3.805;3.750;3.950;NONE;-;
+7.3.10;PASS;AR Pressure After Discharge;20.89;BTW;Bar;0.000;0.000;0.100;NONE;-;
+7.3.11;PASS;BC1 Pressure After Discharge; 0.03;BTW;Bar;0.004;0.000;0.100;NONE;-;
+7.3.12;PASS;BC2 Pressure After Discharge; 0.25;BTW;Bar;0.000;0.000;0.100;NONE;-;
+8.2.1;PASS;BC1 Pressure Switch upward threshold;40.73;BTW;Bar;0.362;0.250;0.450;NONE;-;
+8.2.2;PASS;BC2 Pressure Switch upward threshold; 0.00;BTW;Bar;0.364;0.250;0.450;NONE;-;
+8.2.3;PASS;BC1 Pressure Switch downhill threshold;20.04;BTW;Bar;0.267;0.241;0.286;NONE;-;
+8.2.4;PASS;BC1 Pressure Switch downhill threshold; 0.00;BTW;Bar;0.261;0.243;0.288;NONE;-;
+
+UUT Serial Number;6666
+UUT Status;FAIL

@@ -1,0 +1,117 @@
+pos_bucket,stepName,fail_count
+late,TPL Pressure at MGDMin,99
+late,LCU1 Code Id,93
+late,BrakeTest Result,86
+late,LCU2 Code Id,85
+late,TPL Pressure at MGDBoost,81
+late,MJF1 Signal after braketest,77
+late,MJF2 Signal after braketest,77
+late,LCU1 State,70
+late,LCU2 State,70
+late,BC1 Pressure at MGDBoost,68
+late,BC2 Pressure at MGDBoost,54
+late,BC1 Pressure at MGDMin,49
+late,BC2 Pressure at SerbMax,48
+late,BC2 Pressure at MGDMin,38
+late,TPL Pressure Drop 30 sec,37
+late,BC2 Pressure,36
+late,Check RX Counter,34
+late,BC1 Pressure,31
+late,Test Application CRC32,29
+late,Test Application Release,29
+late,Check TX Counter,28
+late,Test Application Name,25
+late,Read LCU1 Fault,23
+late,Read LCU2 Fault,23
+late,Flash Test Application,22
+late,TPL Pressure,22
+late,BC1 Pressure at SerbMax,21
+late,EMG Monitoring,21
+late,Trel BC1 release time,17
+late,Link Status,16
+late,Trel BC2 release time,15
+late,BC2 Teq,12
+late,Check Warning Counter,12
+late,BC1 Electronic Pressure Switch ON - Brake Released,11
+late,BC1 Pressure RR1 Active,11
+late,SerB_MED calculation,11
+late,"TBC1 at 3,57  Bar",11
+late,"TBC2 at 3,67  Bar",11
+late,"TPL at 3,57  Bar",11
+late,BC1 Electronic Pressure Switch OFF - Brake Applied,10
+late,BC1 Pressure Switch upward threshold,10
+late,BC2 Electronic Pressure Switch OFF - Brake Applied,10
+late,BC2 Pressure Switch upward threshold,10
+late,BC2 Pressure at SerbMin,10
+late,BC1 After Monostable Intervention,8
+late,BC2 After Monostable Intervention,8
+late,Check Error Counter,8
+late,LCU1 Code ID,8
+late,LCU2 Code ID,8
+late,VPL Pressure,8
+late,VPL Pressure After Discharge,8
+late,BC1 Pressure Switch downhill threshold,7
+late,BC1 Pressure at VPL = 2.5,7
+late,BC2 Pressure at VPL = 2.5,7
+late,TBC1 at 0 Bar,6
+late,"TBC2 at 3,85  Bar",6
+late,BC1 Teq,5
+late,BC1 Pressure at SerbMin,4
+late,Check Monitoring Vanalog,4
+late,Check supplied O-Ring kit,4
+late,Flash Test Application ETH,4
+late,PSD Measurement PAIR2 [30:100Mhz] 100m Line,4
+late,PSD Measurement PAIR3 [30:100Mhz] 100m Line,4
+late,TBC1 at 0.5 Bar,4
+late,Teq BC1 apply time,4
+late,Teq BC2 apply time,4
+late,Init And Link Stability,3
+late,Init And Link Stability 100m Line,3
+late,TA at 6 Bar,3
+late,TBC2 at 0.5 Bar,3
+late,TLP1 Measure,3
+late,TLP2 Measure,3
+late,TSP1 at 0.5 Bar,3
+late,"TSP1 at 5,613 Bar",3
+late,BC1 Pressure at VPL = 3.5,2
+late,BC2 Pressure Switch downhill threshold,2
+late,BC2 Pressure at VPL = 3.5,2
+late,Check Difference TX-RX Counter,2
+late,Check Monitoring 15V_iso,2
+late,Check SPEED1 Diag = 20mA,2
+late,Check SPEED2 Diag = 12mA,2
+late,Check SPEED2 Diag = 16mA,2
+late,Check SPEED2 Diag = 8mA,2
+late,ETH Analyser setup,2
+late,Inrush Current,2
+late,TA at 0.5 Bar,2
+late,"TA at 3,85 Bar",2
+late,TLP1 at 0.5 Bar,2
+late,"TLP1 at 5,613 Bar",2
+late,TLP2 at 0.5 Bar,2
+late,"TLP2 at 5,613 Bar",2
+late,TPL at 0.5 Bar,2
+late,"TPL at 3,85  Bar",2
+late,TSP2 at 0.5 Bar,2
+late,"TSP2 at 5,613 Bar",2
+late,Calibration check,1
+late,Check AI_SPARE1 = 12mA,1
+late,Check AI_SPARE1 = 19mA,1
+late,Check AI_SPARE1 = 4mA,1
+late,Check AI_SPARE2 = 12mA,1
+late,Check AI_SPARE2 = 19mA,1
+late,Check AI_SPARE2 = 4mA,1
+late,Check Ambient Temperature,1
+late,SNR Measurement at 100 Mbit/sec on PAIR2,1
+late,SNR Measurement at 100 Mbit/sec on PAIR2 100m Line,1
+late,SNR Measurement at 100 Mbit/sec on PAIR3,1
+late,SNR Measurement at 100 Mbit/sec on PAIR3 100m Line,1
+late,T4 Initial Pressure,1
+late,T4 with EV load ON,1
+late,TBC1 at 6 Bar,1
+late,TBC2 at 6 Bar,1
+late,TPL at 6 Bar,1
+late,TSP1 Mflexx - TSP1 bench at 0.5 Bar,1
+late,"TSP1 Mflexx - TSP1 bench at 4,50 Bar",1
+late,TX POWER PAIR2 @ 100Mbs,1
+late,TX POWER PAIR2 @ 100Mbs 100m Line,1

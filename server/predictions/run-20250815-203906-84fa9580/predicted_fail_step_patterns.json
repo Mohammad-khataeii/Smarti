@@ -1,0 +1,466 @@
+[
+  {
+    "stepName":"TPL Pressure at MGDMin",
+    "fail_count":99
+  },
+  {
+    "stepName":"LCU1 Code Id",
+    "fail_count":93
+  },
+  {
+    "stepName":"BrakeTest Result",
+    "fail_count":86
+  },
+  {
+    "stepName":"LCU2 Code Id",
+    "fail_count":85
+  },
+  {
+    "stepName":"TPL Pressure at MGDBoost",
+    "fail_count":81
+  },
+  {
+    "stepName":"MJF1 Signal after braketest",
+    "fail_count":77
+  },
+  {
+    "stepName":"MJF2 Signal after braketest",
+    "fail_count":77
+  },
+  {
+    "stepName":"LCU1 State",
+    "fail_count":70
+  },
+  {
+    "stepName":"LCU2 State",
+    "fail_count":70
+  },
+  {
+    "stepName":"BC1 Pressure at MGDBoost",
+    "fail_count":68
+  },
+  {
+    "stepName":"BC2 Pressure at MGDBoost",
+    "fail_count":54
+  },
+  {
+    "stepName":"BC1 Pressure at MGDMin",
+    "fail_count":49
+  },
+  {
+    "stepName":"BC2 Pressure at SerbMax",
+    "fail_count":48
+  },
+  {
+    "stepName":"BC2 Pressure at MGDMin",
+    "fail_count":38
+  },
+  {
+    "stepName":"TPL Pressure Drop 30 sec",
+    "fail_count":37
+  },
+  {
+    "stepName":"BC2 Pressure",
+    "fail_count":36
+  },
+  {
+    "stepName":"Check RX Counter",
+    "fail_count":34
+  },
+  {
+    "stepName":"BC1 Pressure",
+    "fail_count":31
+  },
+  {
+    "stepName":"Test Application Release",
+    "fail_count":29
+  },
+  {
+    "stepName":"Test Application CRC32",
+    "fail_count":29
+  },
+  {
+    "stepName":"Check TX Counter",
+    "fail_count":28
+  },
+  {
+    "stepName":"Test Application Name",
+    "fail_count":25
+  },
+  {
+    "stepName":"Read LCU2 Fault",
+    "fail_count":23
+  },
+  {
+    "stepName":"Read LCU1 Fault",
+    "fail_count":23
+  },
+  {
+    "stepName":"TPL Pressure",
+    "fail_count":22
+  },
+  {
+    "stepName":"Flash Test Application",
+    "fail_count":22
+  },
+  {
+    "stepName":"EMG Monitoring",
+    "fail_count":21
+  },
+  {
+    "stepName":"BC1 Pressure at SerbMax",
+    "fail_count":21
+  },
+  {
+    "stepName":"Trel BC1 release time",
+    "fail_count":17
+  },
+  {
+    "stepName":"Link Status",
+    "fail_count":16
+  },
+  {
+    "stepName":"Trel BC2 release time",
+    "fail_count":15
+  },
+  {
+    "stepName":"Check Warning Counter",
+    "fail_count":12
+  },
+  {
+    "stepName":"BC2 Teq",
+    "fail_count":12
+  },
+  {
+    "stepName":"TBC2 at 3,67  Bar",
+    "fail_count":11
+  },
+  {
+    "stepName":"BC1 Pressure RR1 Active",
+    "fail_count":11
+  },
+  {
+    "stepName":"BC1 Electronic Pressure Switch ON - Brake Released",
+    "fail_count":11
+  },
+  {
+    "stepName":"TBC1 at 3,57  Bar",
+    "fail_count":11
+  },
+  {
+    "stepName":"TPL at 3,57  Bar",
+    "fail_count":11
+  },
+  {
+    "stepName":"SerB_MED calculation",
+    "fail_count":11
+  },
+  {
+    "stepName":"BC2 Electronic Pressure Switch OFF - Brake Applied",
+    "fail_count":10
+  },
+  {
+    "stepName":"BC1 Electronic Pressure Switch OFF - Brake Applied",
+    "fail_count":10
+  },
+  {
+    "stepName":"BC1 Pressure Switch upward threshold",
+    "fail_count":10
+  },
+  {
+    "stepName":"BC2 Pressure at SerbMin",
+    "fail_count":10
+  },
+  {
+    "stepName":"BC2 Pressure Switch upward threshold",
+    "fail_count":10
+  },
+  {
+    "stepName":"Check Error Counter",
+    "fail_count":8
+  },
+  {
+    "stepName":"LCU1 Code ID",
+    "fail_count":8
+  },
+  {
+    "stepName":"BC2 After Monostable Intervention",
+    "fail_count":8
+  },
+  {
+    "stepName":"LCU2 Code ID",
+    "fail_count":8
+  },
+  {
+    "stepName":"VPL Pressure",
+    "fail_count":8
+  },
+  {
+    "stepName":"VPL Pressure After Discharge",
+    "fail_count":8
+  },
+  {
+    "stepName":"BC1 After Monostable Intervention",
+    "fail_count":8
+  },
+  {
+    "stepName":"BC1 Pressure Switch downhill threshold",
+    "fail_count":7
+  },
+  {
+    "stepName":"BC2 Pressure at VPL = 2.5",
+    "fail_count":7
+  },
+  {
+    "stepName":"BC1 Pressure at VPL = 2.5",
+    "fail_count":7
+  },
+  {
+    "stepName":"TBC2 at 3,85  Bar",
+    "fail_count":6
+  },
+  {
+    "stepName":"TBC1 at 0 Bar",
+    "fail_count":6
+  },
+  {
+    "stepName":"BC1 Teq",
+    "fail_count":5
+  },
+  {
+    "stepName":"Teq BC2 apply time",
+    "fail_count":4
+  },
+  {
+    "stepName":"BC1 Pressure at SerbMin",
+    "fail_count":4
+  },
+  {
+    "stepName":"PSD Measurement PAIR2 [30:100Mhz] 100m Line",
+    "fail_count":4
+  },
+  {
+    "stepName":"PSD Measurement PAIR3 [30:100Mhz] 100m Line",
+    "fail_count":4
+  },
+  {
+    "stepName":"Check supplied O-Ring kit",
+    "fail_count":4
+  },
+  {
+    "stepName":"Check Monitoring Vanalog",
+    "fail_count":4
+  },
+  {
+    "stepName":"Flash Test Application ETH",
+    "fail_count":4
+  },
+  {
+    "stepName":"TBC1 at 0.5 Bar",
+    "fail_count":4
+  },
+  {
+    "stepName":"Teq BC1 apply time",
+    "fail_count":4
+  },
+  {
+    "stepName":"Init And Link Stability",
+    "fail_count":3
+  },
+  {
+    "stepName":"Init And Link Stability 100m Line",
+    "fail_count":3
+  },
+  {
+    "stepName":"TSP1 at 0.5 Bar",
+    "fail_count":3
+  },
+  {
+    "stepName":"TSP1 at 5,613 Bar",
+    "fail_count":3
+  },
+  {
+    "stepName":"TA at 6 Bar",
+    "fail_count":3
+  },
+  {
+    "stepName":"TLP2 Measure",
+    "fail_count":3
+  },
+  {
+    "stepName":"TLP1 Measure",
+    "fail_count":3
+  },
+  {
+    "stepName":"TBC2 at 0.5 Bar",
+    "fail_count":3
+  },
+  {
+    "stepName":"ETH Analyser setup",
+    "fail_count":2
+  },
+  {
+    "stepName":"BC2 Pressure Switch downhill threshold",
+    "fail_count":2
+  },
+  {
+    "stepName":"BC1 Pressure at VPL = 3.5",
+    "fail_count":2
+  },
+  {
+    "stepName":"Check SPEED2 Diag = 16mA",
+    "fail_count":2
+  },
+  {
+    "stepName":"TLP1 at 5,613 Bar",
+    "fail_count":2
+  },
+  {
+    "stepName":"TLP2 at 0.5 Bar",
+    "fail_count":2
+  },
+  {
+    "stepName":"Check SPEED2 Diag = 8mA",
+    "fail_count":2
+  },
+  {
+    "stepName":"Check SPEED2 Diag = 12mA",
+    "fail_count":2
+  },
+  {
+    "stepName":"TSP2 at 0.5 Bar",
+    "fail_count":2
+  },
+  {
+    "stepName":"Check SPEED1 Diag = 20mA",
+    "fail_count":2
+  },
+  {
+    "stepName":"TPL at 0.5 Bar",
+    "fail_count":2
+  },
+  {
+    "stepName":"Check Difference TX-RX Counter",
+    "fail_count":2
+  },
+  {
+    "stepName":"Inrush Current",
+    "fail_count":2
+  },
+  {
+    "stepName":"TA at 3,85 Bar",
+    "fail_count":2
+  },
+  {
+    "stepName":"TA at 0.5 Bar",
+    "fail_count":2
+  },
+  {
+    "stepName":"TLP1 at 0.5 Bar",
+    "fail_count":2
+  },
+  {
+    "stepName":"TLP2 at 5,613 Bar",
+    "fail_count":2
+  },
+  {
+    "stepName":"TSP2 at 5,613 Bar",
+    "fail_count":2
+  },
+  {
+    "stepName":"TPL at 3,85  Bar",
+    "fail_count":2
+  },
+  {
+    "stepName":"Check Monitoring 15V_iso",
+    "fail_count":2
+  },
+  {
+    "stepName":"BC2 Pressure at VPL = 3.5",
+    "fail_count":2
+  },
+  {
+    "stepName":"SNR Measurement at 100 Mbit\/sec on PAIR2",
+    "fail_count":1
+  },
+  {
+    "stepName":"SNR Measurement at 100 Mbit\/sec on PAIR2 100m Line",
+    "fail_count":1
+  },
+  {
+    "stepName":"TX POWER PAIR2 @ 100Mbs",
+    "fail_count":1
+  },
+  {
+    "stepName":"SNR Measurement at 100 Mbit\/sec on PAIR3",
+    "fail_count":1
+  },
+  {
+    "stepName":"SNR Measurement at 100 Mbit\/sec on PAIR3 100m Line",
+    "fail_count":1
+  },
+  {
+    "stepName":"TX POWER PAIR2 @ 100Mbs 100m Line",
+    "fail_count":1
+  },
+  {
+    "stepName":"Calibration check",
+    "fail_count":1
+  },
+  {
+    "stepName":"TSP1 Mflexx - TSP1 bench at 4,50 Bar",
+    "fail_count":1
+  },
+  {
+    "stepName":"TSP1 Mflexx - TSP1 bench at 0.5 Bar",
+    "fail_count":1
+  },
+  {
+    "stepName":"Check AI_SPARE1 = 12mA",
+    "fail_count":1
+  },
+  {
+    "stepName":"T4 with EV load ON",
+    "fail_count":1
+  },
+  {
+    "stepName":"T4 Initial Pressure",
+    "fail_count":1
+  },
+  {
+    "stepName":"Check AI_SPARE1 = 4mA",
+    "fail_count":1
+  },
+  {
+    "stepName":"Check AI_SPARE2 = 12mA",
+    "fail_count":1
+  },
+  {
+    "stepName":"Check AI_SPARE2 = 4mA",
+    "fail_count":1
+  },
+  {
+    "stepName":"Check AI_SPARE1 = 19mA",
+    "fail_count":1
+  },
+  {
+    "stepName":"Check Ambient Temperature",
+    "fail_count":1
+  },
+  {
+    "stepName":"Check AI_SPARE2 = 19mA",
+    "fail_count":1
+  },
+  {
+    "stepName":"TPL at 6 Bar",
+    "fail_count":1
+  },
+  {
+    "stepName":"TBC1 at 6 Bar",
+    "fail_count":1
+  },
+  {
+    "stepName":"TBC2 at 6 Bar",
+    "fail_count":1
+  }
+]

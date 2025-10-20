@@ -1,0 +1,202 @@
+[
+  {
+    "prev": "MJF1 Signal after braketest",
+    "next": "MJF2 Signal after braketest"
+  },
+  {
+    "prev": "TPL Pressure at MGDMin",
+    "next": "TPL Pressure at MGDBoost"
+  },
+  {
+    "prev": "LCU2 State",
+    "next": "MJF1 Signal after braketest"
+  },
+  {
+    "prev": "TPL Pressure at MGDBoost",
+    "next": "BC1 Pressure at MGDBoost"
+  },
+  {
+    "prev": "BrakeTest Result",
+    "next": "LCU1 State"
+  },
+  {
+    "prev": "LCU1 State",
+    "next": "LCU2 State"
+  },
+  {
+    "prev": "LCU1 Code Id",
+    "next": "LCU2 Code Id"
+  },
+  {
+    "prev": "BC2 Pressure at MGDBoost",
+    "next": "BrakeTest Result"
+  },
+  {
+    "prev": "BC1 Pressure at MGDBoost",
+    "next": "BC2 Pressure at MGDBoost"
+  },
+  {
+    "prev": "BC1 Pressure at MGDMin",
+    "next": "BC2 Pressure at MGDMin"
+  },
+  {
+    "prev": "BC1 Pressure",
+    "next": "BC2 Pressure"
+  },
+  {
+    "prev": "LCU1 Code Id",
+    "next": "LCU1 Code Id"
+  },
+  {
+    "prev": "Check TX Counter",
+    "next": "Check RX Counter"
+  },
+  {
+    "prev": "Test Application Release",
+    "next": "Test Application CRC32"
+  },
+  {
+    "prev": "BC1 Pressure at MGDBoost",
+    "next": "BrakeTest Result"
+  },
+  {
+    "prev": "BC2 Pressure at MGDMin",
+    "next": "TPL Pressure Drop 30 sec"
+  },
+  {
+    "prev": "BC2 Pressure at SerbMax",
+    "next": "BC2 Pressure at SerbMax"
+  },
+  {
+    "prev": "LCU2 Code Id",
+    "next": "LCU2 Code Id"
+  },
+  {
+    "prev": "LCU2 Code Id",
+    "next": "LCU1 Code Id"
+  },
+  {
+    "prev": "Read LCU1 Fault",
+    "next": "Read LCU2 Fault"
+  },
+  {
+    "prev": "EMG Monitoring",
+    "next": "LCU1 Code Id"
+  },
+  {
+    "prev": "TPL Pressure",
+    "next": "BC1 Pressure"
+  },
+  {
+    "prev": "Flash Test Application",
+    "next": "Test Application Name"
+  },
+  {
+    "prev": "Test Application Name",
+    "next": "Test Application Release"
+  },
+  {
+    "prev": "BC1 Pressure at SerbMax",
+    "next": "BC2 Pressure at SerbMax"
+  },
+  {
+    "prev": "BC1 Pressure RR1 Active",
+    "next": "BC1 Electronic Pressure Switch ON - Brake Released"
+  },
+  {
+    "prev": "BrakeTest Result",
+    "next": "MJF1 Signal after braketest"
+  },
+  {
+    "prev": "LCU1 Code Id",
+    "next": "TPL Pressure at MGDMin"
+  },
+  {
+    "prev": "Link Status",
+    "next": "Link Status"
+  },
+  {
+    "prev": "TPL Pressure at MGDBoost",
+    "next": "BC2 Pressure at MGDBoost"
+  },
+  {
+    "prev": "TPL Pressure at MGDMin",
+    "next": "BC1 Pressure at MGDBoost"
+  },
+  {
+    "prev": "BC1 After Monostable Intervention",
+    "next": "BC2 After Monostable Intervention"
+  },
+  {
+    "prev": "BC1 Pressure Switch upward threshold",
+    "next": "LCU1 Code Id"
+  },
+  {
+    "prev": "BC2 Pressure",
+    "next": "BC1 Pressure Switch upward threshold"
+  },
+  {
+    "prev": "BC2 Pressure at SerbMax",
+    "next": "BC2 Pressure"
+  },
+  {
+    "prev": "BC2 Pressure at SerbMin",
+    "next": "BC2 Pressure at SerbMax"
+  },
+  {
+    "prev": "LCU1 State",
+    "next": "MJF1 Signal after braketest"
+  },
+  {
+    "prev": "LCU2 Code Id",
+    "next": "Read LCU1 Fault"
+  },
+  {
+    "prev": "LCU2 Code Id",
+    "next": "TBC1 at 0 Bar"
+  },
+  {
+    "prev": "MJF2 Signal after braketest",
+    "next": "BC2 Pressure at SerbMax"
+  },
+  {
+    "prev": "MJF2 Signal after braketest",
+    "next": "LCU1 State"
+  },
+  {
+    "prev": "Read LCU2 Fault",
+    "next": "BC2 Teq"
+  },
+  {
+    "prev": "TBC1 at 0 Bar",
+    "next": "TPL Pressure at MGDMin"
+  },
+  {
+    "prev": "TPL Pressure at MGDMin",
+    "next": "BC1 Pressure at MGDMin"
+  },
+  {
+    "prev": "TPL at 3,57  Bar",
+    "next": "TBC1 at 3,57  Bar"
+  },
+  {
+    "prev": "VPL Pressure",
+    "next": "BC1 Pressure"
+  },
+  {
+    "prev": "BC1 Electronic Pressure Switch OFF - Brake Applied",
+    "next": "BC2 Electronic Pressure Switch OFF - Brake Applied"
+  },
+  {
+    "prev": "BC1 Pressure at VPL = 2.5",
+    "next": "BC2 Pressure at VPL = 2.5"
+  },
+  {
+    "prev": "BC2 Pressure",
+    "next": "VPL Pressure After Discharge"
+  },
+  {
+    "prev": "BC2 Pressure at SerbMax",
+    "next": "BC2 Pressure at SerbMin"
+  }
+]

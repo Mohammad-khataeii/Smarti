@@ -1,0 +1,572 @@
+[
+  {
+    "runId": "run-20250815-213709-60338120",
+    "startedAt": "2025-08-15T19:37:09.253Z",
+    "status": "success",
+    "dbPath": "C:\\Users\\moha\\Desktop\\Smarti\\server\\test_results.db",
+    "artifactsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\ml_artifacts",
+    "predictionsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\predictions\\run-20250815-213709-60338120",
+    "trainArgs": {
+      "target": "pass_binary",
+      "bigram_top_k": 50
+    },
+    "predictArgs": {
+      "cooc_top_k": 50,
+      "bigram_top_k": 100
+    },
+    "pinned": false,
+    "endedAt": "2025-08-15T19:37:21.401Z",
+    "durationSec": 12,
+    "logs": {
+      "train": "predictions\\run-20250815-213709-60338120\\logs\\train.log",
+      "predict": "predictions\\run-20250815-213709-60338120\\logs\\predict.log"
+    },
+    "files": [
+      "predicted_fail_bigrams.csv",
+      "predicted_fail_limit_near_counts_by_step.csv",
+      "predicted_fail_limit_stats_by_step.csv",
+      "predicted_fail_pacing_session_metrics.csv",
+      "predicted_fail_quality_texture.csv",
+      "predicted_fail_rates_by_atesw_step.csv",
+      "predicted_fail_rates_by_station_step.csv",
+      "predicted_fail_rates_by_testspec_step.csv",
+      "predicted_fail_session_failpos.csv",
+      "predicted_fail_step_by_bucket.csv",
+      "predicted_fail_step_cooccurrence.csv",
+      "predicted_fail_step_patterns.csv",
+      "predicted_fail_step_patterns.json",
+      "predicted_fail_step_retry_summary.csv",
+      "predictions.csv",
+      "predictions.json"
+    ]
+  },
+  {
+    "runId": "run-20250815-213410-d9787aaf",
+    "startedAt": "2025-08-15T19:34:10.497Z",
+    "status": "success",
+    "dbPath": "C:\\Users\\moha\\Desktop\\Smarti\\server\\test_results.db",
+    "artifactsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\ml_artifacts",
+    "predictionsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\predictions\\run-20250815-213410-d9787aaf",
+    "trainArgs": {
+      "target": "pass_binary",
+      "bigram_top_k": 50
+    },
+    "predictArgs": {
+      "cooc_top_k": 50,
+      "bigram_top_k": 100
+    },
+    "pinned": false,
+    "endedAt": "2025-08-15T19:34:22.684Z",
+    "durationSec": 12,
+    "logs": {
+      "train": "predictions\\run-20250815-213410-d9787aaf\\logs\\train.log",
+      "predict": "predictions\\run-20250815-213410-d9787aaf\\logs\\predict.log"
+    },
+    "files": [
+      "predicted_fail_bigrams.csv",
+      "predicted_fail_limit_near_counts_by_step.csv",
+      "predicted_fail_limit_stats_by_step.csv",
+      "predicted_fail_pacing_session_metrics.csv",
+      "predicted_fail_quality_texture.csv",
+      "predicted_fail_rates_by_atesw_step.csv",
+      "predicted_fail_rates_by_station_step.csv",
+      "predicted_fail_rates_by_testspec_step.csv",
+      "predicted_fail_session_failpos.csv",
+      "predicted_fail_step_by_bucket.csv",
+      "predicted_fail_step_cooccurrence.csv",
+      "predicted_fail_step_patterns.csv",
+      "predicted_fail_step_patterns.json",
+      "predicted_fail_step_retry_summary.csv",
+      "predictions.csv",
+      "predictions.json"
+    ]
+  },
+  {
+    "runId": "run-20250815-212213-ff1e265f",
+    "startedAt": "2025-08-15T19:22:13.661Z",
+    "status": "success",
+    "dbPath": "C:\\Users\\moha\\Desktop\\Smarti\\server\\test_results.db",
+    "artifactsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\ml_artifacts",
+    "predictionsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\predictions\\run-20250815-212213-ff1e265f",
+    "trainArgs": {
+      "target": "pass_binary",
+      "bigram_top_k": 50
+    },
+    "predictArgs": {
+      "cooc_top_k": 50,
+      "bigram_top_k": 100
+    },
+    "pinned": false,
+    "endedAt": "2025-08-15T19:22:25.467Z",
+    "durationSec": 12,
+    "logs": {
+      "train": "predictions\\run-20250815-212213-ff1e265f\\logs\\train.log",
+      "predict": "predictions\\run-20250815-212213-ff1e265f\\logs\\predict.log"
+    },
+    "files": [
+      "predicted_fail_bigrams.csv",
+      "predicted_fail_limit_near_counts_by_step.csv",
+      "predicted_fail_limit_stats_by_step.csv",
+      "predicted_fail_pacing_session_metrics.csv",
+      "predicted_fail_quality_texture.csv",
+      "predicted_fail_rates_by_atesw_step.csv",
+      "predicted_fail_rates_by_station_step.csv",
+      "predicted_fail_rates_by_testspec_step.csv",
+      "predicted_fail_session_failpos.csv",
+      "predicted_fail_step_by_bucket.csv",
+      "predicted_fail_step_cooccurrence.csv",
+      "predicted_fail_step_patterns.csv",
+      "predicted_fail_step_patterns.json",
+      "predicted_fail_step_retry_summary.csv",
+      "predictions.csv",
+      "predictions.json"
+    ]
+  },
+  {
+    "runId": "run-20250815-211232-63c67b91",
+    "startedAt": "2025-08-15T19:12:32.023Z",
+    "status": "success",
+    "dbPath": "C:\\Users\\moha\\Desktop\\Smarti\\server\\test_results.db",
+    "artifactsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\ml_artifacts",
+    "predictionsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\predictions\\run-20250815-211232-63c67b91",
+    "trainArgs": {
+      "target": "pass_binary",
+      "bigram_top_k": 50
+    },
+    "predictArgs": {
+      "cooc_top_k": 50,
+      "bigram_top_k": 100
+    },
+    "pinned": false,
+    "endedAt": "2025-08-15T19:12:44.669Z",
+    "durationSec": 13,
+    "logs": {
+      "train": "predictions\\run-20250815-211232-63c67b91\\logs\\train.log",
+      "predict": "predictions\\run-20250815-211232-63c67b91\\logs\\predict.log"
+    },
+    "files": [
+      "predicted_fail_bigrams.csv",
+      "predicted_fail_limit_near_counts_by_step.csv",
+      "predicted_fail_limit_stats_by_step.csv",
+      "predicted_fail_pacing_session_metrics.csv",
+      "predicted_fail_quality_texture.csv",
+      "predicted_fail_rates_by_atesw_step.csv",
+      "predicted_fail_rates_by_station_step.csv",
+      "predicted_fail_rates_by_testspec_step.csv",
+      "predicted_fail_session_failpos.csv",
+      "predicted_fail_step_by_bucket.csv",
+      "predicted_fail_step_cooccurrence.csv",
+      "predicted_fail_step_patterns.csv",
+      "predicted_fail_step_patterns.json",
+      "predicted_fail_step_retry_summary.csv",
+      "predictions.csv",
+      "predictions.json"
+    ]
+  },
+  {
+    "runId": "run-20250815-205828-e9ef35d7",
+    "startedAt": "2025-08-15T18:58:28.898Z",
+    "status": "success",
+    "dbPath": "C:\\Users\\moha\\Desktop\\Smarti\\server\\test_results.db",
+    "artifactsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\ml_artifacts",
+    "predictionsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\predictions\\run-20250815-205828-e9ef35d7",
+    "trainArgs": {
+      "target": "pass_binary",
+      "bigram_top_k": 50
+    },
+    "predictArgs": {
+      "cooc_top_k": 50,
+      "bigram_top_k": 100
+    },
+    "pinned": false,
+    "endedAt": "2025-08-15T18:58:41.075Z",
+    "durationSec": 12,
+    "logs": {
+      "train": "predictions\\run-20250815-205828-e9ef35d7\\logs\\train.log",
+      "predict": "predictions\\run-20250815-205828-e9ef35d7\\logs\\predict.log"
+    },
+    "files": [
+      "predicted_fail_bigrams.csv",
+      "predicted_fail_limit_near_counts_by_step.csv",
+      "predicted_fail_limit_stats_by_step.csv",
+      "predicted_fail_pacing_session_metrics.csv",
+      "predicted_fail_quality_texture.csv",
+      "predicted_fail_rates_by_atesw_step.csv",
+      "predicted_fail_rates_by_station_step.csv",
+      "predicted_fail_rates_by_testspec_step.csv",
+      "predicted_fail_session_failpos.csv",
+      "predicted_fail_step_by_bucket.csv",
+      "predicted_fail_step_cooccurrence.csv",
+      "predicted_fail_step_patterns.csv",
+      "predicted_fail_step_patterns.json",
+      "predicted_fail_step_retry_summary.csv",
+      "predictions.csv",
+      "predictions.json"
+    ]
+  },
+  {
+    "runId": "run-20250815-205417-6d9d80dc",
+    "startedAt": "2025-08-15T18:54:17.581Z",
+    "status": "success",
+    "dbPath": "C:\\Users\\moha\\Desktop\\Smarti\\server\\test_results.db",
+    "artifactsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\ml_artifacts",
+    "predictionsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\predictions\\run-20250815-205417-6d9d80dc",
+    "trainArgs": {
+      "target": "pass_binary",
+      "bigram_top_k": 50
+    },
+    "predictArgs": {
+      "cooc_top_k": 50,
+      "bigram_top_k": 100
+    },
+    "pinned": false,
+    "endedAt": "2025-08-15T18:54:29.574Z",
+    "durationSec": 12,
+    "logs": {
+      "train": "predictions\\run-20250815-205417-6d9d80dc\\logs\\train.log",
+      "predict": "predictions\\run-20250815-205417-6d9d80dc\\logs\\predict.log"
+    },
+    "files": [
+      "predicted_fail_bigrams.csv",
+      "predicted_fail_limit_near_counts_by_step.csv",
+      "predicted_fail_limit_stats_by_step.csv",
+      "predicted_fail_pacing_session_metrics.csv",
+      "predicted_fail_quality_texture.csv",
+      "predicted_fail_rates_by_atesw_step.csv",
+      "predicted_fail_rates_by_station_step.csv",
+      "predicted_fail_rates_by_testspec_step.csv",
+      "predicted_fail_session_failpos.csv",
+      "predicted_fail_step_by_bucket.csv",
+      "predicted_fail_step_cooccurrence.csv",
+      "predicted_fail_step_patterns.csv",
+      "predicted_fail_step_patterns.json",
+      "predicted_fail_step_retry_summary.csv",
+      "predictions.csv",
+      "predictions.json"
+    ]
+  },
+  {
+    "runId": "run-20250815-204836-4d404b91",
+    "startedAt": "2025-08-15T18:48:36.921Z",
+    "status": "success",
+    "dbPath": "C:\\Users\\moha\\Desktop\\Smarti\\server\\test_results.db",
+    "artifactsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\ml_artifacts",
+    "predictionsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\predictions\\run-20250815-204836-4d404b91",
+    "trainArgs": {
+      "target": "pass_binary",
+      "bigram_top_k": 50
+    },
+    "predictArgs": {
+      "cooc_top_k": 50,
+      "bigram_top_k": 100
+    },
+    "pinned": false,
+    "endedAt": "2025-08-15T18:48:49.381Z",
+    "durationSec": 12,
+    "logs": {
+      "train": "predictions\\run-20250815-204836-4d404b91\\logs\\train.log",
+      "predict": "predictions\\run-20250815-204836-4d404b91\\logs\\predict.log"
+    },
+    "files": [
+      "predicted_fail_bigrams.csv",
+      "predicted_fail_limit_near_counts_by_step.csv",
+      "predicted_fail_limit_stats_by_step.csv",
+      "predicted_fail_pacing_session_metrics.csv",
+      "predicted_fail_quality_texture.csv",
+      "predicted_fail_rates_by_atesw_step.csv",
+      "predicted_fail_rates_by_station_step.csv",
+      "predicted_fail_rates_by_testspec_step.csv",
+      "predicted_fail_session_failpos.csv",
+      "predicted_fail_step_by_bucket.csv",
+      "predicted_fail_step_cooccurrence.csv",
+      "predicted_fail_step_patterns.csv",
+      "predicted_fail_step_patterns.json",
+      "predicted_fail_step_retry_summary.csv",
+      "predictions.csv",
+      "predictions.json"
+    ]
+  },
+  {
+    "runId": "run-20250815-204222-7e572bb9",
+    "startedAt": "2025-08-15T18:42:22.229Z",
+    "status": "success",
+    "dbPath": "C:\\Users\\moha\\Desktop\\Smarti\\server\\test_results.db",
+    "artifactsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\ml_artifacts",
+    "predictionsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\predictions\\run-20250815-204222-7e572bb9",
+    "trainArgs": {
+      "target": "pass_binary",
+      "bigram_top_k": 50
+    },
+    "predictArgs": {
+      "cooc_top_k": 50,
+      "bigram_top_k": 100
+    },
+    "pinned": false,
+    "endedAt": "2025-08-15T18:42:34.656Z",
+    "durationSec": 12,
+    "logs": {
+      "train": "predictions\\run-20250815-204222-7e572bb9\\logs\\train.log",
+      "predict": "predictions\\run-20250815-204222-7e572bb9\\logs\\predict.log"
+    },
+    "files": [
+      "predicted_fail_bigrams.csv",
+      "predicted_fail_limit_near_counts_by_step.csv",
+      "predicted_fail_limit_stats_by_step.csv",
+      "predicted_fail_pacing_session_metrics.csv",
+      "predicted_fail_quality_texture.csv",
+      "predicted_fail_rates_by_atesw_step.csv",
+      "predicted_fail_rates_by_station_step.csv",
+      "predicted_fail_rates_by_testspec_step.csv",
+      "predicted_fail_session_failpos.csv",
+      "predicted_fail_step_by_bucket.csv",
+      "predicted_fail_step_cooccurrence.csv",
+      "predicted_fail_step_patterns.csv",
+      "predicted_fail_step_patterns.json",
+      "predicted_fail_step_retry_summary.csv",
+      "predictions.csv",
+      "predictions.json"
+    ]
+  },
+  {
+    "runId": "run-20250815-204036-9176182e",
+    "startedAt": "2025-08-15T18:40:36.894Z",
+    "status": "error",
+    "dbPath": "C:\\Users\\moha\\Desktop\\Smarti\\server\\test_results.db",
+    "artifactsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\ml_artifacts",
+    "predictionsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\predictions\\run-20250815-204036-9176182e",
+    "trainArgs": {
+      "target": "pass_binary",
+      "bigram_top_k": 50
+    },
+    "predictArgs": {
+      "cooc_top_k": 50,
+      "bigram_top_k": 100
+    },
+    "pinned": false,
+    "error": ".venv\\Scripts\\python.exe exited 1",
+    "endedAt": "2025-08-15T18:40:47.082Z",
+    "durationSec": 10
+  },
+  {
+    "runId": "run-20250815-203906-84fa9580",
+    "startedAt": "2025-08-15T18:39:06.533Z",
+    "status": "error",
+    "dbPath": "C:\\Users\\moha\\Desktop\\Smarti\\server\\test_results.db",
+    "artifactsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\ml_artifacts",
+    "predictionsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\predictions\\run-20250815-203906-84fa9580",
+    "trainArgs": {
+      "target": "pass_binary",
+      "bigram_top_k": 50
+    },
+    "predictArgs": {
+      "cooc_top_k": 50,
+      "bigram_top_k": 100
+    },
+    "pinned": false,
+    "error": ".venv\\Scripts\\python.exe exited 1",
+    "endedAt": "2025-08-15T18:39:16.951Z",
+    "durationSec": 10
+  },
+  {
+    "runId": "run-20250815-195705-c82684cc",
+    "startedAt": "2025-08-15T17:57:05.974Z",
+    "status": "success",
+    "dbPath": "C:\\Users\\moha\\Desktop\\Smarti\\server\\test_results.db",
+    "artifactsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\ml_artifacts",
+    "predictionsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\predictions\\run-20250815-195705-c82684cc",
+    "trainArgs": {
+      "target": "pass_binary",
+      "bigram_top_k": 50
+    },
+    "predictArgs": {
+      "cooc_top_k": 50,
+      "bigram_top_k": 100
+    },
+    "pinned": false,
+    "endedAt": "2025-08-15T17:57:18.856Z",
+    "durationSec": 13,
+    "logs": {
+      "train": "predictions\\run-20250815-195705-c82684cc\\logs\\train.log",
+      "predict": "predictions\\run-20250815-195705-c82684cc\\logs\\predict.log"
+    },
+    "files": [
+      "predicted_fail_bigrams.csv",
+      "predicted_fail_limit_near_counts_by_step.csv",
+      "predicted_fail_limit_stats_by_step.csv",
+      "predicted_fail_pacing_session_metrics.csv",
+      "predicted_fail_quality_texture.csv",
+      "predicted_fail_rates_by_atesw_step.csv",
+      "predicted_fail_rates_by_station_step.csv",
+      "predicted_fail_rates_by_testspec_step.csv",
+      "predicted_fail_session_failpos.csv",
+      "predicted_fail_step_by_bucket.csv",
+      "predicted_fail_step_cooccurrence.csv",
+      "predicted_fail_step_patterns.csv",
+      "predicted_fail_step_patterns.json",
+      "predicted_fail_step_retry_summary.csv",
+      "predictions.csv",
+      "predictions.json"
+    ]
+  },
+  {
+    "runId": "run-20250815-195131-de01de24",
+    "startedAt": "2025-08-15T17:51:31.152Z",
+    "status": "success",
+    "dbPath": "C:\\Users\\moha\\Desktop\\Smarti\\server\\test_results.db",
+    "artifactsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\ml_artifacts",
+    "predictionsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\predictions\\run-20250815-195131-de01de24",
+    "trainArgs": {
+      "target": "pass_binary",
+      "bigram_top_k": 50
+    },
+    "predictArgs": {
+      "cooc_top_k": 50,
+      "bigram_top_k": 100
+    },
+    "pinned": false,
+    "endedAt": "2025-08-15T17:51:43.674Z",
+    "durationSec": 13,
+    "logs": {
+      "train": "predictions\\run-20250815-195131-de01de24\\logs\\train.log",
+      "predict": "predictions\\run-20250815-195131-de01de24\\logs\\predict.log"
+    },
+    "files": [
+      "predicted_fail_bigrams.csv",
+      "predicted_fail_limit_near_counts_by_step.csv",
+      "predicted_fail_limit_stats_by_step.csv",
+      "predicted_fail_pacing_session_metrics.csv",
+      "predicted_fail_quality_texture.csv",
+      "predicted_fail_rates_by_atesw_step.csv",
+      "predicted_fail_rates_by_station_step.csv",
+      "predicted_fail_rates_by_testspec_step.csv",
+      "predicted_fail_session_failpos.csv",
+      "predicted_fail_step_by_bucket.csv",
+      "predicted_fail_step_cooccurrence.csv",
+      "predicted_fail_step_patterns.csv",
+      "predicted_fail_step_patterns.json",
+      "predicted_fail_step_retry_summary.csv",
+      "predictions.csv",
+      "predictions.json"
+    ]
+  },
+  {
+    "runId": "run-20250815-194103-194e386e",
+    "startedAt": "2025-08-15T17:41:03.982Z",
+    "status": "error",
+    "dbPath": "C:\\Users\\moha\\Desktop\\Smarti\\server\\test_results.db",
+    "artifactsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\ml_artifacts",
+    "predictionsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\predictions\\run-20250815-194103-194e386e",
+    "trainArgs": {
+      "target": "pass_binary",
+      "bigram_top_k": 50
+    },
+    "predictArgs": {
+      "cooc_top_k": 50,
+      "bigram_top_k": 100
+    },
+    "pinned": false,
+    "error": ".venv\\Scripts\\python.exe exited 1",
+    "endedAt": "2025-08-15T17:41:10.148Z",
+    "durationSec": 6
+  },
+  {
+    "runId": "run-20250815-193732-7adab5f2",
+    "startedAt": "2025-08-15T17:37:32.687Z",
+    "status": "error",
+    "dbPath": "C:\\Users\\moha\\Desktop\\Smarti\\server\\test_results.db",
+    "artifactsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\ml_artifacts",
+    "predictionsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\predictions\\run-20250815-193732-7adab5f2",
+    "trainArgs": {
+      "target": "pass_binary",
+      "bigram_top_k": 50
+    },
+    "predictArgs": {
+      "cooc_top_k": 50,
+      "bigram_top_k": 100
+    },
+    "pinned": false,
+    "error": ".venv\\Scripts\\python.exe exited 1",
+    "endedAt": "2025-08-15T17:37:35.544Z",
+    "durationSec": 3
+  },
+  {
+    "runId": "run-20250815-193325-53a55277",
+    "startedAt": "2025-08-15T17:33:25.835Z",
+    "status": "error",
+    "dbPath": "C:\\Users\\moha\\Desktop\\Smarti\\server\\test_results.db",
+    "artifactsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\ml_artifacts",
+    "predictionsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\predictions\\run-20250815-193325-53a55277",
+    "trainArgs": {
+      "target": "pass_binary",
+      "bigram_top_k": 50
+    },
+    "predictArgs": {
+      "cooc_top_k": 50,
+      "bigram_top_k": 100
+    },
+    "pinned": false,
+    "error": ".venv\\Scripts\\python.exe exited 1",
+    "endedAt": "2025-08-15T17:33:46.196Z",
+    "durationSec": 20
+  },
+  {
+    "runId": "run-20250815-193317-7ed19131",
+    "startedAt": "2025-08-15T17:33:17.228Z",
+    "status": "error",
+    "dbPath": "C:\\Users\\moha\\Desktop\\Smarti\\server\\test_results.db",
+    "artifactsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\ml_artifacts",
+    "predictionsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\predictions\\run-20250815-193317-7ed19131",
+    "trainArgs": {
+      "target": "pass_binary",
+      "bigram_top_k": 50
+    },
+    "predictArgs": {
+      "cooc_top_k": 50,
+      "bigram_top_k": 100
+    },
+    "pinned": false,
+    "error": ".venv\\Scripts\\python.exe exited 2",
+    "endedAt": "2025-08-15T17:33:17.388Z",
+    "durationSec": 0
+  },
+  {
+    "runId": "run-20250815-193153-3177e4c5",
+    "startedAt": "2025-08-15T17:31:53.545Z",
+    "status": "error",
+    "dbPath": "C:\\Users\\moha\\Desktop\\Smarti\\server\\test_results.db",
+    "artifactsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\ml_artifacts",
+    "predictionsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\predictions\\run-20250815-193153-3177e4c5",
+    "trainArgs": {
+      "target": "pass_binary",
+      "bigram_top_k": 50
+    },
+    "predictArgs": {
+      "cooc_top_k": 50,
+      "bigram_top_k": 100
+    },
+    "pinned": false,
+    "error": ".venv\\Scripts\\python.exe exited 2",
+    "endedAt": "2025-08-15T17:31:53.723Z",
+    "durationSec": 0
+  },
+  {
+    "runId": "run-20250815-193022-e46ab6dd",
+    "startedAt": "2025-08-15T17:30:22.045Z",
+    "status": "error",
+    "dbPath": "C:\\Users\\moha\\Desktop\\Smarti\\server\\test_results.db",
+    "artifactsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\ml_artifacts",
+    "predictionsDir": "C:\\Users\\moha\\Desktop\\Smarti\\server\\predictions\\run-20250815-193022-e46ab6dd",
+    "trainArgs": {
+      "target": "pass_binary",
+      "bigram_top_k": 50
+    },
+    "predictArgs": {
+      "cooc_top_k": 50,
+      "bigram_top_k": 100
+    },
+    "pinned": false,
+    "error": ".venv\\Scripts\\python.exe exited 2",
+    "endedAt": "2025-08-15T17:30:22.264Z",
+    "durationSec": 0
+  }
+]

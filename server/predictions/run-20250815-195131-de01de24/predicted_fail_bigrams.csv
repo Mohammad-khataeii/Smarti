@@ -1,0 +1,101 @@
+step_prev,step_next,bigram_count
+TPL Pressure at MGDMin,TPL Pressure at MGDBoost,66
+MJF1 Signal after braketest,MJF2 Signal after braketest,65
+LCU2 State,MJF1 Signal after braketest,55
+LCU1 State,LCU2 State,54
+BrakeTest Result,LCU1 State,54
+TPL Pressure at MGDBoost,BC1 Pressure at MGDBoost,53
+LCU1 Code Id,LCU2 Code Id,40
+BC2 Pressure at MGDBoost,BrakeTest Result,39
+BC1 Pressure at MGDBoost,BC2 Pressure at MGDBoost,37
+BC1 Pressure at MGDMin,BC2 Pressure at MGDMin,30
+BC1 Pressure,BC2 Pressure,24
+LCU1 Code Id,LCU1 Code Id,24
+Test Application Release,Test Application CRC32,24
+BC2 Pressure at MGDMin,TPL Pressure Drop 30 sec,23
+BC1 Pressure at MGDBoost,BrakeTest Result,21
+LCU2 Code Id,LCU2 Code Id,20
+Read LCU1 Fault,Read LCU2 Fault,20
+Check TX Counter,Check RX Counter,20
+Test Application Name,Test Application Release,17
+EMG Monitoring,LCU1 Code Id,15
+LCU2 Code Id,LCU1 Code Id,15
+BC2 Pressure at SerbMax,BC2 Pressure at SerbMax,15
+TPL Pressure,BC1 Pressure,15
+BC1 Pressure at SerbMax,BC2 Pressure at SerbMax,14
+Flash Test Application,Test Application Name,13
+"TPL at 3,57  Bar","TBC1 at 3,57  Bar",10
+TPL Pressure at MGDBoost,BC2 Pressure at MGDBoost,10
+BC1 Pressure RR1 Active,BC1 Electronic Pressure Switch ON - Brake Released,9
+LCU1 Code Id,TPL Pressure at MGDMin,9
+Read LCU2 Fault,LCU1 Code ID,8
+"TBC1 at 3,57  Bar","TBC2 at 3,67  Bar",8
+Read LCU2 Fault,BC2 Teq,8
+LCU2 Code Id,Read LCU1 Fault,8
+BrakeTest Result,MJF1 Signal after braketest,8
+LCU1 State,MJF1 Signal after braketest,8
+VPL Pressure,BC1 Pressure,7
+Link Status,Link Status,7
+BC1 Electronic Pressure Switch OFF - Brake Applied,BC2 Electronic Pressure Switch OFF - Brake Applied,7
+BC1 After Monostable Intervention,BC2 After Monostable Intervention,7
+TPL Pressure at MGDMin,BC1 Pressure at MGDBoost,7
+Check Error Counter,Check Warning Counter,7
+MJF2 Signal after braketest,LCU2 State,7
+TPL Pressure at MGDBoost,BrakeTest Result,7
+Test Application CRC32,Flash Test Application,6
+TPL Pressure at MGDMin,BC1 Pressure at MGDMin,6
+BC1 Electronic Pressure Switch ON - Brake Released,BC1 Pressure RR1 Active,6
+BC1 Pressure at VPL = 2.5,BC2 Pressure at VPL = 2.5,6
+LCU2 State,MJF2 Signal after braketest,6
+MJF2 Signal after braketest,LCU1 State,6
+LCU1 Code Id,Read LCU1 Fault,6
+TBC1 at 0 Bar,TPL Pressure at MGDMin,6
+TPL Pressure Drop 30 sec,TPL Pressure,6
+LCU2 Code Id,TBC1 at 0 Bar,6
+BC2 Pressure at SerbMin,BC2 Pressure at SerbMax,6
+SerB_MED calculation,TPL Pressure,6
+BC2 Pressure at SerbMax,BC2 Pressure at SerbMin,6
+BC2 Pressure,BC1 Pressure Switch upward threshold,6
+BC2 Pressure at SerbMax,BC2 Pressure,6
+BC1 Pressure Switch upward threshold,LCU1 Code Id,6
+MJF2 Signal after braketest,BC2 Pressure at SerbMax,6
+Check RX Counter,Check Error Counter,6
+BrakeTest Result,LCU2 State,5
+BC1 Pressure at MGDBoost,TPL Pressure at MGDBoost,5
+BC2 Pressure at MGDBoost,LCU1 State,5
+Trel BC1 release time,Trel BC2 release time,5
+Test Application Name,Test Application CRC32,5
+BC2 Pressure,VPL Pressure After Discharge,5
+"TBC2 at 3,67  Bar",TPL Pressure at MGDMin,5
+BC2 Pressure at SerbMax,BC1 Pressure at SerbMax,5
+Read LCU2 Fault,LCU2 Code ID,5
+BC2 Pressure,BC1 After Monostable Intervention,4
+Flash Test Application,Test Application Release,4
+VPL Pressure After Discharge,BC1 Pressure at VPL = 2.5,4
+BC2 After Monostable Intervention,BC1 Electronic Pressure Switch OFF - Brake Applied,4
+MJF2 Signal after braketest,LCU1 Code Id,4
+Check RX Counter,Check Warning Counter,4
+MJF2 Signal after braketest,BC1 Pressure at MGDBoost,4
+BC2 Pressure Switch upward threshold,BC1 Pressure Switch downhill threshold,4
+TPL Pressure,BC2 Pressure,4
+MJF2 Signal after braketest,BrakeTest Result,4
+MJF2 Signal after braketest,MJF1 Signal after braketest,4
+Check RX Counter,Check TX Counter,4
+EMG Monitoring,LCU2 Code Id,4
+MJF2 Signal after braketest,TPL Pressure at MGDBoost,4
+BC2 Pressure at MGDMin,LCU2 Code Id,3
+"TBC2 at 3,85  Bar",BC1 Pressure at MGDMin,3
+BC2 Electronic Pressure Switch OFF - Brake Applied,VPL Pressure,3
+BC2 Teq,BC1 Pressure at SerbMax,3
+TPL Pressure Drop 30 sec,SerB_MED calculation,3
+TLP2 Measure,SerB_MED calculation,3
+Check Warning Counter,Check TX Counter,3
+Check Warning Counter,Check RX Counter,3
+BC2 Pressure at SerbMin,BC1 Pressure at SerbMax,3
+TBC1 at 0.5 Bar,TBC2 at 0.5 Bar,3
+TPL Pressure at MGDBoost,BC2 Pressure at SerbMax,3
+BC2 Pressure,BC1 Pressure,3
+Teq BC1 apply time,Teq BC2 apply time,3
+BrakeTest Result,BC1 Teq,3
+Check RX Counter,Check RX Counter,3
+Flash Test Application ETH,Test Application Name,3

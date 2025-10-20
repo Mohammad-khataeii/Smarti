@@ -19,6 +19,7 @@ import LoadingScreen from './components/LoadingScreen'; // Import the LoadingScr
 import './i18n'; // Import the i18n setup
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NewControlChart from './components/NewControlChart';
+import MlRunDetail from './pages/MlRunDetail'; // Import the MlRunDetail component form './pages/MlRunDetail'
 
 const App = () => {
   // Load initial authentication state from localStorage
@@ -82,6 +83,15 @@ const App = () => {
           path="/predictive-analysis"
           element={isAuthenticated ? <PredictiveFailureAnalysis /> : <Navigate to="/login" />}
         />
+        <Route
+  path="/ml-run-detail"
+  element={isAuthenticated ? <MlRunDetail /> : <Navigate to="/login" />}
+/>
+<Route
+  path="/ml-run-detail/:runId"
+  element={isAuthenticated ? <MlRunDetail /> : <Navigate to="/login" />}
+/>
+
         <Route
           path='/root-cause-alarms'
           element={isAuthenticated ? <RootCauseAlarms /> : <Navigate to="/login" />}

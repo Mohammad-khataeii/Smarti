@@ -1,0 +1,754 @@
+stepName,sessions,retry_sessions,retry_rate
+BC1 Electronic Pressure Switch OFF - Brake Applied,349,349,1.0
+BC2 Electronic Pressure Switch OFF - Brake Applied,349,349,1.0
+MJF1 Signal,339,339,1.0
+MJF2 Signal,339,339,1.0
+BC1 Pressure RR1 Active,327,327,1.0
+BC2 Electronic Pressure Switch  ON - Brake Released,327,327,1.0
+BC2 Pressure RR2 Active,327,327,1.0
+Check Error Counter,121,121,1.0
+Check RX Counter,121,121,1.0
+Check TX Counter,121,121,1.0
+Check Warning Counter,121,121,1.0
+Check Ping to UUT address 192.168.67.60,114,114,1.0
+Init And Link Stability,114,114,1.0
+Init And Link Stability 100m Line,114,114,1.0
+Link Status,114,114,1.0
+Check AR1 (T1) leakage,10,10,1.0
+Check AR2 (T2) leakage,10,10,1.0
+Check BC1 (T10) discharged,10,10,1.0
+Check BC2 (T12) discharged,10,10,1.0
+Check TPL (T8) leakage,10,10,1.0
+Pressure discharge,10,10,1.0
+Record AR1 (T1) initial pressure,10,10,1.0
+Record AR2 (T2) initial pressure,10,10,1.0
+Record BA = MGD_BOOST (T8) initial pressure,10,10,1.0
+Record BC1 = 0bar (T10) initial pressure,10,10,1.0
+Record BC2 = 0bar (T12) initial pressure,10,10,1.0
+Test AR1 (T1) pressure,10,10,1.0
+Test AR2 (T2) pressure,10,10,1.0
+Test BA = MGD_BOOST (T8) pressure,10,10,1.0
+Wait 5 minutes for leakage test...,10,10,1.0
+Wait 5 minutes for pressure stabilization...,10,10,1.0
+Record BA = MGD_MIN (T8) initial pressure,9,9,1.0
+Test BA = MGD_MIN (T8) pressure,9,9,1.0
+Check ATE EV_Load = OFF,4,4,1.0
+Check ATE EV_Unload = OFF,4,4,1.0
+Check ATE PS1 = ON,4,4,1.0
+Check ATE PS2 = ON,4,4,1.0
+Check BCP1_ST = ON,4,4,1.0
+Check BCP1_STn = OFF,4,4,1.0
+Check BCP2_ST = ON,4,4,1.0
+Check BCP2_STn = OFF,4,4,1.0
+Check IN1A-IN1B Echelon Error Counter,4,4,1.0
+Check IN1A-IN1B Echelon RX Counter,4,4,1.0
+Check IN1A-IN1B Echelon TX Counter,4,4,1.0
+Check IN1A-IN1B Echelon Warning Counter,4,4,1.0
+Check IN2A-IN2B Echelon Error Counter,4,4,1.0
+Check IN2A-IN2B Echelon RX Counter,4,4,1.0
+Check IN2A-IN2B Echelon TX Counter,4,4,1.0
+Check IN2A-IN2B Echelon Warning Counter,4,4,1.0
+Check OUT1A-OUT1B Echelon Error Counter,4,4,1.0
+Check OUT1A-OUT1B Echelon RX Counter,4,4,1.0
+Check OUT1A-OUT1B Echelon TX Counter,4,4,1.0
+Check OUT1A-OUT1B Echelon Warning Counter,4,4,1.0
+Check OUT2A-OUT2B Echelon Error Counter,4,4,1.0
+Check OUT2A-OUT2B Echelon RX Counter,4,4,1.0
+Check OUT2A-OUT2B Echelon TX Counter,4,4,1.0
+Check OUT2A-OUT2B Echelon Warning Counter,4,4,1.0
+Check UUT DO_Spare1 Diagnostic = OK,4,4,1.0
+Check UUT DO_Spare2 Diagnostic = OK,4,4,1.0
+Check UUT DO_Spare3 Diagnostic = OK,4,4,1.0
+Check UUT Diagnostic: EV_Air = OK,4,4,1.0
+Check UUT Diagnostic: EV_Vent1=OK and EV_Fill1=OK,4,4,1.0
+Check UUT Diagnostic: EV_Vent2=OK and EV_Fill2=OK,4,4,1.0
+Check UUT RL_Spare1 Diagnostic = OK,4,4,1.0
+Check UUT RL_Spare2 Diagnostic = OK,4,4,1.0
+Check Vanalog Voltage,4,4,1.0
+Check Vdigital1 Voltage,4,4,1.0
+Check Vdigital2 Voltage,4,4,1.0
+PWM Not present,4,4,1.0
+Simulation open circuit condition,4,4,1.0
+Simulation short circuit condition,4,4,1.0
+WSP_Fill1 = OFF and monostable reset,4,4,1.0
+WSP_Fill2 = OFF and monostable reset,4,4,1.0
+Calibration check,2,2,1.0
+Laser quote,2,2,1.0
+Position Verify,2,2,1.0
+Seeger Quote,2,2,1.0
+Seeger Quote Trimmed,2,2,1.0
+Spring Rings Depth,2,2,1.0
+Thicknesses Assembling,2,2,1.0
+T4 Initial Pressure,1,1,1.0
+Valve Input Pressure,1,1,1.0
+BC1 Electronic Pressure Switch ON - Brake Released,333,327,0.9819819819819819
+BC1 Pressure at SerbMax,333,327,0.9819819819819819
+BC2 Pressure at SerbMax,333,327,0.9819819819819819
+BCU Command to SerBmax,333,327,0.9819819819819819
+Check Difference TX-RX Counter,23,22,0.9565217391304348
+Check BC1 (T10) leakage,10,9,0.9
+Check BC2 (T12) leakage,10,9,0.9
+Record BC1 = TPL-0.1bar (T10) initial pressure,10,9,0.9
+Record BC2 = TPL-0.1bar (T12) initial pressure,10,9,0.9
+LCU1 Code Id,414,339,0.8188405797101449
+LCU2 Code Id,414,339,0.8188405797101449
+VBAT1 Activation at 110V,5,4,0.8
+Read LCU1 Fault,127,100,0.7874015748031497
+Read LCU2 Fault,127,100,0.7874015748031497
+Safety Loop Closed,333,224,0.6726726726726727
+BC1 Pressure Switch downhill threshold,337,224,0.6646884272997032
+BC1 Pressure,348,220,0.632183908045977
+BC2 Pressure,348,220,0.632183908045977
+Power ON Vbat,373,42,0.1126005361930295
+Test Application CRC32,373,42,0.1126005361930295
+Test Application Release,373,42,0.1126005361930295
+Start Programming,374,42,0.11229946524064172
+Test Application Name,374,42,0.11229946524064172
+Flash Test Application,361,36,0.0997229916897507
+Initial Setup,519,0,0.0
+Battery Voltage,402,0,0.0
+EMG Monitoring,402,0,0.0
+Inrush Current,402,0,0.0
+Power ON,402,0,0.0
+TA Mflexx - TA bench at 0.5 Bar,358,0,0.0
+TA Mflexx - TA bench at 6 Bar,358,0,0.0
+TA at 0.5 Bar,358,0,0.0
+TBC1 Mflexx - TBC1 bench at 0.5 Bar,358,0,0.0
+TBC1 at 0 Bar,358,0,0.0
+TBC1 at 0.5 Bar,358,0,0.0
+TBC2 Mflexx - TBC2 bench at 0.5 Bar,358,0,0.0
+TBC2 at 0 Bar,358,0,0.0
+TBC2 at 0.5 Bar,358,0,0.0
+TLP1 Mflexx - TLP1 bench at 0.5 Bar,358,0,0.0
+TLP1 at 0 Bar,358,0,0.0
+TLP1 at 0.5 Bar,358,0,0.0
+TLP2 Mflexx - TLP2 bench at 0.5 Bar,358,0,0.0
+TLP2 at 0 Bar,358,0,0.0
+TLP2 at 0.5 Bar,358,0,0.0
+TPL Mflexx - TPL bench at 0.5 Bar,358,0,0.0
+TPL at 0 Bar,358,0,0.0
+TPL at 0.5 Bar,358,0,0.0
+TSP1 Mflexx - TSP1 bench at 0.5 Bar,358,0,0.0
+TSP1 at 0 Bar,358,0,0.0
+TSP1 at 0.5 Bar,358,0,0.0
+TSP2 Mflexx - TSP2 bench at 0.5 Bar,358,0,0.0
+TSP2 at 0 Bar,358,0,0.0
+TSP2 at 0.5 Bar,358,0,0.0
+TA at 0 Bar,357,0,0.0
+TA at 6 Bar,356,0,0.0
+BC1 Brake Released,340,0,0.0
+BC1 Pressure at MGDBoost,340,0,0.0
+BC1 Pressure at MGDMin,340,0,0.0
+BC1 Teq,340,0,0.0
+BC2 Brake Released,340,0,0.0
+BC2 Pressure at MGDBoost,340,0,0.0
+BC2 Pressure at MGDMin,340,0,0.0
+BC2 Teq,340,0,0.0
+BrakeTest Result,340,0,0.0
+LCU1 State,340,0,0.0
+LCU2 State,340,0,0.0
+"LOAD OFF, UNLOAD OFF",340,0,0.0
+MJF1 Signal after braketest,340,0,0.0
+MJF1 Signal before braketest,340,0,0.0
+MJF2 Signal after braketest,340,0,0.0
+MJF2 Signal before braketest,340,0,0.0
+SerB_MED calculation,340,0,0.0
+Start Braketest,340,0,0.0
+TLP1 Measure,340,0,0.0
+TLP2 Measure,340,0,0.0
+TLP_MED Apply,340,0,0.0
+TPL Pressure,340,0,0.0
+TPL Pressure Drop 30 sec,340,0,0.0
+TPL Pressure at MGDBoost,340,0,0.0
+TPL Pressure at MGDMin,340,0,0.0
+Test Base Arranged to FT0106512-106,339,0,0.0
+Test Base Arranged to FT0106512-109,339,0,0.0
+Test Base Arranged to FT0106512-111,339,0,0.0
+BC1 Pressure Switch upward threshold,337,0,0.0
+BC2 Pressure Switch upward threshold,337,0,0.0
+"BC1 Pressure EVF, EVS Active",327,0,0.0
+BC1 Pressure at SerbMin,327,0,0.0
+"BC2 Pressure EVF, EVS Active",327,0,0.0
+BC2 Pressure at SerbMin,327,0,0.0
+BCU Command to SerBmin,327,0,0.0
+"EVF, EVS  Activation",327,0,0.0
+RR1 & RR2 External Activation,327,0,0.0
+RR1 & RR2 Internal Activation,327,0,0.0
+Teq BC1 apply time,327,0,0.0
+Teq BC2 apply time,327,0,0.0
+Trel BC1 release time,327,0,0.0
+Trel BC2 release time,327,0,0.0
+Cable & automatic valves setup,302,0,0.0
+"TBC1 Mflexx - TBC1 bench at 3,85 Bar",267,0,0.0
+"TBC2 Mflexx - TBC2 bench at 3,85 Bar",267,0,0.0
+"TPL Mflexx - TPL bench at 3,85 Bar",267,0,0.0
+"TBC1 at 3,85  Bar",256,0,0.0
+"TBC2 at 3,85  Bar",256,0,0.0
+"TLP1 at 5,45 Bar",256,0,0.0
+"TLP2 at 5,45 Bar",256,0,0.0
+"TPL at 3,85  Bar",256,0,0.0
+"TSP1 at 5,45 Bar",256,0,0.0
+"TSP2 at 5,45 Bar",256,0,0.0
+BC1 After Monostable Intervention,230,0,0.0
+BC1 WSP FILL & VENT Active,230,0,0.0
+BC2 After Monostable Intervention,230,0,0.0
+BC2 Electronic Pressure Switch ON - Brake Released,230,0,0.0
+BC2 WSP FILL & VENT Active,230,0,0.0
+WSP FILL & VENT Activation,230,0,0.0
+Wait 12 sec,230,0,0.0
+AR Pressure After Discharge,228,0,0.0
+BC1 Pressure After Discharge,228,0,0.0
+BC2 Pressure After Discharge,228,0,0.0
+EVF Activation,228,0,0.0
+VPL Pressure,228,0,0.0
+VPL Pressure After Discharge,228,0,0.0
+VPL Pressure Reg,228,0,0.0
+ETH Analyser setup,217,0,0.0
+Power On,217,0,0.0
+BC1 Pressure at VPL = 2.7,195,0,0.0
+BC1 and BC2 to 3.85 Bar,195,0,0.0
+BC2 Pressure at VPL = 2.7,195,0,0.0
+"TLP1 Mflexx - TLP1 bench at 5,45 Bar",151,0,0.0
+"TLP2 Mflexx - TLP2 bench at 5,45 Bar",151,0,0.0
+"TSP1 Mflexx - TSP1 bench at 5,45 Bar",151,0,0.0
+"TSP2 Mflexx - TSP2 bench at 5,45 Bar",151,0,0.0
+Check Monitoring 15V_iso,139,0,0.0
+Check Monitoring Vanalog,139,0,0.0
+Check Monitoring Vdigital,139,0,0.0
+LCU1 Code ID,118,0,0.0
+LCU2 Code ID,118,0,0.0
+Start and Stop Communication on CAN-IN,118,0,0.0
+Start and Stop Communication on CAN-OUT,118,0,0.0
+Check DigIn1a = Off,116,0,0.0
+Check DigIn1a = On,116,0,0.0
+Check DigIn1b = Off,116,0,0.0
+Check DigIn1b = On,116,0,0.0
+Check DigIn1c = Off,116,0,0.0
+Check DigIn1c = On,116,0,0.0
+Check DigIn1d = Off,116,0,0.0
+Check DigIn1d = On,116,0,0.0
+Check DigIn2a = Off,116,0,0.0
+Check DigIn2a = On,116,0,0.0
+Check DigIn2b = Off,116,0,0.0
+Check DigIn2b = On,116,0,0.0
+Check DigIn2c = Off,116,0,0.0
+Check DigIn2c = On,116,0,0.0
+Check DigIn2d = Off,116,0,0.0
+Check DigIn2d = On,116,0,0.0
+Check PARK_ON = Off,116,0,0.0
+Check PARK_ON = On,116,0,0.0
+Check PWM1 = Off,116,0,0.0
+Check PWM1 = On,116,0,0.0
+Check PWM2 = Off,116,0,0.0
+Check PWM2 = On,116,0,0.0
+Check RR1 = Off,116,0,0.0
+Check RR1 = On,116,0,0.0
+Check RR2 = Off,116,0,0.0
+Check RR2 = On,116,0,0.0
+Check SAF_Loop1 = Off,116,0,0.0
+Check SAF_Loop1 = On,116,0,0.0
+Check SAF_Loop2 = Off,116,0,0.0
+Check SAF_Loop2 = On,116,0,0.0
+"TLP1 Mflexx - TLP1 bench at 4,50 Bar",116,0,0.0
+"TLP2 Mflexx - TLP2 bench at 4,50 Bar",116,0,0.0
+"TSP1 Mflexx - TSP1 bench at 4,50 Bar",116,0,0.0
+"TSP2 Mflexx - TSP2 bench at 4,50 Bar",116,0,0.0
+Check +15V_iso_a1 = 15V,115,0,0.0
+Check +15V_iso_a2 = 15V,115,0,0.0
+Check +15V_iso_s1 = 15V,115,0,0.0
+Check +15V_iso_s2 = 15V,115,0,0.0
+Check AI_SPARE1 = 12mA,115,0,0.0
+Check AI_SPARE1 = 19mA,115,0,0.0
+Check AI_SPARE1 = 4mA,115,0,0.0
+Check AI_SPARE2 = 12mA,115,0,0.0
+Check AI_SPARE2 = 19mA,115,0,0.0
+Check AI_SPARE2 = 4mA,115,0,0.0
+Check Ambient Temperature,115,0,0.0
+Check DO_Spare1 = Off,115,0,0.0
+Check DO_Spare1 = On,115,0,0.0
+Check DO_Spare2 = Off,115,0,0.0
+Check DO_Spare2 = On,115,0,0.0
+Check DO_Spare3 = Off,115,0,0.0
+Check DO_Spare3 = On,115,0,0.0
+Check RL_Spare1 = Off,115,0,0.0
+Check RL_Spare1 = On,115,0,0.0
+Check RL_Spare2 = Off,115,0,0.0
+Check RL_Spare2 = On,115,0,0.0
+Check SPEED diagnostic,115,0,0.0
+Check SPEED frequences,115,0,0.0
+Check SPEED1 = 100Hz,115,0,0.0
+Check SPEED1 = 1500Hz,115,0,0.0
+Check SPEED1 = 3000Hz,115,0,0.0
+Check SPEED1 = 500Hz,115,0,0.0
+Check SPEED1 Diag = 0mA,115,0,0.0
+Check SPEED1 Diag = 12mA,115,0,0.0
+Check SPEED1 Diag = 16mA,115,0,0.0
+Check SPEED1 Diag = 20mA,115,0,0.0
+Check SPEED1 Diag = 8mA,115,0,0.0
+Check SPEED2 = 100Hz,115,0,0.0
+Check SPEED2 = 1500Hz,115,0,0.0
+Check SPEED2 = 3000Hz,115,0,0.0
+Check SPEED2 = 500Hz,115,0,0.0
+Check SPEED2 Diag = 0mA,115,0,0.0
+Check SPEED2 Diag = 12mA,115,0,0.0
+Check SPEED2 Diag = 16mA,115,0,0.0
+Check SPEED2 Diag = 20mA,115,0,0.0
+Check SPEED2 Diag = 8mA,115,0,0.0
+PWM Used as Digital Inputs on FT0109253-102,115,0,0.0
+PSD Measurement PAIR2 [1:30Mhz],114,0,0.0
+PSD Measurement PAIR2 [1:30Mhz] 100m Line,114,0,0.0
+PSD Measurement PAIR2 [30:100Mhz],114,0,0.0
+PSD Measurement PAIR2 [30:100Mhz] 100m Line,114,0,0.0
+PSD Measurement PAIR3 [1:30Mhz],114,0,0.0
+PSD Measurement PAIR3 [1:30Mhz] 100m Line,114,0,0.0
+PSD Measurement PAIR3 [30:100Mhz],114,0,0.0
+PSD Measurement PAIR3 [30:100Mhz] 100m Line,114,0,0.0
+SNR Measurement at 100 Mbit/sec on PAIR2,114,0,0.0
+SNR Measurement at 100 Mbit/sec on PAIR2 100m Line,114,0,0.0
+SNR Measurement at 100 Mbit/sec on PAIR3,114,0,0.0
+SNR Measurement at 100 Mbit/sec on PAIR3 100m Line,114,0,0.0
+TX POWER PAIR2 @ 100Mbs,114,0,0.0
+TX POWER PAIR2 @ 100Mbs 100m Line,114,0,0.0
+BC2 Pressure Switch downhill threshold,113,0,0.0
+Check Communication with termination on IN1 Line,113,0,0.0
+Check Communication with termination on IN2 Line,113,0,0.0
+Check Communication with termination on OUT1 Line,113,0,0.0
+Check Communication with termination on OUT2 Line,113,0,0.0
+Check Communication without termination on IN1 Line,113,0,0.0
+Check Communication without termination on IN2 Line,113,0,0.0
+Check Communication without termination on OUT1 Line,113,0,0.0
+Check Communication without termination on OUT2 Line,113,0,0.0
+Check relay CC on IN1 Line,113,0,0.0
+Check relay CC on IN2 Line,113,0,0.0
+Check relay CC on OUT1 Line,113,0,0.0
+Check relay CC on OUT2 Line,113,0,0.0
+Check current flow in RR1 and RR2,111,0,0.0
+MVB Not Installed on FT0128267-100,111,0,0.0
+Test IoT,110,0,0.0
+TBC1 Mflexx - TBC1 bench at 6 Bar,91,0,0.0
+TBC2 Mflexx - TBC2 bench at 6 Bar,91,0,0.0
+TLP1 Mflexx - TLP1 bench at 6 Bar,91,0,0.0
+TLP2 Mflexx - TLP2 bench at 6 Bar,91,0,0.0
+TPL Mflexx - TPL bench at 6 Bar,91,0,0.0
+TSP1 Mflexx - TSP1 bench at 6 Bar,91,0,0.0
+TSP2 Mflexx - TSP2 bench at 6 Bar,91,0,0.0
+"TBC1 at 3,57  Bar",73,0,0.0
+"TBC2 at 3,67  Bar",73,0,0.0
+"TLP1 at 5,613 Bar",73,0,0.0
+"TLP2 at 5,613 Bar",73,0,0.0
+"TPL at 3,57  Bar",73,0,0.0
+"TSP1 at 5,613 Bar",73,0,0.0
+"TSP2 at 5,613 Bar",73,0,0.0
+BC1 and BC2 to 6.0 Bar,33,0,0.0
+BC1 Pressure at VPL = 2.5,31,0,0.0
+BC2 Pressure at VPL = 2.5,31,0,0.0
+TBC1 at 6 Bar,29,0,0.0
+TBC2 at 6 Bar,29,0,0.0
+TPL at 6 Bar,29,0,0.0
+Flash Test Application ETH,19,0,0.0
+TLP1 at 5 Bar,19,0,0.0
+TLP2 at 5 Bar,19,0,0.0
+TSP1 at 5 Bar,19,0,0.0
+TSP2 at 5 Bar,19,0,0.0
+Check supplied O-Ring kit,17,0,0.0
+EV_LOAD=ON EV_UNLOAD=OFF EVF1&2=OFF EVS1&2=OFF RR1&2=OFF,10,0,0.0
+EV_LOAD=ON EV_UNLOAD=OFF EVF1&2=OFF EVS1&2=OFF RR1&2=ON,10,0,0.0
+EV_LOAD=ON EV_UNLOAD=OFF EVF1&2=ON EVS1&2=ON RR1&2=OFF,10,0,0.0
+CH10 DIscharging time,9,0,0.0
+CH10 Initial pressure,9,0,0.0
+CH11 DIscharging time,9,0,0.0
+CH11 Initial pressure,9,0,0.0
+Check AR = 0bar (T1) Discherged,9,0,0.0
+Check BC1 = 0bar (T10) Discherged,9,0,0.0
+Check BC2 = 0bar (T12) Discherged,9,0,0.0
+Check LP1 (T4) leakage,9,0,0.0
+Check LP2 (T3) leakage,9,0,0.0
+Check SP1 (T5) leakage,9,0,0.0
+Check SP2 (T7) leakage,9,0,0.0
+EV_LOAD=OFF EV_UNLOAD=ON EVF1&2=OFF EVS1&2=OFF RR1&2=OFF,9,0,0.0
+EV_LOAD=OFF EV_UNLOAD=ON EVF1&2=OFF EVS1&2=OFF RR1&2=ON,9,0,0.0
+EV_LOAD=OFF EV_UNLOAD=ON EVF1&2=ON EVS1&2=ON RR1&2=OFF,9,0,0.0
+Record LP1 (T4) initial pressure,9,0,0.0
+Record LP2 (T3) initial pressure,9,0,0.0
+Record SP1 (T5) initial pressure,9,0,0.0
+Record SP2 (T7) initial pressure,9,0,0.0
+"Set VPL regolation to 5,5bar",9,0,0.0
+TLP1 at 8 Bar,9,0,0.0
+TLP2 at 8 Bar,9,0,0.0
+"TPLP1 e 2 = 8bar, TPSP1 e 2 = 8bar",9,0,0.0
+TSP1 at 8 Bar,9,0,0.0
+TSP2 at 8 Bar,9,0,0.0
+Test BC1 = TPL-0.1bar (T10) pressure,9,0,0.0
+Test BC2 = TPL-0.1bar (T12) pressure,9,0,0.0
+Test LP1 (T4) pressure,9,0,0.0
+Test LP2 (T3) pressure,9,0,0.0
+Test SP1 (T5) pressure,9,0,0.0
+Test SP2 (T7) pressure,9,0,0.0
+"VPL=6,5bar EVF=ON EVS=OFF",9,0,0.0
+Wait 2 minutes for leakage test...,9,0,0.0
+CPU Programming through USB,5,0,0.0
+CPUG2F GetInfo,5,0,0.0
+CPUG2F SW Info,5,0,0.0
+Connection,5,0,0.0
+Link CPU through USB,5,0,0.0
+Test Bench Init,5,0,0.0
+Check +15V_iso_a1 with load,4,0,0.0
+Check +15V_iso_a2 with load,4,0,0.0
+Check +15Viso_1 Voltage,4,0,0.0
+Check +15Viso_2 Voltage,4,0,0.0
+Check +5V_ANA Voltage,4,0,0.0
+Check +5V_ana whit load,4,0,0.0
+Check +5V_ana whitout load,4,0,0.0
+Check ATE DO_Spare1 = OFF,4,0,0.0
+Check ATE DO_Spare1 = OFF due to life absence,4,0,0.0
+Check ATE DO_Spare1 = ON,4,0,0.0
+Check ATE DO_Spare2 = OFF,4,0,0.0
+Check ATE DO_Spare2 = OFF due to life absence,4,0,0.0
+Check ATE DO_Spare2 = ON,4,0,0.0
+Check ATE DO_Spare3 = OFF,4,0,0.0
+Check ATE DO_Spare3 = OFF due to life absence,4,0,0.0
+Check ATE DO_Spare3 = ON,4,0,0.0
+Check ATE EV_Air = OFF,4,0,0.0
+Check ATE EV_Air = ON,4,0,0.0
+Check ATE EV_Fill1 = OFF,4,0,0.0
+Check ATE EV_Fill1 = ON,4,0,0.0
+Check ATE EV_Fill2 = OFF,4,0,0.0
+Check ATE EV_Fill2 = ON,4,0,0.0
+Check ATE EV_Load = ON,4,0,0.0
+Check ATE EV_Unload = ON,4,0,0.0
+Check ATE EV_Vent1 = OFF,4,0,0.0
+Check ATE EV_Vent1 = ON,4,0,0.0
+Check ATE EV_Vent2 = OFF,4,0,0.0
+Check ATE EV_Vent2 = ON,4,0,0.0
+Check ATE MJF1_NC = OFF,4,0,0.0
+Check ATE MJF1_NC = ON,4,0,0.0
+Check ATE MJF2_NC = OFF,4,0,0.0
+Check ATE MJF2_NC = ON,4,0,0.0
+Check ATE PS1 = OFF,4,0,0.0
+Check ATE PS2 = OFF,4,0,0.0
+Check ATE RL_Spare1 = OFF,4,0,0.0
+Check ATE RL_Spare1 = OFF due to life absence,4,0,0.0
+Check ATE RL_Spare1 = ON,4,0,0.0
+Check ATE RL_Spare2 = OFF,4,0,0.0
+Check ATE RL_Spare2 = OFF due to life absence,4,0,0.0
+Check ATE RL_Spare2 = ON,4,0,0.0
+Check ATE RR1 Valve = OFF,4,0,0.0
+Check ATE RR1 Valve = ON,4,0,0.0
+Check ATE RR2 Valve = OFF,4,0,0.0
+Check ATE RR2 Valve = ON,4,0,0.0
+Check ATE Temperature Sensor,4,0,0.0
+Check ATE WSP_Fill1 = ON,4,0,0.0
+Check ATE WSP_Fill2 = ON,4,0,0.0
+Check ATE WSP_Vent1 = ON,4,0,0.0
+Check ATE WSP_Vent2 = ON,4,0,0.0
+Check BCP1_ST = OFF,4,0,0.0
+Check BCP1_STn = ON,4,0,0.0
+Check BCP2_ST = OFF,4,0,0.0
+Check BCP2_STn = ON,4,0,0.0
+Check CAN Error Conter,4,0,0.0
+Check CAN RX Conter,4,0,0.0
+Check CAN TX Conter,4,0,0.0
+Check CAN Warning Conter,4,0,0.0
+Check DO_Spare1 on/off in normal condition,4,0,0.0
+Check DO_Spare2 on/off in normal condition,4,0,0.0
+Check DO_Spare3 on/off in normal condition,4,0,0.0
+Check Difference between ATE and UUT,4,0,0.0
+Check MJF=OFF in normal condition,4,0,0.0
+Check MJF=ON in normal condition,4,0,0.0
+Check PS output with TBC1pres=0V and TBC2pres=0V,4,0,0.0
+Check PS output with TBC1pres=0V and TBC2pres=1V,4,0,0.0
+Check PS output with TBC1pres=1V and TBC2pres=0V,4,0,0.0
+Check Park_boost for any speed,4,0,0.0
+Check Park_boost with SPD1 < 14Hz,4,0,0.0
+Check Park_boost with SPD1 > 18Hz,4,0,0.0
+Check Park_boost with SPD2 < 14Hz,4,0,0.0
+Check Park_boost with SPD2 > 18Hz,4,0,0.0
+Check Ping to UUT address 10.1.17.11,4,0,0.0
+Check RL_Spare1 on/off in normal condition,4,0,0.0
+Check RL_Spare2 on/off in normal condition,4,0,0.0
+Check Spdin1 = 100Hz,4,0,0.0
+Check Spdin1 = 1500Hz,4,0,0.0
+Check Spdin1 = 3000Hz,4,0,0.0
+Check Spdin1 = 500Hz,4,0,0.0
+Check Spdin1_Diag with 0mA,4,0,0.0
+Check Spdin1_Diag with 12mA,4,0,0.0
+Check Spdin1_Diag with 16mA,4,0,0.0
+Check Spdin1_Diag with 20mA,4,0,0.0
+Check Spdin1_Diag with 8mA,4,0,0.0
+Check Spdin2 = 100Hz,4,0,0.0
+Check Spdin2 = 1500Hz,4,0,0.0
+Check Spdin2 = 3000Hz,4,0,0.0
+Check Spdin2 = 500Hz,4,0,0.0
+Check Spdin2_Diag with 0mA,4,0,0.0
+Check Spdin2_Diag with 12mA,4,0,0.0
+Check Spdin2_Diag with 16mA,4,0,0.0
+Check Spdin2_Diag with 20mA,4,0,0.0
+Check Spdin2_Diag with 8mA,4,0,0.0
+Check UUT DO_Spare1 = ON without LIFE signal,4,0,0.0
+Check UUT DO_Spare1 Diagnostic = LIFE_OFF,4,0,0.0
+Check UUT DO_Spare1 Diagnostic = OPEN,4,0,0.0
+Check UUT DO_Spare1 Diagnostic = SHORT,4,0,0.0
+Check UUT DO_Spare1 Diagnostic detection,4,0,0.0
+Check UUT DO_Spare1 Status = OFF,4,0,0.0
+Check UUT DO_Spare1 Status = OFF due to life absence,4,0,0.0
+Check UUT DO_Spare1 Status = ON,4,0,0.0
+Check UUT DO_Spare2 = ON without LIFE signal,4,0,0.0
+Check UUT DO_Spare2 Diagnostic = LIFE_OFF,4,0,0.0
+Check UUT DO_Spare2 Diagnostic = OPEN,4,0,0.0
+Check UUT DO_Spare2 Diagnostic = SHORT,4,0,0.0
+Check UUT DO_Spare2 Diagnostic detection,4,0,0.0
+Check UUT DO_Spare2 Status = OFF,4,0,0.0
+Check UUT DO_Spare2 Status = OFF due to life absence,4,0,0.0
+Check UUT DO_Spare2 Status = ON,4,0,0.0
+Check UUT DO_Spare3 = ON without LIFE signal,4,0,0.0
+Check UUT DO_Spare3 Diagnostic = LIFE_OFF,4,0,0.0
+Check UUT DO_Spare3 Diagnostic = OPEN,4,0,0.0
+Check UUT DO_Spare3 Diagnostic = SHORT,4,0,0.0
+Check UUT DO_Spare3 Diagnostic detection,4,0,0.0
+Check UUT DO_Spare3 Status = OFF,4,0,0.0
+Check UUT DO_Spare3 Status = OFF due to life absence,4,0,0.0
+Check UUT DO_Spare3 Status = ON,4,0,0.0
+Check UUT Diagnostic: EV_Air = OPEN,4,0,0.0
+Check UUT Diagnostic: EV_Air = SHORT,4,0,0.0
+Check UUT Diagnostic: EV_Vent1=OPEN and EV_Fill1=OPEN,4,0,0.0
+Check UUT Diagnostic: EV_Vent1=SHORT and EV_Fill1=SHORT,4,0,0.0
+Check UUT Diagnostic: EV_Vent2=OPEN and EV_Fill2=OPEN,4,0,0.0
+Check UUT Diagnostic: EV_Vent2=SHORT and EV_Fill2=SHORT,4,0,0.0
+Check UUT LCM1 MJF_NC Contact = OFF,4,0,0.0
+Check UUT LCM1 MJF_NC Contact = ON,4,0,0.0
+Check UUT LCM1 MJF_NO Contact = OFF,4,0,0.0
+Check UUT LCM1 MJF_NO Contact = ON,4,0,0.0
+Check UUT LCM2 MJF_NC Contact = OFF,4,0,0.0
+Check UUT LCM2 MJF_NC Contact = ON,4,0,0.0
+Check UUT LCM2 MJF_NO Contact = OFF,4,0,0.0
+Check UUT LCM2 MJF_NO Contact = ON,4,0,0.0
+Check UUT RL_Spare1 = ON without LIFE signal,4,0,0.0
+Check UUT RL_Spare1 Diagnostic = LIFE_OFF,4,0,0.0
+Check UUT RL_Spare1 Diagnostic = OPEN,4,0,0.0
+Check UUT RL_Spare1 Diagnostic detection,4,0,0.0
+Check UUT RL_Spare1 Status = OFF,4,0,0.0
+Check UUT RL_Spare1 Status = OFF due to life absence,4,0,0.0
+Check UUT RL_Spare1 Status = ON,4,0,0.0
+Check UUT RL_Spare2 = ON without LIFE signal,4,0,0.0
+Check UUT RL_Spare2 Diagnostic = LIFE_OFF,4,0,0.0
+Check UUT RL_Spare2 Diagnostic = OPEN,4,0,0.0
+Check UUT RL_Spare2 Diagnostic detection,4,0,0.0
+Check UUT RL_Spare2 Status = OFF,4,0,0.0
+Check UUT RL_Spare2 Status = OFF due to life absence,4,0,0.0
+Check UUT RL_Spare2 Status = ON,4,0,0.0
+Check UUT Status: EV_Air = OFF,4,0,0.0
+Check UUT Status: EV_Air = ON,4,0,0.0
+Check UUT Status: EV_Load=OFF and EV_Unload=OFF,4,0,0.0
+Check UUT Status: EV_Load=OFF and EV_Unload=ON,4,0,0.0
+Check UUT Status: EV_Load=ON and EV_Unload=OFF,4,0,0.0
+Check UUT Status: EV_Vent1=OFF and EV_Fill1=OFF,4,0,0.0
+Check UUT Status: EV_Vent1=OFF and EV_Fill1=ON,4,0,0.0
+Check UUT Status: EV_Vent1=ON and EV_Fill1=OFF,4,0,0.0
+Check UUT Status: EV_Vent2=OFF and EV_Fill2=OFF,4,0,0.0
+Check UUT Status: EV_Vent2=OFF and EV_Fill2=ON,4,0,0.0
+Check UUT Status: EV_Vent2=ON and EV_Fill2=OFF,4,0,0.0
+Check UUT Temperature Sensor,4,0,0.0
+Check VBAT1 Average Current,4,0,0.0
+Check VBAT2 Average Current,4,0,0.0
+Check Vanalog whit load,4,0,0.0
+Check Vanalog whitout load,4,0,0.0
+Check WSP_Fill1 monostable time,4,0,0.0
+Check WSP_Fill2 monostable time,4,0,0.0
+Check WSP_Vent1 monostable time,4,0,0.0
+Check WSP_Vent2 monostable time,4,0,0.0
+Deactivation of VBAT1,4,0,0.0
+DigiIn PARK_ON<45V (Deactivated),4,0,0.0
+DigiIn PARK_ON>55V (Activated),4,0,0.0
+EV_Air Activation,4,0,0.0
+EV_Air Deactivation,4,0,0.0
+EV_Fill1 Activation,4,0,0.0
+EV_Fill1 Deactivation and EV_Vent1 Activation,4,0,0.0
+EV_Fill2 Activation,4,0,0.0
+EV_Fill2 Deactivation and EV_Vent2 Activation,4,0,0.0
+EV_Vent1 and EV_Fill1 Deactivation,4,0,0.0
+EV_Vent2 and EV_Fill2 Deactivation,4,0,0.0
+Ethernet physical layer test,4,0,0.0
+LCM1 GetInfo,4,0,0.0
+LCM1 Master Configuration,4,0,0.0
+LCM1 Programming,4,0,0.0
+LCM1 Sw Info,4,0,0.0
+LCM2 GetInfo,4,0,0.0
+LCM2 Programming,4,0,0.0
+LCM2 Slave Configuration,4,0,0.0
+LCM2 Sw Info,4,0,0.0
+LCU Life disable to test EV_Load and EV_Unload,4,0,0.0
+Link on LCM1,4,0,0.0
+Link on LCM2,4,0,0.0
+Mac Address :,4,0,0.0
+Power OFF,4,0,0.0
+Reactivation of VBAT1,4,0,0.0
+Read VBAT1 Voltage,4,0,0.0
+Read VBAT2 Voltage,4,0,0.0
+Start and Wait CAN communication,4,0,0.0
+Test Acc-Gyr,4,0,0.0
+Test Ai_Spare1 Current 4-20mA on CPUG2,4,0,0.0
+Test Ai_Spare2 Current 4-20mA on CPUG2,4,0,0.0
+Test An_TSP2 Voltage 0-5V on CPUG2,4,0,0.0
+Test An_TSP3 Voltage 0-5V on CPUG2,4,0,0.0
+Test CODE-ID on LCM1,4,0,0.0
+Test CODE-ID on LCM2,4,0,0.0
+Test CPUG2 Ai_sp1 = 12mA,4,0,0.0
+Test CPUG2 Ai_sp1 = 19mA,4,0,0.0
+Test CPUG2 Ai_sp1 = 4mA,4,0,0.0
+Test CPUG2 Ai_sp2 = 12mA,4,0,0.0
+Test CPUG2 Ai_sp2 = 19mA,4,0,0.0
+Test CPUG2 Ai_sp2 = 4mA,4,0,0.0
+Test CPUG2 An_TSP2 = 0V,4,0,0.0
+Test CPUG2 An_TSP2 = 2.5V,4,0,0.0
+Test CPUG2 An_TSP2 = 4.5V,4,0,0.0
+Test CPUG2 An_TSP3 = 0V,4,0,0.0
+Test CPUG2 An_TSP3 = 2.5V,4,0,0.0
+Test CPUG2 An_TSP3 = 4.5V,4,0,0.0
+Test CPUG2 DigIn1A = OFF,4,0,0.0
+Test CPUG2 DigIn1A = ON,4,0,0.0
+Test CPUG2 DigIn1B = OFF,4,0,0.0
+Test CPUG2 DigIn1B = ON,4,0,0.0
+Test CPUG2 DigIn1C = OFF,4,0,0.0
+Test CPUG2 DigIn1C = ON,4,0,0.0
+Test CPUG2 DigIn1D = OFF,4,0,0.0
+Test CPUG2 DigIn1D = ON,4,0,0.0
+Test CPUG2 DigIn2A = OFF,4,0,0.0
+Test CPUG2 DigIn2A = ON,4,0,0.0
+Test CPUG2 DigIn2B = OFF,4,0,0.0
+Test CPUG2 DigIn2B = ON,4,0,0.0
+Test CPUG2 DigIn2C = OFF,4,0,0.0
+Test CPUG2 DigIn2C = ON,4,0,0.0
+Test CPUG2 DigIn2D = OFF,4,0,0.0
+Test CPUG2 DigIn2D = ON,4,0,0.0
+Test CPUG2 PARK = OFF,4,0,0.0
+Test CPUG2 PARK = ON,4,0,0.0
+Test CPUG2 RR1 = OFF,4,0,0.0
+Test CPUG2 RR1 = ON,4,0,0.0
+Test CPUG2 RR2 = OFF,4,0,0.0
+Test CPUG2 RR2 = ON,4,0,0.0
+Test CPUG2 SafLoop1 = OFF,4,0,0.0
+Test CPUG2 SafLoop1 = ON,4,0,0.0
+Test CPUG2 SafLoop2 = OFF,4,0,0.0
+Test CPUG2 SafLoop2 = ON,4,0,0.0
+Test CPUG2 TApress = 0V,4,0,0.0
+Test CPUG2 TApress = 2.5V,4,0,0.0
+Test CPUG2 TApress = 4.5V,4,0,0.0
+Test CPUG2 TBC1press = 0V,4,0,0.0
+Test CPUG2 TBC1press = 2.5V,4,0,0.0
+Test CPUG2 TBC1press = 4.5V,4,0,0.0
+Test CPUG2 TBC2press = 0V,4,0,0.0
+Test CPUG2 TBC2press = 2.5V,4,0,0.0
+Test CPUG2 TBC2press = 4.5V,4,0,0.0
+Test CPUG2 TLP1press = 0V,4,0,0.0
+Test CPUG2 TLP1press = 2.5V,4,0,0.0
+Test CPUG2 TLP1press = 4.5V,4,0,0.0
+Test CPUG2 TLP2press = 0V,4,0,0.0
+Test CPUG2 TLP2press = 2.5V,4,0,0.0
+Test CPUG2 TLP2press = 4.5V,4,0,0.0
+Test CPUG2 TPLpress = 0V,4,0,0.0
+Test CPUG2 TPLpress = 2.5V,4,0,0.0
+Test CPUG2 TPLpress = 4.5V,4,0,0.0
+Test IOT Module,4,0,0.0
+Test LCM1 PARK = OFF,4,0,0.0
+Test LCM1 PARK = ON,4,0,0.0
+Test LCM1 SafLoop = OFF,4,0,0.0
+Test LCM1 SafLoop = ON,4,0,0.0
+Test LCM2 PARK = OFF,4,0,0.0
+Test LCM2 PARK = ON,4,0,0.0
+Test LCU1 TApress = 0V,4,0,0.0
+Test LCU1 TApress = 2.5V,4,0,0.0
+Test LCU1 TApress = 4.5V,4,0,0.0
+Test LCU1 TBC1press = 0V,4,0,0.0
+Test LCU1 TBC1press = 2.5V,4,0,0.0
+Test LCU1 TBC1press = 4.5V,4,0,0.0
+Test LCU1 TBC2press = 0V,4,0,0.0
+Test LCU1 TBC2press = 2.5V,4,0,0.0
+Test LCU1 TBC2press = 4.5V,4,0,0.0
+Test LCU1 TLP1press = 0V,4,0,0.0
+Test LCU1 TLP1press = 2.5V,4,0,0.0
+Test LCU1 TLP1press = 4.5V,4,0,0.0
+Test LCU1 TPLpress = 0V,4,0,0.0
+Test LCU1 TPLpress = 2.5V,4,0,0.0
+Test LCU1 TPLpress = 4.5V,4,0,0.0
+Test LCU2 TApress = 0V,4,0,0.0
+Test LCU2 TApress = 2.5V,4,0,0.0
+Test LCU2 TApress = 4.5V,4,0,0.0
+Test LCU2 TBC1press = 0V,4,0,0.0
+Test LCU2 TBC1press = 2.5V,4,0,0.0
+Test LCU2 TBC1press = 4.5V,4,0,0.0
+Test LCU2 TBC2press = 0V,4,0,0.0
+Test LCU2 TBC2press = 2.5V,4,0,0.0
+Test LCU2 TBC2press = 4.5V,4,0,0.0
+Test LCU2 TLP2press = 0V,4,0,0.0
+Test LCU2 TLP2press = 2.5V,4,0,0.0
+Test LCU2 TLP2press = 4.5V,4,0,0.0
+Test LCU2 TPLpress = 0V,4,0,0.0
+Test LCU2 TPLpress = 2.5V,4,0,0.0
+Test LCU2 TPLpress = 4.5V,4,0,0.0
+Test LMC2 SafLoop = OFF,4,0,0.0
+Test LMC2 SafLoop = ON,4,0,0.0
+Test MVB,4,0,0.0
+Test Mac Address FTI Id,4,0,0.0
+Test PWM1 = OFF,4,0,0.0
+Test PWM1 = ON,4,0,0.0
+Test PWM2 = OFF,4,0,0.0
+Test PWM2 = ON,4,0,0.0
+Test RS485 communication on LCM1,4,0,0.0
+Test RS485 communication on LCM2,4,0,0.0
+"Test TApress Voltage 0-5V on CPUG2, LCU1, LCU2",4,0,0.0
+"Test TBC1press Voltage 0-5V on CPUG2, LCU1, LCU2",4,0,0.0
+"Test TBC2press Voltage 0-5V on CPUG2, LCU1, LCU2",4,0,0.0
+"Test TLP1press Voltage 0-5V on CPUG2, LCU1",4,0,0.0
+"Test TLP2press Voltage 0-5V on CPUG2, LCU2",4,0,0.0
+"Test TPLpress Voltage 0-5V on CPUG2, LCU1, LCU2",4,0,0.0
+Test Vdigital1,4,0,0.0
+Test Vdigital2,4,0,0.0
+Test relays CC: IN1A-IN1B line,4,0,0.0
+Test relays CC: IN2A-IN2B line,4,0,0.0
+Test relays CC: OUT1A-OUT1B line,4,0,0.0
+Test relays CC: OUT2A-OUT2B line,4,0,0.0
+Test with termination resistor: IN1A-IN1B line,4,0,0.0
+Test with termination resistor: IN2A-IN2B line,4,0,0.0
+Test with termination resistor: OUT1A-OUT1B line,4,0,0.0
+Test with termination resistor: OUT2A-OUT2B line,4,0,0.0
+Test without termination resistor: IN1A-IN1B line,4,0,0.0
+Test without termination resistor: IN2A-IN2B line,4,0,0.0
+Test without termination resistor: OUT1A-OUT1B line,4,0,0.0
+Test without termination resistor: OUT2A-OUT2B line,4,0,0.0
+VBAT2 Activation at 110V,4,0,0.0
+WSP_Fill1 Activation at time=0,4,0,0.0
+WSP_Fill2 Activation at time=0,4,0,0.0
+WSP_Vent1 Activation at time=0,4,0,0.0
+WSP_Vent2 Activation at time=0,4,0,0.0
+Wait WSP_Fill1 monostable trip time,4,0,0.0
+Wait WSP_Fill2 monostable trip time,4,0,0.0
+Wait WSP_Vent1 monostable trip time,4,0,0.0
+Wait WSP_Vent2 monostable trip time,4,0,0.0
+BC1 Pressure at VPL = 3.5,2,0,0.0
+BC2 Pressure at VPL = 3.5,2,0,0.0
+MGD Crush Verify Loop 1,2,0,0.0
+MGD Crush Verify Loop 2,2,0,0.0
+MGD Crush Verify Loop 3,2,0,0.0
+Spring Ratio Crush,2,0,0.0
+Spring Ratio Min,2,0,0.0
+"TA at 3,85 Bar",2,0,0.0
+CV Pressure Increase in 5 min,1,0,0.0
+MGD MIN Verify Loop 1,1,0,0.0
+MGD MIN Verify Loop 2,1,0,0.0
+MGD MIN Verify Loop 3,1,0,0.0
+Pressure Leakage in 5 min,1,0,0.0
+QR code Printing,1,0,0.0
+"T2 EVLoad Off Rid2 6,9Bar",1,0,0.0
+T2 Initial Pressure,1,0,0.0
+T2 Pressure,1,0,0.0
+T2 Pressure After R3 closed (Crush discharge),1,0,0.0
+T2 Pressure EV Load ON,1,0,0.0
+"T4 EVLoad Off Rid2 6,9Bar",1,0,0.0
+T4 Pressure After 5 Min,1,0,0.0
+T4 Pressure After EV load,1,0,0.0
+T4 Pressure EV Load ON,1,0,0.0
+T4 with EV load ON,1,0,0.0
+TLP1 at 7 Bar,1,0,0.0
+TLP2 at 7 Bar,1,0,0.0
+TSP1 at 7 Bar,1,0,0.0
+TSP2 at 7 Bar,1,0,0.0

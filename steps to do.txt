@@ -1,0 +1,133 @@
+awesome—here’s a tight but complete checklist for the React frontend to hook up your ML flow and visualize the outputs.
+
+# 0) Foundation
+
+* [ ] Install libs: `papaparse`, `react-chartjs-2` + `chart.js`, `react-router-dom`, and (optional) `ag-grid-react` or `mui` DataGrid for tables.
+* [ ] Add a small API client (fetch wrapper) that hits your backend at `/api/ml/...` with proper error handling.
+* [ ] Create a shared CSV loader that fetches `/api/ml/runs/:runId/files/:name` and parses via PapaParse.
+
+# 1) Routing & pages
+
+* [ ] **/dashboard** – Add a **“Use ML model”** button that calls `POST /api/ml/run`, shows progress (spinner), then routes to `/ml/runs/:runId`.
+* [ ] **/ml/runs** – Runs list page using `GET /api/ml/runs` (newest first). Each item links to its detail page. Include a “pin/unpin” toggle (PATCH).
+* [ ] **/ml/runs/\:runId** – Run detail hub with tabs:
+
+  * Overview (metadata + logs)
+  * Predictions (table + filters)
+  * Patterns (several charts)
+  * Context rates
+  * Timing (pacing)
+  * Quality/Retry
+
+# 2) Overview tab (Run detail)
+
+* [ ] Show run metadata (`runId`, start/end, duration, args, paths, pinned).
+* [ ] Show links to logs via:
+
+  * GET `/api/ml/runs/:runId/logs/train`
+  * GET `/api/ml/runs/:runId/logs/predict`
+* [ ] Provide raw file downloads listing `GET /api/ml/runs/:runId/files`.
+
+# 3) Predictions tab
+
+* [ ] Load `predictions.json` or `predictions.csv`.
+* [ ] Table with columns: `global_id`, `pred_label`, `pred_proba_pass` (if present).
+* [ ] Filters: label (PASS/FAIL), probability range slider, search by `global_id`.
+* [ ] Simple KPI boxes: total, predicted FAIL count, average `pred_proba_pass`.
+
+# 4) Patterns tab (map each file → chart)
+
+* [ ] **predicted\_fail\_step\_patterns.csv** → Bar chart (x: stepName, y: fail\_count). Sort desc, top N control.
+* [ ] **predicted\_fail\_step\_cooccurrence.csv** → Heatmap or matrix (step\_i vs step\_j, value = co\_fail\_count). If heatmap is heavy, table with sorting + CSV download.
+* [ ] **predicted\_fail\_step\_by\_bucket.csv** → Stacked bar per bucket (early/mid/late), x: stepName, stacked by bucket; or 3 side-by-side bars.
+* [ ] **predicted\_fail\_bigrams.csv** → Horizontal bar chart (top bigrams by count). Label as “A → B”.
+* [ ] **predicted\_fail\_session\_failpos.csv** → Small stats + histograms of `first_fail_stepnum`, `fail_step_span`, and `fail_clusters`.
+
+# 5) Context rates tab
+
+* [ ] **predicted\_fail\_rates\_by\_station\_step.csv** → Filterable table and chart:
+
+  * Select a `stationName` → Bar chart of `fail_rate` by `stepName`.
+* [ ] **predicted\_fail\_rates\_by\_testspec\_step.csv** → Same UI pattern (select Testspec).
+* [ ] **predicted\_fail\_rates\_by\_atesw\_step.csv** → Same UI pattern (select AteSwVersion).
+* [ ] Provide “Top 10 by fail\_rate” quick view.
+
+# 6) Timing (pacing) tab
+
+* [ ] **predicted\_fail\_pacing\_session\_metrics.csv** →
+
+  * Summary cards: median `time_to_first_fail_sec`, median `time_to_first_fail_frac`, median `total_step_time`.
+  * Box plots or histograms for `mean_stepTime`, `max_stepTime`, `time_to_first_fail_sec`.
+  * Scatter: `time_to_first_fail_sec` vs `test_duration_sec` (if duration present).
+
+# 7) Quality & Retry tab
+
+* [ ] **predicted\_fail\_quality\_texture.csv** →
+
+  * Stacked bar of result ratios (`pass_ratio`, `fail_ratio`, `done_ratio`, `incomplete_ratio`) per session (sampled or average via summary).
+  * KPI: avg `result_flips`, avg `fail_to_pass_count`, avg `total_retries`.
+* [ ] **predicted\_fail\_step\_retry\_summary.csv** →
+
+  * Table + bar chart of `retry_rate` by stepName (sorted desc).
+  * Filter by minimum `sessions` to avoid noise.
+
+# 8) Shared components to build
+
+* [ ] `<CsvFetcher runId fileName render={fn}/>:` fetches + parses CSV once, passes `rows` to render function.
+* [ ] `<CsvBarChart/>`, `<CsvHeatmap/>`, `<CsvTable/>` generic wrappers to reduce repetition.
+* [ ] `<RunFilesList/>` showing downloadable links (uses `/api/ml/runs/:runId/files/:name` inline).
+* [ ] `<LogsViewer kind="train|predict"/>` using the logs endpoints.
+
+# 9) UX niceties
+
+* [ ] Toasts/snackbars on API errors.
+* [ ] Disable “Use ML model” button while run is in progress; show loading state from `/api/ml/run` response.
+* [ ] Keep a **“Recent runs”** sidebar with pinning.
+* [ ] Allow comparing two runs: pick run A & B → for each chart show delta (% change). (Optional phase 2.)
+
+# 10) Performance & data handling
+
+* [ ] Lazy-load each tab’s data on tab activation.
+* [ ] Cap initial bars to top N (e.g., 20), with “Show all” toggle.
+* [ ] Memoize parsed CSVs per runId/fileName to avoid re-fetching while navigating tabs.
+* [ ] Guard against empty files (show “No data” states).
+
+# 11) Access & security
+
+* [ ] If the app is authenticated, ensure these routes require auth (your backend already uses sessions).
+* [ ] Sanitize the `:name` param (backend already uses `path.basename`, good).
+* [ ] Consider rate-limiting `/api/ml/run` (avoid spam clicks).
+
+# 12) Testing & validation
+
+* [ ] Unit test the CSV parsing utilities with a couple of sample rows.
+* [ ] Snapshot tests for charts (optional).
+* [ ] E2E happy path: click “Use ML model” → redirected to run detail → charts render without console errors.
+
+# 13) Minimal code stubs you’ll need
+
+* API client:
+
+  * `GET /api/ml/runs`
+  * `GET /api/ml/runs/:runId`
+  * `POST /api/ml/run`
+  * `GET /api/ml/runs/:runId/files/:name`
+  * `GET /api/ml/runs/:runId/logs/:kind`
+  * `PATCH /api/ml/runs/:runId` (pin)
+
+* React routes:
+
+  * `/ml/runs`
+  * `/ml/runs/:runId`
+
+* Components:
+
+  * `MlRunButton` (on dashboard)
+  * `MlRunsListPage`
+  * `MlRunDetailPage` with tabs:
+
+    * `OverviewTab`, `PredictionsTab`, `PatternsTab`, `ContextRatesTab`, `PacingTab`, `QualityRetryTab`
+
+---
+
+If you want, I can scaffold the **data layer + the Run detail skeleton with tabs** (TypeScript or JS) and a couple of example charts wired to the CSV endpoints.
