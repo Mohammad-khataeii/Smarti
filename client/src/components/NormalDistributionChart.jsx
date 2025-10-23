@@ -16,6 +16,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import Modal from 'react-modal';
 import axios from 'axios';
 import styles from './NormalDistributionChartWithDropdown.module.css';
+import GoToDashboardButton from '../components/GoToDashboardButton';
 
 ChartJS.register(CategoryScale, LinearScale, LineElement, PointElement, Title, Tooltip, Legend, annotationPlugin);
 
@@ -269,6 +270,7 @@ const closeHelp = () => setIsHelpOpen(false);
     return (
         <div className={styles.container}>
             <h2>Normal Distribution Chart</h2>
+            <GoToDashboardButton />
             {error && <p className={styles.error}>{error}</p>}
             <div className={styles.filters}>
                 {/* Step Number Filter */}

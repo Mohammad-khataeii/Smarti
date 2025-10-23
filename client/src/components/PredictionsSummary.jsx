@@ -1,5 +1,6 @@
 import React from "react";
 import { usePredictions } from "../hooks/usePredictions";
+import GoToDashboardButton from '../components/GoToDashboardButton';
 
 export default function PredictionsSummary({ runId }) {
   const { loading, error, total, passCount, failCount } = usePredictions(runId);
@@ -19,6 +20,7 @@ export default function PredictionsSummary({ runId }) {
 function Card({ title, value }) {
   return (
     <div style={{border:"1px solid #eee", borderRadius:8, padding:12}}>
+      <GoToDashboardButton />
       <div style={{fontSize:12, color:"#666"}}>{title}</div>
       <div style={{fontSize:24, fontWeight:600}}>{value}</div>
     </div>

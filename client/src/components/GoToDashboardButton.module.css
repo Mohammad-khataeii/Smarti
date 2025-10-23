@@ -1,0 +1,19 @@
+.dashboardButton {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 16px;
+  background-color: #000;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 1100;
+  transition: background-color 0.3s;
+}
+
+.dashboardButton:hover {
+  background-color: #444;
+}

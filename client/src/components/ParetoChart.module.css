@@ -274,3 +274,148 @@
     background-color: #ffcccc; /* Light red background */
     color: red; /* Dark red text color */
 }
+/* =============================== */
+/* 📅 Date Picker Modal Styling    */
+/* =============================== */
+
+/* Date Picker Trigger Buttons */
+.datePickerButton {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 150px;
+    background-color: #ffffff;
+    color: #333;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.datePickerButton:hover {
+    background-color: #f3f3f3;
+    border-color: #999;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* Date Picker Modal */
+.modalDatePicker {
+    background-color: #fff;
+    padding: 20px;
+    max-width: 400px;
+    width: 90%;
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: fadeInModal 0.3s ease-out;
+}
+
+.modalDatePickerOverlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(2px);
+}
+
+/* Quick Select Buttons */
+.quickSelectContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+    justify-content: flex-start;
+}
+
+.quickSelectButton {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #333;
+    transition: all 0.25s ease;
+}
+
+.quickSelectButton:hover {
+    background-color: #f0f0f0;
+    border-color: #888;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Special Clear Button */
+.clearButton {
+    background-color: #ffe5e5;
+    color: #cc0000;
+    border-color: #ffb3b3;
+}
+
+.clearButton:hover {
+    background-color: #ffcccc;
+    border-color: #ff9999;
+}
+
+/* Modal Action Buttons (footer of modal) */
+.modalActions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+.closeModalButton {
+    background-color: #f3f3f3;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 8px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.closeModalButton:hover {
+    background-color: #e0e0e0;
+    border-color: #999;
+}
+
+/* Opening animation */
+@keyframes fadeInModal {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments for date picker modal */
+@media (max-width: 500px) {
+    .quickSelectContainer {
+        justify-content: center;
+    }
+
+    .quickSelectButton {
+        flex: 1 1 45%;
+        text-align: center;
+    }
+
+    .modalDatePicker {
+        padding: 15px;
+    }
+
+    .datePickerButton {
+        width: 100%;
+    }
+}

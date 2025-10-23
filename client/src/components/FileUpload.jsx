@@ -3,6 +3,7 @@ import { Navigate } from 'react-router-dom';
 import axios from 'axios';
 import styles from './FileUpload.module.css';
 import Modal from 'react-modal';
+import GoToDashboardButton from '../components/GoToDashboardButton';
 
 const FileUpload = () => {
     const [files, setFiles] = useState([]);
@@ -78,6 +79,7 @@ const FileUpload = () => {
 
     return (
         <div className={styles.container}>
+            <GoToDashboardButton />
             {loading ? (
                 <div className={styles.loadingScreen}>
                     <div className={styles.spinner}></div>

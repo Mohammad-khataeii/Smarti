@@ -3,6 +3,7 @@ import React, { useMemo } from "react";
 import { Bar } from "react-chartjs-2";
 import { CategoryScale, LinearScale, BarElement, Tooltip, Legend, Chart as ChartJS } from "chart.js";
 import { usePredictions } from "../hooks/usePredictions";
+import GoToDashboardButton from '../components/GoToDashboardButton';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
@@ -42,6 +43,7 @@ export default function PredProbaHistogram({ runId }) {
   return (
     <div>
       <h4>Probability of PASS (distribution)</h4>
+      <GoToDashboardButton />
       <Bar
         data={{
           labels,

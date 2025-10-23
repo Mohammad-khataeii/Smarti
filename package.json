@@ -1,0 +1,51 @@
+{
+  "name": "smarti",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Smarti - Electron + React + Node + Python desktop app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build-client": "cd client && npm run build",
+    "dev-server": "cd server && node server.mjs",
+    "package": "electron-builder"
+  },
+  "build": {
+    "appId": "com.smarti.app",
+    "productName": "Smarti",
+    "directories": {
+      "buildResources": "assets",
+      "output": "release"
+    },
+    "files": [
+      "main.js",
+      "client/build/**/*",
+      "server/**/*",
+      "python-scripts/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "server",
+        "to": "server"
+      },
+      {
+        "from": "python-scripts",
+        "to": "python-scripts"
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  }
+}

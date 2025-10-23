@@ -674,6 +674,7 @@ const failureRateChartData = {
         <p>
             This dashboard is designed to help you monitor production outcomes, troubleshoot failures, and improve overall system performance efficiently.
         </p>
+        <p>Made in IRAN 🇮🇷</p>
     </div>
 </Modal>
 

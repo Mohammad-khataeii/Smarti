@@ -65,3 +65,7 @@ client/build/
 # =========================
 server/node_modules/
 server/dist/
+# Ignore databases and uploads
+server/**/*.db
+server/uploads/*
+test_results.db

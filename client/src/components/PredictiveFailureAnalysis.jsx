@@ -4,6 +4,7 @@ import { Line } from 'react-chartjs-2';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import styles from './PredictiveFailureAnalysis.module.css';
+import GoToDashboardButton from '../components/GoToDashboardButton';
 
 const PredictiveFailure = () => {
     const [predictiveData, setPredictiveData] = useState([]);
@@ -104,6 +105,7 @@ const PredictiveFailure = () => {
 
     return (
         <div className={styles.container}>
+            <GoToDashboardButton />
             <h2 className={styles.pageTitle}>Predictive Failure Analysis</h2>
             <p>Select a primary step and optional date range to analyze predictive failure probabilities.</p>
 

@@ -6,6 +6,7 @@ import path from "node:path";
 import { randomUUID } from "node:crypto";
 import { parse } from "csv-parse/sync";
 import { stringify } from "csv-stringify/sync";
+import os from "os";
 
 const ROOT = process.env.PREDICTIONS_ROOT || "./predictions";
 const RUN_INDEX = path.join(ROOT, "ml_runs.json");
@@ -89,7 +90,9 @@ export async function runTrainAndPredict() {
   const TRAIN = process.env.TRAIN_SCRIPT || "train_random_forest.py";
   const PRED  = process.env.PREDICT_SCRIPT || "predict_random_forest.py";
 
-  const DB    = process.env.DB_PATH || "./test_results.db";
+  
+const DB = process.env.DB_PATH || path.join(os.homedir(), ".smarti_data", "test_results.db");
+
   const ART   = process.env.ARTIFACTS_DIR || "./ml_artifacts";
   const SCHEMA = process.env.FEATURES_SCHEMA || path.join(ART, "features_schema.json");
 

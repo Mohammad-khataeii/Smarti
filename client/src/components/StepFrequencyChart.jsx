@@ -15,6 +15,11 @@ import {
 } from 'chart.js';
 import styles from './StepFrequencyChart.module.css';
 import Modal from 'react-modal';
+import { jsPDF } from 'jspdf';
+import 'jspdf-autotable';
+import Papa from 'papaparse';
+import GoToDashboardButton from '../components/GoToDashboardButton';
+
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -59,6 +64,53 @@ const StepFrequencyChart = () => {
         };
         fetchStepNumbers();
     }, []);
+    
+    // ✅ Export table data to PDF
+const exportTableToPDF = () => {
+  if (!tableData || tableData.length === 0) return;
+
+  const doc = new jsPDF();
+  doc.text('Step Frequency Table', 14, 15);
+
+  const tableColumn = ["Step Number", "Total Frequency", "Fail Count", "Fail Percentage (%)", "Average Fail Measure"];
+  const tableRows = tableData.map(item => [
+    `Step ${item.stepNumber}`,
+    item.totalFrequency,
+    item.failCount,
+    item.failPercentage.toFixed(2),
+    item.avgMeasureValue ? item.avgMeasureValue.toFixed(2) : "-"
+  ]);
+
+  doc.autoTable({
+    head: [tableColumn],
+    body: tableRows,
+    startY: 20,
+    styles: { fontSize: 10 },
+    headStyles: { fillColor: [0, 123, 255] }
+  });
+
+  doc.save('step_frequency_table.pdf');
+};
+
+// ✅ Export table data to CSV
+const exportTableToCSV = () => {
+  if (!tableData || tableData.length === 0) return;
+
+  const csvData = tableData.map(item => ({
+    StepNumber: `Step ${item.stepNumber}`,
+    TotalFrequency: item.totalFrequency,
+    FailCount: item.failCount,
+    FailPercentage: item.failPercentage.toFixed(2),
+    AverageFailMeasure: item.avgMeasureValue ? item.avgMeasureValue.toFixed(2) : "-"
+  }));
+
+  const csv = Papa.unparse(csvData);
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = 'step_frequency_table.csv';
+  link.click();
+};
 
     const fetchStepFrequencyData = async (startDate = null, endDate = null, ateSwVersion = '', stepNumbers = []) => {
         setLoading(true);
@@ -135,24 +187,90 @@ const StepFrequencyChart = () => {
     return (
         <div className={styles.pageContainer}>
             <h2 className={styles.chartTitle}>Step Frequency and Fail Percentage</h2>
-            
+            <GoToDashboardButton />
             <div className={styles.filterSection}>
-                <label>Select Start Date:</label>
-                <DatePicker
-                    selected={startDate}
-                    onChange={(date) => setStartDate(date)}
-                    dateFormat="yyyy-MM-dd"
-                    placeholderText="Start Date"
-                    className={styles.datePicker}
-                />
-                <label>Select End Date:</label>
-                <DatePicker
-                    selected={endDate}
-                    onChange={(date) => setEndDate(date)}
-                    dateFormat="yyyy-MM-dd"
-                    placeholderText="End Date"
-                    className={styles.datePicker}
-                />
+                <div className={styles.dateFilterContainer}>
+  <div className={styles.datePickerGroup}>
+    <label>Start Date:</label>
+    <DatePicker
+      selected={startDate}
+      onChange={(date) => setStartDate(date)}
+      placeholderText="Select start date"
+      dateFormat="yyyy-MM-dd"
+      className={styles.datePicker}
+      isClearable
+      showMonthDropdown
+      showYearDropdown
+      dropdownMode="select"
+    />
+  </div>
+
+  <div className={styles.datePickerGroup}>
+    <label>End Date:</label>
+    <DatePicker
+      selected={endDate}
+      onChange={(date) => setEndDate(date)}
+      placeholderText="Select end date"
+      dateFormat="yyyy-MM-dd"
+      className={styles.datePicker}
+      isClearable
+      showMonthDropdown
+      showYearDropdown
+      dropdownMode="select"
+      minDate={startDate}
+    />
+  </div>
+
+  {/* Quick Range Buttons */}
+  <div className={styles.quickRangeContainer}>
+    <button
+      className={styles.quickRangeBtn}
+      onClick={() => {
+        const today = new Date();
+        setStartDate(today);
+        setEndDate(today);
+      }}
+    >
+      Today
+    </button>
+    <button
+      className={styles.quickRangeBtn}
+      onClick={() => {
+        const today = new Date();
+        const last7 = new Date();
+        last7.setDate(today.getDate() - 7);
+        setStartDate(last7);
+        setEndDate(today);
+      }}
+    >
+      Last 7 Days
+    </button>
+    <button
+      className={styles.quickRangeBtn}
+      onClick={() => {
+        const today = new Date();
+        const startOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+        setStartDate(startOfMonth);
+        setEndDate(today);
+      }}
+    >
+      This Month
+    </button>
+    <button
+      className={styles.quickRangeBtn}
+      onClick={() => {
+        const today = new Date();
+        const last30 = new Date();
+        last30.setDate(today.getDate() - 30);
+        setStartDate(last30);
+        setEndDate(today);
+      }}
+    >
+      Last 30 Days
+    </button>
+  </div>
+</div>
+
                 <label>AteSwVersion:</label>
                 <select
                     value={ateSwVersion}
@@ -223,30 +341,44 @@ const StepFrequencyChart = () => {
                 <button onClick={toggleDetails} className={styles.toggleButton}>
                     {showDetails ? 'Hide Details' : 'Show Details'}
                 </button>
+                <div className={styles.exportButtonGroup}>
+      <button onClick={exportTableToPDF} className={styles.exportButton}>
+        Export as PDF
+      </button>
+      <button onClick={exportTableToCSV} className={styles.exportButton}>
+        Export as CSV
+      </button>
+    </div>
                 {showDetails && tableData && (
-                    <table className={styles.detailsTable}>
-                        <thead>
-                            <tr>
-                                <th>Step Number</th>
-                                <th>Total Frequency</th>
-                                <th>Fail Count</th>
-                                <th>Fail Percentage (%)</th>
-                                <th>Average Fail Measure Value</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {tableData.map((item, index) => (
-                                <tr key={index}>
-                                    <td>{`Step ${item.stepNumber}`}</td>
-                                    <td>{item.totalFrequency}</td>
-                                    <td>{item.failCount}</td>
-                                    <td>{item.failPercentage.toFixed(2)}</td>
-                                    <td>{item.avgMeasureValue ? item.avgMeasureValue.toFixed(2) : '-'}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                )}
+                    
+  <>
+    <table className={styles.detailsTable}>
+      <thead>
+        <tr>
+          <th>Step Number</th>
+          <th>Total Frequency</th>
+          <th>Fail Count</th>
+          <th>Fail Percentage (%)</th>
+          <th>Average Fail Measure Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        {tableData.map((item, index) => (
+          <tr key={index}>
+            <td>{`Step ${item.stepNumber}`}</td>
+            <td>{item.totalFrequency}</td>
+            <td>{item.failCount}</td>
+            <td>{item.failPercentage.toFixed(2)}</td>
+            <td>{item.avgMeasureValue ? item.avgMeasureValue.toFixed(2) : '-'}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+
+    
+  </>
+)}
+
             </div>
 
             {isModalOpen && (

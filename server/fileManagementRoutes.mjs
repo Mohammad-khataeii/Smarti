@@ -2,12 +2,14 @@
 import express from 'express';
 import { open } from 'sqlite';
 import sqlite3 from 'sqlite3';
+import os from 'os';
+import path from 'path';
 
 const router = express.Router();
 
-// Set up SQLite database connection
+const dbPath = path.join(os.homedir(), '.smarti_data', 'test_results.db');
 const dbPromise = open({
-    filename: './test_results.db',
+    filename: dbPath,
     driver: sqlite3.Database,
 });
 

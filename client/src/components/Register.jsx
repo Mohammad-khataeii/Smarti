@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './Register.module.css';
 
 const Register = () => {
@@ -7,6 +8,8 @@ const Register = () => {
     const [role, setRole] = useState('normal');
     const [secretKey, setSecretKey] = useState('');
     const [message, setMessage] = useState('');
+
+    const navigate = useNavigate();
 
     const handleRegister = async (e) => {
         e.preventDefault();
@@ -28,16 +31,20 @@ const Register = () => {
             });
 
             const result = await response.text();
-            
+
             if (response.ok) {
-                setMessage(`Success: ${result}`);
+                setMessage(`✅ Success: ${result}`);
             } else {
-                setMessage(`Error: ${result}`);
+                setMessage(`❌ Error: ${result}`);
             }
         } catch (error) {
             console.error('Error during registration:', error);
-            setMessage('Error during registration. Please try again.');
+            setMessage('❌ Error during registration. Please try again.');
         }
+    };
+
+    const handleGoToLogin = () => {
+        navigate('/login');
     };
 
     return (
@@ -45,6 +52,7 @@ const Register = () => {
             <div className={styles.leftSection}>
                 <h1 className={styles.title}>Register for Data Analyzer</h1>
                 <p className={styles.subtitle}>Create a new account</p>
+
                 <form onSubmit={handleRegister} className={styles.form}>
                     <div className={styles.inputGroup}>
                         <label className={styles.label}>Username</label>
@@ -57,6 +65,7 @@ const Register = () => {
                             className={styles.input}
                         />
                     </div>
+
                     <div className={styles.inputGroup}>
                         <label className={styles.label}>Password</label>
                         <input
@@ -68,6 +77,7 @@ const Register = () => {
                             className={styles.input}
                         />
                     </div>
+
                     <div className={styles.inputGroup}>
                         <label className={styles.label}>Role</label>
                         <select
@@ -80,6 +90,7 @@ const Register = () => {
                             <option value="admin">Admin</option>
                         </select>
                     </div>
+
                     <div className={styles.inputGroup}>
                         <label className={styles.label}>Secret Key</label>
                         <input
@@ -91,9 +102,17 @@ const Register = () => {
                             className={styles.input}
                         />
                     </div>
-                    <button type="submit" className={styles.submitButton}>Register</button>
+
+                    <button type="submit" className={styles.submitButton}>
+                        Register
+                    </button>
+
                     {message && <p className={styles.message}>{message}</p>}
                 </form>
+
+                <button onClick={handleGoToLogin} className={styles.loginRedirectButton}>
+                    Go to Login
+                </button>
             </div>
 
             <div className={styles.rightSection}>

@@ -12,6 +12,7 @@ import Select from 'react-select'; // Import react-select
 import styles from './UUTStatusSummaryChart.module.css';
 import html2canvas from 'html2canvas';
 import ReactLoading from 'react-loading'; // Import react-loading
+import GoToDashboardButton from '../components/GoToDashboardButton';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -162,7 +163,7 @@ const UUTStatusSummaryChart = () => {
     return (
         <div className={styles.container}>
             <h2 className={styles.pageTitle}>UUT Status Summary</h2>
-
+                <GoToDashboardButton />
             <div className={styles.filters}>
                 {/* Date Picker for Start Date */}
                 <div className={styles.datePickerContainer}>

@@ -10,6 +10,7 @@ import Select from 'react-select';
 import 'react-datepicker/dist/react-datepicker.css';
 import styles from './SerialPassFailChart.module.css';
 import Modal from 'react-modal';
+import GoToDashboardButton from '../components/GoToDashboardButton';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -17,7 +18,8 @@ const SerialPassFailChart = () => {
     const [data, setData] = useState({ PASS: 0, FAIL: 0 });
     const [totalProduction, setTotalProduction] = useState(0);
     const [error, setError] = useState(null);
-    const [drillDownData, setDrillDownData] = useState(null);
+    const [drillDownData, setDrillDownData] = useState([]);
+
     const [selectedStatus, setSelectedStatus] = useState(null);
     const [isTableVisible, setIsTableVisible] = useState(true);
     const [startDate, setStartDate] = useState(null);
@@ -34,6 +36,8 @@ const SerialPassFailChart = () => {
     const closeHelp = () => setIsHelpOpen(false);
     const chartRef = useRef(null);
 
+    const [isDateModalOpen, setIsDateModalOpen] = useState(false);
+    const [activeDateField, setActiveDateField] = useState(null); // 'start' or 'end'
 
     useEffect(() => {
         // Simulate data fetching
@@ -193,6 +197,7 @@ const SerialPassFailChart = () => {
 
     return (
         <div className={styles.container}>
+            <GoToDashboardButton />
             {loading ? (
                 <div className={styles.loadingScreen}>
                     <div className={styles.spinner}></div>
@@ -206,24 +211,27 @@ const SerialPassFailChart = () => {
                     {/* Filter Controls */}
                     <div className={styles.filterContainer}>
                         <div className={styles.filterItem}>
-                            <label>Start Date:</label>
-                            <DatePicker
-                                selected={startDate}
-                                onChange={(date) => setStartDate(date)}
-                                dateFormat="yyyy-MM-dd"
-                                placeholderText="Select Start Date"
-                                className={styles.datePicker}
-                            />
-                        </div>
-                        <div className={styles.filterItem}>
-                            <label>End Date:</label>
-                            <DatePicker
-                                selected={endDate}
-                                onChange={(date) => setEndDate(date)}
-                                dateFormat="yyyy-MM-dd"
-                                placeholderText="Select End Date"
-                                className={styles.datePicker}
-                            />
+                            
+                           <div className={styles.filterItem}>
+    <label>Start Date:</label>
+    <button
+        className={styles.datePickerButton}
+        onClick={() => { setActiveDateField('start'); setIsDateModalOpen(true); }}
+    >
+        {startDate ? startDate.toLocaleDateString() : 'Select Start Date'}
+    </button>
+</div>
+
+<div className={styles.filterItem}>
+    <label>End Date:</label>
+    <button
+        className={styles.datePickerButton}
+        onClick={() => { setActiveDateField('end'); setIsDateModalOpen(true); }}
+    >
+        {endDate ? endDate.toLocaleDateString() : 'Select End Date'}
+    </button>
+</div>
+
                         </div>
                         <div className={styles.filterItem}>
                             <label>ATE SW Version:</label>
@@ -279,27 +287,34 @@ const SerialPassFailChart = () => {
                         </button>
                     </div>
 
-                    {isTableVisible && drillDownData && (
-                        <div className={styles.drillDownSection}>
-                            <h3 className={styles.subtitle}>{selectedStatus} Details</h3>
-                            <table className={styles.drillDownTable}>
-                                <thead>
-                                    <tr>
-                                        <th>Serial Number</th>
-                                        <th>Count</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {drillDownData.map((row, index) => (
-                                        <tr key={index}>
-                                            <td>{row.serialNumber}</td>
-                                            <td>{row.count}</td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
-                    )}
+                    {isTableVisible && (
+    <div className={styles.drillDownSection}>
+        {drillDownData && drillDownData.length > 0 ? (
+            <>
+                <h3 className={styles.subtitle}>{selectedStatus || 'Details'}</h3>
+                <table className={styles.drillDownTable}>
+                    <thead>
+                        <tr>
+                            <th>Serial Number</th>
+                            <th>Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {drillDownData.map((row, index) => (
+                            <tr key={index}>
+                                <td>{row.serialNumber}</td>
+                                <td>{row.count}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </>
+        ) : (
+            <p>To show the table, click on the green or red part of the chart.</p>
+        )}
+    </div>
+)}
+
 
                     <button
                         className={styles.helpButton}
@@ -308,6 +323,95 @@ const SerialPassFailChart = () => {
                     >
                         ?
                     </button>
+                    <Modal
+    isOpen={isDateModalOpen}
+    onRequestClose={() => setIsDateModalOpen(false)}
+    className={styles.modalContent}
+    overlayClassName={styles.modalOverlay}
+    contentLabel="Select Date"
+>
+    <h2>
+        Select {activeDateField === 'start' ? 'Start' : 'End'} Date
+    </h2>
+
+    <div className={styles.quickSelectContainer}>
+        <button
+            onClick={() => {
+                const today = new Date();
+                activeDateField === 'start' ? setStartDate(today) : setEndDate(today);
+                setIsDateModalOpen(false);
+            }}
+            className={styles.quickSelectButton}
+        >
+            Today
+        </button>
+
+        <button
+            onClick={() => {
+                const yesterday = new Date();
+                yesterday.setDate(yesterday.getDate() - 1);
+                activeDateField === 'start' ? setStartDate(yesterday) : setEndDate(yesterday);
+                setIsDateModalOpen(false);
+            }}
+            className={styles.quickSelectButton}
+        >
+            Yesterday
+        </button>
+
+        <button
+            onClick={() => {
+                const sevenDaysAgo = new Date();
+                sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+                activeDateField === 'start' ? setStartDate(sevenDaysAgo) : setEndDate(sevenDaysAgo);
+                setIsDateModalOpen(false);
+            }}
+            className={styles.quickSelectButton}
+        >
+            7 Days Ago
+        </button>
+
+        <button
+            onClick={() => {
+                const thirtyDaysAgo = new Date();
+                thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+                activeDateField === 'start' ? setStartDate(thirtyDaysAgo) : setEndDate(thirtyDaysAgo);
+                setIsDateModalOpen(false);
+            }}
+            className={styles.quickSelectButton}
+        >
+            30 Days Ago
+        </button>
+
+        <button
+            onClick={() => {
+                activeDateField === 'start' ? setStartDate(null) : setEndDate(null);
+                setIsDateModalOpen(false);
+            }}
+            className={`${styles.quickSelectButton} ${styles.clearButton}`}
+        >
+            Clear
+        </button>
+    </div>
+
+    <DatePicker
+        selected={activeDateField === 'start' ? startDate : endDate}
+        onChange={(date) => {
+            if (activeDateField === 'start') setStartDate(date);
+            else setEndDate(date);
+            setIsDateModalOpen(false);
+        }}
+        inline
+        showMonthDropdown
+        showYearDropdown
+        dropdownMode="select"
+    />
+
+    <div className={styles.modalActions}>
+        <button onClick={() => setIsDateModalOpen(false)} className={styles.closeModalButton}>
+            Cancel
+        </button>
+    </div>
+</Modal>
 
                     <Modal
                         isOpen={isHelpOpen}
@@ -342,6 +446,7 @@ const SerialPassFailChart = () => {
                             </p>
                         </div>
                     </Modal>
+                    
                 </div>
             )}
         </div>

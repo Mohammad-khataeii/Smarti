@@ -4,89 +4,88 @@ import bcrypt from 'bcrypt';
 import { open } from 'sqlite';
 import sqlite3 from 'sqlite3';
 import dotenv from 'dotenv';
+import os from 'os';
+import path from 'path';
 
 dotenv.config();
 
 const router = express.Router();
 
-// Set up SQLite database connection (assuming users table exists)
+// ✅ Use the same DB path as in db.mjs
+const dbPath = path.join(os.homedir(), '.smarti_data', 'test_results.db');
+
+// Set up SQLite database connection (users table must already exist)
 const dbPromise = open({
-  filename: './test_results.db',
+  filename: dbPath,
   driver: sqlite3.Database,
 });
 
 // Helper function to hash passwords
 const hashPassword = async (password) => {
-  const saltRounds = 10; // Adjust as needed
+  const saltRounds = 10;
   return await bcrypt.hash(password, saltRounds);
 };
 
-// Login route
+// 🔐 Login route
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
 
   try {
     const db = await dbPromise;
-    console.log("Attempting to find user:", username); // Debug log
+    console.log("🔍 Attempting to find user:", username);
 
     const user = await db.get('SELECT * FROM users WHERE username = ?', [username]);
 
     if (!user) {
-      console.log('Invalid username');
+      console.log('❌ Invalid username');
       return res.status(401).json({ message: 'Invalid username or password' });
     }
 
-    console.log("User found:", user); // Debug log
+    console.log("✅ User found:", user);
 
-    // Compare the provided password with the stored hashed password
     const match = await bcrypt.compare(password, user.password);
     if (!match) {
-      console.log('Invalid password');
+      console.log('❌ Invalid password');
       return res.status(401).json({ message: 'Invalid username or password' });
     }
 
-    // Save user information in the session
     req.session.user = { id: user.id, username: user.username, role: user.role };
-    console.log('User authenticated:', req.session.user);
+    console.log('👤 User authenticated:', req.session.user);
 
-    // Send success message and user info
     res.status(200).json({ message: 'Login successful', user: req.session.user });
   } catch (error) {
-    console.error('Error in login route:', error); // Detailed error log
+    console.error('💥 Error in login route:', error);
     res.status(500).json({ message: 'Internal server error' });
   }
 });
 
-// User registration route
+// 📝 User registration route
 router.post('/register', async (req, res) => {
   const { username, password, role, secretKey } = req.body;
 
-  // Check if the secret key is valid (optional step)
-  const validSecretKey = process.env.SECRET_KEY;
-  if (secretKey !== validSecretKey) {
+  if (secretKey !== process.env.SECRET_KEY) {
     return res.status(403).json({ message: 'Invalid secret key' });
   }
 
   try {
     const db = await dbPromise;
 
-    // Check if the username already exists
     const existingUser = await db.get('SELECT * FROM users WHERE username = ?', [username]);
     if (existingUser) {
-      console.log('Username already exists:', username);
+      console.log('⚠️ Username already exists:', username);
       return res.status(409).json({ message: 'Username already taken' });
     }
 
-    // Hash the password
     const hashedPassword = await hashPassword(password);
-
-    // Insert new user into the database
-    await db.run('INSERT INTO users (username, password, role) VALUES (?, ?, ?)', [username, hashedPassword, role]);
-    console.log('User registered successfully:', username);
+    await db.run(
+      'INSERT INTO users (username, password, role) VALUES (?, ?, ?)',
+      [username, hashedPassword, role]
+    );
+    console.log('✅ User registered successfully:', username);
 
     res.status(201).json({ message: `User ${username} created with role ${role}` });
   } catch (error) {
-    console.error('Error during registration:', error.message);
+    console.error('💥 Error during registration:', error.message);
     res.status(500).json({ message: 'Internal server error' });
   }
 });

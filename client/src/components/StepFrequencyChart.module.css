@@ -1,4 +1,7 @@
-/* Container styling */
+/* =========================== */
+/* 🧭 General Page Layout */
+/* =========================== */
+
 .pageContainer {
     font-family: Arial, sans-serif;
     padding: 20px;
@@ -10,7 +13,6 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Title styling */
 .chartTitle {
     font-size: 24px;
     font-weight: bold;
@@ -19,7 +21,10 @@
     color: #333;
 }
 
-/* Filter section */
+/* =========================== */
+/* 🧭 Filter Section */
+/* =========================== */
+
 .filterSection {
     display: flex;
     flex-wrap: wrap;
@@ -31,10 +36,15 @@
 .filterSection label {
     font-weight: bold;
     color: #555;
+    margin-bottom: 4px;
 }
 
-/* Input and dropdown styling */
-.datePicker, .dropdown, .applyButton, .resetButton, .enlargeButton {
+/* Date Picker & Inputs */
+.datePicker,
+.dropdown,
+.applyButton,
+.resetButton,
+.enlargeButton {
     padding: 8px 12px;
     font-size: 14px;
     border-radius: 5px;
@@ -43,17 +53,134 @@
     cursor: pointer;
 }
 
-.applyButton, .resetButton, .enlargeButton {
+.applyButton,
+.resetButton,
+.enlargeButton {
     background-color: #333;
     color: #fff;
     border: none;
+    transition: background-color 0.3s ease;
 }
 
-.applyButton:hover, .resetButton:hover, .enlargeButton:hover {
+.applyButton:hover,
+.resetButton:hover,
+.enlargeButton:hover {
     background-color: #0056b3;
 }
 
-/* Chart container */
+/* =========================== */
+/* 📅 Date Picker Improvements */
+/* =========================== */
+
+/* Group date pickers together nicely */
+.dateFilterContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 240px;
+}
+
+/* Quick range buttons */
+.quickRangeContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.quickRangeBtn {
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    font-size: 13px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.quickRangeBtn:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* React DatePicker popup */
+.react-datepicker-popper {
+    z-index: 9999 !important;
+    margin-top: 4px;
+}
+
+.react-datepicker {
+    font-family: inherit;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.react-datepicker__header {
+    background-color: #007bff;
+    color: white;
+    border-bottom: 1px solid #ccc;
+    padding-top: 8px;
+}
+
+.react-datepicker__triangle {
+    display: none !important; /* remove the big arrow */
+}
+
+/* Day cells */
+.react-datepicker__day {
+    color: #333;
+    width: 2rem;
+    line-height: 2rem;
+    margin: 0.2rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.react-datepicker__day:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.react-datepicker__day--today {
+    font-weight: bold;
+    color: #007bff;
+    border: 1px solid #007bff;
+}
+
+/* Month navigation arrows */
+.react-datepicker__navigation {
+    top: 12px;
+}
+
+.react-datepicker__navigation-icon::before {
+    border-width: 2px 2px 0 0 !important;
+    width: 8px;
+    height: 8px;
+    transform: rotate(45deg);
+}
+
+.react-datepicker__navigation:hover .react-datepicker__navigation-icon::before {
+    border-color: #fff;
+}
+
+/* Month/year dropdown */
+.react-datepicker__month-dropdown-container select,
+.react-datepicker__year-dropdown-container select {
+    font-size: 13px;
+    padding: 2px 4px;
+}
+
+/* =========================== */
+/* 📊 Chart Container */
+/* =========================== */
+
 .chartContainer {
     display: flex;
     justify-content: center;
@@ -61,7 +188,10 @@
     margin-bottom: 20px;
 }
 
-/* Table section */
+/* =========================== */
+/* 📋 Table Section */
+/* =========================== */
+
 .tableToggle {
     margin-top: 20px;
     text-align: center;
@@ -74,7 +204,8 @@
     font-size: 14px;
 }
 
-.detailsTable th, .detailsTable td {
+.detailsTable th,
+.detailsTable td {
     padding: 10px;
     border: 1px solid #ddd;
     text-align: center;
@@ -109,7 +240,10 @@
     background-color: #0056b3;
 }
 
-/* Modal styling */
+/* =========================== */
+/* 🪟 Modal */
+/* =========================== */
+
 .modal {
     display: flex;
     justify-content: center;
@@ -156,7 +290,11 @@
 .closeModalButton:hover {
     background-color: #d32f2f;
 }
-/* Help Button */
+
+/* =========================== */
+/* 🆘 Help Button */
+/* =========================== */
+
 .helpButton {
     position: fixed;
     bottom: 20px;
@@ -174,7 +312,6 @@
     z-index: 1000;
 }
 
-/* Modal Content */
 .helpModalContent {
     position: relative;
     margin: auto;
@@ -187,7 +324,6 @@
     outline: none;
 }
 
-/* Modal Overlay */
 .helpModalOverlay {
     background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
@@ -201,7 +337,6 @@
     z-index: 999;
 }
 
-/* Close Button */
 .closeHelpButton {
     position: absolute;
     top: 10px;
@@ -212,12 +347,15 @@
     cursor: pointer;
 }
 
-/* Help Text */
 .helpText {
     font-size: 16px;
     line-height: 1.6;
 }
-/* Loading Screen */
+
+/* =========================== */
+/* ⏳ Loading Spinner */
+/* =========================== */
+
 .loadingScreen {
     display: flex;
     flex-direction: column;
@@ -232,17 +370,15 @@
     z-index: 1000;
 }
 
-/* Spinner */
 .spinner {
-    border: 4px solid #f3f3f3; /* Light grey */
-    border-top: 4px solid #3498db; /* Blue */
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
     border-radius: 50%;
     width: 40px;
     height: 40px;
     animation: spin 2s linear infinite;
 }
 
-/* Spinner Animation */
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -252,4 +388,44 @@
     margin-top: 15px;
     font-size: 16px;
     color: #3498db;
+}
+
+/* =========================== */
+/* 📱 Responsive */
+/* =========================== */
+
+@media (max-width: 768px) {
+    .filterSection {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .dateFilterContainer {
+        width: 100%;
+    }
+
+    .modalContent {
+        width: 95%;
+    }
+}
+.exportButtonGroup {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.exportButton {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.exportButton:hover {
+  background-color: #0056b3;
 }

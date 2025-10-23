@@ -1,25 +1,17 @@
-/* Register.module.css */
-
 /* Container for the entire page */
 .container {
     display: flex;
     height: 100vh;
     font-family: Arial, sans-serif;
-    opacity: 0; /* Initially hidden */
-    animation: fadeIn 1s ease-in forwards; /* Fade in the entire page */
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
 }
 
-/* FadeIn animation for the entire container */
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
-/* Left section (form) animation */
 .leftSection {
     width: 50%;
     padding: 60px;
@@ -27,23 +19,16 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    opacity: 0; /* Initially hidden */
+    opacity: 0;
     animation: slideInFromLeft 1s ease-out forwards;
-    animation-delay: 0.5s; /* Delay for staggered animation */
+    animation-delay: 0.5s;
 }
 
 @keyframes slideInFromLeft {
-    0% {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
+    0% { transform: translateX(-100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
 }
 
-/* Right section (cards) animation */
 .rightSection {
     width: 50%;
     background: linear-gradient(135deg, #f5d6e6, #cac4ff);
@@ -53,48 +38,28 @@
     align-items: center;
     gap: 20px;
     padding: 40px;
-    opacity: 0; /* Initially hidden */
+    opacity: 0;
     animation: slideInFromRight 1s ease-out forwards;
-    animation-delay: 1s; /* Delay for staggered animation */
+    animation-delay: 1s;
 }
 
 @keyframes slideInFromRight {
-    0% {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
+    0% { transform: translateX(100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
 }
 
-/* Form elements animation */
 .inputGroup {
     display: flex;
     flex-direction: column;
-    opacity: 0; /* Initially hidden */
+    opacity: 0;
     animation: fadeIn 1s ease-out forwards;
 }
 
-/* Apply delays to form input groups */
-.inputGroup:nth-child(1) {
-    animation-delay: 1.5s;
-}
+.inputGroup:nth-child(1) { animation-delay: 1.5s; }
+.inputGroup:nth-child(2) { animation-delay: 2s; }
+.inputGroup:nth-child(3) { animation-delay: 2.5s; }
+.inputGroup:nth-child(4) { animation-delay: 3s; }
 
-.inputGroup:nth-child(2) {
-    animation-delay: 2s;
-}
-
-.inputGroup:nth-child(3) {
-    animation-delay: 2.5s;
-}
-
-.inputGroup:nth-child(4) {
-    animation-delay: 3s;
-}
-
-/* Input fields animation */
 .input {
     padding: 10px;
     border: 1px solid #ddd;
@@ -102,7 +67,6 @@
     font-size: 16px;
 }
 
-/* Submit button fade-in */
 .submitButton {
     padding: 15px;
     background-color: #000;
@@ -117,7 +81,25 @@
     animation-delay: 3.5s;
 }
 
-/* Card animations */
+.loginRedirectButton {
+    margin-top: 15px;
+    padding: 12px;
+    background-color: #6B7280;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    animation-delay: 4s;
+}
+
+.loginRedirectButton:hover {
+    background-color: #4B5563;
+}
+
 .card {
     background-color: #ffffff;
     border-radius: 12px;
@@ -125,20 +107,15 @@
     width: 85%;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
-    opacity: 0; /* Initially hidden */
+    opacity: 0;
     animation: fadeInCard 1s ease-out forwards;
 }
 
 @keyframes fadeInCard {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
-/* Card titles and values animation */
 .cardTitle {
     font-size: 16px;
     color: #6B7280;
@@ -166,7 +143,6 @@
     animation-delay: 2.5s;
 }
 
-/* Message styling */
 .message {
     margin-top: 15px;
     text-align: center;

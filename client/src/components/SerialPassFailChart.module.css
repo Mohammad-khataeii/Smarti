@@ -353,3 +353,120 @@
     font-size: 16px;
     color: #3498db; /* Blue */
 }
+/* ============================= */
+/* 📅 Date Picker Modal Styling  */
+/* ============================= */
+
+/* Trigger Button for Date Picker */
+.datePickerButton {
+  background-color: #f1f1f1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #34495e;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background-color 0.3s;
+  width: 100%;
+}
+
+.datePickerButton:hover {
+  border-color: #888;
+  background-color: #eaeaea;
+}
+
+/* Modal Content */
+.modalContent {
+  position: relative;
+  margin: auto;
+  width: 90%;
+  max-width: 400px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+/* Modal Overlay */
+.modalOverlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* Quick Select Buttons Container */
+.quickSelectContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+/* Quick Select Buttons */
+.quickSelectButton {
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.quickSelectButton:hover {
+  background-color: #e0e0e0;
+}
+
+/* Clear Button */
+.clearButton {
+  background-color: #f8d7da;
+  color: #721c24;
+  border-color: #f5c6cb;
+}
+
+.clearButton:hover {
+  background-color: #f5c6cb;
+}
+
+/* Modal Action Buttons Container */
+.modalActions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
+
+/* Cancel Button in Modal */
+.closeModalButton {
+  background-color: #ccc;
+  color: #333;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.closeModalButton:hover {
+  background-color: #aaa;
+}
+
+/* Responsive for Small Screens */
+@media (max-width: 500px) {
+  .quickSelectContainer {
+    justify-content: center;
+  }
+
+  .quickSelectButton {
+    flex: 1 1 45%;
+    text-align: center;
+  }
+}

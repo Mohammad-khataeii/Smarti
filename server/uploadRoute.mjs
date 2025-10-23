@@ -7,14 +7,17 @@ import path from 'path';
 import Papa from 'papaparse';
 import sqlite3 from 'sqlite3';
 import { open } from 'sqlite';
+import os from 'os';
 
 const router = express.Router();
 const upload = multer({ dest: 'uploads/' });
 
-// Initialize SQLite database
+// ✅ NEW
+const dbPath = path.join(os.homedir(), '.smarti_data', 'test_results.db');
+
 const initializeDatabase = async () => {
   const db = await open({
-    filename: './test_results.db',
+    filename: dbPath,
     driver: sqlite3.Database
   });
 

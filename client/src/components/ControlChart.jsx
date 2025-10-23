@@ -20,6 +20,7 @@ import 'jspdf-autotable';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'; // Import the DatePicker CSS
 import { useNavigate } from 'react-router-dom';
+import GoToDashboardButton from '../components/GoToDashboardButton';
 
 
 
@@ -213,9 +214,27 @@ useEffect(() => {
     };
     
 
-    const handleStepNumberChange = (e) => {
-        setSelectedStepNumber(e.target.value);
-    };
+const handleStepNumberChange = (e) => {
+  const stepNumber = e.target.value;
+  setSelectedStepNumber(stepNumber);
+
+  // Find the selected step data
+  const stepData = chartData.find((step) => step.stepNumber === stepNumber);
+
+  // Update default LSL and USL if available
+  if (stepData) {
+    setDefaultLsl(stepData.lsl ?? '');
+    setDefaultUsl(stepData.usl ?? '');
+    setTempLsl(stepData.lsl ?? '');
+    setTempUsl(stepData.usl ?? '');
+  } else {
+    setDefaultLsl('');
+    setDefaultUsl('');
+    setTempLsl('');
+    setTempUsl('');
+  }
+};
+
 
     const handleApplyDateFilter = () => {
         setStartDate(tempStartDate);
@@ -273,6 +292,7 @@ useEffect(() => {
     
     return (
         <div className={styles.controlChartContainer}>
+            <GoToDashboardButton />
             {loading ? (
                 <div className={styles.loadingScreen}>
                     <div className={styles.spinner}></div>
@@ -344,35 +364,109 @@ useEffect(() => {
         </div>
     </div>
 
-    <div className={styles.filtersRow}>
-        {/* Date Filter */}
-        <div className={styles.filterItem}>
-            <label className={styles.filterLabel}>Start Date:</label>
-            <DatePicker
-                selected={tempStartDate}
-                onChange={(date) => setTempStartDate(date)}
-                placeholderText="Select Start Date"
-                className={styles.dateInput}
-            />
-        </div>
-        <div className={styles.filterItem}>
-            <label className={styles.filterLabel}>End Date:</label>
-            <DatePicker
-                selected={tempEndDate}
-                onChange={(date) => setTempEndDate(date)}
-                placeholderText="Select End Date"
-                className={styles.dateInput}
-            />
-        </div>
-        <div className={styles.filterActions}>
-            <button onClick={handleApplyDateFilter} className={styles.applyButton}>
-                Apply Date Filter
-            </button>
-            <button onClick={handleResetDateFilter} className={styles.resetButton}>
-                Reset to Default
-            </button>
-        </div>
-    </div>
+    {/* 📅 Enhanced Date Filter */}
+<div className={styles.filtersRow}>
+  <div className={styles.filterItem}>
+    <label className={styles.filterLabel}>Start Date:</label>
+    <DatePicker
+      selected={tempStartDate}
+      onChange={(date) => setTempStartDate(date)}
+      placeholderText="Select Start Date"
+      className={styles.dateInput}
+      dateFormat="yyyy-MM-dd"
+      showMonthDropdown
+      showYearDropdown
+      dropdownMode="select"
+      isClearable
+      showTimeSelect // optional — if you want time
+      timeFormat="HH:mm"
+      timeIntervals={15}
+      timeCaption="Time"
+    />
+  </div>
+
+  <div className={styles.filterItem}>
+    <label className={styles.filterLabel}>End Date:</label>
+    <DatePicker
+      selected={tempEndDate}
+      onChange={(date) => setTempEndDate(date)}
+      placeholderText="Select End Date"
+      className={styles.dateInput}
+      dateFormat="yyyy-MM-dd"
+      showMonthDropdown
+      showYearDropdown
+      dropdownMode="select"
+      isClearable
+      showTimeSelect // optional
+      timeFormat="HH:mm"
+      timeIntervals={15}
+      timeCaption="Time"
+      minDate={tempStartDate}
+    />
+  </div>
+
+  {/* Quick Range Buttons */}
+  <div className={styles.quickRangeContainer}>
+    <button
+      className={styles.quickRangeBtn}
+      onClick={() => {
+        const today = new Date();
+        setTempStartDate(today);
+        setTempEndDate(today);
+      }}
+    >
+      Today
+    </button>
+
+    <button
+      className={styles.quickRangeBtn}
+      onClick={() => {
+        const today = new Date();
+        const last7 = new Date();
+        last7.setDate(today.getDate() - 7);
+        setTempStartDate(last7);
+        setTempEndDate(today);
+      }}
+    >
+      Last 7 Days
+    </button>
+
+    <button
+      className={styles.quickRangeBtn}
+      onClick={() => {
+        const today = new Date();
+        const startOfMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+        setTempStartDate(startOfMonth);
+        setTempEndDate(today);
+      }}
+    >
+      This Month
+    </button>
+
+    <button
+      className={styles.quickRangeBtn}
+      onClick={() => {
+        const today = new Date();
+        const last30 = new Date();
+        last30.setDate(today.getDate() - 30);
+        setTempStartDate(last30);
+        setTempEndDate(today);
+      }}
+    >
+      Last 30 Days
+    </button>
+  </div>
+
+  <div className={styles.filterActions}>
+    <button onClick={handleApplyDateFilter} className={styles.applyButton}>
+      Apply Date Filter
+    </button>
+    <button onClick={handleResetDateFilter} className={styles.resetButton}>
+      Reset
+    </button>
+  </div>
+</div>
+
     
 
     <div className={styles.filtersRow}>
@@ -382,24 +476,31 @@ useEffect(() => {
 
     <div className={styles.filterRow}>
         <div className={styles.filterItem}>
-            <label className={styles.filterLabel}>LSL:</label>
-            <input
-                type="number"
-                value={tempLsl}
-                onChange={(e) => setTempLsl(e.target.value)}
-                className={styles.input}
-            />
-        </div>
+  <label className={styles.filterLabel}>LSL:</label>
+  <input
+    type="number"
+    value={tempLsl}
+    onChange={(e) => setTempLsl(e.target.value)}
+    className={styles.input}
+  />
+  {defaultLsl !== '' && (
+    <span className={styles.defaultValue}>Default: {defaultLsl}</span>
+  )}
+</div>
         
-        <div className={styles.filterItem}>
-            <label className={styles.filterLabel}>USL:</label>
-            <input
-                type="number"
-                value={tempUsl}
-                onChange={(e) => setTempUsl(e.target.value)}
-                className={styles.input}
-            />
-        </div>
+<div className={styles.filterItem}>
+  <label className={styles.filterLabel}>USL:</label>
+  <input
+    type="number"
+    value={tempUsl}
+    onChange={(e) => setTempUsl(e.target.value)}
+    className={styles.input}
+  />
+  {defaultUsl !== '' && (
+    <span className={styles.defaultValue}>Default: {defaultUsl}</span>
+  )}
+</div>
+
     </div>
 </div>
 
@@ -711,9 +812,9 @@ useEffect(() => {
 </Modal>
 
 
-<button onClick={() => setIsCalculatorModalOpen(true)} className={styles.calculatorButton}>
+{/*<button onClick={() => setIsCalculatorModalOpen(true)} className={styles.calculatorButton}>
     Open Control Limits Calculator
-</button>
+</button>*/}
 
 
 <Modal

@@ -1,9 +1,10 @@
-// src/pages/MLRunDetail.jsx
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import CsvFetcher from "../components/CsvFetcher";
 import PredProbaHistogram from "../components/PredProbaHistogram";
+import GoToDashboardButton from '../components/GoToDashboardButton';
+import styles from "./MLRunDetail.module.css";
 
 export default function MLRunDetail() {
   const navigate = useNavigate();
@@ -15,16 +16,11 @@ export default function MLRunDetail() {
   const [loadingCounts, setLoadingCounts] = useState(true);
   const [isRerunning, setIsRerunning] = useState(false);
 
-  // Fetch all run IDs for dropdown
   useEffect(() => {
     const fetchRuns = async () => {
       try {
         const resp = await axios.get(`http://localhost:3001/api/ml/run-ids`);
-        if (resp.data.ok) {
-          setRuns(resp.data.runs);
-        } else {
-          console.error("Run list API error:", resp.data.error);
-        }
+        if (resp.data.ok) setRuns(resp.data.runs);
       } catch (err) {
         console.error("Error fetching run list:", err);
       } finally {
@@ -34,24 +30,18 @@ export default function MLRunDetail() {
     fetchRuns();
   }, []);
 
-  // Navigate to latest run if none in URL
   useEffect(() => {
     if (!runsLoading && !runId && runs.length > 0) {
       navigate(`/ml-run-detail/${runs[0].runId}`, { replace: true });
     }
   }, [runsLoading, runId, runs, navigate]);
 
-  // Fetch summary for current run
   useEffect(() => {
     if (!runId) return;
     const fetchSummary = async () => {
       try {
         const resp = await axios.get(`http://localhost:3001/api/ml/runs/${runId}/summary`);
-        if (resp.data.ok) {
-          setCounts(resp.data.counts);
-        } else {
-          console.error("Summary API error:", resp.data.error);
-        }
+        if (resp.data.ok) setCounts(resp.data.counts);
       } catch (err) {
         console.error("Error fetching summary:", err);
       } finally {
@@ -82,22 +72,25 @@ export default function MLRunDetail() {
 
   const handleRunSelect = (e) => {
     const selectedId = e.target.value;
-    if (selectedId && selectedId !== runId) {
-      navigate(`/ml-run-detail/${selectedId}`);
-    }
+    if (selectedId && selectedId !== runId) navigate(`/ml-run-detail/${selectedId}`);
   };
 
   return (
-    <section>
+    <section className={styles.container}>
+      
+
       {/* Header */}
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <h3>ML Run Details</h3>
-        <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
-          {/* Dropdown */}
+      <div className={styles.header}>
+        <h3 className={styles.title}>ML Run Details</h3>
+        <div className={styles.controls}>
           {runsLoading ? (
             <span>Loading runs...</span>
           ) : (
-            <select value={runId || ""} onChange={handleRunSelect}>
+            <select
+              className={styles.selectRun}
+              value={runId || ""}
+              onChange={handleRunSelect}
+            >
               {runs.map((r) => (
                 <option key={r.runId} value={r.runId}>
                   {r.runId} {r.pinned ? "📌" : ""}
@@ -105,18 +98,10 @@ export default function MLRunDetail() {
               ))}
             </select>
           )}
-          {/* Rerun button */}
           <button
             onClick={handleRerun}
             disabled={isRerunning}
-            style={{
-              padding: "6px 12px",
-              background: isRerunning ? "#ccc" : "#007bff",
-              color: "#fff",
-              border: "none",
-              borderRadius: "4px",
-              cursor: isRerunning ? "not-allowed" : "pointer",
-            }}
+            className={styles.rerunButton}
           >
             {isRerunning ? "Rerunning..." : "🔄 Rerun"}
           </button>
@@ -124,21 +109,30 @@ export default function MLRunDetail() {
       </div>
 
       {/* Summary */}
-      <div style={{ marginTop: 16 }}>
+      <div className={styles.summary}>
         {loadingCounts ? (
           <div>Loading summary...</div>
         ) : (
-          <div>
-            <div>Total Sessions: {counts.total}</div>
-            <div>Predicted PASS: {counts.passCount}</div>
-            <div>Predicted FAIL: {counts.failCount}</div>
-          </div>
+          <>
+            <div className={styles.summaryBox}>
+              <div className={styles.summaryBoxTitle}>Total Sessions</div>
+              <div className={styles.summaryBoxValue}>{counts.total}</div>
+            </div>
+            <div className={styles.summaryBox}>
+              <div className={styles.summaryBoxTitle}>Predicted PASS</div>
+              <div className={styles.summaryBoxValue}>{counts.passCount}</div>
+            </div>
+            <div className={styles.summaryBox}>
+              <div className={styles.summaryBoxTitle}>Predicted FAIL</div>
+              <div className={styles.summaryBoxValue}>{counts.failCount}</div>
+            </div>
+          </>
         )}
       </div>
 
       {/* Histogram */}
       {runId && (
-        <div style={{ marginTop: 16 }}>
+        <div className={styles.histogram}>
           <PredProbaHistogram runId={runId} />
         </div>
       )}
@@ -150,7 +144,7 @@ export default function MLRunDetail() {
         ) : (
           <CsvFetcher runId={runId} fileName="predicted_fail_step_patterns.csv">
             {({ rows }) => (
-              <ul>
+              <ul className={styles.failList}>
                 {rows.slice(0, 20).map((r, idx) => (
                   <li key={`${r.stepName}-${idx}`}>
                     {r.stepName}: {r.fail_count}
@@ -166,11 +160,11 @@ export default function MLRunDetail() {
 
 function EmptyMessage() {
   return (
-    <div style={{ marginTop: 16, padding: 12, border: "1px solid #eee", borderRadius: 8 }}>
-      <div style={{ fontWeight: 600, marginBottom: 6 }}>
+    <div className={styles.emptyMessage}>
+      <div className={styles.emptyTitle}>
         No predicted FAIL sessions in this run.
       </div>
-      <ul style={{ margin: 0, paddingLeft: 16 }}>
+      <ul>
         <li>The model may be confident most sessions pass (see the probability histogram above).</li>
         <li>
           If you want stricter mining, consider retraining or adding a threshold option server-side

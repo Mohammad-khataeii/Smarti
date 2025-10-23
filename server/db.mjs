@@ -4,37 +4,56 @@ import { fileURLToPath } from 'url';
 import fs from 'fs';
 import os from 'os';
 
-// Resolve __dirname for ES modules
+// ---------------------
+// 1. Resolve __dirname
+// ---------------------
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-let dbPath = path.join(__dirname, 'test_results.db');
+// ---------------------
+// 2. Define source & target paths
+// ---------------------
+const sourceDbPath = path.join(__dirname, 'test_results.db');
+const appDataDir = path.join(os.homedir(), '.smarti_data');
 
-// If running inside pkg (packaged .exe)
-if (process.pkg) {
-    const destDir = path.join(os.homedir(), '.myapp'); // writable folder in home
-    if (!fs.existsSync(destDir)) {
-        fs.mkdirSync(destDir);
-    }
-
-    const destPath = path.join(destDir, 'test_results.db');
-
-    // Copy DB if it doesn't exist yet
-    if (!fs.existsSync(destPath)) {
-        fs.copyFileSync(path.join(path.dirname(process.execPath), 'test_results.db'), destPath);
-    }
-
-    dbPath = destPath;
+if (!fs.existsSync(appDataDir)) {
+  fs.mkdirSync(appDataDir, { recursive: true });
 }
 
-// Enable verbose mode for SQLite
-const db = new sqlite3.Database(dbPath, (err) => {
-    if (err) {
-        console.error('Error connecting to database:', err.message);
-    } else {
-        console.log('Connected to the SQLite database at', dbPath);
-    }
+const targetDbPath = path.join(appDataDir, 'test_results.db');
+
+// ---------------------
+// 3. Copy DB file if needed
+// ---------------------
+if (!fs.existsSync(targetDbPath)) {
+  console.log(`📂 Copying database to writable location: ${targetDbPath}`);
+  try {
+    fs.copyFileSync(sourceDbPath, targetDbPath);
+  } catch (err) {
+    console.error('❌ Failed to copy database file:', err);
+  }
+}
+
+// ---------------------
+// 4. Connect to SQLite
+// ---------------------
+const db = new sqlite3.Database(targetDbPath, (err) => {
+  if (err) {
+    console.error('❌ Failed to connect to database:', err);
+  } else {
+    console.log('✅ Connected to SQLite database at', targetDbPath);
+  }
 });
 
-// Export the db instance
+// ---------------------
+// 5. Debugging errors at runtime
+// ---------------------
+db.on('error', (err) => {
+  console.error('🧨 SQLite runtime error:', err);
+  console.trace(); // <== shows which file/line triggered the error
+});
+
+// ---------------------
+// 6. Export the single shared DB connection
+// ---------------------
 export default db;

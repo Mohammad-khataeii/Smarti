@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Modal from 'react-modal';
 import styles from './RootCauseAlarms.module.css';
+import GoToDashboardButton from '../components/GoToDashboardButton';
 
 const RootCauseAlarms = () => {
     const [alarms, setAlarms] = useState([]);
@@ -12,6 +13,7 @@ const RootCauseAlarms = () => {
     const [sortOrder, setSortOrder] = useState('DESC'); // State for sorting order
     const [loading, setLoading] = useState(true); // State for loading
 
+    
     // Fetch alarms
     useEffect(() => {
         const fetchAlarms = async () => {
@@ -114,6 +116,7 @@ const RootCauseAlarms = () => {
 
     return (
         <div className={styles.container}>
+            <GoToDashboardButton />
             {loading ? (
                 <div className={styles.loadingScreen}>
                     <div className={styles.spinner}></div>

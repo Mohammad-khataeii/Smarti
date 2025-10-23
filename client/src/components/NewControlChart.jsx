@@ -4,6 +4,7 @@ import { Line } from 'react-chartjs-2';
 import html2canvas from 'html2canvas';
 import Modal from 'react-modal';
 import styles from './NewControlChart.module.css';
+import GoToDashboardButton from '../components/GoToDashboardButton';
 
 const NewControlChart = () => {
     const location = useLocation();
@@ -218,6 +219,7 @@ const NewControlChart = () => {
 
     return (
         <div className={styles.container}>
+            <GoToDashboardButton />
             {/* Display Calculated UCL and LCL */}
         <div className={styles.uclLclDisplay}>
             <div>

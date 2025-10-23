@@ -12,6 +12,7 @@ import DatePicker from 'react-datepicker';
 import Select from 'react-select';
 import 'react-datepicker/dist/react-datepicker.css';
 import styles from './ParetoChart.module.css';
+import GoToDashboardButton from '../components/GoToDashboardButton';
 
 ChartJS.register(
     CategoryScale,
@@ -52,7 +53,9 @@ const ParetoChart = () => {
         const [selectedTestspec, setSelectedTestspec] = useState('');
         const [testspecs, setTestspecs] = useState([]); // Store all distinct Testspec values
 
-        
+        const [isDateModalOpen, setIsDateModalOpen] = useState(false);
+        const [activeDateField, setActiveDateField] = useState(null); // 'start' or 'end'
+
         useEffect(() => {
             const fetchAteSwVersions = async () => {
                 try {
@@ -261,22 +264,23 @@ const ParetoChart = () => {
     return (
         <div className={styles.container}>
             <h2 className={styles.pageTitle}>Pareto Failure Analysis</h2>
+            <GoToDashboardButton />
             
             <div className={styles.datePickerContainer}>
-    <DatePicker
-        selected={startDate}
-        onChange={(date) => setStartDate(date)} // Update state but do not fetch data
-        dateFormat="yyyy-MM-dd"
-        placeholderText="Start Date"
-        className={styles.filterInput}
-    />
-    <DatePicker
-        selected={endDate}
-        onChange={(date) => setEndDate(date)} // Update state but do not fetch data
-        dateFormat="yyyy-MM-dd"
-        placeholderText="End Date"
-        className={styles.filterInput}
-    />
+    <button
+    className={styles.datePickerButton}
+    onClick={() => { setActiveDateField('start'); setIsDateModalOpen(true); }}
+>
+    {startDate ? startDate.toLocaleDateString() : 'Select Start Date'}
+</button>
+
+<button
+    className={styles.datePickerButton}
+    onClick={() => { setActiveDateField('end'); setIsDateModalOpen(true); }}
+>
+    {endDate ? endDate.toLocaleDateString() : 'Select End Date'}
+</button>
+
     <select
         value={ateSwVersion}
         onChange={(e) => setAteSwVersion(e.target.value)} // Update state but do not fetch data
@@ -423,6 +427,99 @@ const ParetoChart = () => {
         </p>
     </div>
 </Modal>
+<Modal
+    isOpen={isDateModalOpen}
+    onRequestClose={() => setIsDateModalOpen(false)}
+    className={styles.modalContent}
+    overlayClassName={styles.modalOverlay}
+    contentLabel="Select Date"
+>
+    <h2>
+        Select {activeDateField === 'start' ? 'Start' : 'End'} Date
+    </h2>
+
+    <div className={styles.quickSelectContainer}>
+        <button
+            onClick={() => {
+                const today = new Date();
+                activeDateField === 'start' ? setStartDate(today) : setEndDate(today);
+                setIsDateModalOpen(false);
+            }}
+            className={styles.quickSelectButton}
+        >
+            Today
+        </button>
+
+        <button
+            onClick={() => {
+                const yesterday = new Date();
+                yesterday.setDate(yesterday.getDate() - 1);
+                activeDateField === 'start' ? setStartDate(yesterday) : setEndDate(yesterday);
+                setIsDateModalOpen(false);
+            }}
+            className={styles.quickSelectButton}
+        >
+            Yesterday
+        </button>
+
+        <button
+            onClick={() => {
+                const sevenDaysAgo = new Date();
+                sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+                activeDateField === 'start' ? setStartDate(sevenDaysAgo) : setEndDate(sevenDaysAgo);
+                setIsDateModalOpen(false);
+            }}
+            className={styles.quickSelectButton}
+        >
+            7 Days Ago
+        </button>
+
+        <button
+            onClick={() => {
+                const thirtyDaysAgo = new Date();
+                thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+                activeDateField === 'start' ? setStartDate(thirtyDaysAgo) : setEndDate(thirtyDaysAgo);
+                setIsDateModalOpen(false);
+            }}
+            className={styles.quickSelectButton}
+        >
+            30 Days Ago
+        </button>
+
+        <button
+            onClick={() => {
+                activeDateField === 'start' ? setStartDate(null) : setEndDate(null);
+                setIsDateModalOpen(false);
+            }}
+            className={`${styles.quickSelectButton} ${styles.clearButton}`}
+        >
+            Clear
+        </button>
+    </div>
+
+    <DatePicker
+        selected={activeDateField === 'start' ? startDate : endDate}
+        onChange={(date) => {
+            if (activeDateField === 'start') setStartDate(date);
+            else setEndDate(date);
+            setIsDateModalOpen(false);
+        }}
+        inline
+        showMonthDropdown
+        showYearDropdown
+        dropdownMode="select"
+    />
+
+    <div className={styles.modalActions}>
+        <button
+            onClick={() => setIsDateModalOpen(false)}
+            className={styles.closeModalButton}
+        >
+            Cancel
+        </button>
+    </div>
+</Modal>
+
 
         </div>
     );

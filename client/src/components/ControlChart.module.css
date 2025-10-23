@@ -786,3 +786,30 @@
 .sortButton:hover {
     background-color: #0056b3;
 }
+.defaultValue {
+  display: block;
+  font-size: 12px;
+  color: #555;
+  margin-top: 4px;
+  font-style: italic;
+}
+.quickRangeContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.quickRangeBtn {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 4px 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.quickRangeBtn:hover {
+  background-color: #e0e0e0;
+}

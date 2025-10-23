@@ -1,6 +1,7 @@
 // StepFailurePrediction.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import GoToDashboardButton from '../components/GoToDashboardButton';
 
 const StepFailurePrediction = () => {
     const [predictions, setPredictions] = useState([]);
@@ -29,6 +30,7 @@ const StepFailurePrediction = () => {
     return (
         <div>
             <h2>Step Failure Predictions</h2>
+            <GoToDashboardButton />
             <table>
                 <thead>
                     <tr>

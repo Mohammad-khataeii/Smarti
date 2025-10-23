@@ -9,7 +9,7 @@ import Papa from 'papaparse';
 import styles from './RootCauseAnalysis.module.css';
 import ReactLoading from 'react-loading';  // Import the react-loading component
 import Modal from 'react-modal';
-
+import GoToDashboardButton from '../components/GoToDashboardButton';
 
 const RootCauseAnalysis = () => {
     const [analysisData, setAnalysisData] = useState([]);
@@ -199,7 +199,7 @@ const closeHelp = () => setIsHelpOpen(false);
     return (
         <div className={styles.container}>
             <h2 className={styles.title}>Root Cause Analysis</h2>
-            
+            <GoToDashboardButton />
             {/* Filter Cards */}
             <div className={styles.filterContainer}>
                 <div className={styles.filterField}>

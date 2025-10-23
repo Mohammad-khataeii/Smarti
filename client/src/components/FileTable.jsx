@@ -4,6 +4,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import styles from './FileTable.module.css';
 import Modal from 'react-modal';
+import GoToDashboardButton from '../components/GoToDashboardButton';    
 
 const FileTable = () => {
     const [records, setRecords] = useState([]);
@@ -31,6 +32,8 @@ const FileTable = () => {
     const openDeleteSelectedConfirm = () => setIsDeleteSelectedConfirmOpen(true);
     const closeDeleteSelectedConfirm = () => setIsDeleteSelectedConfirmOpen(false);
 
+    const [isDateModalOpen, setIsDateModalOpen] = useState(false);
+    const [activeDateField, setActiveDateField] = useState(null); // 'start' or 'end'
 
 
     useEffect(() => {
@@ -154,6 +157,7 @@ const FileTable = () => {
 
     return (
         <div className={styles.filesTableContainer}>
+            <GoToDashboardButton />
             {loading ? (
                 <div className={styles.loadingScreen}>
                     <div className={styles.spinner}></div>
@@ -172,22 +176,19 @@ const FileTable = () => {
         placeholder="Filter by Serial Number"
         className={styles.filterInput}
     />
-    <DatePicker
-        selected={startDate}
-        onChange={(date) => setStartDate(date)}
-        dateFormat="yyyy-MM-dd"
-        placeholderText="Start Date"
-        className={styles.filterInput}
-        popperClassName={styles.customPopper} // Custom popper class for higher z-index
-    />
-    <DatePicker
-        selected={endDate}
-        onChange={(date) => setEndDate(date)}
-        dateFormat="yyyy-MM-dd"
-        placeholderText="End Date"
-        className={styles.filterInput}
-        popperClassName={styles.customPopper} // Custom popper class for higher z-index
-    />
+    <button
+    className={styles.filterInput}
+    onClick={() => { setActiveDateField('start'); setIsDateModalOpen(true); }}
+>
+    {startDate ? startDate.toLocaleDateString() : 'Select Start Date'}
+</button>
+<button
+    className={styles.filterInput}
+    onClick={() => { setActiveDateField('end'); setIsDateModalOpen(true); }}
+>
+    {endDate ? endDate.toLocaleDateString() : 'Select End Date'}
+</button>
+
     <select
         value={ateSwVersion}
         onChange={(e) => setAteSwVersion(e.target.value)}
@@ -423,6 +424,99 @@ const FileTable = () => {
         </ul>
     </div>
 </Modal>
+<Modal
+    isOpen={isDateModalOpen}
+    onRequestClose={() => setIsDateModalOpen(false)}
+    className={styles.modalContent}
+    overlayClassName={styles.modalOverlay}
+    contentLabel="Select Date"
+>
+    <h2>Select {activeDateField === 'start' ? 'Start' : 'End'} Date</h2>
+
+    {/* Quick Select Buttons */}
+    <div className={styles.quickSelectContainer}>
+        <button
+            onClick={() => {
+                const today = new Date();
+                activeDateField === 'start' ? setStartDate(today) : setEndDate(today);
+                setIsDateModalOpen(false);
+            }}
+            className={styles.quickSelectButton}
+        >
+            Today
+        </button>
+
+        <button
+            onClick={() => {
+                const yesterday = new Date();
+                yesterday.setDate(yesterday.getDate() - 1);
+                activeDateField === 'start' ? setStartDate(yesterday) : setEndDate(yesterday);
+                setIsDateModalOpen(false);
+            }}
+            className={styles.quickSelectButton}
+        >
+            Yesterday
+        </button>
+
+        <button
+            onClick={() => {
+                const sevenDaysAgo = new Date();
+                sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+                activeDateField === 'start' ? setStartDate(sevenDaysAgo) : setEndDate(sevenDaysAgo);
+                setIsDateModalOpen(false);
+            }}
+            className={styles.quickSelectButton}
+        >
+            7 Days Ago
+        </button>
+
+        <button
+            onClick={() => {
+                const thirtyDaysAgo = new Date();
+                thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+                activeDateField === 'start' ? setStartDate(thirtyDaysAgo) : setEndDate(thirtyDaysAgo);
+                setIsDateModalOpen(false);
+            }}
+            className={styles.quickSelectButton}
+        >
+            30 Days Ago
+        </button>
+
+        <button
+            onClick={() => {
+                activeDateField === 'start' ? setStartDate(null) : setEndDate(null);
+                setIsDateModalOpen(false);
+            }}
+            className={`${styles.quickSelectButton} ${styles.clearButton}`}
+        >
+            Clear
+        </button>
+    </div>
+
+    {/* Inline Date Picker */}
+    <DatePicker
+        selected={activeDateField === 'start' ? startDate : endDate}
+        onChange={(date) => {
+            if (activeDateField === 'start') setStartDate(date);
+            else setEndDate(date);
+            setIsDateModalOpen(false);
+        }}
+        inline
+        showMonthDropdown
+        showYearDropdown
+        dropdownMode="select"
+    />
+
+    <div className={styles.modalActions}>
+        <button
+            onClick={() => setIsDateModalOpen(false)}
+            className={styles.closeModalButton}
+        >
+            Cancel
+        </button>
+    </div>
+</Modal>
+
 
                 </div>
             )}
