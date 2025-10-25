@@ -9,6 +9,7 @@ import Modal from 'react-modal';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";  // To include the default styles
 import MlRunDetail from '../pages/MlRunDetail';
+Modal.setAppElement('#root');
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Tooltip, Legend);
 
@@ -27,6 +28,8 @@ const Dashboard = ({ onLogout }) => {
     const [isHelpOpen, setIsHelpOpen] = useState(false); 
     const openHelp = () => setIsHelpOpen(true); 
     const closeHelp = () => setIsHelpOpen(false);
+    const [isZoomModalOpen, setIsZoomModalOpen] = useState(false);
+    const [zoomMessage, setZoomMessage] = useState('');
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
     const [errorMessage, setErrorMessage] = useState(""); // For handling errors
@@ -151,6 +154,44 @@ const Dashboard = ({ onLogout }) => {
         const timer = setInterval(() => setCurrentDateTime(new Date()), 1000);
         return () => clearInterval(timer);
     }, []);
+
+useEffect(() => {
+  const detectZoom = () => {
+    const zoom = window.devicePixelRatio || 1;
+
+    const messageEN = `
+Your screen appears to be zoomed ${zoom > 1 ? 'in' : zoom < 1 ? 'out' : 'normally'}.
+If elements look too big or too small:
+• On Mac: use Command (+) or Command (−)
+• On Windows: use Ctrl (+) or Ctrl (−)
+to adjust zoom level.
+`;
+
+    const messageIT = `
+Lo schermo sembra essere ${zoom > 1 ? 'ingrandito' : zoom < 1 ? 'rimpicciolito' : 'normale'}.
+Se gli elementi sembrano troppo grandi o troppo piccoli:
+• Su Mac: usa Comando (+) o Comando (−)
+• Su Windows: usa Ctrl (+) o Ctrl (−)
+per regolare il livello di zoom.
+`;
+
+    // Combine both languages
+    const combinedMessage = `${messageEN}\n-----------------------------\n${messageIT}`;
+
+    if (zoom !== 1) {
+      setZoomMessage(combinedMessage);
+      setIsZoomModalOpen(true);
+    }
+  };
+
+  detectZoom();
+
+  // Optional: listen for zoom changes dynamically
+  window.addEventListener('resize', detectZoom);
+  return () => window.removeEventListener('resize', detectZoom);
+}, []);
+
+
 
     //preparing the fail rate chart data
     // Utility function to fill missing months
@@ -552,7 +593,23 @@ const failureRateChartData = {
 </div>
 
 
-    
+    <Modal
+  isOpen={isZoomModalOpen}
+  onRequestClose={() => setIsZoomModalOpen(false)}
+  className={styles.zoomModalContent}
+  overlayClassName={styles.zoomModalOverlay}
+  contentLabel="Zoom Information"
+>
+  <h2>{language === 'it' ? 'Avviso Zoom' : 'Zoom Warning'}</h2>
+  <pre style={{ whiteSpace: 'pre-wrap' }}>{zoomMessage}</pre>
+  <button
+    onClick={() => setIsZoomModalOpen(false)}
+    className={styles.closeZoomButton}
+  >
+    {language === 'it' ? 'Chiudi' : 'Close'}
+  </button>
+</Modal>
+
 </div>
 
             
@@ -677,6 +734,7 @@ const failureRateChartData = {
         <p>Made in IRAN 🇮🇷</p>
     </div>
 </Modal>
+
 
 
 

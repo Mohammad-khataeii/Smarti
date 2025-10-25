@@ -1,5 +1,25 @@
 [
   {
+    "runId": "run-20251025-210459-257c441c",
+    "startedAt": "2025-10-25T19:04:59.550Z",
+    "status": "error",
+    "dbPath": "/Users/mohammadkhataei/.smarti_data/test_results.db",
+    "artifactsDir": "/Users/mohammadkhataei/Desktop/Smarti/server/ml_artifacts",
+    "predictionsDir": "/Users/mohammadkhataei/Desktop/Smarti/server/predictions/run-20251025-210459-257c441c",
+    "trainArgs": {
+      "target": "pass_binary",
+      "bigram_top_k": 50
+    },
+    "predictArgs": {
+      "cooc_top_k": 50,
+      "bigram_top_k": 100
+    },
+    "pinned": false,
+    "error": "python exited 1",
+    "endedAt": "2025-10-25T19:05:00.907Z",
+    "durationSec": 1
+  },
+  {
     "runId": "run-20251023-143321-3112b127",
     "startedAt": "2025-10-23T12:33:21.489Z",
     "status": "error",

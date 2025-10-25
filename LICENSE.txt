@@ -1,0 +1,54 @@
+SmartanalytiQ SOFTWARE LICENSE AGREEMENT  
+Version 1.0 — © 2025 Seyedmohammad Khataeipour  
+
+This software (SmartanalytiQ) is developed and owned exclusively by  
+**Seyedmohammad Khataeipour** (“Developer”).  
+
+By installing or using this software, you (“Licensee”) agree to the following terms:
+
+1. PERMITTED USE  
+   - The Licensee is granted a non-exclusive, non-transferable right to use the software  
+     for internal, non-commercial purposes within their organization or company.  
+   - This license does not grant any rights to modify, copy, distribute, or sublicense  
+     the software without written authorization from the Developer.
+
+2. RESTRICTIONS  
+   - The Licensee shall not sell, lease, sublicense, publish, distribute, or otherwise  
+     make the software available to third parties without explicit written permission  
+     from the Developer.  
+   - Reverse engineering, decompiling, disassembling, or attempting to derive the  
+     source code of the software is strictly prohibited.  
+   - Any removal or alteration of copyright, logo, or attribution notices is forbidden.
+
+3. ATTRIBUTION  
+   - The Developer’s name **(Seyedmohammad Khataeipour)** and project team name  
+     **(Brakelysts, Politecnico di Torino)** must appear in any usage, documentation,  
+     or public presentation of the software.  
+   - When the software is demonstrated, cited, or integrated into reports, presentations,  
+     or dashboards, visible acknowledgment of the Developer must be included.
+
+4. COMMERCIAL USE  
+   - Commercial use, resale, or redistribution of the software requires a separate  
+     written commercial agreement and payment as negotiated with the Developer.  
+   - Contact the Developer for licensing options at:  
+     📧 **mohammadkhataei629@gmail.com**
+
+5. WARRANTY DISCLAIMER  
+   - The software is provided “AS IS” without warranty of any kind, express or implied.  
+     The Developer makes no guarantee of performance, accuracy, or fitness for any  
+     particular purpose.  
+   - The Developer shall not be liable for any direct, indirect, incidental, or  
+     consequential damages arising from the use or inability to use the software.
+
+6. TERMINATION  
+   - Any violation of the above terms automatically terminates this license and requires  
+     immediate cessation of all use of the software.  
+   - Upon termination, all copies of the software must be deleted or destroyed.
+
+---
+
+For licensing, redistribution rights, or commercial inquiries, please contact:  
+**mohammadkhataei629@gmail.com**  
+
+© 2025 Seyedmohammad Khataeipour  
+All rights reserved.
