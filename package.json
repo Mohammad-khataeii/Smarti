@@ -1,6 +1,6 @@
 {
   "name": "smarti-electron",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "author": "Seyedmohammad Khataeipour",
   "description": "Smarti Electron desktop wrapper for React + Node",
@@ -28,7 +28,10 @@
       "target": [
         {
           "target": "dmg",
-          "arch": ["x64", "arm64"]
+          "arch": [
+            "x64",
+            "arm64"
+          ]
         }
       ],
       "artifactName": "Smarti-${version}-mac.${ext}"
@@ -37,7 +40,9 @@
       "target": [
         {
           "target": "nsis",
-          "arch": ["x64"]
+          "arch": [
+            "x64"
+          ]
         }
       ],
       "artifactName": "Smarti-${version}-win.${ext}"
