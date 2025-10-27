@@ -4,10 +4,10 @@ LCU1 Code Id,93
 BrakeTest Result,86
 LCU2 Code Id,85
 TPL Pressure at MGDBoost,81
-MJF1 Signal after braketest,77
 MJF2 Signal after braketest,77
-LCU1 State,70
+MJF1 Signal after braketest,77
 LCU2 State,70
+LCU1 State,70
 BC1 Pressure at MGDBoost,68
 BC2 Pressure at MGDBoost,54
 BC1 Pressure at MGDMin,49
@@ -17,101 +17,101 @@ TPL Pressure Drop 30 sec,37
 BC2 Pressure,36
 Check RX Counter,34
 BC1 Pressure,31
-Test Application Release,29
 Test Application CRC32,29
+Test Application Release,29
 Check TX Counter,28
 Test Application Name,25
 Read LCU2 Fault,23
 Read LCU1 Fault,23
 TPL Pressure,22
 Flash Test Application,22
-EMG Monitoring,21
 BC1 Pressure at SerbMax,21
+EMG Monitoring,21
 Trel BC1 release time,17
 Link Status,16
 Trel BC2 release time,15
-Check Warning Counter,12
 BC2 Teq,12
-"TBC2 at 3,67  Bar",11
-BC1 Pressure RR1 Active,11
+Check Warning Counter,12
 BC1 Electronic Pressure Switch ON - Brake Released,11
-"TBC1 at 3,57  Bar",11
-"TPL at 3,57  Bar",11
 SerB_MED calculation,11
+"TPL at 3,57  Bar",11
+BC1 Pressure RR1 Active,11
+"TBC1 at 3,57  Bar",11
+"TBC2 at 3,67  Bar",11
 BC2 Electronic Pressure Switch OFF - Brake Applied,10
 BC1 Electronic Pressure Switch OFF - Brake Applied,10
+BC2 Pressure Switch upward threshold,10
 BC1 Pressure Switch upward threshold,10
 BC2 Pressure at SerbMin,10
-BC2 Pressure Switch upward threshold,10
 Check Error Counter,8
-LCU1 Code ID,8
-BC2 After Monostable Intervention,8
 LCU2 Code ID,8
-VPL Pressure,8
 VPL Pressure After Discharge,8
+LCU1 Code ID,8
 BC1 After Monostable Intervention,8
+BC2 After Monostable Intervention,8
+VPL Pressure,8
+BC1 Pressure at VPL = 2.5,7
 BC1 Pressure Switch downhill threshold,7
 BC2 Pressure at VPL = 2.5,7
-BC1 Pressure at VPL = 2.5,7
-"TBC2 at 3,85  Bar",6
 TBC1 at 0 Bar,6
+"TBC2 at 3,85  Bar",6
 BC1 Teq,5
-Teq BC2 apply time,4
 BC1 Pressure at SerbMin,4
-PSD Measurement PAIR2 [30:100Mhz] 100m Line,4
-PSD Measurement PAIR3 [30:100Mhz] 100m Line,4
-Check supplied O-Ring kit,4
-Check Monitoring Vanalog,4
-Flash Test Application ETH,4
 TBC1 at 0.5 Bar,4
 Teq BC1 apply time,4
-Init And Link Stability,3
-Init And Link Stability 100m Line,3
-TSP1 at 0.5 Bar,3
-"TSP1 at 5,613 Bar",3
-TA at 6 Bar,3
+Teq BC2 apply time,4
+Check supplied O-Ring kit,4
+PSD Measurement PAIR3 [30:100Mhz] 100m Line,4
+Check Monitoring Vanalog,4
+Flash Test Application ETH,4
+PSD Measurement PAIR2 [30:100Mhz] 100m Line,4
 TLP2 Measure,3
 TLP1 Measure,3
+"TSP1 at 5,613 Bar",3
+Init And Link Stability,3
 TBC2 at 0.5 Bar,3
-ETH Analyser setup,2
-BC2 Pressure Switch downhill threshold,2
-BC1 Pressure at VPL = 3.5,2
-Check SPEED2 Diag = 16mA,2
-"TLP1 at 5,613 Bar",2
-TLP2 at 0.5 Bar,2
-Check SPEED2 Diag = 8mA,2
+Init And Link Stability 100m Line,3
+TA at 6 Bar,3
+TSP1 at 0.5 Bar,3
 Check SPEED2 Diag = 12mA,2
-TSP2 at 0.5 Bar,2
-Check SPEED1 Diag = 20mA,2
-TPL at 0.5 Bar,2
-Check Difference TX-RX Counter,2
-Inrush Current,2
 "TA at 3,85 Bar",2
-TA at 0.5 Bar,2
-TLP1 at 0.5 Bar,2
-"TLP2 at 5,613 Bar",2
-"TSP2 at 5,613 Bar",2
+ETH Analyser setup,2
 "TPL at 3,85  Bar",2
 Check Monitoring 15V_iso,2
+Check Difference TX-RX Counter,2
+BC1 Pressure at VPL = 3.5,2
 BC2 Pressure at VPL = 3.5,2
-SNR Measurement at 100 Mbit/sec on PAIR2,1
-SNR Measurement at 100 Mbit/sec on PAIR2 100m Line,1
-TX POWER PAIR2 @ 100Mbs,1
-SNR Measurement at 100 Mbit/sec on PAIR3,1
-SNR Measurement at 100 Mbit/sec on PAIR3 100m Line,1
-TX POWER PAIR2 @ 100Mbs 100m Line,1
-Calibration check,1
-"TSP1 Mflexx - TSP1 bench at 4,50 Bar",1
-TSP1 Mflexx - TSP1 bench at 0.5 Bar,1
+Inrush Current,2
+Check SPEED2 Diag = 8mA,2
+"TLP1 at 5,613 Bar",2
+TA at 0.5 Bar,2
+TLP1 at 0.5 Bar,2
+TLP2 at 0.5 Bar,2
+TSP2 at 0.5 Bar,2
+"TLP2 at 5,613 Bar",2
+"TSP2 at 5,613 Bar",2
+Check SPEED1 Diag = 20mA,2
+BC2 Pressure Switch downhill threshold,2
+Check SPEED2 Diag = 16mA,2
+TPL at 0.5 Bar,2
+Check Ambient Temperature,1
 Check AI_SPARE1 = 12mA,1
-T4 with EV load ON,1
-T4 Initial Pressure,1
-Check AI_SPARE1 = 4mA,1
+TPL at 6 Bar,1
+TBC1 at 6 Bar,1
+Check AI_SPARE2 = 19mA,1
 Check AI_SPARE2 = 12mA,1
 Check AI_SPARE2 = 4mA,1
 Check AI_SPARE1 = 19mA,1
-Check Ambient Temperature,1
-Check AI_SPARE2 = 19mA,1
-TPL at 6 Bar,1
-TBC1 at 6 Bar,1
+T4 with EV load ON,1
+Check AI_SPARE1 = 4mA,1
+T4 Initial Pressure,1
+TSP1 Mflexx - TSP1 bench at 0.5 Bar,1
+Calibration check,1
+TX POWER PAIR2 @ 100Mbs 100m Line,1
+SNR Measurement at 100 Mbit/sec on PAIR2,1
+SNR Measurement at 100 Mbit/sec on PAIR3,1
+TX POWER PAIR2 @ 100Mbs,1
+SNR Measurement at 100 Mbit/sec on PAIR3 100m Line,1
+SNR Measurement at 100 Mbit/sec on PAIR2 100m Line,1
+"TSP1 Mflexx - TSP1 bench at 4,50 Bar",1
 TBC2 at 6 Bar,1

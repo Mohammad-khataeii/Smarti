@@ -4,8 +4,6 @@ import fs from "node:fs";
 import fsp from "node:fs/promises";
 import path from "node:path";
 import { randomUUID } from "node:crypto";
-import { parse } from "csv-parse/sync";
-import { stringify } from "csv-stringify/sync";
 import os from "os";
 
 const ROOT = process.env.PREDICTIONS_ROOT || "./predictions";
@@ -27,7 +25,7 @@ async function appendRunIndex(meta) {
   try {
     const raw = await fsp.readFile(RUN_INDEX, "utf-8");
     arr = JSON.parse(raw);
-  } catch { /* ok first time */ }
+  } catch { /* first time */ }
   arr.unshift(meta); // newest first
   await fsp.writeFile(RUN_INDEX, JSON.stringify(arr, null, 2));
 }
@@ -45,43 +43,6 @@ function spawnLogged(cmd, args, opts, logFile) {
   });
 }
 
-// Helper to generate fail patterns CSV
-async function generateFailPatterns(runId) {
-  const runDir = path.join(ROOT, runId);
-  const predictionsPath = path.join(runDir, "predictions.csv");
-  const outPath = path.join(runDir, "predicted_fail_step_patterns.csv");
-
-  try {
-    const csvData = await fsp.readFile(predictionsPath, "utf-8");
-    const rows = parse(csvData, { columns: true, skip_empty_lines: true });
-
-    // Filter fails — change "pred_label" logic if needed
-    const failRows = rows.filter(r => Number(r.pred_label) === 0);
-
-    // Group by stepName
-    const failCountByStep = {};
-    for (const row of failRows) {
-      const stepName = row.stepName || "Unknown";
-      failCountByStep[stepName] = (failCountByStep[stepName] || 0) + 1;
-    }
-
-    // Prepare output records
-    const outRecords = Object.entries(failCountByStep).map(([stepName, fail_count]) => ({
-      stepName,
-      fail_count
-    }));
-
-    // Even if no fails, create an empty file with header
-    const outCsv = stringify(outRecords, { header: true });
-    await fsp.writeFile(outPath, outCsv);
-  } catch (err) {
-    console.error(`Could not generate fail patterns for ${runId}:`, err);
-    // Still write an empty file so frontend doesn't break
-    const emptyCsv = stringify([], { header: true, columns: ["stepName", "fail_count"] });
-    await fsp.writeFile(outPath, emptyCsv);
-  }
-}
-
 export async function runTrainAndPredict() {
   if (_isRunning) throw new Error("An ML run is already in progress");
   _isRunning = true;
@@ -90,9 +51,7 @@ export async function runTrainAndPredict() {
   const TRAIN = process.env.TRAIN_SCRIPT || "train_random_forest.py";
   const PRED  = process.env.PREDICT_SCRIPT || "predict_random_forest.py";
 
-  
-const DB = process.env.DB_PATH || path.join(os.homedir(), ".smarti_data", "test_results.db");
-
+  const DB = process.env.DB_PATH || path.join(os.homedir(), ".smarti_data", "test_results.db");
   const ART   = process.env.ARTIFACTS_DIR || "./ml_artifacts";
   const SCHEMA = process.env.FEATURES_SCHEMA || path.join(ART, "features_schema.json");
 
@@ -144,10 +103,7 @@ const DB = process.env.DB_PATH || path.join(os.homedir(), ".smarti_data", "test_
     ];
     await spawnLogged(python, predictArgs, { cwd: process.cwd(), env: process.env }, predictLog);
 
-    // 3) Generate fail patterns CSV
-    await generateFailPatterns(runId);
-
-    // 4) Finalize metadata
+    // 3) Finalize metadata
     meta.status = "success";
     meta.endedAt = nowIso();
     meta.durationSec = Math.round((new Date(meta.endedAt) - new Date(startedAt)) / 1000);
@@ -162,7 +118,7 @@ const DB = process.env.DB_PATH || path.join(os.homedir(), ".smarti_data", "test_
     return meta;
   } catch (err) {
     meta.status = "error";
-    meta.error = String(err && err.message || err);
+    meta.error = String((err && err.message) || err);
     meta.endedAt = nowIso();
     meta.durationSec = Math.round((new Date(meta.endedAt) - new Date(startedAt)) / 1000);
     await appendRunIndex(meta);
@@ -172,7 +128,7 @@ const DB = process.env.DB_PATH || path.join(os.homedir(), ".smarti_data", "test_
   }
 }
 
-// Helpers we’ll use in later steps
+// Helpers
 export async function listRuns() {
   try {
     const raw = await fsp.readFile(RUN_INDEX, "utf-8");

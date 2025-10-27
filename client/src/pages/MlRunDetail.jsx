@@ -1,12 +1,62 @@
+// src/pages/MLRunDetail.jsx
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import CsvFetcher from "../components/CsvFetcher";
 import PredProbaHistogram from "../components/PredProbaHistogram";
-import GoToDashboardButton from '../components/GoToDashboardButton';
+import GoToDashboardButton from "../components/GoToDashboardButton";
 import styles from "./MLRunDetail.module.css";
 
+// Feature flag (env or window)
+const ML_ENABLED =
+  (typeof window !== "undefined" && window.__ML_RF_ENABLED === true) ||
+  String(process.env.REACT_APP_ML_RF_ENABLED || "").toLowerCase() === "true";
+
 export default function MLRunDetail() {
+  return ML_ENABLED ? <LiveRunDetail /> : <ComingSoon />;
+}
+
+function ComingSoon() {
+  return (
+    <section className={styles.container}>
+      <div className={styles.header}>
+        <h3 className={styles.title}>ML Run Details</h3>
+        <GoToDashboardButton />
+      </div>
+
+      <div
+        style={{
+          marginTop: 24,
+          padding: 20,
+          border: "1px solid #e5e7eb",
+          borderRadius: 12,
+          background:
+            "linear-gradient(135deg, rgba(243,244,246,0.7), rgba(229,231,235,0.6))",
+        }}
+      >
+        <h4 style={{ margin: 0, fontSize: 18 }}>
+          Random Forest Machine Learning — Coming Soon
+        </h4>
+        <p style={{ marginTop: 8, color: "#4b5563" }}>
+          This feature will be ready to use in the next update. You’ll be able
+          to run the model, browse past runs, view probability histograms, and
+          mine patterns from predicted FAIL sessions here.
+        </p>
+
+        <div style={{ marginTop: 16, display: "flex", gap: 8, flexWrap: "wrap" }}>
+          <button disabled className={styles.rerunButton} style={{ opacity: 0.5 }}>
+            🔄 Rerun (disabled)
+          </button>
+          <button disabled className={styles.selectRun} style={{ opacity: 0.5 }}>
+            Select Run (disabled)
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function LiveRunDetail() {
   const navigate = useNavigate();
   const { runId } = useParams();
 
@@ -16,6 +66,7 @@ export default function MLRunDetail() {
   const [loadingCounts, setLoadingCounts] = useState(true);
   const [isRerunning, setIsRerunning] = useState(false);
 
+  // Load run list
   useEffect(() => {
     const fetchRuns = async () => {
       try {
@@ -30,12 +81,14 @@ export default function MLRunDetail() {
     fetchRuns();
   }, []);
 
+  // If no runId in URL, redirect to newest
   useEffect(() => {
     if (!runsLoading && !runId && runs.length > 0) {
       navigate(`/ml-run-detail/${runs[0].runId}`, { replace: true });
     }
   }, [runsLoading, runId, runs, navigate]);
 
+  // Load summary for selected run
   useEffect(() => {
     if (!runId) return;
     const fetchSummary = async () => {
@@ -77,8 +130,6 @@ export default function MLRunDetail() {
 
   return (
     <section className={styles.container}>
-      
-
       {/* Header */}
       <div className={styles.header}>
         <h3 className={styles.title}>ML Run Details</h3>
@@ -161,9 +212,7 @@ export default function MLRunDetail() {
 function EmptyMessage() {
   return (
     <div className={styles.emptyMessage}>
-      <div className={styles.emptyTitle}>
-        No predicted FAIL sessions in this run.
-      </div>
+      <div className={styles.emptyTitle}>No predicted FAIL sessions in this run.</div>
       <ul>
         <li>The model may be confident most sessions pass (see the probability histogram above).</li>
         <li>

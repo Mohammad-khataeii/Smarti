@@ -6,7 +6,6 @@ import fetch from 'node-fetch'; // npm install node-fetch
 import pkg from 'electron-updater';
 const { autoUpdater } = pkg;
 
-
 // --- Path setup ---
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -14,14 +13,14 @@ const __dirname = path.dirname(__filename);
 let serverProcess;
 let mainWindow;
 
-// --- Start backend (server/server.mjs) ---
+// --- Start backend ---
 function startBackend() {
   const serverPath = path.join(__dirname, 'server', 'server.mjs');
   console.log('🚀 Starting backend:', serverPath);
 
   serverProcess = spawn('node', [serverPath], {
     stdio: 'inherit',
-    cwd: path.join(__dirname, 'server'), // ensure working dir = /server
+    cwd: path.join(__dirname, 'server'),
   });
 
   serverProcess.on('close', (code) => {
@@ -29,7 +28,7 @@ function startBackend() {
   });
 }
 
-// --- Wait for backend to be reachable ---
+// --- Wait for backend readiness ---
 async function waitForBackend(url, timeout = 10000) {
   const start = Date.now();
   while (Date.now() - start < timeout) {
@@ -57,18 +56,14 @@ async function createWindow() {
   mainWindow.removeMenu();
   mainWindow.center();
 
-  // 🧭 React build location
   const frontendPath = path.join(__dirname, 'client', 'build', 'index.html');
   const backendUrl = 'http://localhost:3001';
 
-  // Clear cached assets
   await mainWindow.webContents.session.clearCache();
 
-  // Load the local React build
   console.log('🧭 Loading frontend from:', frontendPath);
   mainWindow.loadFile(frontendPath);
 
-  // Optional: Wait for backend availability before API calls
   waitForBackend(backendUrl)
     .then(() => console.log('✅ Backend ready on 3001'))
     .catch(() => console.error('⚠️ Backend not responding in time'));
@@ -78,71 +73,68 @@ async function createWindow() {
   });
 }
 
-// --- Auto-updater setup ---
+// --- Auto Updater Setup ---
 function setupAutoUpdater() {
-  autoUpdater.autoDownload = true; // downloads automatically
+  autoUpdater.autoDownload = false; // ⚠️ manual download only when user clicks
   autoUpdater.autoInstallOnAppQuit = true;
 
   autoUpdater.on('checking-for-update', () => {
     console.log('🔍 Checking for updates...');
+    mainWindow.webContents.send('update-status', 'Checking for updates...');
   });
 
   autoUpdater.on('update-available', (info) => {
     console.log('⬇️ Update available:', info.version);
-    dialog.showMessageBox({
+    dialog.showMessageBox(mainWindow, {
       type: 'info',
       title: 'Update Available',
-      message: `Version ${info.version} is available. It will download in the background.`,
+      message: `Version ${info.version} is available.\nDo you want to download it now?`,
+      buttons: ['Yes', 'Later'],
+    }).then((result) => {
+      if (result.response === 0) {
+        autoUpdater.downloadUpdate();
+      }
     });
   });
 
   autoUpdater.on('update-not-available', () => {
-    console.log('✅ No new update found');
+    console.log('✅ No updates found');
     dialog.showMessageBox({
       type: 'info',
-      title: 'Up to Date',
+      title: 'No Updates',
       message: 'Smarti is already on the latest version.',
     });
   });
 
   autoUpdater.on('error', (err) => {
     console.error('❌ Update error:', err);
-    dialog.showMessageBox({
-      type: 'error',
-      title: 'Update Error',
-      message: 'An error occurred while checking for updates.',
-      detail: err == null ? '' : err.toString(),
-    });
+    dialog.showErrorBox('Update Error', err == null ? 'Unknown error' : err.toString());
   });
 
   autoUpdater.on('update-downloaded', (info) => {
     console.log('✅ Update downloaded:', info.version);
-    dialog
-      .showMessageBox({
-        type: 'info',
-        title: 'Update Ready',
-        message: 'A new version has been downloaded. Restart Smarti to install now?',
-        buttons: ['Restart', 'Later'],
-      })
-      .then((result) => {
-        if (result.response === 0) autoUpdater.quitAndInstall();
-      });
+    dialog.showMessageBox({
+      type: 'info',
+      title: 'Update Ready',
+      message: 'A new version has been downloaded. Restart Smarti to install now?',
+      buttons: ['Restart', 'Later'],
+    }).then((result) => {
+      if (result.response === 0) autoUpdater.quitAndInstall();
+    });
   });
 }
 
-// --- IPC handler for manual “Check for Updates” button ---
+// --- IPC handler for “Check for Updates” ---
 ipcMain.on('check-for-updates', () => {
   console.log('🖱️ Manual update check triggered');
-  autoUpdater.checkForUpdatesAndNotify();
+  autoUpdater.checkForUpdates();
 });
 
-// --- Electron app lifecycle ---
+// --- Electron lifecycle ---
 app.whenReady().then(async () => {
   startBackend();
   await createWindow();
-
   setupAutoUpdater();
-  autoUpdater.checkForUpdatesAndNotify();
 });
 
 app.on('window-all-closed', () => {

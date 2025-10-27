@@ -128,6 +128,11 @@ BC2 Teq,Read LCU2 Fault,9
 LCU1 Code Id,LCU1 State,9
 LCU1 Code Id,LCU2 State,9
 SerB_MED calculation,TPL Pressure,9
+BC1 After Monostable Intervention,BC1 After Monostable Intervention,8
+BC1 After Monostable Intervention,BC1 Pressure,8
+BC1 After Monostable Intervention,BC1 Pressure at MGDMin,8
+BC1 After Monostable Intervention,BC2 After Monostable Intervention,8
+BC1 After Monostable Intervention,BC2 Pressure,8
 BC1 Pressure,BC2 After Monostable Intervention,8
 BC1 Pressure,BrakeTest Result,8
 BC1 Pressure,TPL Pressure at MGDMin,8
@@ -137,7 +142,6 @@ BC1 Pressure Switch upward threshold,BC2 Pressure at SerbMin,8
 BC1 Pressure Switch upward threshold,LCU1 Code Id,8
 BC1 Pressure Switch upward threshold,LCU2 Code Id,8
 BC1 Pressure at MGDMin,BC2 After Monostable Intervention,8
-BC1 Pressure at MGDMin,VPL Pressure,8
 BC1 Pressure at MGDMin,VPL Pressure After Discharge,8
 BC2 After Monostable Intervention,BC2 After Monostable Intervention,8
 BC2 After Monostable Intervention,BC2 Pressure,8
@@ -170,8 +174,8 @@ LCU2 Code Id,Read LCU1 Fault,8
 LCU2 Code Id,Read LCU2 Fault,8
 TPL Pressure,TPL Pressure at MGDMin,8
 TPL Pressure,VPL Pressure After Discharge,8
-VPL Pressure,VPL Pressure,8
 VPL Pressure After Discharge,VPL Pressure After Discharge,8
+BC1 After Monostable Intervention,BC2 Pressure at MGDMin,7
 BC1 Pressure,LCU1 State,7
 BC1 Pressure,LCU2 State,7
 BC1 Pressure,MJF1 Signal after braketest,7
@@ -180,7 +184,6 @@ BC1 Pressure,"TBC1 at 3,57  Bar",7
 BC1 Pressure,"TBC2 at 3,67  Bar",7
 BC1 Pressure,TPL Pressure at MGDBoost,7
 BC1 Pressure,"TPL at 3,57  Bar",7
-BC1 Pressure,VPL Pressure,7
 BC1 Pressure at MGDMin,Trel BC1 release time,7
 BC1 Pressure at SerbMax,BC1 Pressure at SerbMax,7
 BC2 After Monostable Intervention,BC2 Pressure at MGDMin,7
@@ -189,8 +192,6 @@ BC2 Pressure,LCU2 State,7
 BC2 Pressure,"TBC1 at 3,57  Bar",7
 BC2 Pressure,"TBC2 at 3,67  Bar",7
 BC2 Pressure,"TPL at 3,57  Bar",7
-BC2 Pressure,VPL Pressure,7
-BC2 Pressure at MGDMin,VPL Pressure,7
 BC2 Pressure at MGDMin,VPL Pressure After Discharge,7
 BC2 Teq,LCU1 Code Id,7
 BrakeTest Result,"TBC1 at 3,57  Bar",7
@@ -223,11 +224,11 @@ MJF2 Signal after braketest,"TPL at 3,57  Bar",7
 "TBC2 at 3,67  Bar",TPL Pressure at MGDMin,7
 TPL Pressure,TPL Pressure at MGDBoost,7
 TPL Pressure,"TPL at 3,57  Bar",7
-TPL Pressure,VPL Pressure,7
 TPL Pressure at MGDBoost,"TPL at 3,57  Bar",7
 TPL Pressure at MGDMin,"TPL at 3,57  Bar",7
 Trel BC1 release time,Trel BC2 release time,7
-VPL Pressure,VPL Pressure After Discharge,7
+BC1 After Monostable Intervention,TPL Pressure,6
+BC1 After Monostable Intervention,VPL Pressure After Discharge,6
 BC1 Electronic Pressure Switch OFF - Brake Applied,BC1 Electronic Pressure Switch OFF - Brake Applied,6
 BC1 Electronic Pressure Switch OFF - Brake Applied,BC2 Electronic Pressure Switch OFF - Brake Applied,6
 BC1 Electronic Pressure Switch ON - Brake Released,BC1 Electronic Pressure Switch ON - Brake Released,6
@@ -250,7 +251,6 @@ BC1 Pressure at MGDBoost,LCU2 Code Id,6
 BC1 Pressure at MGDMin,TPL Pressure at MGDMin,6
 BC1 Pressure at SerbMax,BC2 Pressure at SerbMax,6
 BC2 After Monostable Intervention,TPL Pressure,6
-BC2 After Monostable Intervention,VPL Pressure,6
 BC2 After Monostable Intervention,VPL Pressure After Discharge,6
 BC2 Electronic Pressure Switch OFF - Brake Applied,BC2 Electronic Pressure Switch OFF - Brake Applied,6
 BC2 Pressure,EMG Monitoring,6
@@ -280,6 +280,7 @@ LCU2 Code Id,MJF2 Signal after braketest,6
 LCU2 Code Id,TPL Pressure at MGDBoost,6
 LCU2 Code Id,TPL Pressure at MGDMin,6
 TPL Pressure Drop 30 sec,VPL Pressure After Discharge,6
+BC1 After Monostable Intervention,TPL Pressure Drop 30 sec,5
 BC1 Electronic Pressure Switch ON - Brake Released,BrakeTest Result,5
 BC1 Pressure,BC1 Pressure at MGDBoost,5
 BC1 Pressure,Trel BC2 release time,5
@@ -299,7 +300,8 @@ BC2 Pressure at SerbMax,Trel BC2 release time,5
 BC2 Teq,LCU2 Code ID,5
 SerB_MED calculation,TPL Pressure Drop 30 sec,5
 SerB_MED calculation,Trel BC1 release time,5
-TPL Pressure Drop 30 sec,VPL Pressure,5
+BC1 After Monostable Intervention,BC1 Electronic Pressure Switch OFF - Brake Applied,4
+BC1 After Monostable Intervention,BC2 Electronic Pressure Switch OFF - Brake Applied,4
 BC1 Electronic Pressure Switch OFF - Brake Applied,BC1 Pressure,4
 BC1 Electronic Pressure Switch OFF - Brake Applied,BC1 Pressure at MGDMin,4
 BC1 Electronic Pressure Switch OFF - Brake Applied,BC2 After Monostable Intervention,4
@@ -307,7 +309,6 @@ BC1 Electronic Pressure Switch OFF - Brake Applied,BC2 Pressure,4
 BC1 Electronic Pressure Switch OFF - Brake Applied,BC2 Pressure at MGDMin,4
 BC1 Electronic Pressure Switch OFF - Brake Applied,TPL Pressure,4
 BC1 Electronic Pressure Switch OFF - Brake Applied,TPL Pressure Drop 30 sec,4
-BC1 Electronic Pressure Switch OFF - Brake Applied,VPL Pressure,4
 BC1 Electronic Pressure Switch OFF - Brake Applied,VPL Pressure After Discharge,4
 BC1 Pressure,BC1 Pressure at SerbMax,4
 BC1 Pressure,BC2 Electronic Pressure Switch OFF - Brake Applied,4
@@ -327,7 +328,6 @@ BC2 Electronic Pressure Switch OFF - Brake Applied,BC2 Pressure,4
 BC2 Electronic Pressure Switch OFF - Brake Applied,BC2 Pressure at MGDMin,4
 BC2 Electronic Pressure Switch OFF - Brake Applied,TPL Pressure,4
 BC2 Electronic Pressure Switch OFF - Brake Applied,TPL Pressure Drop 30 sec,4
-BC2 Electronic Pressure Switch OFF - Brake Applied,VPL Pressure,4
 BC2 Electronic Pressure Switch OFF - Brake Applied,VPL Pressure After Discharge,4
 BC2 Pressure,Trel BC2 release time,4
 BC2 Pressure Switch upward threshold,Trel BC2 release time,4
@@ -352,6 +352,7 @@ Check TX Counter,Read LCU1 Fault,4
 Check TX Counter,Read LCU2 Fault,4
 SerB_MED calculation,Trel BC2 release time,4
 TPL Pressure,Trel BC1 release time,4
+BC1 After Monostable Intervention,SerB_MED calculation,3
 BC1 Pressure Switch upward threshold,Trel BC1 release time,3
 BC1 Pressure at MGDBoost,Check RX Counter,3
 BC1 Pressure at MGDBoost,Check TX Counter,3
@@ -405,6 +406,10 @@ TPL Pressure Drop 30 sec,Trel BC1 release time,3
 TPL Pressure at MGDMin,Trel BC2 release time,3
 "TPL at 3,57  Bar",Trel BC1 release time,3
 "TPL at 3,57  Bar",Trel BC2 release time,3
+BC1 After Monostable Intervention,BC1 Pressure at SerbMax,2
+BC1 After Monostable Intervention,BC2 Pressure at SerbMax,2
+BC1 After Monostable Intervention,Trel BC1 release time,2
+BC1 After Monostable Intervention,Trel BC2 release time,2
 BC1 Electronic Pressure Switch OFF - Brake Applied,BC1 Pressure Switch upward threshold,2
 BC1 Electronic Pressure Switch OFF - Brake Applied,BC1 Pressure at SerbMax,2
 BC1 Electronic Pressure Switch OFF - Brake Applied,BC2 Pressure Switch upward threshold,2
@@ -558,7 +563,6 @@ Read LCU2 Fault,"TBC2 at 3,67  Bar",2
 Read LCU2 Fault,"TPL at 3,57  Bar",2
 Read LCU2 Fault,Trel BC1 release time,2
 Read LCU2 Fault,Trel BC2 release time,2
-SerB_MED calculation,VPL Pressure,2
 TPL Pressure Drop 30 sec,Trel BC2 release time,2
 TPL Pressure at MGDBoost,Trel BC1 release time,2
 TPL Pressure at MGDMin,Trel BC1 release time,2
@@ -654,5 +658,4 @@ TPL Pressure at MGDBoost,Trel BC2 release time,1
 TPL Pressure at MGDMin,Test Application CRC32,1
 TPL Pressure at MGDMin,Test Application Name,1
 TPL Pressure at MGDMin,Test Application Release,1
-Trel BC2 release time,VPL Pressure,1
 Trel BC2 release time,VPL Pressure After Discharge,1
