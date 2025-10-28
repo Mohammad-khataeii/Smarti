@@ -16,17 +16,29 @@ let mainWindow;
 // --- Start backend ---
 function startBackend() {
   const serverPath = path.join(__dirname, 'server', 'server.mjs');
-  console.log('🚀 Starting backend:', serverPath);
+  const workingDir = path.join(__dirname, 'server');
 
-  serverProcess = spawn('node', [serverPath], {
-    stdio: 'inherit',
-    cwd: path.join(__dirname, 'server'),
-  });
+  console.log('🚀 Starting backend from:', workingDir);
+  console.log('📦 Executing:', serverPath);
 
-  serverProcess.on('close', (code) => {
-    console.log(`🛑 Backend stopped with code ${code}`);
-  });
+  try {
+    serverProcess = spawn(process.execPath, [serverPath], {
+      stdio: 'inherit',
+      cwd: workingDir,
+    });
+
+    serverProcess.on('error', (err) => {
+      console.error('❌ Failed to start backend process:', err);
+    });
+
+    serverProcess.on('close', (code) => {
+      console.log(`🛑 Backend stopped with code ${code}`);
+    });
+  } catch (err) {
+    console.error('❌ startBackend exception:', err);
+  }
 }
+
 
 // --- Wait for backend readiness ---
 async function waitForBackend(url, timeout = 10000) {
@@ -40,6 +52,7 @@ async function waitForBackend(url, timeout = 10000) {
   }
   throw new Error('❌ Backend did not start in time');
 }
+
 
 // --- Create Electron window ---
 async function createWindow() {
@@ -55,6 +68,10 @@ async function createWindow() {
 
   mainWindow.removeMenu();
   mainWindow.center();
+
+  await mainWindow.webContents.session.clearCache();
+  await mainWindow.webContents.session.clearStorageData();
+
 
   const frontendPath = path.join(__dirname, 'client', 'build', 'index.html');
   const backendUrl = 'http://localhost:3001';
