@@ -30,8 +30,7 @@ const Dashboard = ({ onLogout }) => {
     const closeHelp = () => setIsHelpOpen(false);
 
     // 🆕 Update modal state
-const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
-const [updateMessage, setUpdateMessage] = useState('');
+    
 
     const [isZoomModalOpen, setIsZoomModalOpen] = useState(false);
     const [zoomMessage, setZoomMessage] = useState('');
@@ -222,31 +221,7 @@ per regolare il livello di zoom.
         return filledData;
     };
     
-    function handleCheckForUpdates() {
-  const isElectron = !!(window.process && window.process.versions && window.process.versions.electron);
-
-  if (isElectron) {
-    try {
-      const electron = window.require ? window.require('electron') : null;
-      const ipcRenderer = electron ? electron.ipcRenderer : null;
-
-      if (ipcRenderer) {
-        ipcRenderer.send('check-for-updates');
-        setUpdateMessage('Checking for updates...');
-        setIsUpdateModalOpen(true);
-      } else {
-        throw new Error('IPC unavailable.');
-      }
-    } catch (err) {
-      console.error('Electron IPC not available:', err);
-      alert('⚠️ Update system unavailable in this environment.');
-    }
-  } else {
-    // Running in browser or React dev mode
-    setUpdateMessage('You are running in development mode. Updates are only available in the installed app.');
-    setIsUpdateModalOpen(true);
-  }
-}
+    
 
 
 console.log('Original Failure Rate Data:', failureRateData);
@@ -403,9 +378,7 @@ const failureRateChartData = {
             {/* Sidebar */}
             <div className={`${styles.dashboardSidebar} ${isSidebarOpen ? '' : styles.closed} ${styles.sidebarAnimation}`}>
                 <div className={styles.sidebarMenu}>
-                     <button onClick={handleCheckForUpdates} className={styles.updateButton}>
-    🔄 <span>Check Updates</span>
-  </button>
+                     
 
                     {/* Language Toggle */}
                     <div className={styles.languageToggle}>
@@ -768,27 +741,6 @@ const failureRateChartData = {
         <p>Made in IRAN 🇮🇷</p>
     </div>
 </Modal>
-
-<Modal
-  isOpen={isUpdateModalOpen}
-  onRequestClose={() => setIsUpdateModalOpen(false)}
-  className={styles.zoomModalContent}
-  overlayClassName={styles.zoomModalOverlay}
-  contentLabel="Update Info"
->
-  <h2>Smarti Update</h2>
-  <pre style={{ whiteSpace: 'pre-wrap' }}>{updateMessage}</pre>
-  <button
-    onClick={() => setIsUpdateModalOpen(false)}
-    className={styles.closeZoomButton}
-  >
-    Close
-  </button>
-</Modal>
-
-
-
-
         </div>
     );
     

@@ -11,30 +11,18 @@ import os from 'os';
 import { fileURLToPath } from 'url';
 
 
+// ============================================================
+// 🔇 Silent mode for production
+// ============================================================
+const SILENT = process.env.SILENT === "1" || process.env.NODE_ENV === "production";
+if (SILENT) {
+  console.log = console.info = console.debug = console.warn = console.trace = () => {};
+}
 
 // ===== Utility to get __dirname in ESM =====
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// ===== Function to get writable SQLite path =====
-function getWritablePath(fileName) {
-  const snapshotPath = path.join(__dirname, fileName);
-
-  if (process.pkg) {
-    // Running as packaged .exe
-    const userDir = path.join(os.homedir(), '.myapp');
-    if (!fs.existsSync(userDir)) fs.mkdirSync(userDir, { recursive: true });
-    const destPath = path.join(userDir, fileName);
-    if (!fs.existsSync(destPath)) {
-      // Copy from snapshot to writable folder
-      fs.copyFileSync(snapshotPath, destPath);
-    }
-    return destPath;
-  }
-
-  // Dev mode: use local file
-  return snapshotPath;
-}
 
 // ===== Initialize App =====
 const app = express();
@@ -62,8 +50,8 @@ app.use(express.urlencoded({ extended: true }));
 // ===== Session Setup =====
 app.use(session({
   store: new SQLiteStore({
-    db: 'sessions.db',
-    dir: process.pkg ? path.dirname(getWritablePath('sessions.db')) : './var/db'
+  db: 'sessions.db',
+  dir: path.join(os.homedir(), '.smarti_data')
   }),
   secret: process.env.SESSION_SECRET || 'default_secret',
   resave: false,
@@ -90,7 +78,7 @@ import stepFrequencyRoute from './stepFrequencyRoute.mjs';
 import normalDistributionRoute from './normalDistributionRoute.mjs';
 import mlRoutes from "./routes/ml.mjs";
 
-// Example protected route
+//  protected route
 app.get('/check-auth', (req, res) => {
   if (req.session.user) {
     return res.status(200).json({ authenticated: true, user: req.session.user });
@@ -122,5 +110,6 @@ app.get('*', (req, res) => {
 // ===== Start Server =====
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  if (!SILENT) console.log(`✅ Server running on http://localhost:${PORT}`);
 });
+

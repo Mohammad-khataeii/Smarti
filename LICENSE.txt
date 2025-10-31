@@ -1,54 +1,87 @@
-SmartanalytiQ SOFTWARE LICENSE AGREEMENT  
-Version 1.0 — © 2025 Seyedmohammad Khataeipour  
+Smarti CLI SOFTWARE LICENSE AGREEMENT
+Version 1.0 — © 2025 Seyedmohammad Khataeipour
 
-This software (SmartanalytiQ) is developed and owned exclusively by  
-**Seyedmohammad Khataeipour** (“Developer”).  
+This software (Smarti CLI — including the “smarti-up” command, automation scripts,
+and configuration files) is developed and owned exclusively by
+Seyedmohammad Khataeipour (“Developer”).
 
-By installing or using this software, you (“Licensee”) agree to the following terms:
+By installing, running, or distributing this software, you (“Licensee”) agree to the
+following terms:
 
-1. PERMITTED USE  
-   - The Licensee is granted a non-exclusive, non-transferable right to use the software  
-     for internal, non-commercial purposes within their organization or company.  
-   - This license does not grant any rights to modify, copy, distribute, or sublicense  
-     the software without written authorization from the Developer.
+-------------------------------------------------------------------------------
+1. PERMITTED USE
+-------------------------------------------------------------------------------
+- The Licensee is granted a non-exclusive, non-transferable right to install and use
+  the software for internal, non-commercial purposes within their organization or
+  company.
+- This includes running the CLI command “smarti-up” to deploy or operate Smarti or
+  SmartanalytiQ systems.
+- The software may be executed and distributed in binary or visible (source) form
+  only as part of authorized deployments.
 
-2. RESTRICTIONS  
-   - The Licensee shall not sell, lease, sublicense, publish, distribute, or otherwise  
-     make the software available to third parties without explicit written permission  
-     from the Developer.  
-   - Reverse engineering, decompiling, disassembling, or attempting to derive the  
-     source code of the software is strictly prohibited.  
-   - Any removal or alteration of copyright, logo, or attribution notices is forbidden.
+-------------------------------------------------------------------------------
+2. RESTRICTIONS
+-------------------------------------------------------------------------------
+- The Licensee shall NOT sell, lease, sublicense, republish, distribute, or otherwise
+  make the software available to third parties without explicit written permission
+  from the Developer.
+- Reverse engineering, decompiling, disassembling, or attempting to derive or alter
+  the source code of the CLI or its underlying automation logic is strictly
+  prohibited.
+- Any removal or modification of copyright, logo, or attribution notices (including
+  comments within visible code) is forbidden.
+- Redistribution of the source code, even when visible (for example via GitHub
+  clone), is only allowed for internal organizational use under this license.
 
-3. ATTRIBUTION  
-   - The Developer’s name **(Seyedmohammad Khataeipour)** and project team name  
-     **(Brakelysts, Politecnico di Torino)** must appear in any usage, documentation,  
-     or public presentation of the software.  
-   - When the software is demonstrated, cited, or integrated into reports, presentations,  
-     or dashboards, visible acknowledgment of the Developer must be included.
+-------------------------------------------------------------------------------
+3. ATTRIBUTION
+-------------------------------------------------------------------------------
+- The Developer’s name (Seyedmohammad Khataeipour) and project team name
+  (Brakelysts, Politecnico di Torino) must appear in any visible version of the CLI
+  code, documentation, or derivative user interfaces.
+- When the software or CLI is used, demonstrated, or included in reports, dashboards,
+  or internal tools, visible acknowledgment of the Developer must be included.
 
-4. COMMERCIAL USE  
-   - Commercial use, resale, or redistribution of the software requires a separate  
-     written commercial agreement and payment as negotiated with the Developer.  
-   - Contact the Developer for licensing options at:  
-     📧 **mohammadkhataei629@gmail.com**
+-------------------------------------------------------------------------------
+4. COMMERCIAL USE
+-------------------------------------------------------------------------------
+- Commercial deployment, resale, or redistribution of the CLI or its automation
+  features requires a separate written commercial agreement and payment as
+  negotiated with the Developer.
+- For licensing inquiries or commercial partnerships, contact:
+    📧 mohammadkhataei629@gmail.com
 
-5. WARRANTY DISCLAIMER  
-   - The software is provided “AS IS” without warranty of any kind, express or implied.  
-     The Developer makes no guarantee of performance, accuracy, or fitness for any  
-     particular purpose.  
-   - The Developer shall not be liable for any direct, indirect, incidental, or  
-     consequential damages arising from the use or inability to use the software.
+-------------------------------------------------------------------------------
+5. WARRANTY DISCLAIMER
+-------------------------------------------------------------------------------
+- The software and CLI are provided “AS IS” without warranty of any kind, express or
+  implied. The Developer makes no guarantee of functionality, reliability, or
+  fitness for any particular purpose.
+- The Developer shall not be liable for any direct, indirect, incidental, or
+  consequential damages arising from the installation, execution, or inability to use
+  the software or CLI.
 
-6. TERMINATION  
-   - Any violation of the above terms automatically terminates this license and requires  
-     immediate cessation of all use of the software.  
-   - Upon termination, all copies of the software must be deleted or destroyed.
+-------------------------------------------------------------------------------
+6. TERMINATION
+-------------------------------------------------------------------------------
+- Any violation of these terms automatically terminates this license and requires
+  immediate cessation of all use of the CLI and associated components.
+- Upon termination, all copies of the software (including locally cloned
+  repositories) must be deleted or destroyed.
 
----
+-------------------------------------------------------------------------------
+7. VISIBILITY OF SOURCE CODE
+-------------------------------------------------------------------------------
+- The CLI script (smarti-up.mjs) may be visible to the Licensee to enable execution
+  and internal debugging. This visibility does NOT constitute an open-source license
+  nor grant modification or redistribution rights.
+- All visible code remains proprietary and protected under this agreement.
 
-For licensing, redistribution rights, or commercial inquiries, please contact:  
-**mohammadkhataei629@gmail.com**  
+-------------------------------------------------------------------------------
+CONTACT
+-------------------------------------------------------------------------------
+For licensing, redistribution rights, or commercial inquiries, please contact:
+    📧 mohammadkhataei629@gmail.com
 
-© 2025 Seyedmohammad Khataeipour  
+© 2025 Seyedmohammad Khataeipour
 All rights reserved.
