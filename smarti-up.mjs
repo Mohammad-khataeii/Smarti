@@ -6,6 +6,30 @@ import fs from "fs";
 import open from "open";
 import fetch from "node-fetch";
 
+
+// --------------------------------------------------------
+// 🧩 Auto-install root dependencies if missing
+// --------------------------------------------------------
+import { execSync } from "child_process";
+
+const rootPath = path.dirname(fileURLToPath(import.meta.url));
+const nodeModulesPath = path.join(rootPath, "node_modules");
+if (!fs.existsSync(nodeModulesPath)) {
+  console.log("📦 Installing Smarti root dependencies...");
+  try {
+    execSync("npm install --no-audit --no-fund", {
+      cwd: rootPath,
+      stdio: "inherit",
+      shell: true,
+    });
+    console.log("✅ Root dependencies installed.");
+  } catch (err) {
+    console.error("❌ Failed to install root dependencies:", err.message);
+    process.exit(1);
+  }
+}
+
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
