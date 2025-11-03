@@ -7,6 +7,15 @@
     "smarti-up": "./smarti-up.mjs"
   },
   "dependencies": {
-    "open": "^10.2.0"
+    "connect-sqlite3": "^0.9.16",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "node-fetch": "^3.3.2",
+    "open": "^10.2.0",
+    "passport": "^0.7.0",
+    "sqlite3": "^5.1.7",
+    "open": "^9.1.0",
+    "node-fetch": "^3.3.2"
   }
 }
