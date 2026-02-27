@@ -69,3 +69,7 @@ server/dist/
 server/**/*.db
 server/uploads/*
 test_results.db
+
+server/.env
+client/.env
+.env

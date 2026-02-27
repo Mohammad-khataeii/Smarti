@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "private": true,
+  "engines": { "node": "20.x" },
   "bin": {
     "smarti-up": "./smarti-up.mjs"
   },
@@ -15,5 +16,14 @@
     "open": "^10.2.0",
     "passport": "^0.7.0",
     "sqlite3": "^5.1.7"
-  }
+  },
+  "scripts": {
+  "install:all": "npm ci && npm --prefix server ci && npm --prefix client ci",
+  "dev": "npm --prefix server run dev",
+  "dev:all": "npm --prefix server run dev",
+  "start": "npm --prefix server start",
+  "client": "npm --prefix client start",
+  "client:build": "npm --prefix client run build",
+  "audit:prod": "npm audit --omit=dev"
+}
 }
