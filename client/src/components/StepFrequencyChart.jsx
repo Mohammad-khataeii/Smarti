@@ -17,10 +17,10 @@ import styles from './StepFrequencyChart.module.css';
 import Modal from 'react-modal';
 import { jsPDF } from 'jspdf';
 import 'jspdf-autotable';
-import Papa from 'papaparse';
+
 import GoToDashboardButton from '../components/GoToDashboardButton';
 
-
+const Papa = window.Papa;
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const StepFrequencyChart = () => {

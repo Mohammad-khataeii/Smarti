@@ -49,7 +49,7 @@ const UUTStatusSummaryChart = () => {
             setTimeout(() => {
                 setSummaryData(response.data);
                 setLoading(false); // End loading state after 5 seconds
-            }, 5000); // 5000 milliseconds = 5 seconds
+            }, 3000); // 5000 milliseconds = 5 seconds
             
         } catch (err) {
             console.error('Error fetching UUT status summary:', err);
@@ -98,6 +98,11 @@ const UUTStatusSummaryChart = () => {
                 data: summaryData.map(data => data.stopCount),
                 backgroundColor: 'rgba(79, 35, 156, 0.6)', // Red for FAIL
             },
+            {
+                label: 'UNCOMPLETE',
+                data: summaryData.map(data => data.uncompleteCount),
+                backgroundColor: 'rgba(255, 159, 64, 0.6)',
+            },
         ],
     });
 
@@ -115,12 +120,13 @@ const UUTStatusSummaryChart = () => {
 
     const exportTableAsCSV = () => {
         const csvRows = [
-            ['Serial Number', 'PASS Count', 'FAIL Count', 'STOP Count'],
+            ['Serial Number', 'PASS Count', 'FAIL Count', 'STOP Count', 'UNCOMPLETE Count'],
             ...summaryData.map(data => [
                 data.serialNumber,
                 data.passCount,
                 data.failCount,
-                data.stopCount
+                data.stopCount,
+                data.uncompleteCount
             ])
         ];
 
@@ -131,12 +137,13 @@ const UUTStatusSummaryChart = () => {
 
     const exportTableAsPDF = () => {
         const doc = new jsPDF();
-        const tableColumn = ['Serial Number', 'PASS Count', 'FAIL Count', 'STOP Count'];
+        const tableColumn = ['Serial Number', 'PASS Count', 'FAIL Count', 'STOP Count', 'UNCOMPLETE Count'] ;
         const tableRows = summaryData.map(data => [
             data.serialNumber,
             data.passCount,
             data.failCount,
-            data.stopCount
+            data.stopCount,
+            data.uncompleteCount
         ]);
 
         doc.text('UUT Status Summary', 14, 15);
@@ -257,6 +264,7 @@ const UUTStatusSummaryChart = () => {
                             <th className={styles.styledTableTh}>PASS Count</th>
                             <th className={styles.styledTableTh}>FAIL Count</th>
                             <th className={styles.styledTableTh}>STOP Count</th>
+                            <th className={styles.styledTableTh}>UNCOMPLETE Count</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -266,6 +274,7 @@ const UUTStatusSummaryChart = () => {
                                 <td className={styles.styledTableTd}>{data.passCount}</td>
                                 <td className={styles.styledTableTd}>{data.failCount}</td>
                                 <td className={styles.styledTableTd}>{data.stopCount}</td>
+                                <td className={styles.styledTableTd}>{data.uncompleteCount}</td>
                             </tr>
                         ))}
                     </tbody>

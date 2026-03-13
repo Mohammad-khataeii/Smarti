@@ -27,7 +27,8 @@ router.get('/uut-status-summary', async (req, res) => {
             SELECT serialNumber,
                 SUM(CASE WHEN uutStatus = 'PASS' THEN 1 ELSE 0 END) AS passCount,
                 SUM(CASE WHEN uutStatus = 'FAIL' THEN 1 ELSE 0 END) AS failCount,
-                SUM(CASE WHEN uutStatus = 'STOP' THEN 1 ELSE 0 END) AS stopCount
+                SUM(CASE WHEN uutStatus = 'STOP' THEN 1 ELSE 0 END) AS stopCount,
+                SUM(CASE WHEN uutStatus = 'UNCOMPLETE' THEN 1 ELSE 0 END) AS uncompleteCount
             FROM global_metadata
             WHERE 1=1 ${dateCondition} ${serialNumberCondition}
             GROUP BY serialNumber

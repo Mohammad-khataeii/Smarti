@@ -4,15 +4,37 @@ import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import styles from './Dashboard.module.css';
 import { Pie, Bar, Line } from 'react-chartjs-2';
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, ArcElement, Tooltip, Legend } from 'chart.js';
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    ArcElement,
+    Tooltip,
+    Legend,
+    LineElement,
+    PointElement,
+    Title,
+    Filler
+} from 'chart.js';
 import Modal from 'react-modal';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";  // To include the default styles
 import MlRunDetail from '../pages/MlRunDetail';
 Modal.setAppElement('#root');
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, ArcElement, Tooltip, Legend);
-
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    ArcElement,
+    Tooltip,
+    Legend,
+    LineElement,
+    PointElement,
+    Title,
+    Filler
+);
 
 const Dashboard = ({ onLogout }) => {
     const navigate = useNavigate();
@@ -21,7 +43,7 @@ const Dashboard = ({ onLogout }) => {
     const [currentDateTime, setCurrentDateTime] = useState(new Date());
     const [uniqueSerialCount, setUniqueSerialCount] = useState(0);
     const [language, setLanguage] = useState(i18n.language);
-    const [pieChartData, setPieChartData] = useState(null);
+    const [pieChartData, setPieChartData] = useState({ PASS: 0, FAIL: 0 });
     const [paretoChartData, setParetoChartData] = useState(null);
     const [timeFilter, setTimeFilter] = useState('monthly'); // Default to 'monthly'
     const [totalProduction, setTotalProduction] = useState(0); 
@@ -90,11 +112,18 @@ const Dashboard = ({ onLogout }) => {
         const fetchPieChartData = async (filter) => {
             try {
                 const response = await axios.get('http://localhost:3001/api/uut-status-count', {
-                    params: { filter } // Pass the time filter
+                    params: { filter }
                 });
-                setPieChartData(response.data);
+
+                console.log('Dashboard pie response:', response.data);
+
+                setPieChartData({
+                    PASS: Number(response.data?.PASS) || 0,
+                    FAIL: Number(response.data?.FAIL) || 0,
+                });
             } catch (err) {
                 console.error("Error fetching pie chart data:", err);
+                setPieChartData({ PASS: 0, FAIL: 0 });
             }
         };
     
@@ -249,50 +278,56 @@ const failureRateChartData = {
 
 
 
-    const pieData = pieChartData ? {
-        labels: ['Pass(%)', 'Fail(%)'],
+    const pieData = {
+        labels: ['Pass (%)', 'Fail (%)'],
         datasets: [
             {
-                data: [pieChartData.PASS, pieChartData.FAIL],
+                data: [
+                    Number(pieChartData?.PASS) || 0,
+                    Number(pieChartData?.FAIL) || 0
+                ],
                 backgroundColor: ['#4CAF50', '#F44336'],
                 hoverBackgroundColor: ['#66BB6A', '#E57373'],
+                borderWidth: 1,
             },
         ],
-    } : null;
+    };
     
-    const paretoData = paretoChartData ? {
-        labels: paretoChartData.map(item => item.stepNumber),
-        datasets: [
-            {
-                label: 'Fail Count',
-                data: paretoChartData.map(item => item.failCount),
-                backgroundColor: 'rgba(255, 99, 132, 0.6)',
-                type: 'bar',
-            },
-            {
-                label: 'Cumulative Fail Percentage',
-                data: paretoChartData.map(item => item.cumulativePercentage),
-                borderColor: 'rgba(54, 162, 235, 0.8)',
-                type: 'line',
-                fill: false,
-            },
-        ],
-    } : null;
+    const paretoData = Array.isArray(paretoChartData) && paretoChartData.length > 0
+        ? {
+            labels: paretoChartData.map(item => item.stepNumber),
+            datasets: [
+                {
+                    label: 'Fail Count',
+                    data: paretoChartData.map(item => Number(item.failCount) || 0),
+                    backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                    type: 'bar',
+                    yAxisID: 'y',
+                },
+                {
+                    label: 'Cumulative Fail Percentage',
+                    data: paretoChartData.map(item => Number(item.cumulativePercentage) || 0),
+                    borderColor: 'rgba(54, 162, 235, 0.8)',
+                    backgroundColor: 'rgba(54, 162, 235, 0.8)',
+                    type: 'line',
+                    fill: false,
+                    tension: 0.4,
+                    yAxisID: 'y1',
+                    pointRadius: 3,
+                },
+            ],
+        }
+        : null;
 
     //useEffect to setDate on the Dashboard Navbar
     useEffect(() => {
-        // Calculate the last 12 months' dates
-        const calculateLastTwelveMonths = () => {
-            const today = new Date();
-            const start = new Date(today);
-            start.setMonth(today.getMonth() - 12);  // Subtract 12 months from the current date
-            setStartDate(start);
-            setEndDate(today);  // Set the end date to today
-        };
+        const today = new Date();
+        const start = new Date(today);
+        start.setMonth(today.getMonth() - 12);
 
-        // Initialize the dates when the component is mounted
-        calculateLastTwelveMonths();
-    }, []);  // Empty dependency array to run only on mount
+        setStartDate(start);
+        setEndDate(today);
+    }, []);
 
     // Function to validate dates
     const isValidDateRange = (start, end) => {
@@ -319,9 +354,16 @@ const failureRateChartData = {
                     const response = await axios.get('http://localhost:3001/api/uut-status-count', {
                         params: { startDate: start, endDate: end },
                     });
-                    setPieChartData(response.data);
+
+                    console.log('Dashboard pie date-filter response:', response.data);
+
+                    setPieChartData({
+                        PASS: Number(response.data?.PASS) || 0,
+                        FAIL: Number(response.data?.FAIL) || 0,
+                    });
                 } catch (err) {
                     console.error("Error fetching pie chart data:", err);
+                    setPieChartData({ PASS: 0, FAIL: 0 });
                 }
             };
 
@@ -331,9 +373,17 @@ const failureRateChartData = {
                     const response = await axios.get('http://localhost:3001/api/pareto-failure-analysis', {
                         params: { startDate: start, endDate: end },
                     });
-                    setParetoChartData(response.data);
+
+                    console.log('Dashboard pareto date-filter response:', response.data);
+
+                    if (Array.isArray(response.data)) {
+                        setParetoChartData(response.data);
+                    } else {
+                        setParetoChartData([]);
+                    }
                 } catch (err) {
                     console.error("Error fetching pareto chart data:", err);
+                    setParetoChartData([]);
                 }
             };
 
@@ -358,12 +408,7 @@ const failureRateChartData = {
         }
     };
 
-    // Trigger the filter automatically when the dates are set
-    useEffect(() => {
-        if (startDate && endDate) {
-            applyDateFilter();
-        }
-    }, [startDate, endDate]);  // Trigger the effect whenever the dates change
+    
 
     
     
@@ -473,44 +518,107 @@ const failureRateChartData = {
 
     {/* Charts Section */}
     <div className={styles.dashboardCharts}>
-        <div className={`${styles.chartContainer} ${styles.pieChartContainer} ${styles.chartAnimation}`}>
-            <h4>{t('Pie Chart')}</h4>
-            {pieData ? (
-                <Pie
-                    data={pieData}
-                    options={{
-                        responsive: true,
-                        maintainAspectRatio: false,
-                    }}
-                    width={300}
-                    height={300}
-                />
-            ) : (
-                <div className={styles.placeholderContent}>{t('Loading Pie Chart...')}</div>
-            )}
-        </div>
+                    <div className={`${styles.chartContainer} ${styles.pieChartContainer} ${styles.chartAnimation}`}>
+                        <h4>{t('Pie Chart')}</h4>
 
-        <div className={`${styles.chartContainer} ${styles.paretoChartContainer} ${styles.chartAnimation}`}>
-            <h3>{t('Pareto Chart Analysis')}</h3>
-            {paretoData ? (
-                <Bar
-                    data={paretoData}
-                    options={{
-                        scales: {
-                            y: { title: { display: true, text: 'Fail Count' } },
-                            y1: {
-                                title: { display: true, text: 'Cumulative Percentage' },
-                                position: 'right',
-                                grid: { drawOnChartArea: false },
-                            },
-                        },
-                        plugins: { legend: { display: true, position: 'top' } },
-                    }}
-                />
-            ) : (
-                <div className={styles.placeholderContent}>{t('Loading Pareto Chart...')}</div>
-            )}
-        </div>
+                        <Pie
+                            data={pieData}
+                            options={{
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                plugins: {
+                                    legend: {
+                                        display: true,
+                                        position: 'top',
+                                    },
+                                    tooltip: {
+                                        callbacks: {
+                                            label: (context) => {
+                                                const label = context.label || '';
+                                                const value = context.raw || 0;
+                                                return `${label}: ${value}`;
+                                            },
+                                        },
+                                    },
+                                },
+                            }}
+                            width={300}
+                            height={300}
+                        />
+                    </div>
+
+                    <div className={`${styles.chartContainer} ${styles.paretoChartContainer} ${styles.chartAnimation}`}>
+                        <h3>{t('Pareto Chart Analysis')}</h3>
+
+                        {paretoData ? (
+                            <Bar
+                                data={paretoData}
+                                options={{
+                                    responsive: true,
+                                    maintainAspectRatio: false,
+                                    interaction: {
+                                        mode: 'index',
+                                        intersect: false,
+                                    },
+                                    scales: {
+                                        y: {
+                                            beginAtZero: true,
+                                            title: {
+                                                display: true,
+                                                text: 'Fail Count',
+                                            },
+                                        },
+                                        y1: {
+                                            beginAtZero: true,
+                                            position: 'right',
+                                            grid: {
+                                                drawOnChartArea: false,
+                                            },
+                                            title: {
+                                                display: true,
+                                                text: 'Cumulative Percentage',
+                                            },
+                                            ticks: {
+                                                callback: (value) => `${value}%`,
+                                            },
+                                            min: 0,
+                                            max: 100,
+                                        },
+                                        x: {
+                                            title: {
+                                                display: true,
+                                                text: 'Step Number',
+                                            },
+                                        },
+                                    },
+                                    plugins: {
+                                        legend: {
+                                            display: true,
+                                            position: 'top',
+                                        },
+                                        tooltip: {
+                                            callbacks: {
+                                                label: (context) => {
+                                                    const label = context.dataset.label || '';
+                                                    const value = context.raw;
+                                                    if (context.dataset.yAxisID === 'y1') {
+                                                        return `${label}: ${Number(value).toFixed(2)}%`;
+                                                    }
+                                                    return `${label}: ${value}`;
+                                                },
+                                            },
+                                        },
+                                    },
+                                }}
+                            />
+                        ) : (
+                            <div className={styles.placeholderContent}>
+                                {Array.isArray(paretoChartData) && paretoChartData.length === 0
+                                    ? 'No Pareto data available for the selected filter.'
+                                    : t('Loading Pareto Chart...')}
+                            </div>
+                        )}
+                    </div>
     </div>
 
     {/* Stats Section */}
@@ -600,22 +708,7 @@ const failureRateChartData = {
 </div>
 
 
-    <Modal
-  isOpen={isZoomModalOpen}
-  onRequestClose={() => setIsZoomModalOpen(false)}
-  className={styles.zoomModalContent}
-  overlayClassName={styles.zoomModalOverlay}
-  contentLabel="Zoom Information"
->
-  <h2>{language === 'it' ? 'Avviso Zoom' : 'Zoom Warning'}</h2>
-  <pre style={{ whiteSpace: 'pre-wrap' }}>{zoomMessage}</pre>
-  <button
-    onClick={() => setIsZoomModalOpen(false)}
-    className={styles.closeZoomButton}
-  >
-    {language === 'it' ? 'Chiudi' : 'Close'}
-  </button>
-</Modal>
+
 
 </div>
 
@@ -738,7 +831,7 @@ const failureRateChartData = {
         <p>
             This dashboard is designed to help you monitor production outcomes, troubleshoot failures, and improve overall system performance efficiently.
         </p>
-        <p>Made in IRAN 🇮🇷</p>
+        
     </div>
 </Modal>
         </div>

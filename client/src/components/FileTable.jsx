@@ -35,12 +35,13 @@ const FileTable = () => {
     const [isDateModalOpen, setIsDateModalOpen] = useState(false);
     const [activeDateField, setActiveDateField] = useState(null); // 'start' or 'end'
 
+    const [fileNameFilter, setFileNameFilter] = useState('');
 
     useEffect(() => {
         // Simulate a 7 seconds loading time
         setTimeout(() => {
-            setLoading(false);  // Hide loading animation after 7 seconds
-        }, 7000);
+            setLoading(false);  // Hide loading animation after 3 seconds
+        }, 3000);
     }, []);
     
     useEffect(() => {
@@ -50,7 +51,7 @@ const FileTable = () => {
     useEffect(() => {
         fetchRecords();
     }, [
-        serialNumberFilter, startDate, endDate, ateSwVersion, uutStatus, sortOrder
+        fileNameFilter, serialNumberFilter, startDate, endDate, ateSwVersion, uutStatus, sortOrder
     ]);
 
     // Fetch available ateSwVersions for the dropdown
@@ -68,11 +69,12 @@ const FileTable = () => {
         try {
             const response = await axios.get('http://localhost:3001/api/global_metadata', {
                 params: {
+                    fileName: fileNameFilter || null,
                     serialNumber: serialNumberFilter || null,
                     startDate: startDate ? startDate.toISOString().split('T')[0] : null,
                     endDate: endDate ? endDate.toISOString().split('T')[0] : null,
                     ateSwVersion: ateSwVersion || null,
-                    uutStatus: uutStatus || null, // Include uutStatus in the query parameters
+                    uutStatus: uutStatus || null,
                 },
             });
 
@@ -169,6 +171,13 @@ const FileTable = () => {
     
                     {/* Filter controls */}
                     <div className={styles.filterControls}>
+                            <input
+                                type="text"
+                                value={fileNameFilter}
+                                onChange={(e) => setFileNameFilter(e.target.value)}
+                                placeholder="Filter by File Name"
+                                className={styles.filterInput}
+                            />
     <input
         type="text"
         value={serialNumberFilter}

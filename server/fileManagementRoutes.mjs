@@ -15,7 +15,7 @@ const dbPromise = open({
 
 // Endpoint to get all records with optional filtering by serial number and date range
 router.get('/global_metadata', async (req, res) => {
-    const { serialNumber, startDate, endDate, ateSwVersion, uutStatus } = req.query;
+    const { fileName, serialNumber, startDate, endDate, ateSwVersion, uutStatus } = req.query;
 
     try {
         const db = await dbPromise;
@@ -24,6 +24,11 @@ router.get('/global_metadata', async (req, res) => {
         const params = [];
 
         // Add filtering conditions
+        if (fileName) {
+            conditions.push(`filename LIKE ?`);
+            params.push(`%${fileName}%`);
+        }
+        
         if (serialNumber) {
             conditions.push(`serialNumber = ?`);
             params.push(serialNumber);

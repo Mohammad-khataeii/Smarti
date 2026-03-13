@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Navigate } from 'react-router-dom';
 import axios from 'axios';
 import styles from './FileUpload.module.css';
@@ -11,11 +11,17 @@ const FileUpload = () => {
     const [uploadStatus, setUploadStatus] = useState(null);
     const [uploadProgress, setUploadProgress] = useState(0);
     const [isHelpOpen, setIsHelpOpen] = useState(false);
-    const [duplicateCount, setDuplicateCount] = useState(0); 
-    const [loading, setLoading] = useState(true);  // Track loading state
+    const [duplicateCount, setDuplicateCount] = useState(0);
+    const [loading, setLoading] = useState(true);
+
+    const fileInputRef = useRef(null);
 
     const openHelp = () => setIsHelpOpen(true);
     const closeHelp = () => setIsHelpOpen(false);
+
+    const handleBrowseClick = () => {
+        fileInputRef.current.click();
+    };
 
     const handleFileChange = (e) => {
         setFiles(Array.from(e.target.files));
@@ -31,7 +37,7 @@ const FileUpload = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
-        let duplicateFiles = 0; 
+        let duplicateFiles = 0;
 
         for (let file of files) {
             formData.append('files', file);
@@ -39,9 +45,7 @@ const FileUpload = () => {
 
         try {
             const response = await axios.post('http://localhost:3001/api/upload', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
+                headers: { 'Content-Type': 'multipart/form-data' },
                 onUploadProgress: (progressEvent) => {
                     const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
                     setUploadProgress(percentCompleted);
@@ -60,6 +64,7 @@ const FileUpload = () => {
             setUploadStatus({ success: true, message: 'Upload successful!' });
             setFiles([]);
             setUploadProgress(0);
+
         } catch (err) {
             setUploadStatus({ success: false, message: 'Upload failed. Please try again.' });
             setUploadProgress(0);
@@ -67,10 +72,9 @@ const FileUpload = () => {
     };
 
     useEffect(() => {
-        // Simulate a 7 seconds loading time
         setTimeout(() => {
-            setLoading(false);  // Hide loading animation after 7 seconds
-        }, 7000);
+            setLoading(false);
+        }, 3000);
     }, []);
 
     if (redirectToChart) {
@@ -80,6 +84,7 @@ const FileUpload = () => {
     return (
         <div className={styles.container}>
             <GoToDashboardButton />
+
             {loading ? (
                 <div className={styles.loadingScreen}>
                     <div className={styles.spinner}></div>
@@ -88,19 +93,29 @@ const FileUpload = () => {
             ) : (
                 <div>
                     <div className={styles.uploadBox}>
-                        <h3>Upload Files Here</h3>
+                        <h3>Upload Files</h3>
+
                         <div className={styles.dropArea}>
-                            <label htmlFor="fileInput" className={styles.browseLabel}>
-                                Drag or click to upload file
-                            </label>
+                            <button
+                                type="button"
+                                onClick={handleBrowseClick}
+                                className={styles.uploadButton}
+                            >
+                                Browse Files
+                            </button>
+
                             <input
-                                id="fileInput"
+                                ref={fileInputRef}
                                 type="file"
                                 multiple
                                 onChange={handleFileChange}
                                 className={styles.fileInput}
+                                style={{ display: 'none' }}
                             />
-                            <p className={styles.fileLimit}>Individual file size limit is 10MB</p>
+
+                            <p className={styles.fileLimit}>
+                                Individual file size limit is 10MB
+                            </p>
                         </div>
 
                         {duplicateCount > 0 && (
@@ -110,28 +125,55 @@ const FileUpload = () => {
                         )}
 
                         <div className={styles.fileListSection}>
+
                             {files.length > 0 && (
                                 <div className={styles.actionButtons}>
-                                    <button onClick={handleSubmit} className={styles.uploadButton}>Upload</button>
-                                    <button onClick={() => setFiles([])} className={styles.cancelButton}>Cancel</button>
+                                    <button
+                                        onClick={handleSubmit}
+                                        className={styles.uploadButton}
+                                    >
+                                        Upload
+                                    </button>
+
+                                    <button
+                                        onClick={() => setFiles([])}
+                                        className={styles.cancelButton}
+                                    >
+                                        Cancel
+                                    </button>
                                 </div>
                             )}
+
                             {uploadProgress > 0 && (
                                 <div className={styles.progressBarContainer}>
-                                    <div className={styles.progressBar} style={{ width: `${uploadProgress}%` }}>
+                                    <div
+                                        className={styles.progressBar}
+                                        style={{ width: `${uploadProgress}%` }}
+                                    >
                                         {uploadProgress}%
                                     </div>
                                 </div>
                             )}
+
                             <h3 className={styles.fileListTitle}>Upload Queue</h3>
+
                             <ul className={styles.fileList}>
                                 {files.map((file, index) => (
                                     <li key={index} className={styles.fileItem}>
                                         <div className={styles.fileInfo}>
-                                            <span className={styles.fileType}>{file.name.split('.').pop().toUpperCase()}</span>
-                                            <span className={styles.fileName}>{file.name}</span>
-                                            <span className={styles.fileSize}>{(file.size / 1024).toFixed(2)} KB</span>
+                                            <span className={styles.fileType}>
+                                                {file.name.split('.').pop().toUpperCase()}
+                                            </span>
+
+                                            <span className={styles.fileName}>
+                                                {file.name}
+                                            </span>
+
+                                            <span className={styles.fileSize}>
+                                                {(file.size / 1024).toFixed(2)} KB
+                                            </span>
                                         </div>
+
                                         <button
                                             onClick={() => handleDeleteFile(index)}
                                             className={styles.deleteButton}
@@ -149,6 +191,7 @@ const FileUpload = () => {
                             </div>
                         )}
                     </div>
+
                     <button
                         className={styles.helpButton}
                         onClick={openHelp}
@@ -156,40 +199,38 @@ const FileUpload = () => {
                     >
                         ?
                     </button>
+
                     <Modal
-    isOpen={isHelpOpen}
-    onRequestClose={closeHelp}
-    className={styles.helpModalContent}
-    overlayClassName={styles.helpModalOverlay}
-    contentLabel="Help Information"
->
-    <button onClick={closeHelp} className={styles.closeHelpButton}>
-        Close
-    </button>
-    <div className={styles.helpText}>
-        <h2>About this Page</h2>
-        <p>
-            This page allows you to upload hardware test data files, which are stored and made available for further analysis and visualization.
-        </p>
-        <ul>
-            <li>
-                <strong>File Upload:</strong> Drag and drop files or click to browse and select files for upload. Supports multiple file uploads at once.
-            </li>
-            <li>
-                <strong>Upload Progress:</strong> Displays real-time upload progress as a percentage for the selected files.
-            </li>
-            <li>
-                <strong>Duplicate Detection:</strong> Automatically detects and skips files that have already been uploaded based on their filename.
-            </li>
-            <li>
-                <strong>Metadata Extraction:</strong> Extracts key metadata from uploaded files, such as machine identifier, station name, serial number, test start and stop times, and the software version (AteSwVersion).
-            </li>
-            <li>
-                <strong>Step Data:</strong> Parses and saves detailed step data from CSV files to be used for further analysis and charting.
-            </li>
-        </ul>
-    </div>
-</Modal>
+                        isOpen={isHelpOpen}
+                        onRequestClose={closeHelp}
+                        className={styles.helpModalContent}
+                        overlayClassName={styles.helpModalOverlay}
+                        contentLabel="Help Information"
+                    >
+                        <button
+                            onClick={closeHelp}
+                            className={styles.closeHelpButton}
+                        >
+                            Close
+                        </button>
+
+                        <div className={styles.helpText}>
+                            <h2>About this Page</h2>
+
+                            <p>
+                                This page allows you to upload hardware test data files,
+                                which are stored and made available for further analysis and visualization.
+                            </p>
+
+                            <ul>
+                                <li><strong>Browse Files:</strong> Click the button to select files from your computer.</li>
+                                <li><strong>Upload Progress:</strong> Displays real-time upload progress.</li>
+                                <li><strong>Duplicate Detection:</strong> Skips files already uploaded.</li>
+                                <li><strong>Metadata Extraction:</strong> Extracts machine ID, serial number, test times, and AteSwVersion.</li>
+                                <li><strong>Step Data:</strong> Parses CSV test step data for analysis and charts.</li>
+                            </ul>
+                        </div>
+                    </Modal>
 
                 </div>
             )}

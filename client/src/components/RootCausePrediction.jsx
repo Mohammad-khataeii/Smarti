@@ -5,12 +5,13 @@ import DatePicker from 'react-datepicker';
 import Select from 'react-select';
 import 'react-datepicker/dist/react-datepicker.css';
 import { jsPDF } from 'jspdf';
-import Papa from 'papaparse';
+
 import styles from './RootCauseAnalysis.module.css';
 import ReactLoading from 'react-loading';  // Import the react-loading component
 import Modal from 'react-modal';
 import GoToDashboardButton from '../components/GoToDashboardButton';
 
+const Papa = window.Papa;
 const RootCauseAnalysis = () => {
     const [analysisData, setAnalysisData] = useState([]);
     const [stepNumbers, setStepNumbers] = useState([]);

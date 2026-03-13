@@ -1,5 +1,5 @@
 // src/utils/csv.js
-import Papa from "papaparse";
+const Papa = window.Papa;
 
 /**
  * Parse CSV text to array of objects.
