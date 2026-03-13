@@ -33,6 +33,7 @@ const ControlChart = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalContent, setModalContent] = useState(null);
     const [showTable, setShowTable] = useState(false);
+    const normalChartRef = useRef(null);
     const individualChartRef = useRef(null);
     const mrChartRef = useRef(null);
     const [lsl, setLsl] = useState('');
@@ -85,8 +86,8 @@ useEffect(() => {
     useEffect(() => {
         // Simulate a 7 seconds loading time
         setTimeout(() => {
-            setLoading(false);  // Hide loading animation after 7 seconds
-        }, 7000);
+            setLoading(false);  // Hide loading animation after 3 seconds
+        }, 3000);
     }, []);
 
     const openModal = (chartType) => {
@@ -118,7 +119,9 @@ useEffect(() => {
     
     
     const exportTableAsCSV = () => {
-        const selectedData = chartData.find(stepData => stepData.stepNumber === selectedStepNumber);
+        const selectedData = chartData.find(
+            (stepData) => String(stepData.stepNumber) === String(selectedStepNumber)
+        ); 
         const csvRows = [
             ['Serial Number', 'Observation', 'Value'],
             ...selectedData.values.map((value, index) => [
@@ -188,22 +191,53 @@ useEffect(() => {
                         Testspec: selectedTestspec || undefined,
                     },
                 });
-    
-                console.log("Full API Response:", response.data);
-    
-                // Filter out step data where all values are zero
-                const filteredData = response.data.filter(
-                    (stepData) => stepData.values.some((value) => value !== 0)
-                );
-    
-                setChartData(filteredData);
+
+                console.log('Full API Response:', response.data);
+
+                const normalizedData = (response.data || [])
+                    .map((item) => {
+                        const rawStepNumber =
+                            item.stepNumber ??
+                            item.stepnumber ??
+                            item.StepNumber ??
+                            '';
+
+                        return {
+                            ...item,
+                            stepNumber: String(rawStepNumber).trim(),
+                            values: Array.isArray(item.values)
+                                ? item.values.map((v) => Number(v))
+                                : [],
+                        };
+                    })
+                    .filter(
+                        (item) =>
+                            item.stepNumber !== '' &&
+                            item.values.length > 0 &&
+                            item.values.some((value) => value !== 0)
+                    );
+
+                console.log('Normalized chart data:', normalizedData);
+
+                setChartData(normalizedData);
             } catch (error) {
                 console.error('Error fetching control chart data:', error);
             }
         };
-    
+
         fetchControlChartData();
     }, [lsl, usl, startDate, endDate, selectedAteSwVersion, selectedTestspec]);
+
+    useEffect(() => {
+        if (chartData.length > 0 && selectedStepNumber === '') {
+            const firstStep = chartData[0];
+            setSelectedStepNumber(String(firstStep.stepNumber));
+            setDefaultLsl(firstStep.lsl ?? '');
+            setDefaultUsl(firstStep.usl ?? '');
+            setTempLsl(firstStep.lsl ?? '');
+            setTempUsl(firstStep.usl ?? '');
+        }
+    }, [chartData, selectedStepNumber]);
     
     
     const handleApplyLimits = () => {
@@ -214,26 +248,33 @@ useEffect(() => {
     };
     
 
-const handleStepNumberChange = (e) => {
-  const stepNumber = e.target.value;
-  setSelectedStepNumber(stepNumber);
+    const handleStepNumberChange = (e) => {
+        const value = e.target.value;
 
-  // Find the selected step data
-  const stepData = chartData.find((step) => step.stepNumber === stepNumber);
+        setSelectedStepNumber(value);
 
-  // Update default LSL and USL if available
-  if (stepData) {
-    setDefaultLsl(stepData.lsl ?? '');
-    setDefaultUsl(stepData.usl ?? '');
-    setTempLsl(stepData.lsl ?? '');
-    setTempUsl(stepData.usl ?? '');
-  } else {
-    setDefaultLsl('');
-    setDefaultUsl('');
-    setTempLsl('');
-    setTempUsl('');
-  }
-};
+        if (value === '') {
+            setDefaultLsl('');
+            setDefaultUsl('');
+            setTempLsl('');
+            setTempUsl('');
+            return;
+        }
+
+        const stepData = chartData.find((step) => String(step.stepNumber) === value);
+
+        if (stepData) {
+            setDefaultLsl(stepData.lsl ?? '');
+            setDefaultUsl(stepData.usl ?? '');
+            setTempLsl(stepData.lsl ?? '');
+            setTempUsl(stepData.usl ?? '');
+        } else {
+            setDefaultLsl('');
+            setDefaultUsl('');
+            setTempLsl('');
+            setTempUsl('');
+        }
+    };
 
 
     const handleApplyDateFilter = () => {
@@ -288,8 +329,11 @@ const handleStepNumberChange = (e) => {
     
 
     // Find the data for the selected step number
-    const selectedData = chartData.find((stepData) => stepData.stepNumber === selectedStepNumber);
-    
+    const selectedData = chartData.find(
+        (stepData) => String(stepData.stepNumber) === String(selectedStepNumber)
+    ); 
+    console.log('chartData before render:', chartData);
+    console.log('selectedStepNumber before render:', selectedStepNumber);
     return (
         <div className={styles.controlChartContainer}>
             <GoToDashboardButton />
@@ -309,18 +353,22 @@ const handleStepNumberChange = (e) => {
             <label htmlFor="stepNumberSelect" className={styles.filterLabel}>
                 Step Number:
             </label>
-            <select
-                id="stepNumberSelect"
-                value={selectedStepNumber}
-                onChange={handleStepNumberChange}
-                className={styles.selectDropdown}
-            >
-                {chartData.map((stepData) => (
-                    <option key={stepData.stepNumber} value={stepData.stepNumber}>
-                        Step {stepData.stepNumber}
-                    </option>
-                ))}
-            </select>
+                                    <select
+                                        id="stepNumberSelect"
+                                        value={selectedStepNumber}
+                                        onChange={handleStepNumberChange}
+                                        className={styles.selectDropdown}
+                                    >
+                                        <option value="">Select a step</option>
+                                        {chartData.map((stepData, index) => (
+                                            <option
+                                                key={`${stepData.stepNumber}-${index}`}
+                                                value={String(stepData.stepNumber)}
+                                            >
+                                                Step {String(stepData.stepNumber)}
+                                            </option>
+                                        ))}
+                                    </select>
         </div>
 
         {/* AteSwVersion Filter */}
@@ -519,54 +567,61 @@ const handleStepNumberChange = (e) => {
     </div>
     {errorMessage && <p className={styles.errorMessage}>{errorMessage}</p>}
 </div>
-{selectedData?.normalDistribution?.data?.length > 0 ? (
-    <div className={styles.chartBox}>
-        <h4 className={styles.chartTitle}>Normal Distribution Chart</h4>
-        <Line
-            data={{
-                labels: selectedData.normalDistribution.data.map((point) => point.value.toFixed(2)),
-                datasets: [
-                    {
-                        label: 'Density',
-                        data: selectedData.normalDistribution.data.map((point) => point.density),
-                        borderColor: 'blue',
-                        backgroundColor: 'rgba(0, 0, 255, 0.1)',
-                        pointRadius: 0,
-                        fill: true,
-                    },
-                ],
-            }}
-            options={{
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                    },
-                    title: {
-                        display: true,
-                        text: 'Normal Distribution Curve',
-                    },
-                },
-                scales: {
-                    y: {
-                        title: {
-                            display: true,
-                            text: 'Density',
-                        },
-                    },
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Measure Value',
-                        },
-                    },
-                },
-            }}
-        />
-    </div>
-) : (
-    <p className={styles.noDataMessage}>No Normal Distribution Data Available</p>
-)}
+                        {selectedData?.normalDistribution?.data?.length > 0 ? (
+                            <div className={styles.chartBox} ref={normalChartRef}>
+                                <button onClick={() => openModal('normal')} className={styles.enlargeButton}>
+                                    Make Bigger
+                                </button>
+                                <button onClick={() => exportChartAsPNG(normalChartRef, 'normal_distribution_chart')} className={styles.enlargeButton}>
+                                    Export as PNG
+                                </button>
+
+                                <h4 className={styles.chartTitle}>Normal Distribution Chart</h4>
+                                <Line
+                                    data={{
+                                        labels: selectedData.normalDistribution.data.map((point) => point.value.toFixed(2)),
+                                        datasets: [
+                                            {
+                                                label: 'Density',
+                                                data: selectedData.normalDistribution.data.map((point) => point.density),
+                                                borderColor: 'blue',
+                                                backgroundColor: 'rgba(0, 0, 255, 0.1)',
+                                                pointRadius: 0,
+                                                fill: true,
+                                            },
+                                        ],
+                                    }}
+                                    options={{
+                                        responsive: true,
+                                        plugins: {
+                                            legend: {
+                                                position: 'top',
+                                            },
+                                            title: {
+                                                display: true,
+                                                text: 'Normal Distribution Curve',
+                                            },
+                                        },
+                                        scales: {
+                                            y: {
+                                                title: {
+                                                    display: true,
+                                                    text: 'Density',
+                                                },
+                                            },
+                                            x: {
+                                                title: {
+                                                    display: true,
+                                                    text: 'Measure Value',
+                                                },
+                                            },
+                                        },
+                                    }}
+                                />
+                            </div>
+                        ) : (
+                            <p className={styles.noDataMessage}>No Normal Distribution Data Available</p>
+                        )}
 
             {selectedData && (
                 <div style={{ marginTop: '20px' }}>
@@ -809,12 +864,48 @@ const handleStepNumberChange = (e) => {
             />
         </div>
     )}
+
+                                    {modalContent === 'normal' && (
+                                        <div>
+                                            <h4>Normal Distribution Chart (Enlarged)</h4>
+                                            <Line
+                                                data={{
+                                                    labels: selectedData.normalDistribution.data.map((point) => point.value.toFixed(2)),
+                                                    datasets: [
+                                                        {
+                                                            label: 'Density',
+                                                            data: selectedData.normalDistribution.data.map((point) => point.density),
+                                                            borderColor: 'blue',
+                                                            backgroundColor: 'rgba(0, 0, 255, 0.1)',
+                                                            pointRadius: 0,
+                                                            fill: true,
+                                                        },
+                                                    ],
+                                                }}
+                                                options={{
+                                                    responsive: true,
+                                                    plugins: {
+                                                        legend: { position: 'top' },
+                                                        title: { display: true, text: 'Normal Distribution Curve' },
+                                                    },
+                                                    scales: {
+                                                        y: {
+                                                            title: { display: true, text: 'Density' },
+                                                        },
+                                                        x: {
+                                                            title: { display: true, text: 'Measure Value' },
+                                                        },
+                                                    },
+                                                }}
+                                            />
+                                        </div>
+                                    )}
 </Modal>
 
 
-{/*<button onClick={() => setIsCalculatorModalOpen(true)} className={styles.calculatorButton}>
+<button onClick={() => setIsCalculatorModalOpen(true)} className={styles.calculatorButton}>
     Open Control Limits Calculator
-</button>*/}
+</button>
 
 
 <Modal

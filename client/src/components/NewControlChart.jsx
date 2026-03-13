@@ -21,6 +21,10 @@ const NewControlChart = () => {
 
     const { results } = location.state || {};
 
+    const [isHelpOpen, setIsHelpOpen] = useState(false);
+    const openHelp = () => setIsHelpOpen(true);
+    const closeHelp = () => setIsHelpOpen(false);
+
     useEffect(() => {
         if (!results) {
             navigate('/');
@@ -37,13 +41,18 @@ const NewControlChart = () => {
 
     const {
         stepNumber,
-        ucl,
-        lcl,
         lsl,
         usl,
-        passSerialNumbers,
-        passMeasureValues,
+        passSerialNumbers = [],
+        passMeasureValues = [],
+        individualChart = {},
+        mrChart = {},
     } = results;
+
+    const ucl = individualChart?.ucl ?? 0;
+    const lcl = individualChart?.lcl ?? 0;
+    const mrUcl = mrChart?.ucl ?? 0;
+    const mrLcl = mrChart?.lcl ?? 0;
 
     // Disable Apply button if LSL is greater than or equal to USL
     const isApplyDisabled = () => {
@@ -67,8 +76,12 @@ const NewControlChart = () => {
     };
 
     // Calculate moving ranges (MR)
-    const movingRanges = passMeasureValues.slice(1).map((val, idx) => Math.abs(val - passMeasureValues[idx]));
-    const mrBar = movingRanges.reduce((sum, mr) => sum + mr, 0) / movingRanges.length;
+    const movingRanges = passMeasureValues.length > 1
+        ? passMeasureValues.slice(1).map((val, idx) => Math.abs(val - passMeasureValues[idx]))
+        : []; 
+    const mrBar = movingRanges.length
+        ? movingRanges.reduce((sum, mr) => sum + mr, 0) / movingRanges.length
+        : 0;
 
     // Chart Options
     const individualChartOptions = {
@@ -159,7 +172,7 @@ const NewControlChart = () => {
 
     // Prepare data for MR Chart
     const mrChartData = {
-        labels: passSerialNumbers.slice(1),
+        labels: passSerialNumbers.length > 1 ? passSerialNumbers.slice(1) : [],
         datasets: [
             {
                 label: 'Moving Ranges',
@@ -177,14 +190,14 @@ const NewControlChart = () => {
             },
             {
                 label: 'UCL',
-                data: Array(movingRanges.length).fill(ucl),
+                data: Array(movingRanges.length).fill(mrUcl),
                 borderColor: 'red',
                 borderWidth: 1,
                 borderDash: [5, 5],
             },
             {
                 label: 'LCL',
-                data: Array(movingRanges.length).fill(lcl),
+                data: Array(movingRanges.length).fill(mrLcl),
                 borderColor: 'green',
                 borderWidth: 1,
                 borderDash: [5, 5],
@@ -225,12 +238,19 @@ const NewControlChart = () => {
             <div>
                 <label>New calculated</label>
                 <label>UCL:</label>
-                <span className={styles.uclValue}>{ucl.toFixed(2)}</span>
+                    <span className={styles.uclValue}>{Number(ucl).toFixed(2)}</span>
             </div>
             <div>
                 <label>LCL:</label>
-                <span className={styles.lclValue}>{lcl.toFixed(2)}</span>
+                    <span className={styles.lclValue}>{Number(lcl).toFixed(2)}</span>
             </div>
+                <button
+                    className={styles.helpButton}
+                    onClick={openHelp}
+                    aria-label="Help"
+                >
+                    ?
+                </button>
         </div>
             {/* Filter Section */}
             <div className={styles.filterSection}>
@@ -315,7 +335,7 @@ const NewControlChart = () => {
                     Expand Chart
                 </button>
             </div>
-
+                
             {/* Expanded Chart Modal */}
             <Modal
     isOpen={!!expandedChart}
@@ -323,6 +343,7 @@ const NewControlChart = () => {
     className={styles.modalContent}
     overlayClassName={styles.modalOverlay}
 >
+    
     <button onClick={() => setExpandedChart(null)} className={styles.closeModalButton}>
         Close
     </button>
@@ -399,7 +420,50 @@ const NewControlChart = () => {
         </div>
     )}
 </Modal>
-
+            <Modal
+                isOpen={isHelpOpen}
+                onRequestClose={closeHelp}
+                className={styles.helpModalContent}
+                overlayClassName={styles.helpModalOverlay}
+                contentLabel="Help Information"
+            >
+                <button onClick={closeHelp} className={styles.closeHelpButton}>
+                    Close
+                </button>
+                <div className={styles.helpText}>
+                    <h2>About this Page</h2>
+                    <p>
+                        This page displays recalculated control charts for the selected step number based on the files chosen in the Control Limits Calculator.
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>Individual Chart:</strong> Shows the selected measurement values for each serial number together with the recalculated control limits and the active specification limits.
+                        </li>
+                        <li>
+                            <strong>MR Chart:</strong> Shows the moving range between consecutive measurement values to help evaluate short-term variation and process stability.
+                        </li>
+                        <li>
+                            <strong>Recalculated Control Limits:</strong> The displayed UCL and LCL are newly computed from the selected files and the selected step number.
+                        </li>
+                        <li>
+                            <strong>Custom Specification Limits:</strong> You can manually enter custom LSL and USL values, apply them to the charts, and reset them back to the original limits at any time.
+                        </li>
+                        <li>
+                            <strong>Chart Tools:</strong>
+                            <ul>
+                                <li><strong>Export as PNG:</strong> Save the Individual Chart or MR Chart as an image.</li>
+                                <li><strong>Expand Chart:</strong> Open a larger version of each chart for easier viewing and analysis.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>Step-based Analysis:</strong> This page focuses on one specific step number at a time, using only the selected files that were included in the calculation.
+                        </li>
+                    </ul>
+                    <p>
+                        Use this page to review the recalculated control behavior of a specific test step, compare it against specification limits, and inspect variation across the selected units.
+                    </p>
+                </div>
+            </Modal>
         </div>
     );
 };
