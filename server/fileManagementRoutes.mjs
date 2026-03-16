@@ -144,54 +144,54 @@ router.get('/uut-status-count', async (req, res) => {
         const db = await dbPromise;
         const { startDate, endDate, ateSwVersion, serialNumbers } = req.query;
 
-        // Build SQL conditions based on provided filters
-        let dateCondition = '';
-        const params = [];
+        let conditions = [];
+        let params = [];
+
         if (startDate && endDate) {
-            dateCondition = `AND testStarted BETWEEN DATE(?) AND DATE(?)`;
+            conditions.push(`testStarted BETWEEN DATE(?) AND DATE(?)`);
             params.push(startDate, endDate);
         }
 
-        let versionCondition = '';
         if (ateSwVersion) {
-            versionCondition = `AND ateSwVersion = ?`;
+            conditions.push(`ateSwVersion = ?`);
             params.push(ateSwVersion);
         }
 
-        let serialNumberCondition = '';
         if (serialNumbers) {
             const serialArray = Array.isArray(serialNumbers) ? serialNumbers : [serialNumbers];
-            serialNumberCondition = `AND serialNumber IN (${serialArray.map(() => '?').join(', ')})`;
+            conditions.push(`serialNumber IN (${serialArray.map(() => '?').join(', ')})`);
             params.push(...serialArray);
         }
 
-        // Query to get the total count of unique serial numbers within the filters
-        const totalCountResult = await db.get(`
-            SELECT COUNT(DISTINCT serialNumber) as total
+        const whereClause = conditions.length ? `WHERE ${conditions.join(' AND ')}` : '';
+
+        // For each serialNumber:
+        // - if it has at least one FAIL => isFail = 1
+        // - else => isFail = 0
+        const rows = await db.all(`
+            SELECT 
+                serialNumber,
+                MAX(CASE WHEN uutStatus = 'FAIL' THEN 1 ELSE 0 END) AS isFail
             FROM global_metadata
-            WHERE 1=1 ${dateCondition} ${versionCondition} ${serialNumberCondition}
+            ${whereClause}
+            GROUP BY serialNumber
         `, params);
 
-        const totalProduction = totalCountResult.total;
+        const totalProduction = rows.length;
+        const failCount = rows.filter(row => row.isFail === 1).length;
+        const passCount = totalProduction - failCount;
 
-        // Query to get the count of PASS outcomes within the filters
-        const passCountResult = await db.get(`
-            SELECT COUNT(DISTINCT serialNumber) as passCount
-            FROM global_metadata
-            WHERE uutStatus = 'PASS' ${dateCondition} ${versionCondition} ${serialNumberCondition}
-        `, params);
+        if (totalProduction === 0) {
+            return res.json({ PASS: "0.00", FAIL: "0.00" });
+        }
 
-        const passCount = passCountResult.passCount;
-        const failCount = totalProduction - passCount;
-
-        // Calculate percentages
         const passPercentage = (passCount / totalProduction) * 100;
         const failPercentage = (failCount / totalProduction) * 100;
 
-        // Format data as percentages for the frontend
-        const formattedData = { PASS: passPercentage.toFixed(2), FAIL: failPercentage.toFixed(2) };
-
-        res.json(formattedData);
+        res.json({
+            PASS: passPercentage.toFixed(2),
+            FAIL: failPercentage.toFixed(2)
+        });
     } catch (error) {
         console.error('Error fetching UUT status count:', error.message);
         res.status(500).json({ message: 'Internal server error' });
@@ -215,45 +215,51 @@ router.get('/uut-status-details', async (req, res) => {
 
     try {
         const db = await dbPromise;
-        let dateCondition = '';
+
+        const conditions = [];
         const params = [];
 
         if (startDate && endDate) {
-            dateCondition = `AND testStarted BETWEEN DATE(?) AND DATE(?)`;
+            conditions.push(`testStarted BETWEEN DATE(?) AND DATE(?)`);
             params.push(startDate, endDate);
         }
 
-        let versionCondition = '';
         if (ateSwVersion) {
-            versionCondition = `AND ateSwVersion = ?`;
+            conditions.push(`ateSwVersion = ?`);
             params.push(ateSwVersion);
         }
 
-        let serialNumberCondition = '';
         if (serialNumbers) {
             const serialArray = Array.isArray(serialNumbers) ? serialNumbers : [serialNumbers];
-            serialNumberCondition = `AND serialNumber IN (${serialArray.map(() => '?').join(', ')})`;
+            conditions.push(`serialNumber IN (${serialArray.map(() => '?').join(', ')})`);
             params.push(...serialArray);
         }
 
-        let query;
-        if (status === 'PASS') {
-            query = `
-                SELECT serialNumber, COUNT(DISTINCT CASE WHEN uutStatus = 'PASS' THEN 1 END) as count
-                FROM global_metadata
-                WHERE uutStatus = 'PASS' ${dateCondition} ${versionCondition} ${serialNumberCondition}
-                GROUP BY serialNumber
-            `;
-        } else {
-            query = `
-                SELECT serialNumber, COUNT(*) as count
-                FROM global_metadata
-                WHERE uutStatus = 'FAIL' ${dateCondition} ${versionCondition} ${serialNumberCondition}
-                GROUP BY serialNumber
-            `;
-        }
+        const whereClause = conditions.length ? `WHERE ${conditions.join(' AND ')}` : '';
 
-        const result = await db.all(query, params);
+        const query = `
+            SELECT
+                serialNumber,
+                CASE
+                    WHEN MAX(CASE WHEN uutStatus = 'FAIL' THEN 1 ELSE 0 END) = 1 THEN 'FAIL'
+                    ELSE 'PASS'
+                END AS finalStatus,
+                CASE
+                    WHEN MAX(CASE WHEN uutStatus = 'FAIL' THEN 1 ELSE 0 END) = 1
+                        THEN SUM(CASE WHEN uutStatus = 'FAIL' THEN 1 ELSE 0 END)
+                    ELSE SUM(CASE WHEN uutStatus = 'PASS' THEN 1 ELSE 0 END)
+                END AS count,
+                SUM(CASE WHEN uutStatus = 'FAIL' THEN 1 ELSE 0 END) AS failCount,
+                SUM(CASE WHEN uutStatus = 'PASS' THEN 1 ELSE 0 END) AS passCount,
+                COUNT(*) AS totalTests
+            FROM global_metadata
+            ${whereClause}
+            GROUP BY serialNumber
+            HAVING finalStatus = ?
+            ORDER BY serialNumber
+        `;
+
+        const result = await db.all(query, [...params, status]);
         res.json(result);
     } catch (error) {
         console.error('Error fetching UUT status details:', error.message);
