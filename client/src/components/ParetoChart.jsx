@@ -55,7 +55,7 @@ const ParetoChart = () => {
 
         const [isDateModalOpen, setIsDateModalOpen] = useState(false);
         const [activeDateField, setActiveDateField] = useState(null); // 'start' or 'end'
-        const [hideZeroFailSteps, setHideZeroFailSteps] = useState(false);
+        const [hideZeroFailSteps, setHideZeroFailSteps] = useState(true);
 
         useEffect(() => {
             const fetchAteSwVersions = async () => {
