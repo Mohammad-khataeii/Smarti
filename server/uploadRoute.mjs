@@ -117,6 +117,19 @@ router.post('/upload', upload.array('files'), async (req, res) => {
           filename: file.originalname
         };
 
+        // 🚫 SKIP invalid serialNumber
+if (globalValues.serialNumber === 'NOUUTSN') {
+  console.log(`Skipping file ${file.originalname} due to invalid serialNumber`);
+
+  responseArray.push({
+    global: globalValues,
+    data: [],
+    message: 'Skipped: invalid serialNumber (NOUUTSN)'
+  });
+
+  continue; // skip entire file
+}
+
         console.log("Extracted Global Metadata:", globalValues);
 
         // Check for duplicate filename

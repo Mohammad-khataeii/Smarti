@@ -55,6 +55,7 @@ const ParetoChart = () => {
 
         const [isDateModalOpen, setIsDateModalOpen] = useState(false);
         const [activeDateField, setActiveDateField] = useState(null); // 'start' or 'end'
+        const [hideZeroFailSteps, setHideZeroFailSteps] = useState(false);
 
         useEffect(() => {
             const fetchAteSwVersions = async () => {
@@ -135,72 +136,82 @@ const ParetoChart = () => {
         
         
         
+    const displayedParetoData = hideZeroFailSteps
+    ? paretoData.filter(data => Number(data.failCount || 0) > 0)
+    : paretoData;
 
     const getChartData = () => {
-        const eightyPercentIndex = paretoData.findIndex(data => data.cumulativePercentage >= 80);
+    const eightyPercentIndex = displayedParetoData.findIndex(
+        data => Number(data.cumulativePercentage) >= 80
+    );
 
-        return {
-            labels: paretoData.map(data => data.stepNumber),
-            datasets: [
-                {
-                    label: 'Fail Count',
-                    data: paretoData.map(data => data.failCount),
-                    backgroundColor: 'rgba(255, 99, 132, 0.6)',
-                    yAxisID: 'y',
-                    type: 'bar',
-                },
-                {
-                    label: 'Cumulative Fail Percentage',
-                    data: paretoData.map(data => data.cumulativePercentage),
-                    type: 'line',
-                    fill: false,
-                    borderColor: 'rgba(54, 162, 235, 0.8)',
-                    backgroundColor: 'rgba(54, 162, 235, 0.8)',
-                    yAxisID: 'y1',
-                    tension: 0.4,
-                },
-            ],
-            eightyPercentIndex,
-        };
+    return {
+        labels: displayedParetoData.map(data => data.stepNumber),
+        datasets: [
+            {
+                label: 'Fail Count',
+                data: displayedParetoData.map(data => data.failCount),
+                backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                yAxisID: 'y',
+                type: 'bar',
+            },
+            {
+                label: 'Cumulative Fail Percentage',
+                data: displayedParetoData.map(data => data.cumulativePercentage),
+                type: 'line',
+                fill: false,
+                borderColor: 'rgba(54, 162, 235, 0.8)',
+                backgroundColor: 'rgba(54, 162, 235, 0.8)',
+                yAxisID: 'y1',
+                tension: 0.4,
+            },
+        ],
+        eightyPercentIndex,
     };
+};
 
-    const chartOptions = {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-            y: {
-                beginAtZero: true,
-                title: { display: true, text: 'Fail Count' },
-            },
-            y1: {
-                beginAtZero: true,
-                position: 'right',
-                grid: { drawOnChartArea: false },
-                title: { display: true, text: 'Cumulative Fail Percentage' },
-            },
+    const chartData = getChartData();
+
+const chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+        y: {
+            beginAtZero: true,
+            title: { display: true, text: 'Fail Count' },
         },
-        plugins: {
-            legend: { display: true, position: 'top' },
-            annotation: {
-                annotations: {
-                    eightyPercentLine: {
-                        type: 'line',
-                        xMin: getChartData().eightyPercentIndex,
-                        xMax: getChartData().eightyPercentIndex,
-                        borderColor: 'rgba(255, 165, 0, 0.8)', // Orange color for the line
-                        borderWidth: 2,
-                        label: {
-                            enabled: true,
-                            content: '80% Cumulative',
-                            position: 'top',
-                            backgroundColor: 'rgba(255, 165, 0, 0.8)',
-                            color: '#000',
-                        },
-                    },
-                },
-            },
+        y1: {
+            beginAtZero: true,
+            position: 'right',
+            grid: { drawOnChartArea: false },
+            title: { display: true, text: 'Cumulative Fail Percentage' },
         },
-    };
+    },
+    plugins: {
+        legend: { display: true, position: 'top' },
+        annotation: {
+            annotations:
+                chartData.eightyPercentIndex >= 0
+                    ? {
+                          eightyPercentLine: {
+                              type: 'line',
+                              xMin: chartData.eightyPercentIndex,
+                              xMax: chartData.eightyPercentIndex,
+                              borderColor: 'rgba(255, 165, 0, 0.8)',
+                              borderWidth: 2,
+                              label: {
+                                  enabled: true,
+                                  content: '80% Cumulative',
+                                  position: 'top',
+                                  backgroundColor: 'rgba(255, 165, 0, 0.8)',
+                                  color: '#000',
+                              },
+                          },
+                      }
+                    : {},
+        },
+    },
+};
 
     const openModal = () => {
         setIsModalOpen(true);
@@ -314,13 +325,21 @@ const ParetoChart = () => {
                 </div>
             )}
 
-            <button 
-                className={styles.applyButton} 
-                style={{ margin: '20px auto', display: 'block' }} 
-                onClick={() => setShowTable(!showTable)}
-            >
-                {showTable ? 'Hide Table' : 'Show Table'}
-            </button>
+            <div style={{ margin: '20px auto', display: 'flex', justifyContent: 'center', gap: '10px', flexWrap: 'wrap' }}>
+    <button
+        className={styles.applyButton}
+        onClick={() => setShowTable(!showTable)}
+    >
+        {showTable ? 'Hide Table' : 'Show Table'}
+    </button>
+
+    <button
+        className={styles.applyButton}
+        onClick={() => setHideZeroFailSteps(prev => !prev)}
+    >
+        {hideZeroFailSteps ? 'Show All Steps' : 'Hide 0-Fail Steps'}
+    </button>
+</div>
 
             {showTable && (
     <table className={styles.styledTable}>
@@ -334,7 +353,7 @@ const ParetoChart = () => {
         </tr>
     </thead>
     <tbody>
-        {paretoData.map((data, index) => (
+        {displayedParetoData.map((data, index) => (
             <tr 
                 key={index} 
                 className={Number(data.cumulativePercentage) < 80 ? styles.redRow : ''}

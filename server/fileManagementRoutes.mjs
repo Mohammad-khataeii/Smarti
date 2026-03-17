@@ -147,6 +147,10 @@ router.get('/uut-status-count', async (req, res) => {
         let conditions = [];
         let params = [];
 
+        // Optional: exclude invalid serials
+        conditions.push(`serialNumber != ?`);
+        params.push('NOUUTSN');
+
         if (startDate && endDate) {
             conditions.push(`testStarted BETWEEN DATE(?) AND DATE(?)`);
             params.push(startDate, endDate);
@@ -165,13 +169,15 @@ router.get('/uut-status-count', async (req, res) => {
 
         const whereClause = conditions.length ? `WHERE ${conditions.join(' AND ')}` : '';
 
-        // For each serialNumber:
-        // - if it has at least one FAIL => isFail = 1
-        // - else => isFail = 0
         const rows = await db.all(`
             SELECT 
                 serialNumber,
-                MAX(CASE WHEN uutStatus = 'FAIL' THEN 1 ELSE 0 END) AS isFail
+                MAX(
+                    CASE 
+                        WHEN uutStatus IS NULL OR TRIM(uutStatus) != 'PASS' THEN 1 
+                        ELSE 0 
+                    END
+                ) AS isFail
             FROM global_metadata
             ${whereClause}
             GROUP BY serialNumber
@@ -192,6 +198,7 @@ router.get('/uut-status-count', async (req, res) => {
             PASS: passPercentage.toFixed(2),
             FAIL: failPercentage.toFixed(2)
         });
+
     } catch (error) {
         console.error('Error fetching UUT status count:', error.message);
         res.status(500).json({ message: 'Internal server error' });
@@ -219,6 +226,10 @@ router.get('/uut-status-details', async (req, res) => {
         const conditions = [];
         const params = [];
 
+        // Optional: skip invalid serials
+        conditions.push(`serialNumber != ?`);
+        params.push('NOUUTSN');
+
         if (startDate && endDate) {
             conditions.push(`testStarted BETWEEN DATE(?) AND DATE(?)`);
             params.push(startDate, endDate);
@@ -241,16 +252,46 @@ router.get('/uut-status-details', async (req, res) => {
             SELECT
                 serialNumber,
                 CASE
-                    WHEN MAX(CASE WHEN uutStatus = 'FAIL' THEN 1 ELSE 0 END) = 1 THEN 'FAIL'
+                    WHEN MAX(
+                        CASE
+                            WHEN uutStatus IS NULL OR TRIM(UPPER(uutStatus)) != 'PASS' THEN 1
+                            ELSE 0
+                        END
+                    ) = 1 THEN 'FAIL'
                     ELSE 'PASS'
                 END AS finalStatus,
                 CASE
-                    WHEN MAX(CASE WHEN uutStatus = 'FAIL' THEN 1 ELSE 0 END) = 1
-                        THEN SUM(CASE WHEN uutStatus = 'FAIL' THEN 1 ELSE 0 END)
-                    ELSE SUM(CASE WHEN uutStatus = 'PASS' THEN 1 ELSE 0 END)
+                    WHEN MAX(
+                        CASE
+                            WHEN uutStatus IS NULL OR TRIM(UPPER(uutStatus)) != 'PASS' THEN 1
+                            ELSE 0
+                        END
+                    ) = 1
+                        THEN SUM(
+                            CASE
+                                WHEN uutStatus IS NULL OR TRIM(UPPER(uutStatus)) != 'PASS' THEN 1
+                                ELSE 0
+                            END
+                        )
+                    ELSE SUM(
+                        CASE
+                            WHEN TRIM(UPPER(uutStatus)) = 'PASS' THEN 1
+                            ELSE 0
+                        END
+                    )
                 END AS count,
-                SUM(CASE WHEN uutStatus = 'FAIL' THEN 1 ELSE 0 END) AS failCount,
-                SUM(CASE WHEN uutStatus = 'PASS' THEN 1 ELSE 0 END) AS passCount,
+                SUM(
+                    CASE
+                        WHEN uutStatus IS NULL OR TRIM(UPPER(uutStatus)) != 'PASS' THEN 1
+                        ELSE 0
+                    END
+                ) AS failCount,
+                SUM(
+                    CASE
+                        WHEN TRIM(UPPER(uutStatus)) = 'PASS' THEN 1
+                        ELSE 0
+                    END
+                ) AS passCount,
                 COUNT(*) AS totalTests
             FROM global_metadata
             ${whereClause}

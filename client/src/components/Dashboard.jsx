@@ -293,31 +293,35 @@ const failureRateChartData = {
         ],
     };
     
-    const paretoData = Array.isArray(paretoChartData) && paretoChartData.length > 0
-        ? {
-            labels: paretoChartData.map(item => item.stepNumber),
-            datasets: [
-                {
-                    label: 'Fail Count',
-                    data: paretoChartData.map(item => Number(item.failCount) || 0),
-                    backgroundColor: 'rgba(255, 99, 132, 0.6)',
-                    type: 'bar',
-                    yAxisID: 'y',
-                },
-                {
-                    label: 'Cumulative Fail Percentage',
-                    data: paretoChartData.map(item => Number(item.cumulativePercentage) || 0),
-                    borderColor: 'rgba(54, 162, 235, 0.8)',
-                    backgroundColor: 'rgba(54, 162, 235, 0.8)',
-                    type: 'line',
-                    fill: false,
-                    tension: 0.4,
-                    yAxisID: 'y1',
-                    pointRadius: 3,
-                },
-            ],
-        }
-        : null;
+    const filteredParetoChartData = Array.isArray(paretoChartData)
+    ? paretoChartData.filter(item => Number(item.failCount) > 0)
+    : [];
+
+const paretoData = filteredParetoChartData.length > 0
+    ? {
+        labels: filteredParetoChartData.map(item => item.stepNumber),
+        datasets: [
+            {
+                label: 'Fail Count',
+                data: filteredParetoChartData.map(item => Number(item.failCount) || 0),
+                backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                type: 'bar',
+                yAxisID: 'y',
+            },
+            {
+                label: 'Cumulative Fail Percentage',
+                data: filteredParetoChartData.map(item => Number(item.cumulativePercentage) || 0),
+                borderColor: 'rgba(54, 162, 235, 0.8)',
+                backgroundColor: 'rgba(54, 162, 235, 0.8)',
+                type: 'line',
+                fill: false,
+                tension: 0.4,
+                yAxisID: 'y1',
+                pointRadius: 3,
+            },
+        ],
+    }
+    : null;
 
     //useEffect to setDate on the Dashboard Navbar
     useEffect(() => {
