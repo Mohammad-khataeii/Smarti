@@ -1065,40 +1065,84 @@ useEffect(() => {
     </button>
     <div className={styles.helpText}>
         <h2>About this Page</h2>
+
         <p>
-            This page provides a comprehensive analysis of the stability and process capability of hardware tests, using Individual and Moving Range (MR) control charts:
+            This page provides a comprehensive analysis of the stability and process capability of hardware tests, using Individual and Moving Range (MR) control charts, along with statistical distribution insights.
         </p>
+
         <ul>
             <li>
-                <strong>Individual Chart:</strong> Visualizes individual measurements of test values for each serial number along with control limits (UCL, LCL) and specification limits (USL, LSL).
+                <strong>Individual Chart:</strong> Displays individual measurement values for each step and serial number. It includes control limits (UCL, LCL) derived from process variation and specification limits (USL, LSL) when available.
             </li>
+
             <li>
-                <strong>MR Chart:</strong> Displays the moving range of test values to analyze process variability and stability.
+                <strong>MR Chart (Moving Range):</strong> Shows the variation between consecutive measurements, helping detect instability or sudden shifts in the process.
             </li>
+
             <li>
-                <strong>Data Table:</strong> Provides a detailed breakdown of individual values, serial numbers, and calculated metrics (e.g., Cp, Cpk).
-            </li>
-            <li>
-                <strong>Filters:</strong> Customize the analysis with:
+                <strong>Process Capability (Cp, Cpk):</strong>
                 <ul>
-                    <li><strong>Date Range:</strong> Focus on a specific time period.</li>
-                    <li><strong>ATE SW Version:</strong> Analyze data by software version.</li>
-                    <li><strong>Specification Limits (USL, LSL):</strong> Update and visualize control charts with custom specification limits.</li>
+                    <li><strong>Cp:</strong> Measures the potential capability of the process assuming it is centered.</li>
+                    <li><strong>Cpk:</strong> Measures actual capability considering process centering and shift.</li>
+                    <li>These metrics are calculated using estimated process variation derived from moving range values.</li>
                 </ul>
             </li>
+
             <li>
-                <strong>Calculator Features:</strong> 
+                <strong>Normal Distribution (Statistical Behavior):</strong>
                 <ul>
-                    <li><strong>USL/LSL Calculator:</strong> Dynamically adjust the Upper Specification Limit (USL) and Lower Specification Limit (LSL) and instantly update the charts to reflect changes.</li>
-                    <li><strong>UCL/LCL Calculator:</strong> Calculate and modify the Upper Control Limit (UCL) and Lower Control Limit (LCL) for both Individual and Moving Range charts, enabling precise control limit analysis.</li>
+                    <li>The system calculates the <strong>mean</strong> and <strong>standard deviation</strong> of measurement values for each step.</li>
+                    <li>Using these, a <strong>normal probability density function (PDF)</strong> is computed.</li>
+                    <li>This represents how values are expected to be distributed assuming a Gaussian (bell-shaped) process.</li>
+                    <li><strong>Important:</strong> The current implementation evaluates density at observed measurement points, not across a continuous range.</li>
+                    <li>This means the curve is an approximation and may not appear as a perfectly smooth bell curve.</li>
                 </ul>
             </li>
+
             <li>
-                <strong>Export Options:</strong> Download the table as CSV or PDF and export charts as PNG for documentation or reporting.
+                <strong>Interpretation of Distribution:</strong>
+                <ul>
+                    <li>A narrow curve → low variability (stable process).</li>
+                    <li>A wide curve → high variability.</li>
+                    <li>Shifted mean → process drift from target.</li>
+                    <li>Combined with Cp/Cpk, this helps evaluate process quality.</li>
+                </ul>
+            </li>
+
+            <li>
+                <strong>Data Table:</strong> Provides detailed values per step, including:
+                <ul>
+                    <li>Measured values</li>
+                    <li>Serial numbers</li>
+                    <li>Control limits</li>
+                    <li>Capability indices (Cp, Cpk)</li>
+                </ul>
+            </li>
+
+            <li>
+                <strong>Filters:</strong>
+                <ul>
+                    <li><strong>Date Range:</strong> Analyze a specific time window.</li>
+                    <li><strong>ATE SW Version:</strong> Filter by software version.</li>
+                    <li><strong>Specification Limits (USL, LSL):</strong> Override limits for custom analysis.</li>
+                </ul>
+            </li>
+
+            <li>
+                <strong>Calculator Features:</strong>
+                <ul>
+                    <li><strong>USL/LSL Calculator:</strong> Dynamically adjust specification limits and instantly reflect them in capability metrics.</li>
+                    <li><strong>UCL/LCL Calculation:</strong> Automatically derived from process variation (moving range method).</li>
+                </ul>
+            </li>
+
+            <li>
+                <strong>Export Options:</strong> Export charts (PNG) and tables (CSV/PDF) for reporting and documentation.
             </li>
         </ul>
+
         <p>
-            Use this tool to monitor process stability, identify outliers, and assess the capability of the testing process.
+            This tool enables you to monitor process stability, detect variability, evaluate capability, and understand the statistical distribution of test measurements across hardware units.
         </p>
     </div>
 </Modal>
